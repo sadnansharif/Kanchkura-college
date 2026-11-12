@@ -5,19 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>কাঁচকুড়া কলেজ – একাদশ শ্রেণির ভর্তি ফরম ২০২৬</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@600;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@font-face{font-family:"NikoshBAN";src:local("NikoshBAN"),local("Nikosh BAN"),local("Nikosh"),url("NikoshBAN.ttf") format("truetype")}
 :root{
-  --fb:"NikoshBAN","Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;--fh:"NikoshBAN","Noto Serif Bengali",serif;
+  --fb:"Noto Sans Bengali",system-ui,sans-serif;--fh:"Noto Sans Bengali",system-ui,sans-serif;
   --ink:#1d2421; --muted:#5d6762; --paper:#fffefa; --bg:#e9ece8; --line:#b9c0bb;
   --accent:#1f5c46; --tint:#e6f1ea; --err:#b3261e;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-print]){--ink:#e8ece9;--muted:#a3ada7;--paper:#1c2420;--bg:#121815;--line:#415049;--accent:#7cc4a2;--tint:#24352d;--err:#ff8a80}
 }
-html[data-font=nikosh]{font-synthesis:none}
-html[data-font=hind]{--fb:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;--fh:"Noto Serif Bengali",serif}
 *{box-sizing:border-box}
 html{scroll-padding-top:70px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.55;
@@ -138,16 +135,35 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .tabsigs{display:none}
 .tabhead{align-items:center;gap:12px;margin-bottom:8px}
 .tabhead img{width:54px;height:54px;object-fit:contain}
-.ms{border:1.5px solid var(--ink);padding:20px 24px;margin:14px 0;background:var(--paper)}
+.ms{border:3px solid var(--accent);padding:10px;margin:14px 0;background:var(--paper);display:flex;flex-direction:column}
 .ms .mh{display:flex;align-items:center;justify-content:center;gap:14px;text-align:center}
 .ms .mh img{width:70px;height:70px;object-fit:contain;background:#fff;border-radius:6px}
 .ms h3{font-family:var(--fh);font-size:1.7rem;margin:0;line-height:1.3}
 .ms .mt{text-align:center;margin:8px 0 10px}
 .ms .mt span{display:inline-block;background:var(--accent);color:var(--paper);border-radius:4px;padding:2px 16px;font-weight:600}
-.ms .info{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start}
-.ms .ig{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
-.ms .ig div b{color:var(--muted);font-weight:500;font-size:.85em;display:block}
-.ms .ph2{width:30mm;height:38mm;object-fit:cover;border:1px solid var(--ink)}
+.ms .info{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;margin-top:6px}
+.ms .info.ph-left{grid-template-columns:auto 1fr}
+.ms .info.ph-left .ig{order:2}
+.ms .info.ph-left .ph2{order:1}
+.ms .ig{display:grid;gap:4px 18px;min-width:0}
+.ms .ifield{min-width:0}
+.ms .ifield b{color:var(--muted);font-weight:500;font-size:.85em;display:block;line-height:1.35}
+.ms .ifield span{display:block;overflow-wrap:anywhere;line-height:1.4}
+.ms .i-grid .ig{grid-template-columns:1fr 1fr}
+.ms .i-grid .ifield.full{grid-column:1/-1}
+.ms .i-card .ig{grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.ms .i-card .ifield{display:grid;grid-template-columns:minmax(88px,.72fr) 1fr;gap:8px;align-items:baseline;padding:5px 9px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.ms .i-card .ifield b{font-size:.78em}
+.ms .i-card .ifield span{font-weight:600;font-size:.95em}
+.ms .i-card .ifield.full{grid-column:1/-1;border-right:0;background:linear-gradient(90deg,var(--tint),transparent 70%)}
+.ms .i-card .ifield.nmf span{font-size:1.08em}
+.ms .i-card .ifield:nth-last-child(-n+2){border-bottom:0}
+.ms .i-compact .ig{grid-template-columns:repeat(3,1fr);gap:5px}
+.ms .i-compact .ifield{border:1px solid var(--line);border-radius:4px;padding:4px 7px;background:var(--tint)}
+.ms .i-compact .ifield.full{grid-column:1/-1}
+.ms .i-compact .ifield b{font-size:.74em}
+.ms .i-compact .ifield span{font-size:.9em}
+.ms .ph2{width:30mm;height:38mm;object-fit:cover;border:1px solid var(--ink);flex:none}
 .ms .ph2.empty{display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--muted);text-align:center}
 .ms table{margin-top:12px}
 .ms td,.ms th{padding:5px 8px;font-size:.95rem}
@@ -159,6 +175,13 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .ms .sgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:56px}
 .ms .sg{border-top:1px solid var(--ink);padding-top:3px;text-align:center;font-size:.9rem}
 .ms .note{font-size:.78rem;color:var(--muted);margin-top:14px}
+@media screen and (max-width:720px){
+  .ms .i-grid .ig{grid-template-columns:1fr}
+  .ms .i-card .ig{grid-template-columns:1fr}
+  .ms .i-card .ifield:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .ms .i-card .ifield:last-child{border-bottom:0}
+  .ms .i-compact .ig{grid-template-columns:1fr 1fr}
+}
 .who{font-size:.85rem;color:var(--muted);padding:0 4px}
 .login{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
 .login[hidden]{display:none}
@@ -184,6 +207,141 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .dtwo{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 28px}
 .bar select{font:inherit;padding:6px 8px;border:1.5px solid var(--accent);border-radius:6px;background:transparent;color:var(--accent)}
 .dsel{font:inherit;padding:7px 9px;border:1.5px solid var(--line);border-radius:6px;background:transparent;color:var(--ink)}
+/* ---------- শিক্ষার্থী পোর্টাল ---------- */
+.phero{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-radius:14px;padding:16px 20px;color:#fff;background:linear-gradient(135deg,#123c2d,#1f5c46 55%,#2f7c5e);margin-bottom:14px}
+.phero h2{margin:0;padding:0;border:0;color:#fff;font-size:1.4rem}
+.phero p{margin:2px 0;font-size:.88rem;opacity:.9}
+.phero .pid{font-family:var(--fm);letter-spacing:.4px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:5px 9px;font-size:.9rem}
+.ptabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.ptabs button{font:inherit;padding:7px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.ptabs button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.pnotice{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--tint);color:var(--muted);font-size:.92rem;margin:10px 0}
+.preq{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:8px 0;background:var(--paper)}
+.preq.pending{border-color:#c9a227;background:#fffbf0}
+.preq.rejected{border-color:var(--err);background:#fff5f4}
+.preq .ph{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.preq .ph b{font-size:.98rem}
+.preq .mini{color:var(--muted);font-size:.82rem}
+.pstat{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.78rem;border:1px solid var(--line);background:var(--tint)}
+.pstat.pending{border-color:#c9a227;background:#fff3cd;color:#7a5b00}
+.pstat.approved{border-color:var(--accent);background:rgba(31,92,70,.1);color:var(--accent)}
+.pstat.rejected{border-color:var(--err);color:var(--err)}
+/* ---------- সেটিংস ---------- */
+.setgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.setsec{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--paper)}
+.setsec h3{font-family:var(--fh);font-size:1.02rem;margin:0 0 8px;padding:0 0 6px;border:0;border-bottom:1px solid var(--line)}
+.setrow{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.setrow:last-child{border-bottom:0}
+.setrow input[type=checkbox]{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--accent)}
+.setrow b{display:block;font-size:.92rem;font-weight:600}
+.setrow small{display:block;color:var(--muted);font-size:.8rem;line-height:1.45}
+.setprev{grid-column:1/-1}
+.setprev .ms{margin:0;border-width:2px;padding:8px}
+.setprev .ms .ms-frame{padding:10px}
+.setprev .ms .info{margin-top:0}
+
+/* ---------- হিসাব ---------- */
+.acc-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.acc-tabs button{font:inherit;padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.acc-tabs button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.acc-sub{font-size:.85rem;color:var(--muted);margin:0 0 10px}
+.acc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px;margin:8px 0 12px}
+.acc-box{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;background:var(--paper)}
+.acc-box h4{margin:0 0 6px;font-size:.95rem}
+.acc-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 10px;border:1px solid var(--line);border-radius:7px;margin:6px 0;background:var(--tint)}
+.acc-head label{font:inherit;display:flex;gap:6px;align-items:center}
+.acc-head input[type=text],.acc-head input[type=number]{font:inherit;padding:5px 8px;border:1.5px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);min-width:0}
+.acc-head input[type=number]{width:110px}
+.acc-head .amt{margin-left:auto}
+.months{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:4px 10px;margin:6px 0}
+.months label{display:flex;gap:6px;align-items:center;font-size:.9rem}
+.months label.paid{opacity:.5;text-decoration:line-through}
+.acc-total{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:2px solid var(--ink);margin-top:10px;padding-top:8px;font-weight:600}
+.acc-total strong{font-size:1.3rem}
+.acc-note{font-size:.8rem;color:var(--muted)}
+.acc-stu{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--tint);margin:8px 0}
+.acc-stu .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 14px}
+.acc-stu .sg b{display:block;font-size:.78rem;color:var(--muted);font-weight:500}
+.acc-table td,.acc-table th{font-size:.85rem;padding:4px 6px;text-align:left}
+.acc-table td.r,.acc-table th.r{text-align:right;white-space:nowrap}
+.acc-table tr.void td{opacity:.5;text-decoration:line-through}
+.acc-table tr.dets td{background:var(--tint)}
+.acc-table td .mini{font-size:.8rem;color:var(--muted)}
+.acc-table button{font:inherit;font-size:.82rem;padding:3px 9px;border-radius:5px;border:1.2px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.acc-table button.del{border-color:var(--err);color:var(--err)}
+.acc-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}
+.acc-kpi{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--tint)}
+.acc-kpi b{display:block;font-size:.8rem;color:var(--muted);font-weight:500}
+.acc-kpi strong{font-size:1.25rem}
+.acc-kpi.warn{border-color:var(--err)}
+/* ---------- আধুনিক ড্যাশবোর্ড ---------- */
+.dhero{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-radius:14px;padding:18px 22px;color:#fff;background:linear-gradient(135deg,#123c2d,#1f5c46 55%,#2f7c5e);margin-bottom:16px}
+.dhero img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:10px;padding:3px;flex:none}
+.dhero h2{margin:0;color:#fff;border:0;font-size:1.5rem;padding:0}
+.dhero p{margin:2px 0;font-size:.9rem;opacity:.88}
+.dhero .hbtn{display:flex;gap:8px;flex-wrap:wrap}
+.dhero .hbtn button{font:inherit;font-size:.88rem;padding:7px 12px;border-radius:7px;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.dhero .hbtn button:hover{background:rgba(255,255,255,.25)}
+.dkpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin-bottom:16px}
+.dkpi{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--paper);display:flex;gap:10px;align-items:center}
+.dkpi .ic{width:38px;height:38px;border-radius:9px;background:var(--tint);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+.dkpi b{display:block;font-size:.78rem;color:var(--muted);font-weight:500}
+.dkpi strong{font-size:1.3rem;line-height:1.2}
+.dkpi.warn{border-color:var(--err)}
+.dkpi.warn .ic{background:rgba(179,38,30,.1);color:var(--err)}
+.dcharts{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-bottom:16px}
+.dcard{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:12px 14px;margin-bottom:14px}
+.dcard h3{font-family:var(--fh);font-size:1rem;margin:0 0 10px;padding:0;border:0}
+.dcard svg{display:block;width:100%;height:auto}
+.dleg{display:grid;gap:4px;margin-top:8px;font-size:.82rem;color:var(--muted)}
+.dleg span{display:flex;align-items:center;gap:6px}
+.dleg i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.dact{font-size:.88rem}
+.dact .ar{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.dact .ar:last-child{border:0}
+.dact small{color:var(--muted);white-space:nowrap}
+/* ---------- সাজানো মার্কশিট ---------- */
+.ms{position:relative;overflow:hidden}
+.ms .ms-frame{border:1px solid #c9a227;padding:12px 16px;position:relative;z-index:1;display:flex;flex-direction:column;flex:1;min-height:0}
+.ms .wm{position:absolute;left:50%;top:50%;width:62mm;height:62mm;object-fit:contain;transform:translate(-50%,-50%);opacity:.06;pointer-events:none;z-index:0}
+.ms .mh{background:linear-gradient(135deg,#0f4a37,#1f5c46 55%,#2f7c5e);color:#fff;padding:12px 16px;border-radius:4px}
+.ms .mh img{background:#fff;border-radius:50%;padding:4px;width:64px;height:64px}
+.ms .mh h3{color:#fff}
+.ms .mh div{color:rgba(255,255,255,.9)}
+.ms .mt span{background:#c9a227;color:#1d2421}
+.ms table thead th{background:var(--tint)}
+.ms table tbody tr:nth-child(even) td{background:rgba(31,92,70,.04)}
+.ms .sum div{border-color:#c9a227}
+.ms .seal{width:22mm;height:22mm;border:1.5px dashed var(--muted);border-radius:50%;margin:8px auto 0;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--muted);text-align:center}
+/* ---------- রসিদ ---------- */
+#rcptSheet{display:none}
+body.rp #rcptSheet{display:block;position:fixed;inset:0;z-index:70;background:#39403d;overflow:auto;padding:24px}
+body.rp{overflow:hidden}
+.rpage{width:281mm;min-height:194mm;margin:0 auto 18px;background:#fff;color:#14201b;display:grid;grid-template-columns:repeat(3,1fr);box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:10px;line-height:1.35}
+.rcpt{position:relative;padding:4mm;display:flex;flex-direction:column;overflow:hidden;border-left:1px dashed #8a9490}
+.rcpt:first-child{border-left:0}
+.rcpt:not(:first-child)::before{content:'কাটার দাগ';position:absolute;left:3px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:7px;letter-spacing:1px;color:#8a9490;background:#fff;padding:0 3px;white-space:nowrap}
+.rcpt .rwm{position:absolute;left:50%;top:42%;width:40mm;height:40mm;object-fit:contain;transform:translate(-50%,-50%);opacity:.055;pointer-events:none}
+.rcpt .rh{display:flex;gap:8px;align-items:center;border-bottom:2px solid #1f5c46;padding-bottom:4px}
+.rcpt .rh img{width:34px;height:34px;object-fit:contain;background:#fff;border-radius:4px;flex:none}
+.rcpt .rh b{font-size:12px;display:block}
+.rcpt .rh small{font-size:8px;color:#444}
+.rcpt .cp{margin-left:auto;font-size:8px;font-weight:700;background:#e6f1ea;color:#1f5c46;border:1px solid #1f5c46;border-radius:99px;padding:1px 7px;white-space:nowrap}
+.rcpt .rmeta{display:flex;justify-content:space-between;gap:8px;font-size:8.5px;margin:5px 0;color:#333}
+.rcpt .rstu{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;font-size:8.5px;border:1px solid #c9d3cd;border-radius:4px;padding:4px 6px;background:#f7faf8}
+.rcpt .rstu b{font-weight:600;color:#1f5c46;font-size:7.5px;display:block}
+.rcpt table{width:100%;border-collapse:collapse;margin:5px 0;font-size:8.5px}
+.rcpt th,.rcpt td{border-bottom:1px solid #c9d3cd;padding:2px 3px;text-align:left;vertical-align:top}
+.rcpt th{background:#e6f1ea;color:#1f5c46}
+.rcpt td.r,.rcpt th.r{text-align:right;white-space:nowrap}
+.rcpt .rtot{display:flex;justify-content:flex-end;gap:12px;border-top:1.5px solid #1f5c46;padding:3px 0;font-size:10px}
+.rcpt .rwords{font-size:8px;color:#333;margin:2px 0 4px}
+.rcpt .rmode{font-size:8px;color:#333}
+.rcpt .rsig{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:26px;font-size:8px;text-align:center}
+.rcpt .rsig span{border-top:1px solid #333;padding-top:2px;min-width:26mm}
+.rcpt .rfoot{font-size:7px;color:#666;text-align:center;margin-top:4px}
+.rcpt .rnote{font-size:7px;color:#666;border-top:1px dashed #ccc;margin-top:4px;padding-top:2px}
+.rclose{position:fixed;right:18px;top:14px;z-index:80;font:inherit;padding:7px 14px;border-radius:8px;border:1px solid #fff;background:#1f5c46;color:#fff;cursor:pointer}
 @media print{
   @page{size:A4;margin:11mm 13mm 15mm}
   :root:root:root{--ink:#14201b;--muted:#55605a;--paper:#fff;--tint:#f1f5f2;--line:#9aa5a0;--accent:#1f5c46}
@@ -192,8 +350,7 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   body{background:#fff;color:var(--ink);font-size:10.5px;line-height:1.35}
   input[type=date].empty::-webkit-datetime-edit{opacity:0}
   input[type=date]::-webkit-calendar-picker-indicator{display:none}
-  .bar,.act,.errs,#listView,.toast,.same,.count,.rq{display:none!important}
-  .sheet,.sheet.s-humanities,.sheet.s-business,.sheet.s-science{box-shadow:none;border:0;margin:0;padding:0;max-width:none;background:#fff}
+  .bar,.act,.errs,#listView,#accountsView,.toast,.same,.count,.rq{display:none!important}  .sheet,.sheet.s-humanities,.sheet.s-business,.sheet.s-science{box-shadow:none;border:0;margin:0;padding:0;max-width:none;background:#fff}
   .s-humanities{--dc:#7d8782}.s-business{--dc:#d4aa1c}.s-science{--dc:#2f9a6b}
   header{border-bottom:3px solid var(--dc);padding-bottom:6px;margin-bottom:6px}
   .logo{width:58px;height:58px;border-radius:0}
@@ -236,7 +393,11 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   .sig.recom{margin-top:0;min-height:72px}
   .sig input{border:0}
   body:not([data-view="form"]) .pfoot{display:none!important}
-  .noprint,#login,#dashView,#usersView{display:none!important}
+  .noprint,#login,#dashView,#usersView,#accountsView,#settingsView,.phero,.ptabs,.ptools{display:none!important}
+  #studentView{padding:0;margin:0;max-width:none}
+  #studentView .box{border:0;padding:0}
+  .ms .i-card .ifield{padding:3px 7px}
+  .ms .i-compact .ig{grid-template-columns:repeat(3,1fr)}
   .printonly{display:flex}
   .tabsigs{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;margin-top:70px;break-inside:avoid}
   .tsg{border-top:1px solid #000;text-align:center;padding-top:3px;font-size:10.5px}
@@ -244,10 +405,28 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   #resultView .box{border:0;padding:0}
   #resultView td input{border:0!important;padding:2px;width:34px;min-width:0;max-width:none;font-size:9.5px}
   .rtab th,.rtab td{font-size:9.5px;padding:2px 4px}
-  .ms{break-after:page;border:1.5px solid #000;padding:14px 18px;margin:0;min-height:270mm;display:flex;flex-direction:column}
+  .ms{break-after:page;border:2.5px solid var(--accent);padding:7mm;margin:0;min-height:270mm;display:flex;flex-direction:column}
   .ms:last-child{break-after:auto}
   .ms .sgs{margin-top:auto;padding-top:60px}
   .pfoot{display:block;position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:8.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:3px}
+}
+@media print{
+  /* সাজানো মার্কশিট — শুধু .ms-এর ভেতরে */
+  .ms{padding:5mm}
+  .ms .ms-frame{border:2px double #c9a227;padding:4mm;display:flex;flex-direction:column;flex:1}
+  .ms .mh{padding:7px 10px}
+  .ms .mh img{width:52px;height:52px;padding:2px}
+  .ms .wm{opacity:.05}
+  .ms .seal{width:18mm;height:18mm;margin:4px auto 0}
+  /* তিন কপি রসিদ — আলাদা প্রিন্ট স্তর, অন্য প্রিন্ট স্টাইল ছোঁয় না */
+  body.rp>*:not(#rcptSheet){display:none!important}
+  body.rp>#rcptSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.rp{background:#fff;color:#111;font-size:10px}
+  body.rp .rclose{display:none!important}
+  #rcptSheet .rpage{width:281mm;height:194mm;min-height:0;margin:0;box-shadow:none;break-after:page;page-break-after:always}
+  #rcptSheet .rpage:last-child{break-after:auto;page-break-after:auto}
+  #rcptSheet .rcpt{padding:3mm 3.5mm}
+  #rcptSheet .rcpt .rwm{opacity:.05}
 }
 .pfoot{display:none}
 </style>
@@ -264,12 +443,14 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   </span>
   <span class="sep"></span>
   <button type="button" id="viewDash" aria-pressed="false">ড্যাশবোর্ড</button>
+  <button type="button" id="viewStudent" aria-pressed="false" hidden>আমার পোর্টাল</button>
   <button type="button" id="viewForm" aria-pressed="true">ফরম</button>
   <button type="button" id="viewList" aria-pressed="false">সংরক্ষিত তালিকা (<span id="cnt">0</span>)</button>
+  <button type="button" id="viewAcc" aria-pressed="false">হিসাব</button>
   <button type="button" id="viewRes" aria-pressed="false">রেজাল্ট শিট</button>
   <button type="button" id="viewUsers" aria-pressed="false">ব্যবহারকারী</button>
+  <button type="button" id="viewSettings" aria-pressed="false" hidden>সেটিংস</button>
   <span class="sep"></span>
-  <select id="fontSel" aria-label="ফন্ট"><option value="nikosh">ফন্ট: NikoshBAN</option><option value="hind">ফন্ট: সাধারণ</option></select>
   <span class="who" id="who"></span>
   <button type="button" id="logoutBtn">লগআউট</button>
 </nav>
@@ -294,11 +475,9 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
     <div><b>শ্রেণি:</b> <span id="formCls">একাদশ</span></div>
     <div><b>বিভাগ:</b> <span id="deptName">মানবিক</span></div>
     <label class="f session"><b>ফরম নং:</b><input name="formNo" style="width:110px"></label>
-    <label class="f" style="flex-direction:row;gap:8px;align-items:baseline"><b style="color:var(--ink)">রোল নং:</b><input name="roll" style="width:90px"></label>
-    <label class="f" style="flex-direction:row;gap:8px;align-items:baseline"><b style="color:var(--ink)">স্টুডেন্ট আইডি:</b><input name="stuId" style="width:130px" autocomplete="off"></label>
     <label class="f session"><b>সেশন:</b><input name="session" value="২০২৬ – ২০২৭" style="width:150px"></label>
   </div>
-  <p style="margin:2px 0 0;font-size:.82rem;color:var(--muted)">উপরের ঘরগুলো অফিস পূরণ করবে।</p>
+  <p style="margin:2px 0 0;font-size:.82rem;color:var(--muted)">ফরম নং ও সেশন অফিস পূরণ করবে। রোল নং ও স্টুডেন্ট আইডি ভর্তি অনুমোদনের পর দেওয়া হবে।</p>
 
   <h2>শিক্ষার্থীর তথ্য</h2>
   <div class="pwrap">
@@ -461,7 +640,16 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
         <button type="submit">কর্মী লগইন</button>
       </form>
       <p class="lnote" style="margin:12px 0 6px">অথবা</p>
-      <button type="button" id="lStudent" class="alt" style="width:100%">শিক্ষার্থী: ভর্তির আবেদন করুন</button>
+      <button type="button" id="lStudent" class="alt" style="width:100%">শিক্ষার্থী লগইন — ফলাফল ও ফি</button>
+      <div id="stuBox" hidden style="margin-top:10px">
+        <form id="stuForm" novalidate>
+          <label class="f"><span>স্টুডেন্ট আইডি</span><input id="stuIdIn" autocomplete="off" placeholder="যেমন: ২০২৬-০০০১"></label>
+          <label class="f"><span>নিবন্ধিত মোবাইল নম্বর</span><input id="stuMobIn" type="tel" inputmode="tel" autocomplete="off" placeholder="শিক্ষার্থী/পিতা/মাতা/অভিভাবকের মোবাইল"></label>
+          <button type="submit">পোর্টালে লগইন</button>
+          <button type="button" id="stuBack" class="alt">ফিরে যান</button>
+        </form>
+      </div>
+      <button type="button" id="lGuest" class="alt" style="width:100%;margin-top:8px">নতুন শিক্ষার্থী: ভর্তির আবেদন করুন</button>
     </div>
     <div class="lerr" id="lErr" role="alert"></div>
     <div class="lnote">এই লগইন শুধু এই ব্রাউজারের ভেতরের নিয়ন্ত্রণ। তথ্য অন্য কম্পিউটার বা ফোনে যায় না।</div>
@@ -479,6 +667,7 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
       <label class="f"><span>পাসওয়ার্ড <small id="uHint"></small></span><input id="uPass" type="text" autocomplete="off"></label>
       <label class="f"><span>ধরন</span><select id="uRole">
         <option value="teacher">শিক্ষক (বিষয়ভিত্তিক)</option>
+        <option value="accountant">হিসাব রক্ষক</option>
         <option value="controller">পরীক্ষা নিয়ন্ত্রণ কমিটি</option>
         <option value="admission">ভর্তি কমিটি</option>
         <option value="admin">সুপার অ্যাডমিন</option></select></label>
@@ -495,6 +684,34 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   </div>
 </section>
 
+<section id="accountsView" class="list wide" hidden>
+  <div class="box">
+    <div class="tools noprint">
+      <span class="stat">হিসাবের বছর:</span>
+      <select id="accYear" class="dsel" aria-label="হিসাবের বছর"></select>
+      <span class="sep"></span>
+      <span class="acc-tabs" style="display:contents">
+        <button type="button" data-acc="collect" aria-pressed="true">আদায় ও রসিদ</button>
+        <button type="button" data-acc="ledger" aria-pressed="false">খাতা</button>
+        <button type="button" data-acc="setup" aria-pressed="false">ফি সেটআপ</button>
+        <button type="button" data-acc="req" aria-pressed="false">ফি অনুরোধ</button>
+        <button type="button" data-acc="report" aria-pressed="false">রিপোর্ট</button>
+      </span>
+    </div>
+    <div id="accBody"></div>
+  </div>
+</section>
+
+<section id="studentView" class="list wide" hidden>
+  <div class="box" id="portalBox"></div>
+</section>
+
+<section id="settingsView" class="list wide" hidden>
+  <div class="box" id="setBox"></div>
+</section>
+
+<div id="rcptSheet" hidden></div>
+
 <div class="pfoot">কাঁচকুড়া কলেজ, উত্তরখান, ঢাকা-১২৩০ &nbsp;|&nbsp; একাদশ শ্রেণির ভর্তি ফরম <span id="footYear">২০২৬</span></div>
 
 <script>
@@ -509,7 +726,8 @@ const FIELDS = {
     F('blood', 'রক্তের গ্রুপ', { options: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'জানা নেই'] }),
     F('religion', 'ধর্ম', { req: 1, options: ['ইসলাম', 'হিন্দু', 'বৌদ্ধ', 'খ্রিস্টান', 'অন্যান্য'] }),
     F('nation', 'জাতীয়তা', { value: 'বাংলাদেশি' }),
-    F('email', 'ই-মেইল', { type: 'email' })
+    F('email', 'ই-মেইল', { type: 'email' }),
+    F('mobile', 'শিক্ষার্থীর মোবাইল', { type: 'tel', inputmode: 'tel' })
   ],
   parents: [
     F('father', 'পিতার নাম', { req: 1 }), F('fatherJob', 'পিতার পেশা'),
@@ -618,7 +836,7 @@ document.getElementById('subjects').addEventListener('change', syncSubjects);
 document.querySelectorAll('.bar [data-dept]').forEach(b => b.addEventListener('click', () => {
   dept = b.dataset.dept;
   document.querySelectorAll('.bar [data-dept]').forEach(x => x.setAttribute('aria-pressed', x === b));
-  renderSubjects(); autoFormNo(); autoStuId();
+  renderSubjects(); autoFormNo();
 }));
 renderSubjects();
 
@@ -664,13 +882,17 @@ document.getElementById('printTop').onclick = () => doPrint(true);
 const DB = {
   open() {
     return new Promise((res, rej) => {
-      const r = indexedDB.open('kanchkura_admission', 3);
+      const r = indexedDB.open('kanchkura_admission', 5);
       r.onupgradeneeded = () => {
         const db = r.result;
         if (!db.objectStoreNames.contains('apps')) db.createObjectStore('apps', { keyPath: 'id', autoIncrement: true });
         if (!db.objectStoreNames.contains('exams')) db.createObjectStore('exams', { keyPath: 'id', autoIncrement: true });
         if (!db.objectStoreNames.contains('marks')) db.createObjectStore('marks', { keyPath: 'key' });
         if (!db.objectStoreNames.contains('users')) db.createObjectStore('users', { keyPath: 'username' });
+        if (!db.objectStoreNames.contains('feeplans')) db.createObjectStore('feeplans', { keyPath: 'key' });
+        if (!db.objectStoreNames.contains('payments')) db.createObjectStore('payments', { keyPath: 'id', autoIncrement: true });
+        if (!db.objectStoreNames.contains('feereqs')) db.createObjectStore('feereqs', { keyPath: 'id', autoIncrement: true });
+        if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', { keyPath: 'k' });
       };
       r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
     });
@@ -696,6 +918,31 @@ const DB = {
       const t = db.transaction('marks', 'readwrite');
       t.objectStore('marks').openCursor().onsuccess = e => { const c = e.target.result; if (c) { if (c.value.examId === examId) c.delete(); c.continue(); } };
       t.oncomplete = () => res(); t.onerror = () => rej(t.error);
+    });
+  },
+  feeplans() { return this.run('readonly', s => s.getAll(), 'feeplans'); },
+  putFeeplan(f) { return this.run('readwrite', s => s.put(f), 'feeplans'); },
+  delFeeplan(k) { return this.run('readwrite', s => s.delete(k), 'feeplans'); },
+  payments() { return this.run('readonly', s => s.getAll(), 'payments'); },
+  putPay(p) { return this.run('readwrite', s => s.put(p), 'payments'); },
+  feereqs() { return this.run('readonly', s => s.getAll(), 'feereqs'); },
+  putFeereq(r) { return this.run('readwrite', s => s.put(r), 'feereqs'); },
+  delFeereq(id) { return this.run('readwrite', s => s.delete(id), 'feereqs'); },
+  meta(k) { return this.run('readonly', s => s.get(k), 'meta'); },
+  putMeta(m) { return this.run('readwrite', s => s.put(m), 'meta'); },
+  // রসিদ নম্বর ধারাবাহিক: একটি লেনদেনে পড়া ও লেখা, তাই দুই ট্যাবেও নম্বর দ্বিগুণ হয় না
+  async nextSeq(year) {
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const t = db.transaction('meta', 'readwrite');
+      const s = t.objectStore('meta'), k = 'rcp:' + year;
+      const g = s.get(k);
+      g.onsuccess = () => {
+        const v = (+((g.result || {}).v) || 0) + 1;
+        s.put({ k, v });
+        t.oncomplete = () => res(v);
+      };
+      t.onerror = () => rej(t.error);
     });
   }
 };
@@ -735,16 +982,57 @@ async function autoFormNo() {
   list.forEach(r => { const m = /^([A-Z]{2})-(\d+)$/.exec(r.fields.formNo || ''); if (m && m[1] === pf) max = Math.max(max, +m[2]); });
   el.value = pf + '-' + String(max + 1).padStart(3, '0');
 }
-async function autoStuId() {
-  if (currentId) return;
-  const el = q('stuId');
-  if (el.value && !/^\d{4}(SC|HU|BS)\d+$/.test(el.value)) return;
+function yearOfRec(r) {
+  const fy = toEn((r.fields || {}).formYear || document.getElementById('formYear').value);
+  return (fy.match(/\d{4}/) || [String(new Date().getFullYear())])[0];
+}
+function nextStuIdFor(r, list) {
+  const yr = yearOfRec(r), re = new RegExp('^' + yr + '-(\\d+)$');
+  let max = 0;
+  list.forEach(x => { if (x.id === r.id) return; const m = re.exec(toEn((x.fields || {}).stuId || '').trim()); if (m) max = Math.max(max, +m[1]); });
+  return yr + '-' + String(max + 1).padStart(4, '0');
+}
+function nextRollFor(r, list) {
+  const yr = yearOfRec(r);
+  let max = 0;
+  list.forEach(x => {
+    if (x.id === r.id || !okApp(x) || clsOf(x) !== clsOf(r) || yearOfRec(x) !== yr) return;
+    const n = +toEn((x.fields || {}).roll || '').replace(/\D/g, '');
+    if (n > max) max = n;
+  });
+  return String(max + 1);
+}
+async function assignMissingIds(rec) {
   let list = []; try { list = await DB.all(); } catch (e) {}
-  const fy = toEn(document.getElementById('formYear').value);
-  const yr = (fy.match(/\d{4}/) || [String(new Date().getFullYear())])[0];
-  const pf = PFX[dept], re = new RegExp('^' + yr + pf + '(\\d+)$'); let max = 0;
-  list.forEach(r => { const m = re.exec(toEn((r.fields || {}).stuId || '')); if (m) max = Math.max(max, +m[1]); });
-  el.value = yr + pf + String(max + 1).padStart(4, '0');
+  rec.fields = { ...(rec.fields || {}) };
+  if (!String(rec.fields.stuId || '').trim()) rec.fields.stuId = nextStuIdFor(rec, list);
+  if (!String(rec.fields.roll || '').trim()) rec.fields.roll = nextRollFor(rec, list);
+  return rec;
+}
+async function editIds(id) {
+  const r = cache.find(x => x.id === id); if (!r) return;
+  if (!okApp(r)) return toast('ভর্তি অনুমোদনের পর রোল ও স্টুডেন্ট আইডি দেওয়া যাবে');
+  let list = []; try { list = await DB.all(); } catch (e) {}
+  const rv = prompt('রোল নং', (r.fields || {}).roll || nextRollFor(r, list));
+  if (rv === null) return;
+  const sv = prompt('স্টুডেন্ট আইডি (যেমন: ' + yearOfRec(r) + '-0001)', (r.fields || {}).stuId || nextStuIdFor(r, list));
+  if (sv === null) return;
+  const roll = toEn(rv).trim();
+  let sid = toEn(sv).trim().toUpperCase().replace(/\s+/g, '');
+  if (/^\d{8}$/.test(sid)) sid = sid.slice(0, 4) + '-' + sid.slice(4);
+  if (!roll && !sid) return toast('রোল ও স্টুডেন্ট আইডি দুটোই ফাঁকা রাখা যাবে না');
+  if (sid && !/^\d{4}-\d{4}$/.test(sid)) return toast('স্টুডেন্ট আইডি ' + yearOfRec(r) + '-0001 ফরম্যাটে দিন');
+  const norm = v => toEn(v || '').toUpperCase().replace(/[\s-]/g, '');
+  if (sid) {
+    const dup = list.find(x => x.id !== r.id && norm((x.fields || {}).stuId) === norm(sid));
+    if (dup) return toast('এই স্টুডেন্ট আইডি আগে ব্যবহার হয়েছে: ' + nameOf(dup));
+  }
+  if (roll) {
+    const dup = list.find(x => x.id !== r.id && okApp(x) && clsOf(x) === clsOf(r) && yearOfRec(x) === yearOfRec(r) && toEn((x.fields || {}).roll || '').trim() === roll);
+    if (dup) return toast('এই রোল (' + roll + ') ইতিমধ্যে ব্যবহার হয়েছে: ' + nameOf(dup));
+  }
+  const upd = { ...r, fields: { ...(r.fields || {}), roll: roll || (r.fields || {}).roll || '', stuId: sid || (r.fields || {}).stuId || '' } };
+  await DB.put(upd); loadList(); toast('রোল ও স্টুডেন্ট আইডি সংরক্ষিত হয়েছে');
 }
 
 function toast(t) {
@@ -780,23 +1068,29 @@ function apply(d) {
 function newForm() {
   document.getElementById('form').reset();
   document.getElementById('errs').hidden = true;
-  currentId = null; setTimeout(syncYear, 0); setPhoto(''); renderSubjects(); copyAddr(); autoFormNo(); autoStuId();
+  currentId = null; setTimeout(syncYear, 0); setPhoto(''); renderSubjects(); copyAddr(); autoFormNo();
   document.getElementById('formCls').textContent = CLASSES.XI;
 }
 function showView(v) {
-  if (ME && !VIEWS[ME.role].includes(v)) return;
-  ['form', 'list', 'result', 'users', 'dash'].forEach(n => { document.getElementById(n + 'View').hidden = v !== n; });
+  if (ME && !(VIEWS[ME.role] || []).includes(v)) return;
+  ['form', 'list', 'result', 'users', 'dash', 'accounts', 'settings', 'student'].forEach(n => { document.getElementById(n + 'View').hidden = v !== n; });
   document.body.dataset.view = v;
   document.getElementById('deptBtns').style.display = v === 'form' ? 'contents' : 'none';
   document.getElementById('viewForm').setAttribute('aria-pressed', v === 'form');
   document.getElementById('viewList').setAttribute('aria-pressed', v === 'list');
+  document.getElementById('viewAcc').setAttribute('aria-pressed', v === 'accounts');
   document.getElementById('viewRes').setAttribute('aria-pressed', v === 'result');
   document.getElementById('viewUsers').setAttribute('aria-pressed', v === 'users');
   document.getElementById('viewDash').setAttribute('aria-pressed', v === 'dash');
+  document.getElementById('viewSettings').setAttribute('aria-pressed', v === 'settings');
+  document.getElementById('viewStudent').setAttribute('aria-pressed', v === 'student');
   if (v === 'list') loadList();
+  if (v === 'accounts') openAccounts();
   if (v === 'result') openResult();
   if (v === 'users') { resetUserForm(); loadUsers(); }
   if (v === 'dash') renderDash();
+  if (v === 'settings') openSettings();
+  if (v === 'student') openStudentPortal();
   window.scrollTo(0, 0);
 }
 async function loadList() {
@@ -806,13 +1100,13 @@ async function loadList() {
 }
 let listCls = 'all';
 function renderRows() {
-  const t = document.getElementById('q').value.trim().toLowerCase();
+  const t = toEn(document.getElementById('q').value.trim().toLowerCase());
   const esc = x => String(x || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const rows = cache.filter(r => (listCls === 'all' || clsOf(r) === listCls) && (!t || JSON.stringify([r.fields.nameBn, r.fields.nameEn, r.fields.roll, r.fields.stuId, r.fields.formNo, r.fields.fatherMobile, r.fields.gMobile, DEPTS[r.dept].name, CLASSES[clsOf(r)], r.status || 'অনুমোদিত']).toLowerCase().includes(t)));
+  const rows = cache.filter(r => (listCls === 'all' || clsOf(r) === listCls) && (!t || toEn(JSON.stringify([r.fields.nameBn, r.fields.nameEn, r.fields.roll, r.fields.stuId, r.fields.formNo, r.fields.mobile, r.fields.fatherMobile, r.fields.gMobile, DEPTS[r.dept].name, CLASSES[clsOf(r)], r.status || 'অনুমোদিত']).toLowerCase()).includes(t)));
   document.getElementById('selAll').checked = false;
   document.getElementById('rows').innerHTML = rows.length ? rows.map((r, i) =>
     `<tr><td class="selcol"><input type="checkbox" data-sel="${r.id}" aria-label="বাছুন"></td><td>${i + 1}</td><td>${esc(r.fields.formNo)}</td><td>${esc(r.fields.roll)}</td><td>${esc(r.fields.stuId)}</td><td>${esc(r.fields.nameBn || r.fields.nameEn)}</td><td>${DEPTS[r.dept].name}</td><td>${CLASSES[clsOf(r)]}</td><td>${esc(r.fields.father)}</td><td>${esc(r.fields.fatherMobile)}</td><td>${esc(r.savedAt)}</td><td title="${esc(r.note)}">${esc(r.status || 'অনুমোদিত')}</td>
-     <td style="white-space:nowrap"><button data-open="${r.id}">খুলুন</button> <button data-st="${r.id}|সুপারিশকৃত">সুপারিশ</button> ${ME.role === 'admin' ? `<button data-st="${r.id}|অনুমোদিত">অনুমোদন</button>` : ''} <button class="del" data-st="${r.id}|বাতিল">বাতিল</button> ${ME.role === 'admin' ? `<button class="del" data-del="${r.id}">মুছুন</button>` : ''}</td></tr>`).join('')
+     <td style="white-space:nowrap"><button data-open="${r.id}">খুলুন</button> ${(ME.role === 'admin' || ME.role === 'admission') && okApp(r) ? `<button data-ids="${r.id}"${(r.fields.roll && r.fields.stuId) ? '' : ' class="go"'}>${(r.fields.roll && r.fields.stuId) ? 'রোল/আইডি' : 'রোল/আইডি দিন'}</button> ` : ''}<button data-st="${r.id}|সুপারিশকৃত">সুপারিশ</button> ${ME.role === 'admin' ? `<button data-st="${r.id}|অনুমোদিত">অনুমোদন</button>` : ''} <button class="del" data-st="${r.id}|বাতিল">বাতিল</button> ${ME.role === 'admin' ? `<button class="del" data-del="${r.id}">মুছুন</button>` : ''}</td></tr>`).join('')
     : '<tr><td colspan="13">কিছু পাওয়া যায়নি। ফরম পূরণ করে "সংরক্ষণ করুন" চাপলে এখানে জমা হবে।</td></tr>';
 }
 document.getElementById('listClsSel').onchange = e => { listCls = e.target.value; renderRows(); };
@@ -832,8 +1126,9 @@ document.getElementById('promoBtn').onclick = () => changeClass('XII');
 document.getElementById('demoBtn').onclick = () => changeClass('XI');
 document.getElementById('q').addEventListener('input', renderRows);
 document.getElementById('rows').addEventListener('click', async e => {
-  const o = e.target.dataset.open, d = e.target.dataset.del;
+  const o = e.target.dataset.open, d = e.target.dataset.del, iid = e.target.dataset.ids;
   if (o) { const r = cache.find(x => x.id == o); apply(r); currentId = r.id; showView('form'); }
+  if (iid) await editIds(+iid);
   if (d && confirm('এই ফরমটি স্থায়ীভাবে মুছে যাবে। মুছবেন?')) { await DB.del(+d); if (currentId == d) currentId = null; loadList(); toast('মুছে ফেলা হয়েছে'); }
 });
 
@@ -842,20 +1137,19 @@ document.getElementById('saveBtn').onclick = async () => {
   if (!q('nameBn').value.trim() && !q('nameEn').value.trim()) {
     box.innerHTML = 'সংরক্ষণের আগে অন্তত শিক্ষার্থীর নাম লিখুন।'; box.hidden = false; box.scrollIntoView({ behavior: 'smooth', block: 'center' }); return;
   }
-  const sid = toEn(q('stuId').value).trim().toLowerCase();
-  if (sid) {
-    let all = []; try { all = await DB.all(); } catch (e) {}
-    const dup = all.find(x => x.id !== currentId && toEn((x.fields || {}).stuId).trim().toLowerCase() === sid);
-    if (dup) { box.innerHTML = 'এই স্টুডেন্ট আইডি (' + H(q('stuId').value.trim()) + ') আগেই অন্য শিক্ষার্থীকে দেওয়া হয়েছে: ' + H(dup.fields.nameBn || dup.fields.nameEn || ''); box.hidden = false; box.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
-  }
   box.hidden = true;
-  const rec = { ...collect(), savedAt: new Date().toLocaleString('bn-BD') };
+  let rec = { ...collect(), savedAt: new Date().toLocaleString('bn-BD') };
   if (currentId) rec.id = currentId;
   let old = null; try { old = currentId ? (await DB.all()).find(x => x.id === currentId) : null; } catch (e) {}
   rec.status = old ? (old.status || 'অনুমোদিত') : (ME.role === 'admin' ? 'অনুমোদিত' : 'জমা');
-  if (old) { rec.note = old.note; rec.statusBy = old.statusBy; rec.statusAt = old.statusAt; }
+  if (old) {
+    rec.note = old.note; rec.statusBy = old.statusBy; rec.statusAt = old.statusAt;
+    rec.fields.roll = (old.fields || {}).roll || '';
+    rec.fields.stuId = (old.fields || {}).stuId || '';
+  }
   rec.ts = old && old.ts ? old.ts : Date.now();
   rec.cls = old ? clsOf(old) : 'XI';
+  if (okApp(rec)) rec = await assignMissingIds(rec);
   try { currentId = await DB.put(rec); toast(ME.role === 'student' ? 'আবেদন জমা হয়েছে। ধন্যবাদ।' : 'সংরক্ষিত হয়েছে'); cache = await DB.all(); document.getElementById('cnt').textContent = cache.length; if (ME.role === 'student') newForm(); }
   catch (e) { box.innerHTML = 'সংরক্ষণ করা গেল না। ফাইলটি Chrome বা Firefox-এ খুলুন।'; box.hidden = false; }
 };
@@ -880,9 +1174,11 @@ document.getElementById('csvBtn').onclick = () => {
   download('admission-list.csv', '\ufeff' + [head.map(cell).join(','), ...lines].join('\r\n'), 'text/csv;charset=utf-8');
 };
 document.getElementById('bakBtn').onclick = async () => {
-  if (!cache.length) return toast('তালিকা খালি');
+  const pays = await DB.payments();
+  if (!cache.length && !pays.length) return toast('তালিকা খালি');
   const exams = await DB.exams(), marks = await DB.marks();
-  download('admission-backup.json', JSON.stringify({ v: 3, apps: cache, exams, marks, users: await DB.users() }), 'application/json');
+  const payload = { v: 5, apps: cache, exams, marks, users: await DB.users(), feeplans: await DB.feeplans(), payments: pays, feereqs: await DB.feereqs(), meta: await DB.run('readonly', s => s.getAll(), 'meta') };
+  download('admission-backup.json', JSON.stringify(payload), 'application/json');
 };
 document.getElementById('impBtn').onclick = () => document.getElementById('impFile').click();
 document.getElementById('impFile').onchange = async e => {
@@ -895,8 +1191,40 @@ document.getElementById('impFile').onchange = async e => {
     for (const m of (data.marks || [])) {
       if (eMap[m.examId] && aMap[m.appId]) { m.examId = eMap[m.examId]; m.appId = aMap[m.appId]; m.key = m.examId + ':' + m.appId; await DB.putMark(m); }
     }
+    for (const r of (data.feereqs || [])) {
+      if (!aMap[r.appId]) continue;
+      const rec = { ...r, appId: aMap[r.appId] };
+      delete rec.id; delete rec.paymentId;
+      await DB.putFeereq(rec);
+    }
     for (const u of (data.users || [])) { if (!(await DB.user(u.username))) await DB.putUser(u); }
-    toast(apps.length + 'টি ফরম ফেরত আনা হয়েছে'); loadList();
+    for (const f of (data.feeplans || [])) {
+      if (!aMap[f.appId]) continue;
+      const rec = { ...f, appId: aMap[f.appId], key: aMap[f.appId] + ':' + f.year };
+      await DB.putFeeplan(rec);
+    }
+    const existing = await DB.payments(), rnoOwner = new Map(existing.map(p => [p.rno, p.appId]));
+    let skipped = 0;
+    for (const p of (data.payments || [])) {
+      if (!aMap[p.appId]) { skipped++; continue; }
+      if (rnoOwner.has(p.rno) && rnoOwner.get(p.rno) !== aMap[p.appId]) { skipped++; continue; }
+      const rec = { ...p, appId: aMap[p.appId] };
+      delete rec.id;
+      await DB.putPay(rec);
+    }
+    for (const m of (data.meta || [])) {
+      if (!m) continue;
+      if (m.k === 'settings' && m.v) {
+        const cur = await DB.meta('settings');
+        if (!cur || (cur.at || 0) < (m.at || 0)) await DB.putMeta(m);
+        continue;
+      }
+      if (!/^rcp:\d{4}$/.test(m.k)) continue;
+      const cur = await DB.meta(m.k);
+      if (!cur || +cur.v < +m.v) await DB.putMeta({ k: m.k, v: +m.v || 0 });
+    }
+    toast(apps.length + 'টি ফরম ফেরত আনা হয়েছে' + (skipped ? ' (' + bn(skipped) + 'টি রসিদ বাদ)' : ''));
+    loadList();
   } catch (err) { toast('ফাইলটি পড়া গেল না'); }
   e.target.value = '';
 };
@@ -1161,8 +1489,26 @@ rtab.addEventListener('change', async e => {
 rtab.addEventListener('click', e => { if (e.target.dataset.ms) showMs([+e.target.dataset.ms]); });
 
 // ---------- মার্কশিট ----------
-function msHTML(x, n) {
-  const { r, c } = x, f = r.fields, ex = R.exam, logo = document.querySelector('.logo').src;
+function msInfoHTML(f, photo, meta = {}, o = {}) {
+  const style = ['card', 'grid', 'compact'].includes(o.info) ? o.info : (['card', 'grid', 'compact'].includes(SET.msInfo) ? SET.msInfo : 'card');
+  const side = (o.photo || SET.msPhoto) === 'left' ? 'left' : 'right';
+  const cell = (label, value, cls = '') => `<div class="ifield ${cls}"><b>${label}</b><span>${H(value) || '—'}</span></div>`;
+  const name = (f.nameBn || f.nameEn || '');
+  const rows =
+    cell('শিক্ষার্থীর নাম', name, 'full nmf') +
+    cell('স্টুডেন্ট আইডি', f.stuId) +
+    cell('রোল নং', f.roll) +
+    cell('ফরম নং', f.formNo) +
+    cell('শ্রেণি ও বিভাগ', [meta.cls, meta.dept].filter(Boolean).join(', ')) +
+    cell('পিতার নাম', f.father) +
+    cell('মাতার নাম', f.mother) +
+    cell('সেশন', f.session) +
+    cell('লিঙ্গ', f.gender);
+  const ph = photo ? `<img class="ph2" src="${photo}" alt="">` : '<div class="ph2 empty">ছবি</div>';
+  return `<div class="info i-${style} ph-${side}"><div class="ig">${rows}</div>${ph}</div>`;
+}
+function msHTML(x, n, exam) {
+  const { r, c } = x, f = r.fields, ex = exam || R.exam, logo = document.querySelector('.logo').src;
   const list = c.rows.concat(c.f4 ? [c.f4] : []);
   const trs = list.map((q, i) => { const ps = partsOf(q.s, ex), pv = q.pv || [];
     const pc = [0, 1, 2].map(j => { const p = ps.length > 1 ? ps.find(x => x.i === j) : null; if (!p) return '<td>–</td>';
@@ -1170,20 +1516,17 @@ function msHTML(x, n) {
     return `<tr><td>${bn(i + 1)}</td><td class="l">${H(q.s)}${q.fourth ? ' <small>(৪র্থ বিষয়)</small>' : ''}</td><td>${bn(sfull(q.s, ex))}</td>${pc}<td>${q.m == null ? '—' : bn(q.m)}</td><td>${q.l || '—'}</td><td>${q.gp == null ? '—' : bn(q.gp.toFixed(2))}</td></tr>`; }).join('');
   const rk = c.rank ? `${bn(c.rank)} (${bn(n)} জনের মধ্যে)` : '—';
   return `<div class="ms">
-    <div class="mh"><img src="${logo}" alt=""><div><h3>কাঁচকুড়া কলেজ</h3><div>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</div></div></div>
-    <div class="mt"><span>${H(ex.name)} – ফলাফল পত্র</span></div>${ex.publishDate ? `<div style="text-align:center;font-size:.9rem;margin:0 0 6px">ফলাফল প্রকাশের তারিখ: <b>${fmtDate(ex.publishDate)}</b></div>` : ''}${ex.published ? '' : '<div class="note" style="text-align:center;color:var(--err);margin:0 0 6px">খসড়া – ফলাফল এখনো প্রকাশিত হয়নি</div>'}
-    <div class="info"><div class="ig">
-      <div><b>শিক্ষার্থীর নাম</b>${H(f.nameBn || f.nameEn)}</div><div><b>স্টুডেন্ট আইডি</b>${H(f.stuId) || '—'}</div>
-      <div><b>রোল নং</b>${H(f.roll)}</div><div><b>ফরম নং</b>${H(f.formNo)}</div>
-      <div><b>পিতার নাম</b>${H(f.father)}</div><div><b>মাতার নাম</b>${H(f.mother)}</div>
-      <div><b>শ্রেণি ও বিভাগ</b>${CLASSES[clsOf(r)]}, ${DEPTS[r.dept].name}</div><div><b>সেশন</b>${H(f.session)}</div>
-      <div style="grid-column:1/-1"><b>লিঙ্গ</b>${H(f.gender)}</div>
-    </div>${r.photo ? `<img class="ph2" src="${r.photo}" alt="">` : '<div class="ph2 empty">ছবি</div>'}</div>
-    <table><thead><tr><th>ক্রম</th><th>বিষয়</th><th>পূর্ণমান</th><th>সৃজনশীল</th><th>বহুনির্বাচনি</th><th>ব্যবহারিক</th><th>প্রাপ্ত নম্বর</th><th>গ্রেড</th><th>গ্রেড পয়েন্ট</th></tr></thead><tbody>${trs}</tbody></table>
-    <div class="sum"><div><b>মোট নম্বর</b><strong>${c.any ? bn(c.total) + ' / ' + bn(c.fullTotal) : '—'}</strong></div><div><b>জি.পি.এ</b><strong>${c.gpa == null ? '—' : bn(c.gpa.toFixed(2))}</strong></div><div><b>লেটার গ্রেড</b><strong>${c.letter || '—'}</strong></div><div><b>ফলাফল</b><strong>${c.res}</strong></div></div>
-    <div class="sum" style="grid-template-columns:1fr"><div><b>মেধাক্রম (${DEPTS[r.dept].name} বিভাগ)</b><strong>${rk}</strong></div></div>
-    <div class="sgs"><div class="sg">আহ্বায়ক, পরীক্ষা কমিটি</div><div class="sg">অভিভাবক</div><div class="sg">অধ্যক্ষ</div></div>
-    <div class="note">৪র্থ বিষয়ে ২.০০-এর ওপরের গ্রেড পয়েন্ট মোট জি.পি.এ-তে যোগ হয়। কোনো আবশ্যিক বিষয়ে F পেলে জি.পি.এ ০.০০ ধরা হয়। সৃজনশীল, বহুনির্বাচনি ও ব্যবহারিক প্রতিটি অংশে আলাদাভাবে ${bn(ex.pass)}% নম্বর না পেলে ঐ বিষয়ে F ধরা হয় (লাল নম্বর = অকৃতকার্য অংশ)।</div>
+    <img class="wm" src="${logo}" alt="" aria-hidden="true">
+    <div class="ms-frame">
+      <div class="mh"><img src="${logo}" alt=""><div><h3>কাঁচকুড়া কলেজ</h3><div>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</div></div></div>
+      <div class="mt"><span>${H(ex.name)} – ফলাফল পত্র</span></div>${ex.publishDate ? `<div style="text-align:center;font-size:.9rem;margin:0 0 6px">ফলাফল প্রকাশের তারিখ: <b>${fmtDate(ex.publishDate)}</b></div>` : ''}${ex.published ? '' : '<div class="note" style="text-align:center;color:var(--err);margin:0 0 6px">খসড়া – ফলাফল এখনো প্রকাশিত হয়নি</div>'}
+      ${msInfoHTML(f, r.photo, { cls: CLASSES[clsOf(r)], dept: DEPTS[r.dept].name })}
+      <table><thead><tr><th>ক্রম</th><th>বিষয়</th><th>পূর্ণমান</th><th>সৃজনশীল</th><th>বহুনির্বাচনি</th><th>ব্যবহারিক</th><th>প্রাপ্ত নম্বর</th><th>গ্রেড</th><th>গ্রেড পয়েন্ট</th></tr></thead><tbody>${trs}</tbody></table>
+      <div class="sum"><div><b>মোট নম্বর</b><strong>${c.any ? bn(c.total) + ' / ' + bn(c.fullTotal) : '—'}</strong></div><div><b>জি.পি.এ</b><strong>${c.gpa == null ? '—' : bn(c.gpa.toFixed(2))}</strong></div><div><b>লেটার গ্রেড</b><strong>${c.letter || '—'}</strong></div><div><b>ফলাফল</b><strong>${c.res}</strong></div></div>
+      <div class="sum" style="grid-template-columns:1fr"><div><b>মেধাক্রম (${DEPTS[r.dept].name} বিভাগ)</b><strong>${rk}</strong></div></div>
+      <div class="sgs"><div class="sg">আহ্বায়ক, পরীক্ষা কমিটি</div><div class="sg">অভিভাবক</div><div class="sg">অধ্যক্ষ<div class="seal">কলেজ সীল</div></div></div>
+      <div class="note">৪র্থ বিষয়ে ২.০০-এর ওপরের গ্রেড পয়েন্ট মোট জি.পি.এ-তে যোগ হয়। কোনো আবশ্যিক বিষয়ে F পেলে জি.পি.এ ০.০০ ধরা হয়। সৃজনশীল, বহুনির্বাচনি ও ব্যবহারিক প্রতিটি অংশে আলাদাভাবে ${bn(ex.pass)}% নম্বর না পেলে ঐ বিষয়ে F ধরা হয় (লাল নম্বর = অকৃতকার্য অংশ)।</div>
+    </div>
   </div>`;
 }
 function showMs(ids) {
@@ -1244,11 +1587,28 @@ $('viewRes').onclick = () => showView('result');
 
 // ---------- ব্যবহারকারী ও লগইন ----------
 let ME = null, uEdit = null;
-const ROLES = { admin: 'সুপার অ্যাডমিন', admission: 'ভর্তি কমিটি', teacher: 'শিক্ষক', controller: 'পরীক্ষা নিয়ন্ত্রণ কমিটি', student: 'শিক্ষার্থী' };
-const VIEWS = { student: ['form'], admission: ['dash', 'form', 'list'], teacher: ['dash', 'result'], controller: ['dash', 'result'], admin: ['dash', 'form', 'list', 'result', 'users'] };
-const FIRST = { student: 'form', admission: 'dash', teacher: 'dash', controller: 'dash', admin: 'dash' };
+const ROLES = { admin: 'সুপার অ্যাডমিন', admission: 'ভর্তি কমিটি', accountant: 'হিসাব রক্ষক', teacher: 'শিক্ষক', controller: 'পরীক্ষা নিয়ন্ত্রণ কমিটি', student: 'শিক্ষার্থী' };
+const VIEWS = { student: ['student'], guest: ['form'], admission: ['dash', 'form', 'list', 'accounts'], accountant: ['dash', 'accounts'], teacher: ['dash', 'result'], controller: ['dash', 'result'], admin: ['dash', 'form', 'list', 'accounts', 'result', 'users', 'settings'] };
+const FIRST = { student: 'student', guest: 'form', admission: 'dash', accountant: 'dash', teacher: 'dash', controller: 'dash', admin: 'dash' };
 const isAll = () => !!ME && (ME.role === 'admin' || ME.role === 'controller');
 const isTeacher = () => !!ME && ME.role === 'teacher';
+
+const DEFAULT_SET = { studentResult: true, studentPay: true, msInfo: 'card', msPhoto: 'right', accSetup: true, accVoid: false, accReport: true, accApprove: true };
+let SET = { ...DEFAULT_SET };
+async function loadSettings() {
+  try { const m = await DB.meta('settings'); SET = { ...DEFAULT_SET, ...((m || {}).v || {}) }; }
+  catch (e) { SET = { ...DEFAULT_SET }; }
+}
+const canAcc = k => {
+  if (!ME) return false;
+  if (ME.role === 'admin' || ME.role === 'admission') return true;
+  if (ME.role !== 'accountant') return false;
+  if (k === 'setup') return !!SET.accSetup;
+  if (k === 'void') return !!SET.accVoid;
+  if (k === 'report') return !!SET.accReport;
+  if (k === 'approve') return !!SET.accApprove;
+  return true;
+};
 const allSubjects = () => { const o = []; Object.keys(DEPTS).forEach(d => deptSubjects(d).forEach(s => { if (!o.includes(s)) o.push(s); })); return o; };
 
 const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
@@ -1270,6 +1630,9 @@ DB.delUser = function (n) { return this.run('readwrite', s => s.delete(n), 'user
 async function showLogin() {
   ME = null; $('login').hidden = false; $('lErr').textContent = '';
   $('lLogo').src = document.querySelector('.logo').src;
+  $('lForm').hidden = false; $('lStudent').hidden = false; $('lGuest').hidden = false; $('stuBox').hidden = true;
+  $('stuIdIn').value = ''; $('stuMobIn').value = '';
+  await loadSettings();
   let n = 0;
   try { n = (await DB.users()).length; } catch (e) { $('lErr').textContent = 'এই ব্রাউজারে সংরক্ষণ চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।'; }
   $('lSetup').hidden = n > 0; $('lMain').hidden = n === 0;
@@ -1278,15 +1641,27 @@ function enter() {
   $('login').hidden = true; applyRole(); showView(FIRST[ME.role]);
 }
 function applyRole() {
-  const ok = VIEWS[ME.role];
-  [['viewDash', 'dash'], ['viewForm', 'form'], ['viewList', 'list'], ['viewRes', 'result'], ['viewUsers', 'users']].forEach(([id, v]) => { $(id).hidden = !ok.includes(v); });
-  $('who').textContent = ME.role === 'student' ? 'শিক্ষার্থী (আবেদন)' : `${ME.name} (${ROLES[ME.role]})`;
-  $('logoutBtn').textContent = ME.role === 'student' ? 'বের হন' : 'লগআউট';
-  const st = ME.role === 'student';
-  q('roll').readOnly = st; q('formNo').readOnly = st; q('stuId').readOnly = st;
+  const ok = VIEWS[ME.role] || [];
+  [['viewDash', 'dash'], ['viewStudent', 'student'], ['viewForm', 'form'], ['viewList', 'list'], ['viewAcc', 'accounts'], ['viewRes', 'result'], ['viewUsers', 'users'], ['viewSettings', 'settings']].forEach(([id, v]) => { $(id).hidden = !ok.includes(v); });
+  $('who').textContent = ME.role === 'student' ? `${ME.name} (শিক্ষার্থী)` : ME.role === 'guest' ? 'শিক্ষার্থী (আবেদন)' : `${ME.name} (${ROLES[ME.role]})`;
+  $('logoutBtn').textContent = (ME.role === 'student' || ME.role === 'guest') ? 'বের হন' : 'লগআউট';
+  const st = ME.role === 'student' || ME.role === 'guest';
+  q('formNo').readOnly = st;
   $('bakBtn').hidden = $('impBtn').hidden = ME.role !== 'admin';
   $('promoBtn').hidden = $('demoBtn').hidden = !(ME.role === 'admin' || ME.role === 'admission');
-  autoFormNo(); autoStuId();
+  $('printTop').hidden = ME.role === 'student';
+  autoFormNo();
+}
+const normId = v => toEn(v).toUpperCase().replace(/[\s-]/g, '');
+const normMob = v => toEn(v).replace(/\D/g, '');
+function stuFind(apps, id, mob) {
+  const i = normId(id), m = normMob(mob);
+  if (!i || m.length < 6) return null;
+  return apps.find(a => {
+    if (!okApp(a) || normId((a.fields || {}).stuId) !== i) return false;
+    const nums = [(a.fields || {}).mobile, (a.fields || {}).fatherMobile, (a.fields || {}).motherMobile, (a.fields || {}).gMobile].map(normMob).filter(Boolean);
+    return nums.some(n => n === m || (n.length >= 11 && m.length >= 11 && n.slice(-11) === m.slice(-11)));
+  }) || null;
 }
 $('sForm').addEventListener('submit', async e => {
   e.preventDefault();
@@ -1304,8 +1679,28 @@ $('lForm').addEventListener('submit', async e => {
   ME = { username: u.username, name: u.name, role: u.role, subjects: u.subjects || [] };
   $('lPass').value = ''; enter();
 });
-$('lStudent').onclick = () => { ME = { username: '', name: 'শিক্ষার্থী', role: 'student', subjects: [] }; enter(); };
-$('logoutBtn').onclick = () => { newForm(); showLogin(); };
+$('lStudent').onclick = () => {
+  $('lErr').textContent = '';
+  $('lForm').hidden = true; $('lStudent').hidden = true; $('lGuest').hidden = true; $('stuBox').hidden = false;
+  $('stuIdIn').focus();
+};
+$('stuBack').onclick = () => {
+  $('lErr').textContent = '';
+  $('lForm').hidden = false; $('lStudent').hidden = false; $('lGuest').hidden = false; $('stuBox').hidden = true;
+};
+$('stuForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = $('stuIdIn').value.trim(), mob = $('stuMobIn').value.trim();
+  if (!id || !mob) { $('lErr').textContent = 'স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর লিখুন।'; return; }
+  let apps = [];
+  try { apps = await DB.all(); } catch (err) { $('lErr').textContent = 'এই ব্রাউজারে সংরক্ষণ চালু নেই।'; return; }
+  const a = stuFind(apps, id, mob);
+  if (!a) { $('lErr').textContent = 'স্টুডেন্ট আইডি বা মোবাইল নম্বর মেলেনি, অথবা আবেদন এখনো অনুমোদিত নয়।'; return; }
+  ME = { username: 'stu:' + a.id, name: nameOf(a), role: 'student', subjects: [], appId: a.id };
+  $('lErr').textContent = ''; enter();
+});
+$('lGuest').onclick = () => { ME = { username: '', name: 'শিক্ষার্থী', role: 'guest', subjects: [] }; enter(); };
+$('logoutBtn').onclick = () => { if (ME && (ME.role === 'student' || ME.role === 'guest')) showLogin(); else { newForm(); showLogin(); } };
 
 // ---------- ব্যবহারকারী ব্যবস্থাপনা (সুপার অ্যাডমিন) ----------
 $('uSubs').innerHTML = allSubjects().map(s => `<label class="opt"><input type="checkbox" value="${H(s)}"><span>${H(s)}</span></label>`).join('');
@@ -1360,8 +1755,10 @@ $('rows').addEventListener('click', async e => {
   let note = r.note || '';
   if (status === 'সুপারিশকৃত') { const n = prompt('ভর্তি কমিটির সুপারিশ / মন্তব্য (ঐচ্ছিক):', note); if (n === null) return; note = n; }
   if (status === 'বাতিল' && !confirm('এই আবেদন বাতিল করবেন?')) return;
-  await DB.put({ ...r, status, note, statusBy: ME.name, statusAt: new Date().toLocaleString('bn-BD') });
-  loadList(); toast('আবেদনের অবস্থা বদলানো হয়েছে');
+  let rec = { ...r, status, note, statusBy: ME.name, statusAt: new Date().toLocaleString('bn-BD') };
+  if (status === 'অনুমোদিত') rec = await assignMissingIds(rec);
+  await DB.put(rec);
+  loadList(); toast(status === 'অনুমোদিত' ? 'অনুমোদিত — রোল ' + bn(rec.fields.roll) + ', আইডি ' + rec.fields.stuId : 'আবেদনের অবস্থা বদলানো হয়েছে');
 });
 
 // ---------- পরীক্ষা: লক ও প্রকাশ ----------
@@ -1461,29 +1858,805 @@ async function examSection(exams, apps) {
   h += '<div class="sub" style="margin-top:12px">বিষয়ভিত্তিক নম্বর এন্ট্রি (যেগুলো পিছিয়ে, আগে)</div>' + sl.map(([s, o]) => row(shortName(s), o.ent, o.exp, `${bn(o.ent)}/${bn(o.exp)}`, o.ent < o.exp)).join('');
   return h + '</div>';
 }
+const ICONS = {
+  users: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  check: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+  money: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>',
+  alert: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
+  chart: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-8"/></svg>'
+};
+const svgIcon = n => ICONS[n] || ICONS.chart;
+function kpiCard(label, value, icon, warn) {
+  return `<div class="dkpi ${warn ? 'warn' : ''}"><span class="ic">${svgIcon(icon)}</span><div><b>${H(label)}</b><strong>${value}</strong></div></div>`;
+}
+function last7(apps) {
+  const day = 864e5, t0 = new Date().setHours(0, 0, 0, 0);
+  return [...Array(7)].map((_, i) => { const s = t0 - (6 - i) * day; return { l: new Date(s).toLocaleDateString('bn-BD', { day: 'numeric', month: 'short' }), n: apps.filter(a => a.ts && a.ts >= s && a.ts < s + day).length }; });
+}
+function barSVG(days) {
+  const mx = Math.max(1, ...days.map(d => d.n)), W = 320, H = 120, pad = 18, step = (W - pad * 2) / days.length, bw = step * 0.58;
+  const bars = days.map((d, i) => {
+    const h = (H - 40) * d.n / mx, x = pad + i * step + (step - bw) / 2, y = H - 24 - h;
+    return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="#1f5c46" opacity="${d.n ? .85 : .22}"/><text x="${(x + bw / 2).toFixed(1)}" y="${H - 10}" font-size="8" text-anchor="middle" fill="#5d6762">${d.l}</text><text x="${(x + bw / 2).toFixed(1)}" y="${(y - 4).toFixed(1)}" font-size="8" text-anchor="middle" fill="#1d2421">${bn(d.n)}</text>`;
+  }).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" role="img"><title>গত ৭ দিনের আবেদন</title>${bars}</svg>`;
+}
+function donutSVG(apps) {
+  const cols = ['#1f5c46', '#d9b92e', '#2f9a6b'];
+  const depts = Object.keys(DEPTS).map(d => ({ d, n: apps.filter(a => a.dept === d && okApp(a)).length }));
+  const sumN = depts.reduce((a, x) => a + x.n, 0), den = sumN || 1, C = 2 * Math.PI * 42;
+  let off = 0, segs = '';
+  depts.forEach((x, i) => {
+    const len = C * x.n / den;
+    segs += `<circle cx="60" cy="60" r="42" fill="none" stroke="${cols[i]}" stroke-width="16" stroke-dasharray="${len.toFixed(2)} ${(C - len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 60 60)"/>`;
+    off += len;
+  });
+  return `<svg viewBox="0 0 120 120" role="img" style="max-width:180px;margin:0 auto"><title>বিভাগ অনুযায়ী শিক্ষার্থী</title><circle cx="60" cy="60" r="42" fill="none" stroke="#dde5e0" stroke-width="16"/>${segs}<text x="60" y="56" text-anchor="middle" font-size="11" fill="#5d6762">মোট</text><text x="60" y="74" text-anchor="middle" font-size="18" font-weight="700" fill="#1d2421">${bn(sumN)}</text></svg><div class="dleg">${depts.map((x, i) => `<span><i style="background:${cols[i]}"></i>${DEPTS[x.d].name}: ${bn(x.n)} জন</span>`).join('')}</div>`;
+}
+function dashRecent(apps, pays) {
+  const acts = [];
+  apps.forEach(a => { const ts = a.ts || 0; if (ts) acts.push({ ts, txt: nameOf(a) + ' — ' + (a.status || 'অনুমোদিত'), sub: 'ভর্তি আবেদন' }); });
+  pays.forEach(p => { if (!p.void) acts.push({ ts: p.ts || 0, txt: (p.snap || {}).name + ' — ' + p.rno + ' • ' + taka(p.total) + ' টাকা', sub: 'ফি আদায়' }); });
+  return acts.filter(x => x.ts).sort((a, b) => b.ts - a.ts).slice(0, 6);
+}
+function dashHero(role) {
+  const ok = VIEWS[role], btns = [];
+  if (ok.includes('form')) btns.push(['form', 'নতুন ফরম']);
+  if (ok.includes('list')) btns.push(['list', 'সংরক্ষিত তালিকা']);
+  if (ok.includes('accounts')) btns.push(['accounts', 'হিসাব ও রসিদ']);
+  if (ok.includes('result')) btns.push(['result', 'রেজাল্ট শিট']);
+  return `<div class="dhero"><img src="${document.querySelector('.logo').src}" alt="">
+    <div><h2>কাঁচকুড়া কলেজ</h2><p>${H(ME.name)} – ${ROLES[role]}</p><p>${new Date().toLocaleDateString('bn-BD', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p></div>
+    <div class="hbtn">${btns.map(([v, l]) => `<button type="button" data-dgo="${v}">${l}</button>`).join('')}</div></div>`;
+}
 async function renderDash() {
   const box = $('dashBox'), role = ME.role;
-  let apps = [], exams = [], users = [];
-  try { apps = await DB.all(); exams = await DB.exams(); if (role === 'admin') users = await DB.users(); }
-  catch (e) { box.textContent = 'ডেটাবেস চালু নেই।'; return; }
-  let h = `<h2 style="margin-top:0">ড্যাশবোর্ড</h2><p class="stat">${H(ME.name)} – ${ROLES[role]}</p>`;
+  let apps = [], exams = [], users = [], pays = [], plans = [];
+  try {
+    apps = await DB.all(); exams = await DB.exams();
+    if (role === 'admin') users = await DB.users();
+    if (VIEWS[role].includes('accounts')) { pays = await DB.payments(); plans = await DB.feeplans(); }
+  } catch (e) { box.textContent = 'ডেটাবেস চালু নেই।'; return; }
+  const st = a => a.status || 'অনুমোদিত', approved = apps.filter(okApp);
+  const t0 = new Date().setHours(0, 0, 0, 0);
+  const today = apps.filter(a => a.ts && a.ts >= t0).length;
+  const cPays = pays.filter(p => !p.void);
+  const todayPay = cPays.filter(p => p.ts && p.ts >= t0).reduce((s, p) => s + num(p.total), 0);
+  const year = accYearOf();
+  let dueTotal = 0, dueCount = 0;
+  approved.forEach(a => {
+    const pl = plans.find(p => p.appId === a.id && String(p.year) === String(year));
+    if (!pl) return;
+    const paid = cPays.filter(p => p.appId === a.id && String(p.year) === String(year)).reduce((s, p) => s + num(p.total), 0);
+    const d = expectedOf(pl) - paid;
+    if (d > 0) { dueTotal += d; dueCount++; }
+  });
+  let h = dashHero(role);
+  h += `<div class="dkpis">${kpiCard('মোট আবেদন', bn(apps.length), 'users')}${kpiCard('আজকের আবেদন', bn(today), 'clock')}${kpiCard('সুপারিশের অপেক্ষায়', bn(apps.filter(a => st(a) === 'জমা').length), 'alert')}${kpiCard('অনুমোদিত', bn(approved.length), 'check')}${pays.length ? kpiCard('আজকের আদায়', taka(todayPay) + ' টাকা', 'money') : ''}${pays.length ? kpiCard('মোট বকেয়া (' + bn(dueCount) + ' জন)', taka(dueTotal) + ' টাকা', 'alert', dueTotal > 0) : ''}</div>`;
+  h += `<div class="dcharts"><div class="dcard"><h3>গত ৭ দিনের আবেদন</h3>${barSVG(last7(apps))}</div><div class="dcard"><h3>বিভাগ অনুযায়ী শিক্ষার্থী</h3>${donutSVG(apps)}</div></div>`;
+  const acts = dashRecent(apps, cPays);
+  if (acts.length) h += `<div class="dcard"><h3>সাম্প্রতিক কার্যক্রম</h3><div class="dact">${acts.map(x => `<div class="ar"><span>${H(x.txt)}</span><small>${H(x.sub)}</small></div>`).join('')}</div></div>`;
   if (role === 'admin' || role === 'admission') h += appSection(apps);
-  if (role !== 'admission') h += await examSection(exams, apps);
+  if (role !== 'admission' && role !== 'accountant') h += await examSection(exams, apps);
   if (role === 'admin') h += `<div class="dsec"><h3>ব্যবহারকারী</h3><div class="dg">${Object.keys(ROLES).filter(r => r !== 'student').map(r => card(ROLES[r], bn(users.filter(u => u.role === r && u.active).length))).join('')}</div></div>`;
   box.innerHTML = h;
+  box.onclick = e => { const v = e.target.dataset.dgo; if (v) showView(v); };
   const sel = $('dEx'); if (sel) sel.onchange = () => { dashEx = +sel.value; renderDash(); };
 }
 $('viewDash').onclick = () => showView('dash');
 
-// ---------- ফন্ট ----------
-(function () {
-  let f = 'nikosh'; try { f = localStorage.getItem('kc_font') || 'nikosh'; } catch (e) {}
-  const set = v => { document.documentElement.dataset.font = v; $('fontSel').value = v; try { localStorage.setItem('kc_font', v); } catch (e) {} };
-  $('fontSel').onchange = e => set(e.target.value); set(f);
-})();
+// ---------- হিসাব ----------
+const ACC = { tab: 'collect', year: '', apps: [], plans: [], pays: [], reqs: [], appId: null, q: '', dept: 'all', head: 'all', mode: 'all', from: '', to: '' };
+const FEE_KINDS = { admission: 'ভর্তি ফি', session: 'সেশন ফি', monthly: 'মাসিক ফি', other: 'অন্যান্য ফি' };
+const num = v => +String(toEn(v)).replace(/[^0-9.\-]/g, '') || 0;
+const taka = v => { const n = Math.round((+v || 0) * 100) / 100; return bn(n.toLocaleString('en-US', { maximumFractionDigits: 2 })); };
+const nameOf = a => (a.fields || {}).nameBn || (a.fields || {}).nameEn || '—';
+const accSort = (a, b) => (+toEn((a.fields || {}).roll) || 0) - (+toEn((b.fields || {}).roll) || 0) || String((a.fields || {}).formNo).localeCompare(String((b.fields || {}).formNo));
+const accYearOf = () => ACC.year || ((toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0]);
+
+const BN_ONES = ['শূন্য', 'এক', 'দুই', 'তিন', 'চার', 'পাঁচ', 'ছয়', 'সাত', 'আট', 'নয়', 'দশ', 'এগারো', 'বারো', 'তেরো', 'চৌদ্দ', 'পনেরো', 'ষোলো', 'সতেরো', 'আঠারো', 'উনিশ'];
+const BN_TENS = ['', '', 'বিশ', 'ত্রিশ', 'চল্লিশ', 'পঞ্চাশ', 'ষাট', 'সত্তর', 'আশি', 'নব্বই'];
+const BN_ODD = { 21: 'একুশ', 22: 'বাইশ', 23: 'তেইশ', 24: 'চব্বিশ', 25: 'পঁচিশ', 26: 'ছাব্বিশ', 27: 'সাতাশ', 28: 'আটাশ', 29: 'ঊনত্রিশ', 31: 'একত্রিশ', 32: 'বত্রিশ', 33: 'তেত্রিশ', 34: 'চৌত্রিশ', 35: 'পঁয়ত্রিশ', 36: 'ছত্রিশ', 37: 'সাঁইত্রিশ', 38: 'আটত্রিশ', 39: 'ঊনচল্লিশ', 41: 'একচল্লিশ', 42: 'বিয়াল্লিশ', 43: 'তেতাল্লিশ', 44: 'চুয়াল্লিশ', 45: 'পঁয়তাল্লিশ', 46: 'ছেচল্লিশ', 47: 'সাতচল্লিশ', 48: 'আটচল্লিশ', 49: 'ঊনপঞ্চাশ', 51: 'একান্ন', 52: 'বায়ান্ন', 53: 'তিপ্পান্ন', 54: 'চুয়ান্ন', 55: 'পঞ্চান্ন', 56: 'ছাপ্পান্ন', 57: 'সাতান্ন', 58: 'আটান্ন', 59: 'ঊনষাট', 61: 'একষট্টি', 62: 'বাষট্টি', 63: 'তেষট্টি', 64: 'চৌষট্টি', 65: 'পঁয়ষট্টি', 66: 'ছেষট্টি', 67: 'সাতষট্টি', 68: 'আটষট্টি', 69: 'ঊনসত্তর', 71: 'একাত্তর', 72: 'বাহাত্তর', 73: 'তিয়াত্তর', 74: 'চুয়াত্তর', 75: 'পঁচাত্তর', 76: 'ছিয়াত্তর', 77: 'সাতাত্তর', 78: 'আটাত্তর', 79: 'ঊনআশি', 81: 'একাশি', 82: 'বিরাশি', 83: 'তিরাশি', 84: 'চুরাশি', 85: 'পঁচাশি', 86: 'ছিয়াশি', 87: 'সাতাশি', 88: 'আটাশি', 89: 'ঊননব্বই', 91: 'একানব্বই', 92: 'বিরানব্বই', 93: 'তিরানব্বই', 94: 'চুরানব্বই', 95: 'পঁচানব্বই', 96: 'ছিয়ানব্বই', 97: 'সাতানব্বই', 98: 'আটানব্বই', 99: 'নিরানব্বই' };
+function bnBelow100(n) {
+  n = Math.round(n) % 100;
+  if (n < 20) return BN_ONES[n];
+  if (BN_ODD[n]) return BN_ODD[n];
+  const t = Math.floor(n / 10), u = n % 10;
+  return u ? BN_TENS[t] + ' ' + BN_ONES[u] : BN_TENS[t];
+}
+function takaWords(amount) {
+  let paisa = Math.round((+amount || 0) * 100), takaPart = Math.floor(paisa / 100), rest = takaPart, parts = [];
+  paisa = paisa % 100;
+  [[10000000, 'কোটি'], [100000, 'লক্ষ'], [1000, 'হাজার'], [100, 'শত']].forEach(([v, name]) => {
+    if (rest >= v) { parts.push(bnBelow100(Math.floor(rest / v)) + ' ' + name); rest %= v; }
+  });
+  if (rest) parts.push(bnBelow100(rest));
+  if (!parts.length) parts.push('শূন্য');
+  let out = parts.join(' ');
+  if (paisa) out += ' ' + bnBelow100(paisa) + ' পয়সা';
+  return bn(out) + ' টাকা মাত্র';
+}
+
+function accPlan(appId) { return ACC.plans.find(p => p.appId === appId && String(p.year) === String(accYearOf())) || null; }
+function expectedOf(pl) {
+  if (!pl) return null;
+  return num(pl.admission) + num(pl.session) + num(pl.monthly) * (pl.months || []).length + (pl.extras || []).reduce((s, x) => s + num(x.amount), 0);
+}
+function accPays(appId) { return ACC.pays.filter(p => p.appId === appId && String(p.year) === String(accYearOf())); }
+function paidOf(appId) { return accPays(appId).filter(p => !p.void).reduce((s, p) => s + num(p.total), 0); }
+function paidMonthsOf(appId) {
+  const o = {};
+  accPays(appId).filter(p => !p.void).forEach(p => (p.items || []).forEach(i => { if (i.kind === 'monthly' && i.month) o[i.month] = true; }));
+  return o;
+}
+function accMatch(a) {
+  if (!ACC.q.trim()) return true;
+  const t = toEn(ACC.q.trim().toLowerCase());
+  return toEn(JSON.stringify([a.fields.nameBn, a.fields.nameEn, a.fields.roll, a.fields.stuId, a.fields.formNo, a.fields.mobile, a.fields.fatherMobile, a.fields.gMobile, DEPTS[a.dept].name, CLASSES[clsOf(a)]])).toLowerCase().includes(t);
+}
+function accApproved() { return ACC.apps.filter(okApp).sort(accSort); }
+
+function accPicker(prefix) {
+  const list = accApproved().filter(accMatch);
+  return `<div class="tools noprint">
+    <input type="search" id="${prefix}Q" placeholder="নাম, রোল, স্টুডেন্ট আইডি বা ফরম নং..." value="${H(ACC.q)}">
+    <select id="${prefix}Sel" class="dsel">
+      <option value="">— শিক্ষার্থী বাছুন (${bn(accApproved().length)} জন) —</option>
+      ${list.map(a => `<option value="${a.id}" ${a.id === ACC.appId ? 'selected' : ''}>${H(nameOf(a))} — রোল ${H((a.fields || {}).roll || '—')} — ${H((a.fields || {}).stuId || '')}</option>`).join('')}
+    </select>
+  </div>`;
+}
+function wirePicker(prefix, rerender) {
+  const inp = $(prefix + 'Q'), sel = $(prefix + 'Sel');
+  inp.oninput = e => { ACC.q = e.target.value; rerender(); const n = $(prefix + 'Q'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); };
+  sel.onchange = e => { ACC.appId = e.target.value ? +e.target.value : null; rerender(); };
+}
+
+async function openAccounts() {
+  try { ACC.apps = await DB.all(); ACC.plans = await DB.feeplans(); ACC.pays = await DB.payments(); ACC.reqs = await DB.feereqs(); }
+  catch (e) { $('accBody').textContent = 'এই ব্রাউজারে হিসাব চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।'; return; }
+  const fy = (toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
+  const years = new Set([fy]);
+  ACC.pays.forEach(p => p.year && years.add(String(p.year)));
+  ACC.plans.forEach(p => p.year && years.add(String(p.year)));
+  if (!ACC.year || !years.has(String(ACC.year))) ACC.year = fy;
+  const sel = $('accYear');
+  sel.innerHTML = [...years].sort((a, b) => b - a).map(y => `<option value="${y}">${bn(y)}</option>`).join('');
+  sel.value = ACC.year;
+  renderAcc();
+}
+function renderAcc() {
+  const allowed = ['collect', 'ledger'];
+  if (canAcc('setup')) allowed.push('setup');
+  if (canAcc('report')) allowed.push('report');
+  if (ME && ['admin', 'accountant', 'admission'].includes(ME.role)) allowed.push('req');
+  if (!allowed.includes(ACC.tab)) ACC.tab = 'collect';
+  document.querySelectorAll('[data-acc]').forEach(b => {
+    b.hidden = !allowed.includes(b.dataset.acc);
+    b.setAttribute('aria-pressed', b.dataset.acc === ACC.tab);
+  });
+  const body = $('accBody');
+  if (ACC.tab === 'collect') renderCollect(body);
+  else if (ACC.tab === 'ledger') renderLedger(body);
+  else if (ACC.tab === 'setup') renderFeeSetup(body);
+  else if (ACC.tab === 'req') renderRequests(body);
+  else renderReport(body);
+}
+document.querySelectorAll('[data-acc]').forEach(b => b.onclick = () => { ACC.tab = b.dataset.acc; renderAcc(); });
+$('viewAcc').onclick = () => showView('accounts');
+$('accYear').onchange = e => { ACC.year = e.target.value; ACC.appId = null; renderAcc(); };
+$('accBody').addEventListener('click', e => {
+  if (e.target.dataset.prt) printReceipts([+e.target.dataset.prt]);
+  if (e.target.dataset.void) voidPayment(+e.target.dataset.void);
+  if (e.target.dataset.areq) approveReq(+e.target.dataset.areq);
+  if (e.target.dataset.rreq) rejectReq(+e.target.dataset.rreq);
+});
+
+function renderCollect(body) {
+  const sel = ACC.appId ? accApproved().find(a => a.id === ACC.appId) : null;
+  body.innerHTML = accPicker('col') + (sel ? collectForm(sel) : '<p class="warn">আদায় করতে শিক্ষার্থী বাছুন। নাম, রোল, স্টুডেন্ট আইডি বা ফরম নং দিয়ে খুঁজুন।</p>');
+  wirePicker('col', () => renderCollect(body));
+  if (sel) wireCollect(sel);
+}
+function collectForm(a) {
+  const pl = accPlan(a.id), exp = expectedOf(pl), paid = paidOf(a.id), due = exp == null ? null : exp - paid;
+  const pm = paidMonthsOf(a.id);
+  const months = pl ? (pl.months || []) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const rate = pl ? num(pl.monthly) : 0;
+  return `<div class="acc-stu"><div class="sg">
+      <div><b>শিক্ষার্থী</b>${H(nameOf(a))}</div>
+      <div><b>স্টুডেন্ট আইডি</b>${H((a.fields || {}).stuId || '—')}</div>
+      <div><b>রোল</b>${H((a.fields || {}).roll || '—')}</div>
+      <div><b>শ্রেণি ও বিভাগ</b>${CLASSES[clsOf(a)]}, ${DEPTS[a.dept].name}</div>
+      <div><b>নির্ধারিত</b>${exp == null ? '—' : taka(exp) + ' টাকা'}</div>
+      <div><b>আদায়</b>${taka(paid)} টাকা</div>
+      <div><b>বাকি</b>${due == null ? '—' : taka(due) + ' টাকা'}</div>
+    </div>${pl ? '' : '<p class="acc-note" style="margin:6px 0 0">এই শিক্ষার্থীর ফি সেটআপ নেই — শুধু আদায়ের হিসাব থাকবে। চাইলে "ফি সেটআপ" ট্যাব থেকে নির্ধারিত ফি দিন।</p>'}</div>
+    <div class="acc-box"><h4>টাকা আদায়</h4>
+      <div class="acc-head"><label><input type="checkbox" id="fh_admission"> ভর্তি ফি</label><span class="acc-note">নির্ধারিত: ${pl ? taka(pl.admission) + ' টাকা' : '—'}</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_admission" value="${pl ? num(pl.admission) || '' : ''}" placeholder="টাকা"></span></div>
+      <div class="acc-head"><label><input type="checkbox" id="fh_session"> সেশন ফি</label><span class="acc-note">নির্ধারিত: ${pl ? taka(pl.session) + ' টাকা' : '—'}</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_session" value="${pl ? num(pl.session) || '' : ''}" placeholder="টাকা"></span></div>
+      <div class="acc-head"><label><input type="checkbox" id="fh_monthly"> মাসিক ফি</label><span class="acc-note">প্রতি মাসের হার</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_monthly" value="${rate || ''}" placeholder="টাকা"></span></div>
+      <div class="months" id="accMonths">${months.map(m => { const pd = pm[m]; return `<label class="${pd ? 'paid' : ''}"><input type="checkbox" data-month="${m}" ${pd ? 'disabled' : ''}> ${BNM[m - 1]}${pd ? ' (পরিশোধিত)' : ''}</label>`; }).join('')}</div>
+      <div class="acc-head"><label><input type="checkbox" id="fh_other"> অন্যান্য ফি</label><input type="text" id="amt_other_label" placeholder="খাতের বিবরণ"><span class="amt"><input type="number" min="0" step="0.01" id="amt_other" placeholder="টাকা"></span></div>
+    </div>
+    <div class="acc-grid">
+      <label class="f"><span>তারিখ</span><input type="date" id="accDate" value="${todayISO()}"></label>
+      <label class="f"><span>ছাড় (টাকা)</span><input type="number" min="0" step="0.01" id="accDiscount" value="0"></label>
+      <label class="f"><span>ধরন</span><select id="accMode"><option>নগদ</option><option>ব্যাংক</option></select></label>
+      <label class="f"><span>মন্তব্য</span><input type="text" id="accNote"></label>
+    </div>
+    <div class="acc-grid" id="accBank" hidden>
+      <label class="f"><span>ব্যাংকের নাম</span><input type="text" id="accBankName"></label>
+      <label class="f"><span>শাখা</span><input type="text" id="accBankBranch"></label>
+      <label class="f"><span>জমার রসিদ / স্লিপ নং</span><input type="text" id="accBankSlip"></label>
+    </div>
+    <div class="acc-total"><span>মোট আদায়</span><strong id="accSum">০ টাকা</strong></div>
+    <div class="acc-note" id="accRno"></div>
+    <div class="tools noprint"><button type="button" id="accSave" class="go">সংরক্ষণ ও ৩ কপি রসিদ</button>${canAcc('setup') ? '<button type="button" id="accSetupBtn">ফি সেটআপ</button>' : ''}</div>
+    <p class="acc-note">সংরক্ষণ করলেই শিক্ষার্থী, অফিস ও ব্যাংক — তিনটি কপি একসাথে A4 ল্যান্ডস্কেপে তৈরি হবে।</p>`;
+}
+function collectItems() {
+  const items = [];
+  const add = (kind, label, amount, month) => { amount = num(amount); if (amount > 0) items.push({ kind, label, amount, month }); };
+  if ($('fh_admission') && $('fh_admission').checked) add('admission', 'ভর্তি ফি', $('amt_admission').value);
+  if ($('fh_session') && $('fh_session').checked) add('session', 'সেশন ফি', $('amt_session').value);
+  if ($('fh_monthly') && $('fh_monthly').checked) {
+    const rate = num($('amt_monthly').value);
+    document.querySelectorAll('#accMonths input:checked').forEach(i => { const m = +i.dataset.month; add('monthly', 'মাসিক ফি – ' + BNM[m - 1] + ' ' + bn(accYearOf()), rate, m); });
+  }
+  if ($('fh_other') && $('fh_other').checked) {
+    const lab = ($('amt_other_label').value || '').trim() || 'অন্যান্য ফি';
+    add('other', lab, $('amt_other').value);
+  }
+  return items;
+}
+function accSumNow() {
+  const items = collectItems(), disc = num($('accDiscount').value);
+  const total = Math.max(0, items.reduce((s, i) => s + i.amount, 0) - disc);
+  $('accSum').textContent = taka(total) + ' টাকা';
+  return total;
+}
+function wireCollect(a) {
+  const recalc = () => accSumNow();
+  [['fh_admission', 'amt_admission'], ['fh_session', 'amt_session'], ['fh_monthly', 'amt_monthly'], ['fh_other', 'amt_other']].forEach(([c, m]) => {
+    const cb = $(c), am = $(m);
+    cb.onchange = () => { if (!cb.checked && c !== 'fh_monthly') am.value = ''; recalc(); };
+    am.oninput = () => { if (num(am.value) > 0) cb.checked = true; recalc(); };
+  });
+  document.querySelectorAll('#accMonths input').forEach(i => i.onchange = () => { if (i.checked) $('fh_monthly').checked = true; recalc(); });
+  $('accDiscount').oninput = recalc;
+  const showRno = async () => {
+    const el = $('accRno'); if (!el) return;
+    const d = $('accDate').value || todayISO();
+    const y = (d.match(/^(\d{4})/) || [accYearOf()])[1];
+    let m = null; try { m = await DB.meta('rcp:' + y); } catch (e) {}
+    if (el !== $('accRno')) return;
+    el.innerHTML = 'পরবর্তী রসিদ নং (আনুমানিক): <b>R-' + y + '-' + String((((m || {}).v) || 0) + 1).padStart(4, '0') + '</b> — সংরক্ষণের সময় চূড়ান্ত হবে।';
+  };
+  $('accDate').onchange = showRno;
+  $('accMode').onchange = e => { $('accBank').hidden = e.target.value !== 'ব্যাংক'; };
+  $('accSave').onclick = () => savePayment(a);
+  if ($('accSetupBtn')) $('accSetupBtn').onclick = () => { ACC.tab = 'setup'; renderAcc(); };
+  recalc(); showRno();
+}
+async function savePayment(a) {
+  const items = collectItems();
+  if (!items.length) return toast('অন্তত একটি ফি খাত বাছাই করে টাকা লিখুন');
+  const disc = num($('accDiscount').value), sub = items.reduce((s, i) => s + i.amount, 0);
+  if (disc < 0 || disc > sub) return toast('ছাড়ের পরিমাণ ঠিক নয়');
+  const total = sub - disc;
+  if (total <= 0) return toast('মোট আদায় শূন্য হতে পারে না');
+  const date = $('accDate').value || todayISO();
+  const year = (date.match(/^(\d{4})/) || [accYearOf()])[1];
+  const mode = $('accMode').value;
+  const bank = mode === 'ব্যাংক' ? { name: $('accBankName').value.trim(), branch: $('accBankBranch').value.trim(), slip: $('accBankSlip').value.trim() } : null;
+  const seq = await DB.nextSeq(year);
+  const rec = {
+    rno: 'R-' + year + '-' + String(seq).padStart(4, '0'), year, appId: a.id,
+    snap: { name: nameOf(a), roll: (a.fields || {}).roll, stuId: (a.fields || {}).stuId, formNo: (a.fields || {}).formNo, cls: CLASSES[clsOf(a)], dept: DEPTS[a.dept].name, deptCode: a.dept, session: (a.fields || {}).session },
+    date, mode, bank, items, discount: disc, total, note: $('accNote').value.trim(), by: ME.name, ts: Date.now()
+  };
+  try {
+    rec.id = await DB.putPay(rec);
+    ACC.pays.push(rec);
+    if (!ACC.year || String(ACC.year) !== String(year)) ACC.year = year;
+    toast('রসিদ তৈরি হয়েছে: ' + rec.rno);
+    printReceipts([rec.id]);
+    renderAcc();
+  } catch (e) { toast('সংরক্ষণ করা গেল না'); }
+}
+async function voidPayment(id) {
+  if (!canAcc('void')) return toast('রসিদ বাতিলের অনুমতি নেই');
+  const p = ACC.pays.find(x => x.id === id);
+  if (!p || p.void) return;
+  if (!confirm('রসিদ ' + p.rno + ' বাতিল করবেন? রসিদ নম্বরটি আর ব্যবহার হবে না।')) return;
+  const reason = prompt('বাতিলের কারণ (ঐচ্ছিক):', '');
+  if (reason === null) return;
+  const rec = { ...p, void: true, voidBy: ME.name, voidAt: new Date().toLocaleString('bn-BD'), voidReason: reason };
+  await DB.putPay(rec);
+  ACC.pays = ACC.pays.map(x => x.id === id ? rec : x);
+  toast('রসিদ বাতিল হয়েছে'); renderAcc();
+}
+
+function extraRow(x = {}) {
+  return `<div class="acc-head sprow"><input type="text" class="spLabel" placeholder="খাতের নাম" value="${H(x.label || '')}"><span class="amt"><input type="number" min="0" step="0.01" class="spAmt" placeholder="টাকা" value="${num(x.amount) || ''}"></span><button type="button" class="spX">মুছুন</button></div>`;
+}
+function renderFeeSetup(body) {
+  if (!canAcc('setup')) { body.innerHTML = '<p class="warn">ফি সেটআপের অনুমতি নেই। সুপার অ্যাডমিন সেটিংস থেকে অনুমতি দিতে পারেন।</p>'; return; }
+  const sel = ACC.appId ? accApproved().find(a => a.id === ACC.appId) : null;
+  body.innerHTML = accPicker('set') + (sel ? setupForm(sel) : '<p class="warn">ফি সেটআপ করতে শিক্ষার্থী বাছুন।</p>');
+  wirePicker('set', () => renderFeeSetup(body));
+  if (sel) wireSetup(sel);
+}
+function setupForm(a) {
+  const pl = accPlan(a.id);
+  const months = pl ? (pl.months || []) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  return `<div class="acc-stu"><div class="sg">
+      <div><b>শিক্ষার্থী</b>${H(nameOf(a))}</div><div><b>স্টুডেন্ট আইডি</b>${H((a.fields || {}).stuId || '—')}</div>
+      <div><b>শ্রেণি ও বিভাগ</b>${CLASSES[clsOf(a)]}, ${DEPTS[a.dept].name}</div><div><b>হিসাবের বছর</b>${bn(accYearOf())}</div>
+    </div></div>
+    <div class="acc-box"><h4>${bn(accYearOf())} সালের ফি নির্ধারণ</h4>
+      <div class="acc-grid">
+        <label class="f"><span>ভর্তি ফি</span><input type="number" min="0" step="0.01" id="spAdmission" value="${pl ? num(pl.admission) || '' : ''}"></label>
+        <label class="f"><span>সেশন ফি</span><input type="number" min="0" step="0.01" id="spSession" value="${pl ? num(pl.session) || '' : ''}"></label>
+        <label class="f"><span>মাসিক ফি (প্রতি মাস)</span><input type="number" min="0" step="0.01" id="spMonthly" value="${pl ? num(pl.monthly) || '' : ''}"></label>
+      </div>
+      <div class="sub">কোন কোন মাসের ফি ধার্য হবে</div>
+      <div class="months">${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(m => `<label><input type="checkbox" data-sm="${m}" ${months.includes(m) ? 'checked' : ''}> ${BNM[m - 1]}</label>`).join('')}</div>
+      <div class="sub">অতিরিক্ত খাত (ঐচ্ছিক)</div>
+      <div id="spExtras">${(pl ? pl.extras || [] : []).map(extraRow).join('')}</div>
+      <div class="tools noprint"><button type="button" id="spAdd">+ খাত যোগ করুন</button><button type="button" id="spSave" class="go">সংরক্ষণ</button>${pl ? '<button type="button" id="spDel" class="dl">সেটআপ মুছুন</button>' : ''}</div>
+    </div>
+    <div class="acc-box"><h4>একসাথে অনেক শিক্ষার্থীর জন্য</h4>
+      <div class="tools noprint"><select id="spDept" class="dsel">${Object.keys(DEPTS).map(d => `<option value="${d}">${DEPTS[d].name}</option>`).join('')}</select><button type="button" id="spApply" class="go">এই বিভাগের সব অনুমোদিত শিক্ষার্থীতে প্রয়োগ</button></div>
+      <p class="acc-note">এখানে দেওয়া ফি ও মাস ওই বিভাগের সব অনুমোদিত শিক্ষার্থীর সেটআপে লেখা হবে।</p>
+    </div>`;
+}
+function setupValues() {
+  const months = [...document.querySelectorAll('#accBody input[data-sm]:checked')].map(i => +i.dataset.sm);
+  const extras = [...document.querySelectorAll('#accBody .sprow')].map(r => ({ label: r.querySelector('.spLabel').value.trim(), amount: num(r.querySelector('.spAmt').value) })).filter(x => x.label && x.amount > 0);
+  return { admission: num($('spAdmission').value), session: num($('spSession').value), monthly: num($('spMonthly').value), months, extras };
+}
+function wireSetup(a) {
+  const addX = () => {
+    const w = document.createElement('div'); w.innerHTML = extraRow({});
+    const row = w.firstElementChild; $('spExtras').appendChild(row); row.querySelector('.spX').onclick = () => row.remove();
+  };
+  document.querySelectorAll('#accBody .spX').forEach(b => b.onclick = () => b.closest('.sprow').remove());
+  $('spAdd').onclick = addX;
+  $('spSave').onclick = async () => {
+    const v = setupValues();
+    const rec = { key: a.id + ':' + accYearOf(), appId: a.id, year: accYearOf(), ...v, updatedAt: new Date().toLocaleString('bn-BD'), by: ME.name };
+    await DB.putFeeplan(rec);
+    ACC.plans = ACC.plans.filter(p => p.key !== rec.key).concat([rec]);
+    toast('ফি সেটআপ সংরক্ষিত হয়েছে'); renderAcc();
+  };
+  if ($('spDel')) $('spDel').onclick = async () => {
+    if (!confirm('এই শিক্ষার্থীর ' + bn(accYearOf()) + ' সালের ফি সেটআপ মুছে যাবে। মুছবেন?')) return;
+    await DB.delFeeplan(a.id + ':' + accYearOf());
+    ACC.plans = ACC.plans.filter(p => p.key !== a.id + ':' + accYearOf());
+    toast('ফি সেটআপ মুছে ফেলা হয়েছে'); renderAcc();
+  };
+  $('spApply').onclick = async () => {
+    const dep = $('spDept').value, v = setupValues();
+    const list = ACC.apps.filter(x => x.dept === dep && okApp(x));
+    if (!list.length) return toast('এই বিভাগে অনুমোদিত কোনো শিক্ষার্থী নেই');
+    if (!confirm(DEPTS[dep].name + ' বিভাগের ' + bn(list.length) + ' জনের ফি সেটআপে এই তথ্য লেখা হবে। চালিয়ে যাবেন?')) return;
+    for (const x of list) {
+      const rec = { key: x.id + ':' + accYearOf(), appId: x.id, year: accYearOf(), ...v, updatedAt: new Date().toLocaleString('bn-BD'), by: ME.name };
+      await DB.putFeeplan(rec);
+      ACC.plans = ACC.plans.filter(p => p.key !== rec.key).concat([rec]);
+    }
+    toast(bn(list.length) + ' জনের ফি সেটআপ হয়েছে'); renderAcc();
+  };
+}
+
+function payRows(pays) {
+  if (!pays.length) return '<span class="mini">এখনো কোনো রসিদ নেই।</span>';
+  return `<table class="acc-table"><thead><tr><th>রসিদ নং</th><th>তারিখ</th><th>খাত</th><th class="r">টাকা</th><th>ধরন</th><th></th></tr></thead><tbody>${pays.map(p => `<tr class="${p.void ? 'void' : ''}"><td>${H(p.rno)}</td><td>${fmtDate(p.date)}</td><td>${H((p.items || []).map(i => i.label).join(', '))}</td><td class="r">${taka(p.total)}</td><td>${H(p.mode)}${p.void ? ' • বাতিল' : ''}</td><td style="white-space:nowrap"><button type="button" data-prt="${p.id}">প্রিন্ট</button>${p.void || !canAcc('void') ? '' : ` <button type="button" class="del" data-void="${p.id}">বাতিল</button>`}</td></tr>`).join('')}</tbody></table>`;
+}
+function renderLedger(body) {
+  const st = accApproved();
+  body.innerHTML = `<div class="tools noprint"><span class="stat">শিক্ষার্থী: ${bn(st.length)} জন • বছর: ${bn(accYearOf())}</span></div>
+    <div class="scroll"><table class="acc-table"><thead><tr><th>রোল</th><th>নাম</th><th>স্টুডেন্ট আইডি</th><th>বিভাগ</th><th>শ্রেণি</th><th class="r">নির্ধারিত</th><th class="r">আদায়</th><th class="r">বাকি</th><th></th></tr></thead><tbody>${st.length ? st.map(a => {
+      const pl = accPlan(a.id), exp = expectedOf(pl), paid = paidOf(a.id), due = exp == null ? null : exp - paid;
+      const pays = accPays(a.id).sort((x, y) => (y.ts || 0) - (x.ts || 0));
+      return `<tr><td>${H((a.fields || {}).roll || '')}</td><td>${H(nameOf(a))}</td><td>${H((a.fields || {}).stuId || '')}</td><td>${DEPTS[a.dept].name}</td><td>${CLASSES[clsOf(a)]}</td><td class="r">${exp == null ? '—' : taka(exp)}</td><td class="r">${taka(paid)}</td><td class="r ${due > 0 ? 'bad' : ''}">${due == null ? '—' : taka(due)}</td><td><button type="button" data-ldet="${a.id}">রসিদ (${bn(pays.length)})</button></td></tr>
+        <tr class="dets" data-ldets="${a.id}" hidden><td colspan="9">${payRows(pays)}</td></tr>`;
+    }).join('') : '<tr><td colspan="9">কোনো অনুমোদিত শিক্ষার্থী নেই।</td></tr>'}</tbody></table></div>
+    <p class="warn">রসিদ কখনো মুছে ফেলা যায় না; ভুল হলে "বাতিল" করলে সেটি হিসাব থেকে বাদ যাবে, কিন্তু নম্বরটি আর ব্যবহার হবে না।</p>`;
+  body.querySelectorAll('[data-ldet]').forEach(b => b.onclick = () => { const tr = body.querySelector(`[data-ldets="${b.dataset.ldet}"]`); tr.hidden = !tr.hidden; });
+}
+
+// ---------- শিক্ষার্থীর ফি অনুরোধ ----------
+const REQ_STATUS = { pending: 'অপেক্ষমাণ', approved: 'অনুমোদিত', rejected: 'বাতিল' };
+function reqConflict(r) {
+  const pays = ACC.pays.filter(p => p.appId === r.appId && String(p.year) === String(r.year) && !p.void);
+  const paidMonths = {}; let adm = false, ses = false; const labels = new Set();
+  pays.forEach(p => (p.items || []).forEach(i => {
+    if (i.kind === 'monthly') paidMonths[i.month] = true;
+    if (i.kind === 'admission') adm = true;
+    if (i.kind === 'session') ses = true;
+    labels.add(i.label);
+  }));
+  const bad = (r.items || []).find(i => (i.kind === 'monthly' && paidMonths[i.month]) || (i.kind === 'admission' && adm) || (i.kind === 'session' && ses) || (i.kind === 'other' && labels.has(i.label)));
+  return bad ? bad.label : '';
+}
+function renderRequests(body) {
+  const list = ACC.reqs.filter(r => String(r.year) === String(accYearOf())).sort((a, b) => (a.status === 'pending' ? 0 : 1) - (b.status === 'pending' ? 0 : 1) || (b.ts || 0) - (a.ts || 0));
+  const pend = list.filter(r => r.status === 'pending');
+  body.innerHTML = `<div class="acc-kpis">
+      <div class="acc-kpi"><b>অপেক্ষমাণ অনুরোধ</b><strong>${bn(pend.length)}</strong></div>
+      <div class="acc-kpi ${pend.length ? 'warn' : ''}"><b>অপেক্ষমাণ টাকা</b><strong>${taka(pend.reduce((s, r) => s + num(r.total), 0))} টাকা</strong></div>
+      <div class="acc-kpi"><b>মোট অনুরোধ</b><strong>${bn(list.length)}</strong></div>
+    </div>
+    <div class="scroll"><table class="acc-table"><thead><tr><th>শিক্ষার্থী</th><th>তারিখ</th><th>খাত</th><th class="r">টাকা</th><th>মাধ্যম</th><th>অবস্থা</th><th></th></tr></thead><tbody>${list.length ? list.map(r => `<tr>
+      <td>${H((r.snap || {}).name || '')}<br><span class="mini">${H((r.snap || {}).stuId || '')} • রোল ${H((r.snap || {}).roll || '—')}</span></td>
+      <td>${fmtDate(r.date)}</td>
+      <td>${H((r.items || []).map(i => i.label).join(', '))}</td>
+      <td class="r">${taka(r.total)}</td>
+      <td>${H(r.mode)}${r.trx ? '<br><span class="mini">' + H(r.trx) + '</span>' : ''}</td>
+      <td><span class="pstat ${r.status}">${REQ_STATUS[r.status] || r.status}</span>${r.rejectReason ? '<br><span class="mini">' + H(r.rejectReason) + '</span>' : ''}</td>
+      <td style="white-space:nowrap">${r.status === 'pending' && canAcc('approve') ? `<button type="button" class="go" data-areq="${r.id}">অনুমোদন</button> <button type="button" class="del" data-rreq="${r.id}">বাতিল</button>` : ''}${r.status === 'approved' && r.paymentId ? ` <button type="button" data-prt="${r.paymentId}">রসিদ</button>` : ''}</td>
+    </tr>`).join('') : '<tr><td colspan="7">এই বছরে কোনো ফি অনুরোধ নেই।</td></tr>'}</tbody></table></div>
+    <p class="warn">শিক্ষার্থী মোবাইল ব্যাংক/ব্যাংক দিয়ে ফি পাঠিয়ে পোর্টাল থেকে অনুরোধ জমা দেয়। অনুমোদন করলে তিন কপি রসিদ তৈরি হবে; টাকা হাতে পাওয়ার পর যাচাই করে অনুমোদন দিন।</p>`;
+}
+async function approveReq(id) {
+  if (!canAcc('approve')) return toast('আপনার অনুমোদনের অনুমতি নেই');
+  const r = ACC.reqs.find(x => x.id === id);
+  if (!r || r.status !== 'pending') return;
+  const a = ACC.apps.find(x => x.id === r.appId);
+  if (!a) return toast('শিক্ষার্থীর আবেদন আর পাওয়া যাচ্ছে না');
+  if (!(r.items || []).length || num(r.total) <= 0) return toast('অনুরোধে ফি খাত নেই');
+  const bad = reqConflict(r);
+  if (bad) return toast('"' + bad + '" ইতিমধ্যে পরিশোধিত — অনুরোধটি বাতিল করুন');
+  if (!confirm(`${nameOf(a)} — ${taka(r.total)} টাকার ফি অনুরোধ অনুমোদন করবেন? তিন কপি রসিদ তৈরি হবে।`)) return;
+  const seq = await DB.nextSeq(r.year || accYearOf());
+  const rec = {
+    rno: 'R-' + (r.year || accYearOf()) + '-' + String(seq).padStart(4, '0'), year: r.year || accYearOf(), appId: r.appId,
+    snap: { name: nameOf(a), roll: (a.fields || {}).roll, stuId: (a.fields || {}).stuId, formNo: (a.fields || {}).formNo, cls: CLASSES[clsOf(a)], dept: DEPTS[a.dept].name, deptCode: a.dept, session: (a.fields || {}).session },
+    date: r.date || todayISO(), mode: r.mode || 'বিকাশ', bank: r.mode === 'ব্যাংক' ? { name: '', branch: '', slip: r.trx || '' } : null,
+    trx: r.trx || '', items: r.items, discount: 0, total: num(r.total), note: 'পোর্টাল ফি অনুরোধ #' + r.id + (r.note ? ' • ' + r.note : ''), by: ME.name, ts: Date.now(), reqId: r.id
+  };
+  try {
+    rec.id = await DB.putPay(rec);
+    const upd = { ...r, status: 'approved', paymentId: rec.id, reviewedBy: ME.name, reviewedAt: new Date().toLocaleString('bn-BD') };
+    await DB.putFeereq(upd);
+    ACC.pays.push(rec); ACC.reqs = ACC.reqs.map(x => x.id === id ? upd : x);
+    if (!ACC.year || String(ACC.year) !== String(rec.year)) ACC.year = rec.year;
+    toast('অনুমোদিত — রসিদ ' + rec.rno);
+    printReceipts([rec.id]);
+    renderAcc();
+  } catch (e) { toast('অনুরোধ অনুমোদন করা গেল না'); }
+}
+async function rejectReq(id) {
+  if (!canAcc('approve')) return toast('আপনার অনুমোদনের অনুমতি নেই');
+  const r = ACC.reqs.find(x => x.id === id);
+  if (!r || r.status !== 'pending') return;
+  const reason = prompt('অনুরোধ বাতিলের কারণ (ঐচ্ছিক):', '');
+  if (reason === null) return;
+  const upd = { ...r, status: 'rejected', rejectReason: reason.trim(), reviewedBy: ME.name, reviewedAt: new Date().toLocaleString('bn-BD') };
+  await DB.putFeereq(upd);
+  ACC.reqs = ACC.reqs.map(x => x.id === id ? upd : x);
+  toast('অনুরোধ বাতিল করা হয়েছে'); renderAcc();
+}
+function reportList() {
+  return ACC.pays.filter(p => String(p.year) === String(accYearOf())).filter(p => {
+    if (ACC.dept !== 'all' && ((p.snap || {}).deptCode || '') !== ACC.dept) return false;
+    if (ACC.head !== 'all' && !(p.items || []).some(i => i.kind === ACC.head)) return false;
+    if (ACC.mode !== 'all' && p.mode !== ACC.mode) return false;
+    if (ACC.from && (p.date || '') < ACC.from) return false;
+    if (ACC.to && (p.date || '') > ACC.to) return false;
+    return true;
+  }).sort((a, b) => (b.ts || 0) - (a.ts || 0));
+}
+function renderReport(body) {
+  const list = reportList(), valid = list.filter(p => !p.void);
+  const total = valid.reduce((s, p) => s + num(p.total), 0);
+  body.innerHTML = `<div class="tools noprint">
+      <select id="rpDept" class="dsel"><option value="all">সব বিভাগ</option>${Object.keys(DEPTS).map(d => `<option value="${d}" ${ACC.dept === d ? 'selected' : ''}>${DEPTS[d].name}</option>`).join('')}</select>
+      <select id="rpHead" class="dsel"><option value="all">সব খাত</option>${Object.keys(FEE_KINDS).map(k => `<option value="${k}" ${ACC.head === k ? 'selected' : ''}>${FEE_KINDS[k]}</option>`).join('')}</select>
+      <select id="rpMode" class="dsel"><option value="all">সব ধরন</option><option ${ACC.mode === 'নগদ' ? 'selected' : ''}>নগদ</option><option ${ACC.mode === 'ব্যাংক' ? 'selected' : ''}>ব্যাংক</option></select>
+      <label class="stat">শুরু <input type="date" id="rpFrom" class="dsel" value="${ACC.from}"></label>
+      <label class="stat">শেষ <input type="date" id="rpTo" class="dsel" value="${ACC.to}"></label>
+      <button type="button" id="rpCsv">Excel (CSV)</button>
+      <button type="button" id="rpPrint" class="go">সব রসিদ প্রিন্ট</button>
+    </div>
+    <div class="acc-kpis"><div class="acc-kpi"><b>রসিদ</b><strong>${bn(list.length)}</strong></div><div class="acc-kpi"><b>মোট আদায়</b><strong>${taka(total)} টাকা</strong></div><div class="acc-kpi ${list.some(p => p.void) ? 'warn' : ''}"><b>বাতিল</b><strong>${bn(list.filter(p => p.void).length)}</strong></div></div>
+    <div class="scroll"><table class="acc-table"><thead><tr><th>রসিদ নং</th><th>তারিখ</th><th>শিক্ষার্থী</th><th>বিভাগ</th><th>খাত</th><th class="r">আদায়</th><th>ধরন</th><th></th></tr></thead><tbody>${list.length ? list.map(p => `<tr class="${p.void ? 'void' : ''}"><td>${H(p.rno)}</td><td>${fmtDate(p.date)}</td><td>${H((p.snap || {}).name || '')}<br><span class="mini">${H((p.snap || {}).stuId || '')}</span></td><td>${H((p.snap || {}).dept || '')}</td><td>${H((p.items || []).map(i => i.label).join(', '))}</td><td class="r">${taka(p.total)}</td><td>${H(p.mode)}${p.void ? ' • বাতিল' : ''}</td><td style="white-space:nowrap"><button type="button" data-prt="${p.id}">প্রিন্ট</button>${p.void || !canAcc('void') ? '' : ` <button type="button" class="del" data-void="${p.id}">বাতিল</button>`}</td></tr>`).join('') : '<tr><td colspan="8">এই শর্তে কোনো রসিদ নেই।</td></tr>'}</tbody></table></div>`;
+  [['rpDept', 'dept'], ['rpHead', 'head'], ['rpMode', 'mode']].forEach(([id, k]) => {
+    $(id).onchange = e => { ACC[k] = e.target.value; renderReport(body); };
+  });
+  $('rpFrom').onchange = e => { ACC.from = e.target.value; renderReport(body); };
+  $('rpTo').onchange = e => { ACC.to = e.target.value; renderReport(body); };
+  $('rpCsv').onclick = accCsv;
+  $('rpPrint').onclick = () => {
+    const ids = valid.map(p => p.id);
+    if (!ids.length) return toast('প্রিন্ট করার রসিদ নেই');
+    printReceipts(ids);
+  };
+}
+function accCsv() {
+  const list = reportList();
+  if (!list.length) return toast('এই শর্তে কোনো রসিদ নেই');
+  const cell = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const head = ['রসিদ নং', 'তারিখ', 'স্টুডেন্ট আইডি', 'নাম', 'রোল', 'বিভাগ', 'শ্রেণি', 'খাত', 'মোট', 'ছাড়', 'আদায়', 'ধরন', 'বাতিল', 'আদায়কারী'];
+  const lines = list.map(p => [p.rno, p.date, (p.snap || {}).stuId, (p.snap || {}).name, (p.snap || {}).roll, (p.snap || {}).dept, (p.snap || {}).cls, (p.items || []).map(i => i.label).join(' | '), p.total, p.discount, p.void ? 0 : p.total, p.mode, p.void ? 'হ্যাঁ' : 'না', p.by].map(cell).join(','));
+  download('accounts-' + accYearOf() + '.csv', '\ufeff' + [head.map(cell).join(','), ...lines].join('\r\n'), 'text/csv;charset=utf-8');
+}
+
+function rcptPage(p) {
+  return `<div class="rpage">${['শিক্ষার্থী কপি', 'অফিস কপি', 'ব্যাংক কপি'].map(c => rcptCopy(p, c)).join('')}</div>`;
+}
+function rcptCopy(p, copy) {
+  const s = p.snap || {}, logo = document.querySelector('.logo').src, disc = num(p.discount);
+  const rows = (p.items || []).map(i => `<tr><td>${H(i.label)}</td><td class="r">${taka(i.amount)}</td></tr>`).join('');
+  const bank = p.mode === 'ব্যাংক'
+    ? `<div class="rmode">ব্যাংক: ${H((p.bank || {}).name || '—')}${(p.bank || {}).branch ? ' (' + H(p.bank.branch) + ')' : ''}${(p.bank || {}).slip ? ' • জমার রসিদ নং: ' + H(p.bank.slip) : ''}</div>`
+    : `<div class="rmode">${H(p.mode || 'নগদ')} জমা${p.trx ? ' • রেফারেন্স: ' + H(p.trx) : ''}</div>`;
+  return `<div class="rcpt">
+    <img class="rwm" src="${logo}" alt="">
+    <div class="rh"><img src="${logo}" alt=""><div><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small></div><span class="cp">${copy}</span></div>
+    <div class="rmeta"><span><b>রসিদ নং:</b> ${H(p.rno)}</span><span><b>তারিখ:</b> ${fmtDate(p.date)}</span></div>
+    <div class="rstu">
+      <div><b>শিক্ষার্থীর নাম</b>${H(s.name || '')}</div><div><b>স্টুডেন্ট আইডি</b>${H(s.stuId || '—')}</div>
+      <div><b>রোল নং</b>${H(s.roll || '—')}</div><div><b>ফরম নং</b>${H(s.formNo || '—')}</div>
+      <div><b>শ্রেণি ও বিভাগ</b>${H((s.cls || '') + ', ' + (s.dept || ''))}</div><div><b>সেশন</b>${H(s.session || '—')}</div>
+    </div>
+    <table><thead><tr><th>খাত</th><th class="r">টাকা</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="rtot"><span>মোট</span><strong>${taka(p.total)} টাকা</strong></div>
+    ${disc > 0 ? `<div class="rmode">ছাড়: ${taka(disc)} টাকা</div>` : ''}
+    <div class="rwords"><b>কথায়:</b> ${takaWords(p.total)}</div>
+    ${bank}
+    <div class="rnote">এই রসিদ তিন কপি — শিক্ষার্থী, অফিস ও ব্যাংক। রসিদ নম্বর ছাড়া কোনো জমা গ্রহণযোগ্য নয়।</div>
+    <div class="rsig"><span>আদায়কারী<br>${H(p.by || '')}</span><span>অধ্যক্ষ<br>কাঁচকুড়া কলেজ</span></div>
+    <div class="rfoot">কাঁচকুড়া কলেজ • হিসাব শাখা • ${bn(p.year)}</div>
+  </div>`;
+}
+function printReceipts(ids, list) {
+  const pays = (list || ACC.pays).filter(p => ids.includes(p.id));
+  if (!pays.length) return toast('রসিদ পাওয়া যায়নি');
+  const sheet = $('rcptSheet');
+  sheet.innerHTML = '<button type="button" class="rclose">বন্ধ করুন</button>' + pays.map(rcptPage).join('');
+  sheet.hidden = false;
+  sheet.querySelector('.rclose').onclick = () => { sheet.hidden = true; sheet.innerHTML = ''; document.body.classList.remove('rp'); const st = $('pgrcpt'); if (st) st.remove(); };
+  document.body.classList.add('rp');
+  let st = $('pgrcpt');
+  if (!st) { st = document.createElement('style'); st.id = 'pgrcpt'; st.textContent = '@page{size:A4 landscape;margin:8mm}'; document.head.appendChild(st); }
+  setTimeout(() => window.print(), 150);
+}
+window.addEventListener('afterprint', () => {
+  document.body.classList.remove('rp');
+  const st = $('pgrcpt'); if (st) st.remove();
+  const sh = $('rcptSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+});
+
+// ---------- শিক্ষার্থী পোর্টাল ----------
+const PORT = { tab: 'result', app: null, apps: [], exams: [], marks: [], pays: [], plans: [], reqs: [], examId: null, year: '', out: [], busy: false };
+const REQ_METHODS = ['বিকাশ', 'নগদ', 'রকেট', 'ব্যাংক'];
+function portalOutstanding(pl, pays) {
+  const paidMonths = {}, labels = new Set(); let adm = false, ses = false;
+  pays.filter(p => !p.void).forEach(p => (p.items || []).forEach(i => {
+    if (i.kind === 'monthly') paidMonths[i.month] = true;
+    if (i.kind === 'admission') adm = true;
+    if (i.kind === 'session') ses = true;
+    labels.add(i.label);
+  }));
+  const out = [], year = PORT.year;
+  if (num(pl.admission) > 0 && !adm) out.push({ kind: 'admission', label: 'ভর্তি ফি', amount: num(pl.admission) });
+  if (num(pl.session) > 0 && !ses) out.push({ kind: 'session', label: 'সেশন ফি', amount: num(pl.session) });
+  if (num(pl.monthly) > 0) (pl.months || []).forEach(m => { if (!paidMonths[m]) out.push({ kind: 'monthly', label: 'মাসিক ফি – ' + BNM[m - 1] + ' ' + bn(year), amount: num(pl.monthly), month: m }); });
+  (pl.extras || []).forEach(x => { if (num(x.amount) > 0 && !labels.has(x.label)) out.push({ kind: 'other', label: x.label, amount: num(x.amount) }); });
+  return out;
+}
+function portalCalc(exam) {
+  const map = {};
+  PORT.marks.filter(m => m.examId === exam.id).forEach(m => { map[m.appId] = m.marks; });
+  const peers = PORT.apps.filter(a => a.dept === PORT.app.dept && clsOf(a) === clsOf(PORT.app) && okApp(a));
+  const res = peers.map(r => ({ r, c: calc(r, map[r.id] || {}, exam) }));
+  const ranked = res.filter(x => x.c.res === 'উত্তীর্ণ').sort((a, b) => b.c.gpa - a.c.gpa || b.c.total - a.c.total);
+  ranked.forEach((x, i) => {
+    const p = ranked[i - 1];
+    x.c.rank = p && p.c.gpa === x.c.gpa && p.c.total === x.c.total ? p.c.rank : i + 1;
+  });
+  return { mine: res.find(x => x.r.id === PORT.app.id) || null, n: ranked.length, exam };
+}
+async function openStudentPortal() {
+  const box = $('portalBox');
+  if (!ME || ME.role !== 'student' || !ME.appId) {
+    box.innerHTML = '<p class="warn">শিক্ষার্থী পোর্টাল দেখতে স্টুডেন্ট আইডি ও মোবাইল নম্বর দিয়ে লগইন করুন।</p>';
+    return;
+  }
+  box.innerHTML = '<p class="pnotice">পোর্টাল লোড হচ্ছে…</p>';
+  try {
+    PORT.apps = await DB.all(); PORT.exams = await DB.exams(); PORT.marks = await DB.marks();
+    PORT.pays = await DB.payments(); PORT.plans = await DB.feeplans(); PORT.reqs = await DB.feereqs();
+  } catch (e) { box.innerHTML = '<p class="warn">এই ব্রাউজারে তথ্য পাওয়া যাচ্ছে না। ফাইলটি Chrome বা Firefox-এ খুলুন।</p>'; return; }
+  PORT.app = PORT.apps.find(a => a.id === ME.appId) || null;
+  if (!PORT.app) { box.innerHTML = '<p class="warn">আপনার ভর্তি আবেদনটি আর পাওয়া যাচ্ছে না। অফিসে যোগাযোগ করুন।</p>'; return; }
+  PORT.year = (toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
+  PORT.exams = PORT.exams.filter(e => exCls(e) === clsOf(PORT.app) && e.published)
+    .sort((a, b) => String(b.publishDate || '').localeCompare(String(a.publishDate || '')) || (b.id || 0) - (a.id || 0));
+  if (!PORT.exams.some(e => e.id === PORT.examId)) PORT.examId = PORT.exams[0] ? PORT.exams[0].id : null;
+  renderPortal();
+}
+function renderPortal() {
+  const box = $('portalBox'), a = PORT.app;
+  if (!a) return;
+  const f = a.fields || {};
+  box.innerHTML = `<div class="phero noprint">
+      <div><h2>${H(nameOf(a))}</h2><p>${H(CLASSES[clsOf(a)])} • ${H(DEPTS[a.dept].name)} বিভাগ • রোল ${H(f.roll || '—')}</p><p>সেশন: ${H(f.session || '—')}</p></div>
+      <div class="pid">স্টুডেন্ট আইডি: ${H(f.stuId || '—')}</div>
+    </div>
+    <div class="ptabs noprint">
+      <button type="button" data-ptab="result" aria-pressed="${PORT.tab === 'result'}">ফলাফল ও মার্কশিট</button>
+      <button type="button" data-ptab="fees" aria-pressed="${PORT.tab === 'fees'}">ফি, বকেয়া ও রসিদ</button>
+    </div>
+    <div id="portalBody">${PORT.tab === 'fees' ? portalFees() : portalResult()}</div>`;
+  wirePortal();
+}
+function portalResult() {
+  if (!SET.studentResult) return '<p class="pnotice">শিক্ষার্থীদের জন্য অনলাইন ফলাফল দেখা এখন বন্ধ আছে। অফিস থেকে ফলাফল সংগ্রহ করুন।</p>';
+  if (!PORT.exams.length) return '<p class="pnotice">এই শ্রেণির কোনো প্রকাশিত ফলাফল এখনো নেই। ফলাফল প্রকাশ হলে এখানে দেখা যাবে।</p>';
+  const ex = PORT.exams.find(e => e.id === PORT.examId) || PORT.exams[0];
+  const r = portalCalc(ex);
+  const opts = PORT.exams.map(e => `<option value="${e.id}" ${e.id === ex.id ? 'selected' : ''}>${H(e.name)}</option>`).join('');
+  const head = `<div class="tools noprint"><select id="pExam" class="dsel">${opts}</select>${ex.publishDate ? `<span class="stat">প্রকাশ: ${fmtDate(ex.publishDate)}</span>` : ''}<button type="button" id="pMsPrint" class="go">প্রিন্ট / PDF</button></div>`;
+  if (!r.mine) return head + '<p class="pnotice">এই পরীক্ষার ফলাফল পাওয়া যাচ্ছে না। অফিসে যোগাযোগ করুন।</p>';
+  return head + `<div id="pMs">${msHTML(r.mine, r.n, ex)}</div>`;
+}
+function portalFees() {
+  const a = PORT.app, f = a.fields || {}, year = PORT.year;
+  const pl = PORT.plans.find(p => p.appId === a.id && String(p.year) === String(year)) || null;
+  const pays = PORT.pays.filter(p => p.appId === a.id && String(p.year) === String(year)).sort((x, y) => (y.ts || 0) - (x.ts || 0));
+  const valid = pays.filter(p => !p.void), paid = valid.reduce((s, p) => s + num(p.total), 0);
+  const exp = pl ? expectedOf(pl) : null, due = exp == null ? null : Math.max(0, exp - paid);
+  const out = pl ? portalOutstanding(pl, pays) : [];
+  PORT.out = out;
+  const reqs = PORT.reqs.filter(r => r.appId === a.id && String(r.year) === String(year)).sort((x, y) => (y.ts || 0) - (x.ts || 0));
+  const pending = reqs.find(r => r.status === 'pending');
+  const hist = valid.length ? `<div class="scroll"><table class="acc-table"><thead><tr><th>রসিদ নং</th><th>তারিখ</th><th>খাত</th><th class="r">টাকা</th><th>মাধ্যম</th><th></th></tr></thead><tbody>${valid.map(p => `<tr><td>${H(p.rno)}</td><td>${fmtDate(p.date)}</td><td>${H((p.items || []).map(i => i.label).join(', '))}</td><td class="r">${taka(p.total)}</td><td>${H(p.mode)}</td><td><button type="button" data-pprt="${p.id}">প্রিন্ট</button></td></tr>`).join('')}</tbody></table></div>` : '<p class="pnotice">এখনো কোনো ফি পরিশোধের রসিদ নেই।</p>';
+  let payBox = '';
+  if (!pl) payBox = '<p class="pnotice">এই বছরের ফি সেটআপ হয়নি। ফি নির্ধারণের জন্য অফিসে যোগাযোগ করুন।</p>';
+  else if (!SET.studentPay) payBox = '<p class="pnotice">পোর্টাল থেকে ফি জমার সুবিধা এখন বন্ধ আছে। অফিসে সরাসরি ফি দিন।</p>';
+  else if (pending) payBox = `<div class="preq pending"><div class="ph"><b>ফি জমার অনুরোধ অপেক্ষমাণ</b><span class="pstat pending">অপেক্ষমাণ</span></div><p>${taka(pending.total)} টাকা — ${H(pending.mode)}${pending.trx ? ' • ' + H(pending.trx) : ''} • ${fmtDate(pending.date)}</p><p class="mini">অফিস যাচাই করে অনুমোদন করলে রসিদ তৈরি হবে। অনুমোদনের আগে আবার অনুরোধ দিতে হবে না।</p></div>`;
+  else if (!out.length) payBox = '<p class="pnotice">এই বছরের সব ফি পরিশোধিত হয়েছে। ধন্যবাদ।</p>';
+  else payBox = `<div class="acc-box"><h4>ফি পরিশোধের অনুরোধ</h4>
+      <p class="acc-note">যে খাতগুলোর টাকা পাঠিয়েছেন সেগুলো বাছুন, তারপর মাধ্যম ও ট্রানজেকশন নম্বর দিয়ে অনুরোধ জমা দিন। অফিস যাচাই করে অনুমোদন করলে রসিদ তৈরি হবে।</p>
+      <div class="months" id="pFeeItems">${out.map((x, i) => `<label><input type="checkbox" data-pi="${i}"> ${H(x.label)} — ${taka(x.amount)} টাকা</label>`).join('')}</div>
+      <div class="acc-grid">
+        <label class="f"><span>টাকা পাঠানোর তারিখ</span><input type="date" id="pDate" value="${todayISO()}"></label>
+        <label class="f"><span>মাধ্যম</span><select id="pMode">${REQ_METHODS.map(m => `<option>${m}</option>`).join('')}</select></label>
+        <label class="f"><span>ট্রানজেকশন / স্লিপ নম্বর</span><input type="text" id="pTrx" placeholder="যেমন: TRX123456"></label>
+        <label class="f"><span>মন্তব্য (ঐচ্ছিক)</span><input type="text" id="pNote"></label>
+      </div>
+      <div class="acc-total"><span>মোট</span><strong id="pTotal">০ টাকা</strong></div>
+      <div class="tools noprint"><button type="button" id="pSend" class="go">অনুরোধ জমা দিন</button></div>
+    </div>`;
+  const reqBox = reqs.length ? `<div class="acc-box"><h4>জমা দেওয়া অনুরোধ</h4>${reqs.map(r => `<div class="preq ${r.status}"><div class="ph"><b>${taka(r.total)} টাকা</b><span class="pstat ${r.status}">${REQ_STATUS[r.status] || r.status}</span></div><p class="mini">${H((r.items || []).map(i => i.label).join(', '))}</p><p class="mini">${H(r.mode)}${r.trx ? ' • ' + H(r.trx) : ''} • ${fmtDate(r.date)}${r.rejectReason ? ' • কারণ: ' + H(r.rejectReason) : ''}</p></div>`).join('')}</div>` : '';
+  return `<div class="acc-kpis">
+      <div class="acc-kpi"><b>নির্ধারিত ফি</b><strong>${exp == null ? '—' : taka(exp) + ' টাকা'}</strong></div>
+      <div class="acc-kpi"><b>পরিশোধিত</b><strong>${taka(paid)} টাকা</strong></div>
+      <div class="acc-kpi ${due > 0 ? 'warn' : ''}"><b>বাকি</b><strong>${due == null ? '—' : taka(due) + ' টাকা'}</strong></div>
+      <div class="acc-kpi"><b>রসিদ</b><strong>${bn(valid.length)}</strong></div>
+    </div>
+    <div class="dsec"><h3>ফিসমূহ</h3></div>
+    ${payBox}
+    ${reqBox}
+    <div class="acc-box"><h4>পরিশোধের ইতিহাস</h4>${hist}</div>`;
+}
+function wirePortal() {
+  const box = $('portalBox');
+  box.querySelectorAll('[data-ptab]').forEach(b => b.onclick = () => { PORT.tab = b.dataset.ptab; renderPortal(); });
+  const exSel = $('pExam');
+  if (exSel) exSel.onchange = e => { PORT.examId = +e.target.value; renderPortal(); };
+  const pr = $('pMsPrint');
+  if (pr) pr.onclick = () => window.print();
+  const recalc = () => {
+    const total = [...document.querySelectorAll('#pFeeItems input:checked')].reduce((s, i) => s + num(PORT.out[+i.dataset.pi].amount), 0);
+    const el = $('pTotal'); if (el) el.textContent = taka(total) + ' টাকা';
+    return total;
+  };
+  box.querySelectorAll('#pFeeItems input').forEach(i => i.onchange = recalc);
+  const send = $('pSend');
+  if (send) send.onclick = async () => {
+    if (PORT.busy) return;
+    const idx = [...document.querySelectorAll('#pFeeItems input:checked')].map(i => +i.dataset.pi);
+    if (!idx.length) return toast('অন্তত একটি ফি খাত বাছুন');
+    const items = idx.map(i => ({ ...PORT.out[i] }));
+    const total = items.reduce((s, i) => s + num(i.amount), 0);
+    const mode = $('pMode').value, trx = $('pTrx').value.trim();
+    if (total <= 0) return toast('মোট টাকা শূন্য হতে পারে না');
+    if (!trx) return toast('ট্রানজেকশন বা স্লিপ নম্বর লিখুন');
+    if (PORT.reqs.some(r => r.appId === PORT.app.id && r.status === 'pending' && String(r.year) === String(PORT.year))) return toast('একটি অনুরোধ এখনো অপেক্ষমাণ আছে');
+    if (!confirm(`${taka(total)} টাকার ফি জমার অনুরোধ পাঠাবেন?`)) return;
+    PORT.busy = true;
+    const rec = {
+      appId: PORT.app.id, year: PORT.year, date: $('pDate').value || todayISO(), mode, trx, items, total, note: $('pNote').value.trim(), status: 'pending', ts: Date.now(), by: ME.name,
+      snap: { name: nameOf(PORT.app), roll: (PORT.app.fields || {}).roll, stuId: (PORT.app.fields || {}).stuId, formNo: (PORT.app.fields || {}).formNo, cls: CLASSES[clsOf(PORT.app)], dept: DEPTS[PORT.app.dept].name, deptCode: PORT.app.dept, session: (PORT.app.fields || {}).session }
+    };
+    try {
+      rec.id = await DB.putFeereq(rec);
+      PORT.reqs.push(rec);
+      toast('অনুরোধ জমা হয়েছে — অফিস অনুমোদন করলে রসিদ তৈরি হবে');
+      renderPortal();
+    } catch (e) { toast('অনুরোধ জমা করা গেল না'); }
+    PORT.busy = false;
+  };
+  box.querySelectorAll('[data-pprt]').forEach(b => b.onclick = () => printReceipts([+b.dataset.pprt], PORT.pays));
+}
+$('viewStudent').onclick = () => showView('student');
+
+// ---------- সেটিংস (শুধু সুপার অ্যাডমিন) ----------
+const MS_SAMPLE = { nameBn: 'মোঃ রাকিব হাসান', stuId: '২০২৬-০০০১', roll: '১০২', formNo: 'HU-০০১', father: 'মোঃ হাসান আলী', mother: 'রহিমা বেগম', session: '২০২৬ – ২০২৭', gender: 'পুরুষ' };
+function setPreviewOpts() {
+  return { info: $('setMsInfo') ? $('setMsInfo').value : SET.msInfo, photo: $('setMsPhoto') ? $('setMsPhoto').value : SET.msPhoto };
+}
+function renderSetPreview() {
+  const el = $('setPrev'); if (!el) return;
+  el.innerHTML = `<div class="ms"><div class="ms-frame">${msInfoHTML(MS_SAMPLE, '', { cls: 'একাদশ', dept: 'মানবিক' }, setPreviewOpts())}</div></div>`;
+}
+async function openSettings() {
+  await loadSettings();
+  renderSettings();
+}
+function renderSettings() {
+  const box = $('setBox');
+  box.innerHTML = `<div class="dhero">
+      <div><h2>সেটিংস</h2><p>শিক্ষার্থী পোর্টাল, মার্কশিটের তথ্য সাজানো ও হিসাব রক্ষকের অনুমতি এখান থেকে ঠিক করুন।</p><p>পরিবর্তন এই ডিভাইসের ডেটাবেসে সংরক্ষিত হয় এবং ব্যাকআপের সাথেও যায়।</p></div>
+    </div>
+    <div class="setgrid">
+      <section class="setsec"><h3>শিক্ষার্থী পোর্টাল</h3>
+        <label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
+        <label class="setrow"><input type="checkbox" id="setStuPay" ${SET.studentPay ? 'checked' : ''}><span><b>ফি পরিশোধের অনুরোধ</b><small>শিক্ষার্থী বকেয়া ফি বেছে মোবাইল ব্যাংক/ব্যাংকের ট্রানজেকশন দিয়ে অনুরোধ পাঠাতে পারবে; হিসাব শাখা অনুমোদন করলে রসিদ তৈরি হবে।</small></span></label>
+        <p class="acc-note">শিক্ষার্থী লগইন করে স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর (শিক্ষার্থী/পিতা/মাতা/অভিভাবক) দিয়ে।</p>
+        <p class="acc-note">উপরের দুটি বন্ধ রাখলে শিক্ষার্থী লগইন করে শুধু নিজের তথ্য দেখতে পারবে; ফলাফল ও ফি সেবা বন্ধ থাকবে। নতুন ভর্তির আবেদন আলাদাভাবে সব সময় খোলা।</p>
+      </section>
+      <section class="setsec"><h3>মার্কশিটের শিক্ষার্থী তথ্য</h3>
+        <label class="f"><span>তথ্যের ধরন</span><select id="setMsInfo">
+          <option value="card" ${SET.msInfo === 'card' ? 'selected' : ''}>কার্ড — নাম বড় করে, বাকি তথ্য ঘরের ভেতরে</option>
+          <option value="grid" ${SET.msInfo === 'grid' ? 'selected' : ''}>গ্রিড — দুই কলামে লেবেল ও তথ্য</option>
+          <option value="compact" ${SET.msInfo === 'compact' ? 'selected' : ''}>সংক্ষিপ্ত — ছোট বাক্সে তিন কলাম</option>
+        </select></label>
+        <label class="f"><span>ছবির অবস্থান</span><select id="setMsPhoto">
+          <option value="right" ${SET.msPhoto === 'right' ? 'selected' : ''}>তথ্যের ডানে</option>
+          <option value="left" ${SET.msPhoto === 'left' ? 'selected' : ''}>তথ্যের বামে</option>
+        </select></label>
+        <p class="acc-note">নিচে নমুনা দেখুন। প্রিন্টেও একই সাজানো থাকবে।</p>
+      </section>
+      <section class="setsec"><h3>হিসাব রক্ষকের অনুমতি</h3>
+        <label class="setrow"><input type="checkbox" id="setAccSetup" ${SET.accSetup ? 'checked' : ''}><span><b>ফি সেটআপ</b><small>শিক্ষার্থীর ভর্তি/সেশন/মাসিক ফি নির্ধারণ ও বিভাগে প্রয়োগ।</small></span></label>
+        <label class="setrow"><input type="checkbox" id="setAccVoid" ${SET.accVoid ? 'checked' : ''}><span><b>রসিদ বাতিল</b><small>ভুল রসিদ বাতিল করা। বাতিল করা রসিদ নম্বর আর ব্যবহার হয় না।</small></span></label>
+        <label class="setrow"><input type="checkbox" id="setAccReport" ${SET.accReport ? 'checked' : ''}><span><b>রিপোর্ট ও CSV</b><small>হিসাবের রিপোর্ট দেখা, CSV নামানো ও রসিদ প্রিন্ট করা।</small></span></label>
+        <label class="setrow"><input type="checkbox" id="setAccApprove" ${SET.accApprove ? 'checked' : ''}><span><b>ফি অনুরোধ অনুমোদন</b><small>শিক্ষার্থীর পাঠানো ফি অনুরোধ যাচাই করে রসিদ তৈরি করা।</small></span></label>
+        <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p>
+      </section>
+    </div>
+    <div class="dsec"><h3>নমুনা মার্কশিট তথ্য</h3></div>
+    <div id="setPrev"></div>
+    <div class="tools" style="margin-top:14px"><button type="button" id="setSave" class="go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload">আগের অবস্থায় ফিরুন</button></div>
+    <p class="acc-note">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</p>`;
+  const prev = () => { renderSetPreview(); };
+  $('setMsInfo').onchange = prev; $('setMsPhoto').onchange = prev;
+  $('setReload').onclick = () => openSettings();
+  $('setSave').onclick = async () => {
+    SET = {
+      ...SET,
+      studentResult: $('setStuRes').checked, studentPay: $('setStuPay').checked,
+      msInfo: $('setMsInfo').value, msPhoto: $('setMsPhoto').value,
+      accSetup: $('setAccSetup').checked, accVoid: $('setAccVoid').checked,
+      accReport: $('setAccReport').checked, accApprove: $('setAccApprove').checked
+    };
+    try { await DB.putMeta({ k: 'settings', v: { ...SET }, at: Date.now() }); toast('সেটিংস সংরক্ষিত হয়েছে'); renderSetPreview(); }
+    catch (e) { toast('সেটিংস সংরক্ষণ করা গেল না'); }
+  };
+  renderSetPreview();
+}
+$('viewSettings').onclick = () => showView('settings');
+
 showLogin();
-autoFormNo(); autoStuId();
-document.getElementById('formYear').addEventListener('change', () => autoStuId());
+autoFormNo();
 DB.all().then(a => { document.getElementById('cnt').textContent = a.length; }).catch(() => {});
 </script>
 </body>
