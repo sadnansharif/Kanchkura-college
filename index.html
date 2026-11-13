@@ -19,12 +19,9 @@
 html{scroll-padding-top:70px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.55;
   padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
-.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center}
-.bar button,.act button{font:inherit;font-weight:500;padding:8px 14px;border-radius:6px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
-.bar button[aria-pressed=true]{background:var(--accent);color:var(--paper)}
-.bar .sep{width:1px;height:24px;background:var(--line)}
+.act button{font:inherit;font-weight:500;padding:8px 12px;border-radius:8px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.sheet{max-width:860px;margin:18px auto;background:var(--paper);border:1px solid var(--line);padding:28px 30px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.sheet{width:100%;margin:12px 0;background:var(--paper);border:1px solid var(--line);padding:28px 30px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .sheet.s-humanities{border-top:8px solid #9aa39e}
 .sheet.s-business{border-top:8px solid #d9b92e}
 .sheet.s-science{border-top:8px solid #2f9a6b}
@@ -41,7 +38,7 @@ header{text-align:center;margin-bottom:14px}
 .photo{display:flex;flex-direction:column;align-items:center;gap:6px}
 #photoDel{font:inherit;font-size:.8rem;padding:3px 10px;border:1.5px solid var(--err);color:var(--err);background:transparent;border-radius:6px;cursor:pointer}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--accent);color:var(--paper);padding:10px 18px;border-radius:8px;z-index:9;font-weight:600}
-.list{max-width:1000px;margin:18px auto;padding:0 10px}
+.list{margin:12px 0;padding:0 10px}
 .list .box{background:var(--paper);border:1px solid var(--line);padding:16px}
 .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
 .tools input[type=search]{flex:1;min-width:180px;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;background:transparent;color:var(--ink)}
@@ -60,6 +57,7 @@ header p{margin:2px 0;color:var(--muted)}
 h2{font-family:var(--fh);font-size:1.1rem;margin:22px 0 8px;padding-bottom:3px;border-bottom:1.5px solid var(--ink)}
 .office{border:1px solid var(--ink);padding:10px 14px;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
 .office b{font-weight:600}
+.office select{font:inherit;padding:1px 6px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:inherit}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px}
 .grid .full{grid-column:1/-1}
 label.f{display:flex;flex-direction:column;font-size:.88rem;color:var(--muted)}
@@ -94,10 +92,10 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .sig input{font:inherit;font-size:.9rem;border:0;border-bottom:1px dotted var(--ink);background:transparent;color:var(--ink);width:150px}
 .act{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0 40px}
 .act .go{background:var(--accent);color:var(--paper)}
-.errs{max-width:860px;margin:0 auto 12px;padding:10px 14px;border:1.5px solid var(--err);color:var(--err);border-radius:6px;background:var(--paper)}
+.errs{margin:0 0 12px;padding:10px 14px;border:1.5px solid var(--err);color:var(--err);border-radius:6px;background:var(--paper)}
 .page2{margin-top:30px;border-top:1px dashed var(--line);padding-top:6px}
 @media (max-width:700px){
-  .sheet{padding:18px 14px;margin:10px 6px}
+  .sheet{padding:18px 14px;margin:10px 0}
   header h1{font-size:1.5rem}
   .logo{width:64px;height:64px}
   .pwrap{grid-template-columns:1fr}
@@ -107,7 +105,6 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   .subjects>div{border-right:0;border-bottom:1px solid var(--ink)}
   .subjects>div:last-child{border-bottom:0}
 }
-.list.wide{max-width:1320px}
 .rtab th,.rtab td{font-size:.85rem;padding:3px 5px;text-align:center;white-space:nowrap}
 .rtab th{background:var(--tint)}
 .rtab td.nm{text-align:left}
@@ -182,18 +179,52 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   .ms .i-card .ifield:last-child{border-bottom:0}
   .ms .i-compact .ig{grid-template-columns:1fr 1fr}
 }
-.who{font-size:.85rem;color:var(--muted);padding:0 4px}
-.login{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.login{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:22px;overflow:auto;
+  background:radial-gradient(1100px 520px at 12% 8%,rgba(31,92,70,.2),transparent 62%),radial-gradient(900px 520px at 92% 94%,rgba(201,162,39,.16),transparent 58%),var(--bg)}
 .login[hidden]{display:none}
-.lcard{width:min(430px,100%);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:12px;text-align:center}
-.lcard img{width:70px;height:70px;margin:0 auto;background:#fff;border-radius:6px;object-fit:contain}
-.lcard h2{border:0;margin:0}
-.lcard label.f{text-align:left}
-.lcard button{font:inherit;font-weight:600;padding:10px;border-radius:8px;border:1.5px solid var(--accent);background:var(--accent);color:var(--paper);cursor:pointer}
+.lwrap{width:min(900px,100%);display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 26px 80px rgba(0,0,0,.24);margin:auto}
+.lside{background:linear-gradient(158deg,#245f49 0%,#174534 58%,#102f25 100%);color:#eaf3ed;padding:40px 36px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.lside::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.14);right:-90px;top:-90px}
+.lside::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;border:1px solid rgba(255,255,255,.1);right:-30px;bottom:-80px}
+.lside img{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:16px;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.lside h2{border:0;margin:18px 0 0;font-size:1.75rem;line-height:1.25;color:#fff}
+.lside .lsub{margin:4px 0 22px;color:#bfd8ca;font-size:.92rem}
+.lside ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:.9rem;color:#e2eee7;position:relative;z-index:1}
+.lside li{display:flex;gap:9px;align-items:flex-start}
+.lside li::before{content:"✓";display:grid;place-items:center;flex:none;width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;font-size:.7rem;font-weight:700;margin-top:2px}
+.lside .laddr{margin-top:auto;padding-top:22px;font-size:.78rem;color:#a6c2b3;border-top:1px solid rgba(255,255,255,.18);position:relative;z-index:1}
+.lcard{padding:36px 34px 26px;display:grid;gap:12px;text-align:left;align-content:center}
+.lcard h2{border:0;margin:0;font-size:1.35rem;text-align:left}
+.lcard .lcap{margin:6px 0 4px;color:var(--muted);font-size:.9rem}
+.lcard label.f{text-align:left;gap:5px;font-size:.8rem;font-weight:600;letter-spacing:.01em}
+.lcard label.f input{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);transition:border-color .15s,background .15s}
+.lcard label.f input:focus{border-color:var(--accent)}
+.pwwrap{display:flex;gap:8px;align-items:stretch}
+.pwwrap input{flex:1;min-width:0}
+.lcard button{font:inherit;font-weight:600;height:48px;padding:0 14px;border-radius:10px;border:1.5px solid var(--accent);background:var(--accent);color:var(--paper);cursor:pointer;transition:filter .15s}
+.lcard button:hover{filter:brightness(1.08)}
 .lcard button.alt{background:transparent;color:var(--accent)}
-.lerr{color:var(--err);min-height:1.3em;font-size:.9rem}
-.lnote{font-size:.8rem;color:var(--muted)}
+.lcard button.eye{flex:none;padding:0 12px;font-size:.78rem;font-weight:600;background:transparent;color:var(--muted);border-color:var(--line)}
+.lcard label.f input{min-height:48px}
+#lMain{display:grid;gap:12px}
+#lMain[hidden]{display:none}
+.lor{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.78rem}
+.lor::before,.lor::after{content:"";height:1px;flex:1;background:var(--line)}
+.lerr{color:var(--err);min-height:1.2em;font-size:.88rem}
+.lnote{font-size:.75rem;color:var(--muted);line-height:1.5;padding-top:10px;border-top:1px solid var(--line)}
 .lcard form{display:grid;gap:12px}
+#lSetup{font-size:.86rem;line-height:1.6}
+#lSetup p{margin:0 0 10px}
+@media (max-width:760px){
+  .login{padding:10px;align-items:flex-start}
+  .lwrap{grid-template-columns:1fr;margin:auto 0}
+  .lside{padding:18px 20px 16px;flex-direction:row;align-items:center;gap:14px}
+  .lside img{width:54px;height:54px;border-radius:12px;padding:4px}
+  .lside h2{font-size:1.15rem;margin:0}
+  .lside .lsub{margin:1px 0 0;font-size:.76rem}
+  .lside ul,.lside .laddr,.lside::before,.lside::after{display:none}
+  .lcard{padding:22px 20px 18px}
+}
 .dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 14px}
 .dc{border:1px solid var(--line);background:var(--tint);border-radius:8px;padding:10px 12px}
 .dc b{display:block;font-size:.8rem;color:var(--muted);font-weight:500}
@@ -282,6 +313,41 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .dhero .hbtn{display:flex;gap:8px;flex-wrap:wrap}
 .dhero .hbtn button{font:inherit;font-size:.88rem;padding:7px 12px;border-radius:7px;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
 .dhero .hbtn button:hover{background:rgba(255,255,255,.25)}
+.pagehead{margin:10px 0 0}
+.pagehead[hidden]{display:none}
+.chtabs{display:flex;align-items:flex-end;gap:6px;background:linear-gradient(#eef2f0,#e2e8e5);border:1px solid var(--line);border-radius:12px 12px 0 0;padding:7px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,.07);overflow:hidden}
+.chbrand{display:flex;align-items:center;gap:8px;padding:6px 14px 10px 6px;border-right:1px solid rgba(0,0,0,.12);flex:none}
+.chbrand img{width:30px;height:30px;border-radius:50%;background:#fff;object-fit:contain;padding:2px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.chbrand b{font-size:.88rem;color:var(--ink);line-height:1.1;white-space:nowrap}
+.chbrand small{display:block;font-size:.62rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.chtabstrip{display:flex;align-items:flex-end;gap:3px;flex:1 1 0;min-width:0}
+.chtab{position:relative;flex:1 1 0;min-width:0;display:block;text-align:center;font:inherit;font-size:.83rem;font-weight:600;color:#4c5752;background:transparent;border:0;border-radius:9px 9px 0 0;padding:8px 10px 10px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s,color .15s}
+.chtab:hover{background:rgba(255,255,255,.6)}
+.chtab.on{background:var(--paper);color:var(--accent);box-shadow:0 -1px 4px rgba(0,0,0,.07)}
+.chtab.on::before{content:"";position:absolute;top:0;left:9px;right:9px;height:2.5px;border-radius:0 0 3px 3px;background:var(--accent)}
+.chuser{margin-left:auto;flex:none;display:flex;align-items:center;gap:10px;padding:0 4px 8px 12px;border-left:1px solid rgba(0,0,0,.12)}
+.chwho{display:flex;flex-direction:column;align-items:flex-end;min-width:0}
+.chuser b{font-size:.78rem;color:var(--ink);white-space:nowrap;max-width:190px;overflow:hidden;text-overflow:ellipsis}
+.chuser small{font-size:.66rem;color:var(--muted);white-space:nowrap}
+.chlogout{font:inherit;font-size:.74rem;font-weight:600;padding:5px 11px;border-radius:7px;border:1.5px solid var(--err);background:transparent;color:var(--err);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.chlogout:hover{background:var(--err);color:var(--paper)}
+@media (max-width:720px){
+  .chtabs{flex-wrap:wrap;padding:6px 6px 0;gap:4px}
+  .chbrand{padding:3px 8px 5px 2px;border-right:0;flex:1 1 auto;min-width:0}
+  .chbrand small{display:none}
+  .chbrand b{font-size:.8rem}
+  .chbrand img{width:26px;height:26px}
+  .chuser{padding:0 0 5px 8px;border-left:0}
+  .chwho small{display:none}
+  .chuser b{max-width:96px;font-size:.7rem}
+  .chtabstrip{flex:1 0 100%;order:3;border-top:1px solid rgba(0,0,0,.12);padding-top:3px}
+  .chtab{padding:7px 4px 9px;font-size:.75rem}
+}
+@media (max-width:480px){
+  .chwho{display:none}
+  .chlogout{padding:5px 9px}
+  .chtab{font-size:.7rem;padding:7px 2px 9px}
+}
 .dkpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin-bottom:16px}
 .dkpi{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--paper);display:flex;gap:10px;align-items:center}
 .dkpi .ic{width:38px;height:38px;border-radius:9px;background:var(--tint);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
@@ -317,10 +383,10 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 #rcptSheet{display:none}
 body.rp #rcptSheet{display:block;position:fixed;inset:0;z-index:70;background:#39403d;overflow:auto;padding:24px}
 body.rp{overflow:hidden}
-.rpage{width:281mm;min-height:194mm;margin:0 auto 18px;background:#fff;color:#14201b;display:grid;grid-template-columns:repeat(3,1fr);box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:10px;line-height:1.35}
-.rcpt{position:relative;padding:4mm;display:flex;flex-direction:column;overflow:hidden;border-left:1px dashed #8a9490}
+.rpage{width:281mm;min-height:194mm;margin:0 auto 18px;background:#fff;color:#14201b;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:10px;line-height:1.35}
+.rcpt{position:relative;min-width:0;height:100%;padding:4mm;display:flex;flex-direction:column;overflow:hidden;border-left:1px dashed #8a9490}
 .rcpt:first-child{border-left:0}
-.rcpt:not(:first-child)::before{content:'কাটার দাগ';position:absolute;left:3px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:7px;letter-spacing:1px;color:#8a9490;background:#fff;padding:0 3px;white-space:nowrap}
+.rcpt:not(:first-child)::before{content:'কাটার দাগ';position:absolute;left:-1px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:10px;font-weight:700;letter-spacing:1.4px;color:#4a5751;background:#fff;padding:8px 1px;white-space:nowrap}
 .rcpt .rwm{position:absolute;left:50%;top:42%;width:40mm;height:40mm;object-fit:contain;transform:translate(-50%,-50%);opacity:.055;pointer-events:none}
 .rcpt .rh{display:flex;gap:8px;align-items:center;border-bottom:2px solid #1f5c46;padding-bottom:4px}
 .rcpt .rh img{width:34px;height:34px;object-fit:contain;background:#fff;border-radius:4px;flex:none}
@@ -337,8 +403,10 @@ body.rp{overflow:hidden}
 .rcpt .rtot{display:flex;justify-content:flex-end;gap:12px;border-top:1.5px solid #1f5c46;padding:3px 0;font-size:10px}
 .rcpt .rwords{font-size:8px;color:#333;margin:2px 0 4px}
 .rcpt .rmode{font-size:8px;color:#333}
-.rcpt .rsig{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:26px;font-size:8px;text-align:center}
-.rcpt .rsig span{border-top:1px solid #333;padding-top:2px;min-width:26mm}
+.rcpt .rsig{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:26px;font-size:9px;text-align:center}
+.rcpt .rsig span{border-top:1.5px solid #333;padding-top:3px;min-width:26mm}
+.rcpt .rsig b{display:block;font-size:9.5px;font-weight:700;color:#14201b}
+.rcpt .rsig em{display:block;font-style:normal;font-weight:700;font-size:9.5px;color:#14201b;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rcpt .rfoot{font-size:7px;color:#666;text-align:center;margin-top:4px}
 .rcpt .rnote{font-size:7px;color:#666;border-top:1px dashed #ccc;margin-top:4px;padding-top:2px}
 .rclose{position:fixed;right:18px;top:14px;z-index:80;font:inherit;padding:7px 14px;border-radius:8px;border:1px solid #fff;background:#1f5c46;color:#fff;cursor:pointer}
@@ -350,7 +418,7 @@ body.rp{overflow:hidden}
   body{background:#fff;color:var(--ink);font-size:10.5px;line-height:1.35}
   input[type=date].empty::-webkit-datetime-edit{opacity:0}
   input[type=date]::-webkit-calendar-picker-indicator{display:none}
-  .bar,.act,.errs,#listView,#accountsView,.toast,.same,.count,.rq{display:none!important}  .sheet,.sheet.s-humanities,.sheet.s-business,.sheet.s-science{box-shadow:none;border:0;margin:0;padding:0;max-width:none;background:#fff}
+  .act,.errs,#listView,#accountsView,.toast,.same,.count,.rq{display:none!important}  .sheet,.sheet.s-humanities,.sheet.s-business,.sheet.s-science{box-shadow:none;border:0;margin:0;padding:0;max-width:none;background:#fff}
   .s-humanities{--dc:#7d8782}.s-business{--dc:#d4aa1c}.s-science{--dc:#2f9a6b}
   header{border-bottom:3px solid var(--dc);padding-bottom:6px;margin-bottom:6px}
   .logo{width:58px;height:58px;border-radius:0}
@@ -361,6 +429,7 @@ body.rp{overflow:hidden}
   .dept-tag{border:1.5px solid var(--dc);font-size:11px;padding:0 10px;border-radius:3px}
   h2{font-size:12.5px;border:0;border-left:3px solid var(--accent);padding:0 0 0 7px;margin:6px 0 3px;break-after:avoid}
   .office{border:1px solid var(--line);background:var(--tint);border-radius:4px;padding:5px 10px;grid-template-columns:repeat(3,auto);gap:4px 14px;font-size:10.5px}
+  .office select{font-size:11px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:0;appearance:none;-webkit-appearance:none;color:var(--ink)}
   .office+p,.subjects+p{display:none}
   .grid{grid-template-columns:repeat(6,1fr);gap:3px 14px}
   .grid label.f{grid-column:span 2}
@@ -393,7 +462,7 @@ body.rp{overflow:hidden}
   .sig.recom{margin-top:0;min-height:72px}
   .sig input{border:0}
   body:not([data-view="form"]) .pfoot{display:none!important}
-  .noprint,#login,#dashView,#usersView,#accountsView,#settingsView,.phero,.ptabs,.ptools{display:none!important}
+  .noprint,#login,#dashView,#usersView,#accountsView,#settingsView,.pagehead,.phero,.ptabs,.ptools{display:none!important}
   #studentView{padding:0;margin:0;max-width:none}
   #studentView .box{border:0;padding:0}
   .ms .i-card .ifield{padding:3px 7px}
@@ -429,31 +498,71 @@ body.rp{overflow:hidden}
   #rcptSheet .rcpt .rwm{opacity:.05}
 }
 .pfoot{display:none}
+/* ===== আধুনিক ও কমপ্যাক্ট স্ক্রিন লেআউট (প্রিন্ট অপরিবর্তিত) ===== */
+@media screen{
+  body{font-size:16px}
+  .list{margin:10px 0;padding:0 12px}
+  .list .box{border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.05);padding:16px 18px}
+  .sheet{border-radius:16px;box-shadow:0 4px 22px rgba(0,0,0,.07);padding:22px 26px}
+
+  .tools{gap:7px;margin-bottom:10px}
+  .tools input[type=search],.tools select,.acc-head input[type=text],.acc-head input[type=number]{border-radius:9px;background:var(--bg)}
+  .tools button,.list td button,.act button,.acc-table button{border-radius:9px;transition:background .15s,color .15s,filter .15s}
+  .tools button:hover{background:var(--tint)}
+  .tools button.go:hover,.act .go:hover{filter:brightness(1.07)}
+  .list td button{padding:5px 10px}
+
+  .list table th,.list table td{border-color:var(--line)}
+  .list table thead th{font-size:.8rem;font-weight:700;padding:8px}
+  .list table tbody td{padding:7px 8px}
+  .list table tbody tr:hover td{background:var(--tint)}
+
+  .sheet header{padding-bottom:10px}
+  .sheet header h1{font-size:1.7rem}
+  .title{border:1px solid var(--line);background:var(--tint);border-radius:99px;padding:4px 16px;font-size:.9rem}
+  .dept-tag{border:0;background:rgba(31,92,70,.12);color:var(--accent);border-radius:99px;padding:4px 12px;margin-top:4px;font-size:.8rem}
+  .sheet h2{display:flex;align-items:center;gap:8px;font-size:1rem;margin:18px 0 9px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  .sheet h2::before{content:"";width:4px;height:15px;border-radius:99px;background:var(--accent);flex:none}
+  .office{border:1px solid var(--line);border-radius:12px;background:var(--tint);padding:12px 14px;gap:8px 18px;font-size:.9rem}
+  .office select{border-color:var(--line);border-radius:7px;background:var(--paper);padding:3px 8px}
+  .grid{gap:9px 16px}
+  label.f{font-size:.8rem;font-weight:600}
+  label.f input,label.f select{font-size:.95rem;font-weight:500;background:var(--bg);border:1.5px solid transparent;border-bottom:1.5px solid var(--line);border-radius:9px;padding:7px 9px;transition:border-color .15s,background .15s}
+  label.f input:focus,label.f select:focus{outline:0;background:var(--paper);border-color:var(--accent)}
+  .pbox{border-radius:12px;background:var(--bg)}
+  .subjects{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .subjects>div{border-right:1px solid var(--line);padding:10px 12px}
+  .opt{border-radius:8px;padding:6px 8px}
+  .pledge{border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:12px 14px;font-size:.9rem}
+  .act{position:sticky;bottom:0;z-index:25;justify-content:flex-end;gap:8px;margin:0;padding:10px 12px;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.06)}
+  .act button{padding:9px 16px}
+  .errs{border-radius:10px;border-width:1px;background:rgba(179,38,30,.06)}
+
+  .dhero{border-radius:16px;padding:18px 20px}
+  .dcard,.dsec,.dkpi{border-radius:14px}
+  .dkpi{padding:11px 12px}
+  .dcharts{gap:12px}
+
+  .setsec{border-radius:14px;padding:15px 16px}
+  .setsec h3{font-size:.98rem;color:var(--accent)}
+  .acc-box,.acc-stu,.acc-head{border-radius:11px}
+  .acc-tabs button{padding:6px 14px;border-radius:99px}
+
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+  ::-webkit-scrollbar-track{background:transparent}
+}
+@media screen and (max-width:700px){
+  .sheet{padding:16px 14px}
+  .sheet header h1{font-size:1.45rem}
+  .act{justify-content:center}
+  .list .box{padding:12px 10px}
+}
 </style>
 </head>
 <body>
 
-<nav class="bar" aria-label="বিভাগ বাছাই">
-  <span id="deptBtns" style="display:contents">
-  <button type="button" data-dept="humanities" aria-pressed="true">মানবিক</button>
-  <button type="button" data-dept="business" aria-pressed="false">ব্যবসায় শিক্ষা</button>
-  <button type="button" data-dept="science" aria-pressed="false">বিজ্ঞান</button>
-  <span class="sep"></span>
-  <button type="button" id="printTop">প্রিন্ট / PDF</button>
-  </span>
-  <span class="sep"></span>
-  <button type="button" id="viewDash" aria-pressed="false">ড্যাশবোর্ড</button>
-  <button type="button" id="viewStudent" aria-pressed="false" hidden>আমার পোর্টাল</button>
-  <button type="button" id="viewForm" aria-pressed="true">ফরম</button>
-  <button type="button" id="viewList" aria-pressed="false">সংরক্ষিত তালিকা (<span id="cnt">0</span>)</button>
-  <button type="button" id="viewAcc" aria-pressed="false">হিসাব</button>
-  <button type="button" id="viewRes" aria-pressed="false">রেজাল্ট শিট</button>
-  <button type="button" id="viewUsers" aria-pressed="false">ব্যবহারকারী</button>
-  <button type="button" id="viewSettings" aria-pressed="false" hidden>সেটিংস</button>
-  <span class="sep"></span>
-  <span class="who" id="who"></span>
-  <button type="button" id="logoutBtn">লগআউট</button>
-</nav>
+<div class="pagehead" id="pageHeadWrap" hidden><div id="pageHead"></div></div>
 
 <div id="errs" class="errs" hidden role="alert"></div>
 
@@ -473,11 +582,11 @@ body.rp{overflow:hidden}
 
   <div class="office" aria-label="অফিস পূরণ করবে">
     <div><b>শ্রেণি:</b> <span id="formCls">একাদশ</span></div>
-    <div><b>বিভাগ:</b> <span id="deptName">মানবিক</span></div>
+    <div><b>বিভাগ:</b> <select id="deptSel" aria-label="বিভাগ নির্বাচন" style="width:155px"><option value="humanities">মানবিক</option><option value="business">ব্যবসায় শিক্ষা</option><option value="science">বিজ্ঞান</option></select></div>
     <label class="f session"><b>ফরম নং:</b><input name="formNo" style="width:110px"></label>
-    <label class="f session"><b>সেশন:</b><input name="session" value="২০২৬ – ২০২৭" style="width:150px"></label>
+    <label class="f session"><b>সেশন:</b><select name="session" id="sessionSel" style="width:170px" aria-label="ভর্তি সেশন"></select></label>
   </div>
-  <p style="margin:2px 0 0;font-size:.82rem;color:var(--muted)">ফরম নং ও সেশন অফিস পূরণ করবে। রোল নং ও স্টুডেন্ট আইডি ভর্তি অনুমোদনের পর দেওয়া হবে।</p>
+  <p style="margin:2px 0 0;font-size:.82rem;color:var(--muted)">ফরম নং অফিস পূরণ করবে; সেশন ভর্তি কমিটি তৈরি করে সক্রিয় রাখবে। রোল নং ও স্টুডেন্ট আইডি ভর্তি অনুমোদনের পর স্বয়ংক্রিয়ভাবে দেওয়া হবে।</p>
 
   <h2>শিক্ষার্থীর তথ্য</h2>
   <div class="pwrap">
@@ -621,38 +730,55 @@ body.rp{overflow:hidden}
 </section>
 
 <div id="login" class="login" role="dialog" aria-modal="true" aria-label="লগইন">
-  <div class="lcard">
-    <img id="lLogo" alt="">
-    <h2>কাঁচকুড়া কলেজ</h2>
-    <div id="lSetup" hidden>
-      <p style="margin:0 0 8px"><b>প্রথমবার সেটআপ:</b> সুপার অ্যাডমিন তৈরি করুন। পরে তিনিই বাকি সবার জন্য ব্যবহারকারী বানাবেন।</p>
-      <form id="sForm" novalidate>
-        <label class="f"><span>নাম</span><input id="sName" autocomplete="off"></label>
-        <label class="f"><span>ইউজারনেম (ইংরেজিতে, যেমন admin)</span><input id="sUser" autocomplete="username"></label>
-        <label class="f"><span>পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)</span><input id="sPass" type="password" autocomplete="new-password"></label>
-        <button type="submit">সুপার অ্যাডমিন তৈরি করুন</button>
-      </form>
-    </div>
-    <div id="lMain" hidden>
-      <form id="lForm" novalidate>
-        <label class="f"><span>ইউজারনেম</span><input id="lUser" autocomplete="username"></label>
-        <label class="f"><span>পাসওয়ার্ড</span><input id="lPass" type="password" autocomplete="current-password"></label>
-        <button type="submit">কর্মী লগইন</button>
-      </form>
-      <p class="lnote" style="margin:12px 0 6px">অথবা</p>
-      <button type="button" id="lStudent" class="alt" style="width:100%">শিক্ষার্থী লগইন — ফলাফল ও ফি</button>
-      <div id="stuBox" hidden style="margin-top:10px">
-        <form id="stuForm" novalidate>
-          <label class="f"><span>স্টুডেন্ট আইডি</span><input id="stuIdIn" autocomplete="off" placeholder="যেমন: ২০২৬-০০০১"></label>
-          <label class="f"><span>নিবন্ধিত মোবাইল নম্বর</span><input id="stuMobIn" type="tel" inputmode="tel" autocomplete="off" placeholder="শিক্ষার্থী/পিতা/মাতা/অভিভাবকের মোবাইল"></label>
-          <button type="submit">পোর্টালে লগইন</button>
-          <button type="button" id="stuBack" class="alt">ফিরে যান</button>
+  <div class="lwrap">
+    <aside class="lside">
+      <img id="lLogo" alt="কাঁচকুড়া কলেজ লোগো">
+      <h2>কাঁচকুড়া কলেজ</h2>
+      <p class="lsub">ভর্তি ও পরীক্ষা ব্যবস্থাপনা</p>
+      <ul>
+        <li>ভর্তির আবেদন, যাচাই ও অনুমোদন</li>
+        <li>শিক্ষার্থী ফলাফল ও ফি সেবা</li>
+        <li>হিসাব, রসিদ ও রেজাল্ট শিট</li>
+      </ul>
+      <div class="laddr">কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</div>
+    </aside>
+    <div class="lcard">
+      <div>
+        <h2>স্বাগতম</h2>
+        <p class="lcap">আপনার ধরন অনুযায়ী লগইন করুন</p>
+      </div>
+      <div id="lSetup" hidden>
+        <p><b>প্রথমবার সেটআপ:</b> সুপার অ্যাডমিন তৈরি করুন। পরে তিনিই বাকি সবার জন্য ব্যবহারকারী বানাবেন।</p>
+        <form id="sForm" novalidate>
+          <label class="f"><span>নাম</span><input id="sName" autocomplete="off"></label>
+          <label class="f"><span>ইউজারনেম (ইংরেজিতে, যেমন admin)</span><input id="sUser" autocomplete="username"></label>
+          <label class="f"><span>পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)</span><input id="sPass" type="password" autocomplete="new-password"></label>
+          <button type="submit">সুপার অ্যাডমিন তৈরি করুন</button>
         </form>
       </div>
-      <button type="button" id="lGuest" class="alt" style="width:100%;margin-top:8px">নতুন শিক্ষার্থী: ভর্তির আবেদন করুন</button>
+      <div id="lMain" hidden>
+        <form id="lForm" novalidate>
+          <label class="f"><span>ইউজারনেম</span><input id="lUser" autocomplete="username" placeholder="admin"></label>
+          <label class="f"><span>পাসওয়ার্ড</span>
+            <span class="pwwrap"><input id="lPass" type="password" autocomplete="current-password" placeholder="••••••••"><button type="button" class="eye" id="lEye" aria-label="পাসওয়ার্ড দেখুন">দেখুন</button></span>
+          </label>
+          <button type="submit">কর্মী লগইন</button>
+        </form>
+        <div class="lor">অথবা</div>
+        <button type="button" id="lStudent" class="alt">শিক্ষার্থী লগইন — ফলাফল ও ফি</button>
+        <div id="stuBox" hidden>
+          <form id="stuForm" novalidate>
+            <label class="f"><span>স্টুডেন্ট আইডি</span><input id="stuIdIn" autocomplete="off" placeholder="যেমন: ২৬০০০০০১"></label>
+            <label class="f"><span>নিবন্ধিত মোবাইল নম্বর</span><input id="stuMobIn" type="tel" inputmode="tel" autocomplete="off" placeholder="শিক্ষার্থী/পিতা/মাতা/অভিভাবকের মোবাইল"></label>
+            <button type="submit">পোর্টালে লগইন</button>
+            <button type="button" id="stuBack" class="alt">ফিরে যান</button>
+          </form>
+        </div>
+        <button type="button" id="lGuest" class="alt">নতুন শিক্ষার্থী: ভর্তির আবেদন করুন</button>
+      </div>
+      <div class="lerr" id="lErr" role="alert"></div>
+      <div class="lnote">এই লগইন শুধু এই ব্রাউজারের ভেতরের নিয়ন্ত্রণ। তথ্য অন্য কম্পিউটার বা ফোনে যায় না।</div>
     </div>
-    <div class="lerr" id="lErr" role="alert"></div>
-    <div class="lnote">এই লগইন শুধু এই ব্রাউজারের ভেতরের নিয়ন্ত্রণ। তথ্য অন্য কম্পিউটার বা ফোনে যায় না।</div>
   </div>
 </div>
 
@@ -805,8 +931,8 @@ function renderSubjects() {
     const cnt = g.n ? `<div class="count" data-count="${g.id}"></div>` : '';
     return `<div><h3>${g.title}</h3><p class="note">${g.note}</p>${fixed}${pick}${cnt}</div>`;
   }).join('');
-  document.getElementById('deptName').textContent = d.name;
   document.getElementById('deptTag').textContent = d.name + ' বিভাগ';
+  const ds = document.getElementById('deptSel'); if (ds) ds.value = dept;
   document.getElementById('sheet').className = 'sheet s-' + dept;
   syncSubjects();
 }
@@ -833,11 +959,13 @@ function syncSubjects() {
 }
 document.getElementById('subjects').addEventListener('change', syncSubjects);
 
-document.querySelectorAll('.bar [data-dept]').forEach(b => b.addEventListener('click', () => {
-  dept = b.dataset.dept;
-  document.querySelectorAll('.bar [data-dept]').forEach(x => x.setAttribute('aria-pressed', x === b));
+function setDept(key) {
+  if (!DEPTS[key]) return;
+  dept = key;
+  const ds = document.getElementById('deptSel'); if (ds) ds.value = dept;
   renderSubjects(); autoFormNo();
-}));
+}
+document.getElementById('deptSel').addEventListener('change', e => setDept(e.target.value));
 renderSubjects();
 
 // ---------- স্থায়ী ঠিকানা = বর্তমান ঠিকানা ----------
@@ -876,7 +1004,6 @@ document.addEventListener('input', syncYear); window.addEventListener('beforepri
 const markDates = () => document.querySelectorAll('input[type=date]').forEach(i => i.classList.toggle('empty', !i.value));
 document.addEventListener('input', markDates); window.addEventListener('beforeprint', markDates); markDates();
 document.getElementById('printBtn').onclick = () => doPrint(false);
-document.getElementById('printTop').onclick = () => doPrint(true);
 
 // ---------- ডেটাবেস (ব্রাউজারের IndexedDB) ----------
 const DB = {
@@ -983,22 +1110,39 @@ async function autoFormNo() {
   el.value = pf + '-' + String(max + 1).padStart(3, '0');
 }
 function yearOfRec(r) {
+  const sess = toEn((r.fields || {}).session || '');
+  const sm = sess.match(/(\d{4})/);
+  if (sm) return sm[1];
   const fy = toEn((r.fields || {}).formYear || document.getElementById('formYear').value);
   return (fy.match(/\d{4}/) || [String(new Date().getFullYear())])[0];
 }
+const yyOf = yr => String(yr).slice(-2);
 function nextStuIdFor(r, list) {
-  const yr = yearOfRec(r), re = new RegExp('^' + yr + '-(\\d+)$');
-  let max = 0;
-  list.forEach(x => { if (x.id === r.id) return; const m = re.exec(toEn((x.fields || {}).stuId || '').trim()); if (m) max = Math.max(max, +m[1]); });
-  return yr + '-' + String(max + 1).padStart(4, '0');
-}
-function nextRollFor(r, list) {
-  const yr = yearOfRec(r);
+  const yy = yyOf(yearOfRec(r));
   let max = 0;
   list.forEach(x => {
-    if (x.id === r.id || !okApp(x) || clsOf(x) !== clsOf(r) || yearOfRec(x) !== yr) return;
-    const n = +toEn((x.fields || {}).roll || '').replace(/\D/g, '');
-    if (n > max) max = n;
+    if (x.id === r.id) return;
+    const m = /^(\d{2})(\d{6})$/.exec(toEn((x.fields || {}).stuId || '').replace(/\D/g, ''));
+    if (m && m[1] === yy) max = Math.max(max, +m[2]);
+  });
+  return yy + String(max + 1).padStart(6, '0');
+}
+const ROLL_SERIES = { humanities: [1, 2], science: [3, 4], business: [5, 6] };
+const isGirl = r => ((r.fields || {}).gender === 'মহিলা');
+function rollBaseFor(r) {
+  const yy = +yyOf(yearOfRec(r)) || 26;
+  const g = ROLL_SERIES[r.dept] || ROLL_SERIES.humanities;
+  return yy * 1000 + (isGirl(r) ? g[0] : g[1]) * 100;
+}
+const rollOf = x => +toEn((x.fields || {}).roll || '').replace(/\D/g, '');
+function nextRollFor(r, list) {
+  const base = rollBaseFor(r), yr = yearOfRec(r), sess = (r.fields || {}).session || '', girl = isGirl(r);
+  let max = base - 1;
+  list.forEach(x => {
+    if (x.id === r.id || !okApp(x) || clsOf(x) !== clsOf(r) || x.dept !== r.dept) return;
+    if (yearOfRec(x) !== yr || ((x.fields || {}).session || '') !== sess || isGirl(x) !== girl) return;
+    const n = rollOf(x);
+    if (n >= base && n < base + 100 && n > max) max = n;
   });
   return String(max + 1);
 }
@@ -1013,22 +1157,25 @@ async function editIds(id) {
   const r = cache.find(x => x.id === id); if (!r) return;
   if (!okApp(r)) return toast('ভর্তি অনুমোদনের পর রোল ও স্টুডেন্ট আইডি দেওয়া যাবে');
   let list = []; try { list = await DB.all(); } catch (e) {}
-  const rv = prompt('রোল নং', (r.fields || {}).roll || nextRollFor(r, list));
+  const nextId = nextStuIdFor(r, list), base = rollBaseFor(r), curRoll = rollOf(r);
+  const rollDefault = (curRoll >= base && curRoll < base + 100) ? String(curRoll) : nextRollFor(r, list);
+  const curSid = toEn((r.fields || {}).stuId || '').replace(/\D/g, '');
+  const rv = prompt('রোল নং', rollDefault);
   if (rv === null) return;
-  const sv = prompt('স্টুডেন্ট আইডি (যেমন: ' + yearOfRec(r) + '-0001)', (r.fields || {}).stuId || nextStuIdFor(r, list));
+  const sv = prompt('স্টুডেন্ট আইডি (যেমন: ' + nextId + ')', /^\d{8}$/.test(curSid) ? curSid : nextId);
   if (sv === null) return;
-  const roll = toEn(rv).trim();
-  let sid = toEn(sv).trim().toUpperCase().replace(/\s+/g, '');
-  if (/^\d{8}$/.test(sid)) sid = sid.slice(0, 4) + '-' + sid.slice(4);
+  const roll = toEn(rv).replace(/\D/g, '').trim();
+  const sid = toEn(sv).replace(/\D/g, '').trim();
   if (!roll && !sid) return toast('রোল ও স্টুডেন্ট আইডি দুটোই ফাঁকা রাখা যাবে না');
-  if (sid && !/^\d{4}-\d{4}$/.test(sid)) return toast('স্টুডেন্ট আইডি ' + yearOfRec(r) + '-0001 ফরম্যাটে দিন');
-  const norm = v => toEn(v || '').toUpperCase().replace(/[\s-]/g, '');
+  if (roll && !/^\d{5}$/.test(roll)) return toast('রোল ৫ সংখ্যার হতে হবে (যেমন: ' + nextRollFor(r, list) + ')');
+  if (sid && !/^\d{8}$/.test(sid)) return toast('স্টুডেন্ট আইডি ৮ সংখ্যার হতে হবে (যেমন: ' + nextId + ')');
+  if (roll && (+roll < base || +roll >= base + 100)) return toast('এই শিক্ষার্থীর রোল ' + base + ' থেকে ' + (base + 99) + ' এর মধ্যে হতে হবে');
   if (sid) {
-    const dup = list.find(x => x.id !== r.id && norm((x.fields || {}).stuId) === norm(sid));
+    const dup = list.find(x => x.id !== r.id && toEn((x.fields || {}).stuId || '').replace(/\D/g, '') === sid);
     if (dup) return toast('এই স্টুডেন্ট আইডি আগে ব্যবহার হয়েছে: ' + nameOf(dup));
   }
   if (roll) {
-    const dup = list.find(x => x.id !== r.id && okApp(x) && clsOf(x) === clsOf(r) && yearOfRec(x) === yearOfRec(r) && toEn((x.fields || {}).roll || '').trim() === roll);
+    const dup = list.find(x => x.id !== r.id && okApp(x) && clsOf(x) === clsOf(r) && x.dept === r.dept && isGirl(x) === isGirl(r) && yearOfRec(x) === yearOfRec(r) && ((x.fields || {}).session || '') === ((r.fields || {}).session || '') && rollOf(x) === +roll);
     if (dup) return toast('এই রোল (' + roll + ') ইতিমধ্যে ব্যবহার হয়েছে: ' + nameOf(dup));
   }
   const upd = { ...r, fields: { ...(r.fields || {}), roll: roll || (r.fields || {}).roll || '', stuId: sid || (r.fields || {}).stuId || '' } };
@@ -1047,7 +1194,6 @@ function collect() {
 }
 function apply(d) {
   dept = d.dept;
-  document.querySelectorAll('.bar [data-dept]').forEach(x => x.setAttribute('aria-pressed', x.dataset.dept === dept));
   renderSubjects(); setPhoto(d.photo || '');
   document.getElementById('formCls').textContent = CLASSES[clsOf(d)];
   for (const k in d.fields) {
@@ -1068,6 +1214,9 @@ function apply(d) {
 function newForm() {
   document.getElementById('form').reset();
   document.getElementById('errs').hidden = true;
+  const act = activeSession();
+  fillSessionOptions(act ? act.name : '');
+  if (act) q('formYear').value = bn(act.start);
   currentId = null; setTimeout(syncYear, 0); setPhoto(''); renderSubjects(); copyAddr(); autoFormNo();
   document.getElementById('formCls').textContent = CLASSES.XI;
 }
@@ -1075,16 +1224,9 @@ function showView(v) {
   if (ME && !(VIEWS[ME.role] || []).includes(v)) return;
   ['form', 'list', 'result', 'users', 'dash', 'accounts', 'settings', 'student'].forEach(n => { document.getElementById(n + 'View').hidden = v !== n; });
   document.body.dataset.view = v;
-  document.getElementById('deptBtns').style.display = v === 'form' ? 'contents' : 'none';
-  document.getElementById('viewForm').setAttribute('aria-pressed', v === 'form');
-  document.getElementById('viewList').setAttribute('aria-pressed', v === 'list');
-  document.getElementById('viewAcc').setAttribute('aria-pressed', v === 'accounts');
-  document.getElementById('viewRes').setAttribute('aria-pressed', v === 'result');
-  document.getElementById('viewUsers').setAttribute('aria-pressed', v === 'users');
-  document.getElementById('viewDash').setAttribute('aria-pressed', v === 'dash');
-  document.getElementById('viewSettings').setAttribute('aria-pressed', v === 'settings');
-  document.getElementById('viewStudent').setAttribute('aria-pressed', v === 'student');
+  renderPageHead();
   if (v === 'list') loadList();
+  if (v === 'form') fillSessionOptions();
   if (v === 'accounts') openAccounts();
   if (v === 'result') openResult();
   if (v === 'users') { resetUserForm(); loadUsers(); }
@@ -1095,7 +1237,6 @@ function showView(v) {
 }
 async function loadList() {
   try { cache = await DB.all(); } catch (e) { cache = []; document.getElementById('rows').innerHTML = '<tr><td colspan="13">এই ব্রাউজারে সংরক্ষণ চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।</td></tr>'; return; }
-  document.getElementById('cnt').textContent = cache.length;
   renderRows();
 }
 let listCls = 'all';
@@ -1150,12 +1291,10 @@ document.getElementById('saveBtn').onclick = async () => {
   rec.ts = old && old.ts ? old.ts : Date.now();
   rec.cls = old ? clsOf(old) : 'XI';
   if (okApp(rec)) rec = await assignMissingIds(rec);
-  try { currentId = await DB.put(rec); toast(ME.role === 'student' ? 'আবেদন জমা হয়েছে। ধন্যবাদ।' : 'সংরক্ষিত হয়েছে'); cache = await DB.all(); document.getElementById('cnt').textContent = cache.length; if (ME.role === 'student') newForm(); }
+  try { currentId = await DB.put(rec); toast(ME.role === 'student' ? 'আবেদন জমা হয়েছে। ধন্যবাদ।' : 'সংরক্ষিত হয়েছে'); cache = await DB.all(); if (ME.role === 'student') newForm(); }
   catch (e) { box.innerHTML = 'সংরক্ষণ করা গেল না। ফাইলটি Chrome বা Firefox-এ খুলুন।'; box.hidden = false; }
 };
 document.getElementById('reset').onclick = () => { if (confirm('ফরম খালি হয়ে যাবে (সংরক্ষিত তথ্য মুছবে না)। চালিয়ে যাবেন?')) newForm(); };
-document.getElementById('viewForm').onclick = () => showView('form');
-document.getElementById('viewList').onclick = () => showView('list');
 
 // ---------- এক্সপোর্ট ----------
 function download(name, text, type) {
@@ -1217,6 +1356,12 @@ document.getElementById('impFile').onchange = async e => {
       if (m.k === 'settings' && m.v) {
         const cur = await DB.meta('settings');
         if (!cur || (cur.at || 0) < (m.at || 0)) await DB.putMeta(m);
+        continue;
+      }
+      if (m.k === 'sessions' && Array.isArray(m.v)) {
+        await DB.putMeta({ k: 'sessions', v: m.v, at: Date.now() });
+        SESSIONS = m.v.slice().sort((a, b) => a.start - b.start);
+        fillSessionOptions();
         continue;
       }
       if (!/^rcp:\d{4}$/.test(m.k)) continue;
@@ -1583,17 +1728,24 @@ $('rCsv').onclick = () => {
   });
   download(`result-${R.dept}.csv`, '\ufeff' + [head.map(cell).join(','), ...lines].join('\r\n'), 'text/csv;charset=utf-8');
 };
-$('viewRes').onclick = () => showView('result');
+
+// ---------- পাসওয়ার্ড দেখা ----------
+$('lEye').onclick = () => {
+  const p = $('lPass'), show = p.type === 'password';
+  p.type = show ? 'text' : 'password';
+  $('lEye').textContent = show ? 'লুকান' : 'দেখুন';
+  $('lEye').setAttribute('aria-label', show ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখুন');
+};
 
 // ---------- ব্যবহারকারী ও লগইন ----------
 let ME = null, uEdit = null;
 const ROLES = { admin: 'সুপার অ্যাডমিন', admission: 'ভর্তি কমিটি', accountant: 'হিসাব রক্ষক', teacher: 'শিক্ষক', controller: 'পরীক্ষা নিয়ন্ত্রণ কমিটি', student: 'শিক্ষার্থী' };
-const VIEWS = { student: ['student'], guest: ['form'], admission: ['dash', 'form', 'list', 'accounts'], accountant: ['dash', 'accounts'], teacher: ['dash', 'result'], controller: ['dash', 'result'], admin: ['dash', 'form', 'list', 'accounts', 'result', 'users', 'settings'] };
+const VIEWS = { student: ['student'], guest: ['form'], admission: ['dash', 'form', 'list', 'accounts', 'settings'], accountant: ['dash', 'accounts'], teacher: ['dash', 'result'], controller: ['dash', 'result'], admin: ['dash', 'form', 'list', 'accounts', 'result', 'users', 'settings'] };
 const FIRST = { student: 'student', guest: 'form', admission: 'dash', accountant: 'dash', teacher: 'dash', controller: 'dash', admin: 'dash' };
 const isAll = () => !!ME && (ME.role === 'admin' || ME.role === 'controller');
 const isTeacher = () => !!ME && ME.role === 'teacher';
 
-const DEFAULT_SET = { studentResult: true, studentPay: true, msInfo: 'card', msPhoto: 'right', accSetup: true, accVoid: false, accReport: true, accApprove: true };
+const DEFAULT_SET = { studentResult: true, studentPay: true, msInfo: 'card', msPhoto: 'right', accSetup: true, accVoid: false, accReport: true, accApprove: true, sigCollector: '', sigPrincipal: '' };
 let SET = { ...DEFAULT_SET };
 async function loadSettings() {
   try { const m = await DB.meta('settings'); SET = { ...DEFAULT_SET, ...((m || {}).v || {}) }; }
@@ -1627,29 +1779,116 @@ DB.user = function (n) { return this.run('readonly', s => s.get(n), 'users'); };
 DB.putUser = function (u) { return this.run('readwrite', s => s.put(u), 'users'); };
 DB.delUser = function (n) { return this.run('readwrite', s => s.delete(n), 'users'); };
 
+// ---------- ভর্তি সেশন (ভর্তি কমিটি) ----------
+let SESSIONS = [];
+const activeSession = () => SESSIONS.find(s => s.active) || SESSIONS[0] || null;
+async function saveSessions() { await DB.putMeta({ k: 'sessions', v: SESSIONS.slice(), at: Date.now() }); }
+async function loadSessions() {
+  let list = [];
+  try { const m = await DB.meta('sessions'); if (m && Array.isArray(m.v)) list = m.v; } catch (e) {}
+  if (!list.length) {
+    const yr = (toEn(document.getElementById('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
+    list = [{ id: yr + '-' + (+yr + 1), start: +yr, end: +yr + 1, name: bn(yr) + ' – ' + bn(+yr + 1), active: true, ts: Date.now() }];
+    try { await DB.putMeta({ k: 'sessions', v: list }); } catch (e) {}
+  }
+  SESSIONS = list.slice().sort((a, b) => a.start - b.start);
+  return SESSIONS;
+}
+function fillSessionOptions(preferred) {
+  const el = q('session'); if (!el) return;
+  const cur = preferred || el.value || ((activeSession() || {}).name) || '';
+  el.innerHTML = SESSIONS.map(s => `<option value="${H(s.name)}">${H(s.name)}</option>`).join('');
+  if (cur && ![...el.options].some(o => o.value === cur)) {
+    const o = document.createElement('option'); o.value = cur; o.textContent = cur; el.appendChild(o);
+  }
+  if (cur) {
+    el.value = cur;
+    if (!currentId) {
+      const s = SESSIONS.find(x => x.name === cur);
+      if (s) { q('formYear').value = bn(s.start); syncYear(); }
+    }
+  }
+}
+document.getElementById('sessionSel').addEventListener('change', () => {
+  const s = SESSIONS.find(x => x.name === q('session').value);
+  if (s) { q('formYear').value = bn(s.start); syncYear(); }
+});
+let ssApps = [];
+function renderSessions() {
+  const t = $('ssRows'); if (!t) return;
+  const rows = SESSIONS.map(s => {
+    const n = ssApps.filter(a => (a.fields || {}).session === s.name).length;
+    return `<tr><td class="nm">${H(s.name)}</td><td>${bn(s.start)}</td><td>${bn(n)}</td><td>${s.active ? '<b>সক্রিয়</b>' : 'নিষ্ক্রিয়'}</td>
+      <td style="white-space:nowrap">${s.active ? '' : `<button type="button" data-sact="${H(s.id)}">সক্রিয় করুন</button> `}<button type="button" class="del" data-sdel="${H(s.id)}">মুছুন</button></td></tr>`;
+  }).join('');
+  t.innerHTML = rows || '<tr><td colspan="5">এখনো কোনো সেশন নেই।</td></tr>';
+}
+function bindSessions() {
+  const add = $('ssAdd'), rows = $('ssRows'); if (!add || !rows) return;
+  add.onclick = async () => {
+    const raw = toEn($('ssYear').value).replace(/\D/g, '');
+    if (!/^(20|21)\d{2}$/.test(raw)) return toast('শুরুর বছর চার সংখ্যায় দিন (যেমন ২০২৬)');
+    const start = +raw;
+    if (SESSIONS.some(s => s.start === start)) return toast('এই বছর থেকে সেশন আগেই তৈরি করা হয়েছে');
+    const name = bn(start) + ' – ' + bn(start + 1);
+    SESSIONS = SESSIONS.map(s => ({ ...s, active: false }));
+    SESSIONS.push({ id: start + '-' + (start + 1), start, end: start + 1, name, active: true, ts: Date.now() });
+    SESSIONS.sort((a, b) => a.start - b.start);
+    await saveSessions();
+    $('ssYear').value = ''; renderSessions(); fillSessionOptions(name);
+    toast('সেশন তৈরি ও সক্রিয় হয়েছে: ' + name);
+  };
+  rows.onclick = async e => {
+    const act = e.target.dataset.sact, del = e.target.dataset.sdel;
+    if (act) {
+      SESSIONS = SESSIONS.map(s => ({ ...s, active: s.id === act }));
+      await saveSessions(); renderSessions();
+      fillSessionOptions((SESSIONS.find(s => s.id === act) || {}).name);
+      toast('সেশন সক্রিয় হয়েছে'); return;
+    }
+    if (!del) return;
+    const s = SESSIONS.find(x => x.id === del); if (!s) return;
+    if (s.active) return toast('সক্রিয় সেশন মোছা যাবে না');
+    if (SESSIONS.length === 1) return toast('অন্তত একটি সেশন থাকতে হবে');
+    let apps = []; try { apps = await DB.all(); } catch (e) {}
+    if (apps.some(a => (a.fields || {}).session === s.name)) return toast('এই সেশনে আবেদন আছে, মোছা যাবে না');
+    if (!confirm('সেশন "' + s.name + '" মুছবেন?')) return;
+    SESSIONS = SESSIONS.filter(x => x.id !== del);
+    await saveSessions(); renderSessions();
+    fillSessionOptions((activeSession() || {}).name || '');
+    toast('সেশন মুছে ফেলা হয়েছে');
+  };
+}
+
+async function ensureDefaultAdmin() {
+  try {
+    if ((await DB.users()).length) return;
+    const salt = randSalt();
+    await DB.putUser({ username: 'admin', name: 'সুপার অ্যাডমিন', role: 'admin', subjects: [], active: true, salt, hash: await hashPw('admn123', salt) });
+  } catch (e) {}
+}
 async function showLogin() {
   ME = null; $('login').hidden = false; $('lErr').textContent = '';
+  renderPageHead();
   $('lLogo').src = document.querySelector('.logo').src;
   $('lForm').hidden = false; $('lStudent').hidden = false; $('lGuest').hidden = false; $('stuBox').hidden = true;
-  $('stuIdIn').value = ''; $('stuMobIn').value = '';
+  $('stuIdIn').value = ''; $('stuMobIn').value = ''; $('lPass').value = '';
+  $('lPass').type = 'password'; $('lEye').textContent = 'দেখুন'; $('lEye').setAttribute('aria-label', 'পাসওয়ার্ড দেখুন');
   await loadSettings();
+  await loadSessions();
+  await ensureDefaultAdmin();
   let n = 0;
   try { n = (await DB.users()).length; } catch (e) { $('lErr').textContent = 'এই ব্রাউজারে সংরক্ষণ চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।'; }
   $('lSetup').hidden = n > 0; $('lMain').hidden = n === 0;
 }
 function enter() {
-  $('login').hidden = true; applyRole(); showView(FIRST[ME.role]);
+  $('login').hidden = true; applyRole(); renderPageHead(); showView(FIRST[ME.role]);
 }
 function applyRole() {
-  const ok = VIEWS[ME.role] || [];
-  [['viewDash', 'dash'], ['viewStudent', 'student'], ['viewForm', 'form'], ['viewList', 'list'], ['viewAcc', 'accounts'], ['viewRes', 'result'], ['viewUsers', 'users'], ['viewSettings', 'settings']].forEach(([id, v]) => { $(id).hidden = !ok.includes(v); });
-  $('who').textContent = ME.role === 'student' ? `${ME.name} (শিক্ষার্থী)` : ME.role === 'guest' ? 'শিক্ষার্থী (আবেদন)' : `${ME.name} (${ROLES[ME.role]})`;
-  $('logoutBtn').textContent = (ME.role === 'student' || ME.role === 'guest') ? 'বের হন' : 'লগআউট';
   const st = ME.role === 'student' || ME.role === 'guest';
   q('formNo').readOnly = st;
   $('bakBtn').hidden = $('impBtn').hidden = ME.role !== 'admin';
   $('promoBtn').hidden = $('demoBtn').hidden = !(ME.role === 'admin' || ME.role === 'admission');
-  $('printTop').hidden = ME.role === 'student';
   autoFormNo();
 }
 const normId = v => toEn(v).toUpperCase().replace(/[\s-]/g, '');
@@ -1700,7 +1939,6 @@ $('stuForm').addEventListener('submit', async e => {
   $('lErr').textContent = ''; enter();
 });
 $('lGuest').onclick = () => { ME = { username: '', name: 'শিক্ষার্থী', role: 'guest', subjects: [] }; enter(); };
-$('logoutBtn').onclick = () => { if (ME && (ME.role === 'student' || ME.role === 'guest')) showLogin(); else { newForm(); showLogin(); } };
 
 // ---------- ব্যবহারকারী ব্যবস্থাপনা (সুপার অ্যাডমিন) ----------
 $('uSubs').innerHTML = allSubjects().map(s => `<label class="opt"><input type="checkbox" value="${H(s)}"><span>${H(s)}</span></label>`).join('');
@@ -1746,7 +1984,6 @@ $('uRows').addEventListener('click', async e => {
     if (confirm(`"${u.name}" স্থায়ীভাবে মুছে যাবে। মুছবেন?`)) { await DB.delUser(un); loadUsers(); }
   }
 });
-$('viewUsers').onclick = () => showView('users');
 
 // ---------- আবেদনের অবস্থা (ভর্তি কমিটি / অ্যাডমিন) ----------
 $('rows').addEventListener('click', async e => {
@@ -1900,16 +2137,33 @@ function dashRecent(apps, pays) {
   pays.forEach(p => { if (!p.void) acts.push({ ts: p.ts || 0, txt: (p.snap || {}).name + ' — ' + p.rno + ' • ' + taka(p.total) + ' টাকা', sub: 'ফি আদায়' }); });
   return acts.filter(x => x.ts).sort((a, b) => b.ts - a.ts).slice(0, 6);
 }
-function dashHero(role) {
-  const ok = VIEWS[role], btns = [];
-  if (ok.includes('form')) btns.push(['form', 'নতুন ফরম']);
-  if (ok.includes('list')) btns.push(['list', 'সংরক্ষিত তালিকা']);
-  if (ok.includes('accounts')) btns.push(['accounts', 'হিসাব ও রসিদ']);
-  if (ok.includes('result')) btns.push(['result', 'রেজাল্ট শিট']);
-  return `<div class="dhero"><img src="${document.querySelector('.logo').src}" alt="">
-    <div><h2>কাঁচকুড়া কলেজ</h2><p>${H(ME.name)} – ${ROLES[role]}</p><p>${new Date().toLocaleDateString('bn-BD', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p></div>
-    <div class="hbtn">${btns.map(([v, l]) => `<button type="button" data-dgo="${v}">${l}</button>`).join('')}</div></div>`;
+const TAB_LABELS = { dash: 'ড্যাশবোর্ড', student: 'আমার পোর্টাল', form: 'ফরম', list: 'তালিকা', accounts: 'হিসাব', result: 'রেজাল্ট', users: 'ব্যবহারকারী', settings: 'সেটিংস' };
+const TAB_ORDER = ['dash', 'student', 'form', 'list', 'accounts', 'result', 'users', 'settings'];
+function renderPageHead() {
+  const w = $('pageHeadWrap'), b = $('pageHead');
+  if (!w || !b) return;
+  if (!ME || !ME.role) { w.hidden = true; b.innerHTML = ''; return; }
+  const role = ME.role, ok = VIEWS[role] || [], cur = document.body.dataset.view || FIRST[role];
+  const roleLabel = ROLES[role] || '';
+  const who = role === 'guest' ? 'শিক্ষার্থী (আবেদন)' : (ME.name === roleLabel ? roleLabel : `${H(ME.name)} – ${roleLabel}`);
+  const tabs = TAB_ORDER.filter(v => ok.includes(v)).map(v =>
+    `<button type="button" class="chtab${v === cur ? ' on' : ''}" data-dgo="${v}" role="tab" aria-selected="${v === cur}">${TAB_LABELS[v]}</button>`).join('');
+  const outLabel = (role === 'student' || role === 'guest') ? 'বের হন' : 'লগআউট';
+  b.innerHTML = `<div class="chtabs">
+    <div class="chbrand"><img src="${document.querySelector('.logo').src}" alt=""><b>কাঁচকুড়া কলেজ<small>ভর্তি ও পরীক্ষা</small></b></div>
+    <div class="chtabstrip" role="tablist" aria-label="মেনু">${tabs}</div>
+    <div class="chuser"><div class="chwho"><b>${who}</b><small>${new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' })}</small></div><button type="button" class="chlogout" id="logoutBtn">${outLabel}</button></div>
+  </div>`;
+  w.hidden = false;
 }
+$('pageHead').addEventListener('click', e => {
+  if (e.target.closest('#logoutBtn')) {
+    if (ME && (ME.role === 'student' || ME.role === 'guest')) showLogin();
+    else { newForm(); showLogin(); }
+    return;
+  }
+  const v = e.target.dataset.dgo; if (v) showView(v);
+});
 async function renderDash() {
   const box = $('dashBox'), role = ME.role;
   let apps = [], exams = [], users = [], pays = [], plans = [];
@@ -1932,7 +2186,7 @@ async function renderDash() {
     const d = expectedOf(pl) - paid;
     if (d > 0) { dueTotal += d; dueCount++; }
   });
-  let h = dashHero(role);
+  let h = '';
   h += `<div class="dkpis">${kpiCard('মোট আবেদন', bn(apps.length), 'users')}${kpiCard('আজকের আবেদন', bn(today), 'clock')}${kpiCard('সুপারিশের অপেক্ষায়', bn(apps.filter(a => st(a) === 'জমা').length), 'alert')}${kpiCard('অনুমোদিত', bn(approved.length), 'check')}${pays.length ? kpiCard('আজকের আদায়', taka(todayPay) + ' টাকা', 'money') : ''}${pays.length ? kpiCard('মোট বকেয়া (' + bn(dueCount) + ' জন)', taka(dueTotal) + ' টাকা', 'alert', dueTotal > 0) : ''}</div>`;
   h += `<div class="dcharts"><div class="dcard"><h3>গত ৭ দিনের আবেদন</h3>${barSVG(last7(apps))}</div><div class="dcard"><h3>বিভাগ অনুযায়ী শিক্ষার্থী</h3>${donutSVG(apps)}</div></div>`;
   const acts = dashRecent(apps, cPays);
@@ -1941,10 +2195,8 @@ async function renderDash() {
   if (role !== 'admission' && role !== 'accountant') h += await examSection(exams, apps);
   if (role === 'admin') h += `<div class="dsec"><h3>ব্যবহারকারী</h3><div class="dg">${Object.keys(ROLES).filter(r => r !== 'student').map(r => card(ROLES[r], bn(users.filter(u => u.role === r && u.active).length))).join('')}</div></div>`;
   box.innerHTML = h;
-  box.onclick = e => { const v = e.target.dataset.dgo; if (v) showView(v); };
   const sel = $('dEx'); if (sel) sel.onchange = () => { dashEx = +sel.value; renderDash(); };
 }
-$('viewDash').onclick = () => showView('dash');
 
 // ---------- হিসাব ----------
 const ACC = { tab: 'collect', year: '', apps: [], plans: [], pays: [], reqs: [], appId: null, q: '', dept: 'all', head: 'all', mode: 'all', from: '', to: '' };
@@ -2044,7 +2296,7 @@ function renderAcc() {
   else renderReport(body);
 }
 document.querySelectorAll('[data-acc]').forEach(b => b.onclick = () => { ACC.tab = b.dataset.acc; renderAcc(); });
-$('viewAcc').onclick = () => showView('accounts');
+
 $('accYear').onchange = e => { ACC.year = e.target.value; ACC.appId = null; renderAcc(); };
 $('accBody').addEventListener('click', e => {
   if (e.target.dataset.prt) printReceipts([+e.target.dataset.prt]);
@@ -2391,6 +2643,7 @@ function rcptPage(p) {
 }
 function rcptCopy(p, copy) {
   const s = p.snap || {}, logo = document.querySelector('.logo').src, disc = num(p.discount);
+  const sigC = (SET.sigCollector || p.by || '').trim(), sigP = (SET.sigPrincipal || 'কাঁচকুড়া কলেজ').trim();
   const rows = (p.items || []).map(i => `<tr><td>${H(i.label)}</td><td class="r">${taka(i.amount)}</td></tr>`).join('');
   const bank = p.mode === 'ব্যাংক'
     ? `<div class="rmode">ব্যাংক: ${H((p.bank || {}).name || '—')}${(p.bank || {}).branch ? ' (' + H(p.bank.branch) + ')' : ''}${(p.bank || {}).slip ? ' • জমার রসিদ নং: ' + H(p.bank.slip) : ''}</div>`
@@ -2410,7 +2663,7 @@ function rcptCopy(p, copy) {
     <div class="rwords"><b>কথায়:</b> ${takaWords(p.total)}</div>
     ${bank}
     <div class="rnote">এই রসিদ তিন কপি — শিক্ষার্থী, অফিস ও ব্যাংক। রসিদ নম্বর ছাড়া কোনো জমা গ্রহণযোগ্য নয়।</div>
-    <div class="rsig"><span>আদায়কারী<br>${H(p.by || '')}</span><span>অধ্যক্ষ<br>কাঁচকুড়া কলেজ</span></div>
+    <div class="rsig"><span><b>আদায়কারী</b><em>${H(sigC)}</em></span><span><b>অধ্যক্ষ</b><em>${H(sigP)}</em></span></div>
     <div class="rfoot">কাঁচকুড়া কলেজ • হিসাব শাখা • ${bn(p.year)}</div>
   </div>`;
 }
@@ -2586,10 +2839,9 @@ function wirePortal() {
   };
   box.querySelectorAll('[data-pprt]').forEach(b => b.onclick = () => printReceipts([+b.dataset.pprt], PORT.pays));
 }
-$('viewStudent').onclick = () => showView('student');
 
 // ---------- সেটিংস (শুধু সুপার অ্যাডমিন) ----------
-const MS_SAMPLE = { nameBn: 'মোঃ রাকিব হাসান', stuId: '২০২৬-০০০১', roll: '১০২', formNo: 'HU-০০১', father: 'মোঃ হাসান আলী', mother: 'রহিমা বেগম', session: '২০২৬ – ২০২৭', gender: 'পুরুষ' };
+const MS_SAMPLE = { nameBn: 'মোঃ রাকিব হাসান', stuId: '২৬০০০০০১', roll: '২৬২০১', formNo: 'HU-০০১', father: 'মোঃ হাসান আলী', mother: 'রহিমা বেগম', session: '২০২৬ – ২০২৭', gender: 'পুরুষ' };
 function setPreviewOpts() {
   return { info: $('setMsInfo') ? $('setMsInfo').value : SET.msInfo, photo: $('setMsPhoto') ? $('setMsPhoto').value : SET.msPhoto };
 }
@@ -2599,15 +2851,26 @@ function renderSetPreview() {
 }
 async function openSettings() {
   await loadSettings();
+  await loadSessions();
+  try { ssApps = await DB.all(); } catch (e) { ssApps = []; }
   renderSettings();
 }
 function renderSettings() {
   const box = $('setBox');
-  box.innerHTML = `<div class="dhero">
-      <div><h2>সেটিংস</h2><p>শিক্ষার্থী পোর্টাল, মার্কশিটের তথ্য সাজানো ও হিসাব রক্ষকের অনুমতি এখান থেকে ঠিক করুন।</p><p>পরিবর্তন এই ডিভাইসের ডেটাবেসে সংরক্ষিত হয় এবং ব্যাকআপের সাথেও যায়।</p></div>
-    </div>
-    <div class="setgrid">
-      <section class="setsec"><h3>শিক্ষার্থী পোর্টাল</h3>
+  const isAdmin = !ME || ME.role === 'admin';
+  const sessHTML = `<section class="setsec" style="grid-column:1/-1"><h3>ভর্তি সেশন</h3>
+        <p class="acc-note" style="margin-top:0">নতুন সেশন তৈরি করলে সেটি সক্রিয় হয় ও আবেদন ফরমে স্বয়ংক্রিয়ভাবে বসে; স্টুডেন্ট আইডি ও রোলের বছরও সক্রিয় সেশন থেকেই নেওয়া হয়।</p>
+        <div class="tools" style="align-items:flex-end">
+          <label class="f" style="flex:1;min-width:170px"><span>শুরুর বছর (যেমন ২০২৬)</span><input id="ssYear" inputmode="numeric" autocomplete="off"></label>
+          <button type="button" id="ssAdd" class="go">সেশন তৈরি করুন</button>
+        </div>
+        <div class="scroll" style="margin-top:10px"><table>
+          <thead><tr><th>সেশন</th><th>শুরুর বছর</th><th>আবেদন</th><th>অবস্থা</th><th></th></tr></thead>
+          <tbody id="ssRows"></tbody>
+        </table></div>
+        <p class="acc-note">সক্রিয় বা ব্যবহৃত সেশন মোছা যাবে না; অন্তত একটি সেশন থাকতে হবে।</p>
+      </section>`;
+  const adminHTML = `<section class="setsec"><h3>শিক্ষার্থী পোর্টাল</h3>
         <label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setStuPay" ${SET.studentPay ? 'checked' : ''}><span><b>ফি পরিশোধের অনুরোধ</b><small>শিক্ষার্থী বকেয়া ফি বেছে মোবাইল ব্যাংক/ব্যাংকের ট্রানজেকশন দিয়ে অনুরোধ পাঠাতে পারবে; হিসাব শাখা অনুমোদন করলে রসিদ তৈরি হবে।</small></span></label>
         <p class="acc-note">শিক্ষার্থী লগইন করে স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর (শিক্ষার্থী/পিতা/মাতা/অভিভাবক) দিয়ে।</p>
@@ -2625,18 +2888,28 @@ function renderSettings() {
         </select></label>
         <p class="acc-note">নিচে নমুনা দেখুন। প্রিন্টেও একই সাজানো থাকবে।</p>
       </section>
+      <section class="setsec"><h3>রসিদের স্বাক্ষর</h3>
+        <label class="f"><span>আদায়কারী / হিসাবরক্ষকের নাম</span><input id="setSigCollector" value="${H(SET.sigCollector || '')}" placeholder="যেমন: মোঃ রফিকুল ইসলাম" autocomplete="off"></label>
+        <label class="f" style="margin-top:10px"><span>অধ্যক্ষের নাম</span><input id="setSigPrincipal" value="${H(SET.sigPrincipal || '')}" placeholder="যেমন: প্রফেসর মোঃ আব্দুল হাই" autocomplete="off"></label>
+        <p class="acc-note">লেখা নাম রসিদের নিচের স্বাক্ষর লাইনে ছাপা হবে। আদায়কারীর ঘর খালি থাকলে দায়িত্বরত কর্মীর নাম, অধ্যক্ষের ঘর খালি থাকলে প্রতিষ্ঠানের নাম বসবে।</p>
+      </section>
       <section class="setsec"><h3>হিসাব রক্ষকের অনুমতি</h3>
         <label class="setrow"><input type="checkbox" id="setAccSetup" ${SET.accSetup ? 'checked' : ''}><span><b>ফি সেটআপ</b><small>শিক্ষার্থীর ভর্তি/সেশন/মাসিক ফি নির্ধারণ ও বিভাগে প্রয়োগ।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccVoid" ${SET.accVoid ? 'checked' : ''}><span><b>রসিদ বাতিল</b><small>ভুল রসিদ বাতিল করা। বাতিল করা রসিদ নম্বর আর ব্যবহার হয় না।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccReport" ${SET.accReport ? 'checked' : ''}><span><b>রিপোর্ট ও CSV</b><small>হিসাবের রিপোর্ট দেখা, CSV নামানো ও রসিদ প্রিন্ট করা।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccApprove" ${SET.accApprove ? 'checked' : ''}><span><b>ফি অনুরোধ অনুমোদন</b><small>শিক্ষার্থীর পাঠানো ফি অনুরোধ যাচাই করে রসিদ তৈরি করা।</small></span></label>
         <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p>
-      </section>
+      </section>`;
+  box.innerHTML = `<div class="dhero">
+      <div><h2>সেটিংস</h2><p>${isAdmin ? 'শিক্ষার্থী পোর্টাল, মার্কশিটের তথ্য সাজানো ও হিসাব রক্ষকের অনুমতি এখান থেকে ঠিক করুন।' : 'ভর্তি কমিটি এখান থেকে নতুন ভর্তি সেশন তৈরি ও সক্রিয় করতে পারে।'}</p><p>${isAdmin ? 'পরিবর্তন এই ডিভাইসের ডেটাবেসে সংরক্ষিত হয় এবং ব্যাকআপের সাথেও যায়।' : 'সেশন বদলালে আবেদন ফরম, স্টুডেন্ট আইডি ও রোলের বছর সঙ্গে সঙ্গে বদলে যাবে।'}</p></div>
     </div>
-    <div class="dsec"><h3>নমুনা মার্কশিট তথ্য</h3></div>
+    <div class="setgrid">${sessHTML}${isAdmin ? adminHTML : ''}</div>
+    ${isAdmin ? `<div class="dsec"><h3>নমুনা মার্কশিট তথ্য</h3></div>
     <div id="setPrev"></div>
     <div class="tools" style="margin-top:14px"><button type="button" id="setSave" class="go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload">আগের অবস্থায় ফিরুন</button></div>
-    <p class="acc-note">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</p>`;
+    <p class="acc-note">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</p>` : ''}`;
+  renderSessions(); bindSessions();
+  if (!isAdmin) return;
   const prev = () => { renderSetPreview(); };
   $('setMsInfo').onchange = prev; $('setMsPhoto').onchange = prev;
   $('setReload').onclick = () => openSettings();
@@ -2645,6 +2918,7 @@ function renderSettings() {
       ...SET,
       studentResult: $('setStuRes').checked, studentPay: $('setStuPay').checked,
       msInfo: $('setMsInfo').value, msPhoto: $('setMsPhoto').value,
+      sigCollector: $('setSigCollector').value.trim(), sigPrincipal: $('setSigPrincipal').value.trim(),
       accSetup: $('setAccSetup').checked, accVoid: $('setAccVoid').checked,
       accReport: $('setAccReport').checked, accApprove: $('setAccApprove').checked
     };
@@ -2653,11 +2927,11 @@ function renderSettings() {
   };
   renderSetPreview();
 }
-$('viewSettings').onclick = () => showView('settings');
-
+const fav = document.createElement('link');
+fav.rel = 'icon'; fav.href = document.querySelector('.logo').src;
+document.head.appendChild(fav);
 showLogin();
 autoFormNo();
-DB.all().then(a => { document.getElementById('cnt').textContent = a.length; }).catch(() => {});
 </script>
 </body>
 </html>
