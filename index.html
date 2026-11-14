@@ -320,6 +320,79 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .setprev .ms .ms-frame{padding:10px}
 .setprev .ms .info{margin-top:0}
 
+/* ---------- রেজাল্ট ও সেটিংস — স্ট্যান্ডার্ড পেজ ---------- */
+.pghero{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-radius:14px;padding:18px 22px;color:#fff;background:linear-gradient(135deg,#123c2d,#1f5c46 55%,#2f7c5e);margin-bottom:14px}
+.pghero h2{margin:0;padding:0;border:0;color:#fff;font-family:var(--fh);font-size:1.45rem;line-height:1.3}
+.pghero p{margin:3px 0 0;font-size:.88rem;opacity:.9;max-width:72ch}
+.pghero .hchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pghero .hchip{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.34);white-space:nowrap}
+.pghero .hchip:empty{display:none}
+.pgbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);margin-bottom:10px}
+.pgbar .grp{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0}
+.pgbar .grp.grow{flex:1 1 300px}
+.pgbar .glabel{font-size:.74rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.pgbar .spacer{flex:1 1 auto}
+.seg{display:inline-flex;gap:3px;padding:3px;border-radius:10px;background:var(--tint);border:1px solid var(--line)}
+.seg button{font:inherit;font-size:.84rem;padding:5px 14px;border-radius:7px;border:1px solid transparent;background:transparent;color:var(--accent);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.seg button:hover{background:rgba(31,92,70,.09)}
+.seg button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper);box-shadow:0 2px 8px rgba(15,74,55,.2)}
+.psel{font:inherit;font-size:.86rem;padding:6px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);min-width:210px;max-width:100%}
+.pbtn{font:inherit;font-size:.84rem;font-weight:500;padding:6px 12px;border-radius:8px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.pbtn:hover{background:rgba(31,92,70,.08)}
+.pbtn.go{background:var(--accent);color:var(--paper)}
+.pbtn.go:hover{filter:brightness(1.07)}
+.pbtn.dl{border-color:var(--err);color:var(--err)}
+.pbtn.dl:hover{background:rgba(179,38,30,.07)}
+.pbtn[hidden]{display:none}
+.pgpanel{border:1px solid var(--line);border-radius:12px;background:var(--paper);margin-bottom:10px;overflow:hidden}
+.pgpanel[hidden]{display:none}
+.pgpanel>.ph{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--tint)}
+.pgpanel>.ph::before{content:'';width:4px;height:15px;border-radius:99px;background:var(--accent);flex:none}
+.pgpanel>.ph b{font-family:var(--fh);font-size:.95rem;color:var(--ink)}
+.pgpanel>.ph .phint{margin-left:auto;font-size:.78rem;color:var(--muted)}
+.pgpanel>.pb{padding:12px 14px}
+.pgform{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 14px}
+.pgform .f{display:flex;flex-direction:column;font-size:.8rem;font-weight:600;color:var(--muted)}
+.pgform .f.nm{grid-column:1/-1}
+.pgform .f input,.pgform .f select{font:inherit;font-weight:500;margin-top:4px;padding:7px 9px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.pgform .f input:focus,.pgform .f select:focus{outline:0;background:var(--paper);border-color:var(--accent)}
+.pgactions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.pgactions .spacer{flex:1 1 auto}
+.pgtable{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);margin-bottom:10px}
+.pgtable .scroll{max-height:calc(100vh - 330px);overflow:auto}
+.pgtable .rtab{width:100%}
+.pgtable .rtab tbody tr:nth-child(even) td{background:rgba(31,92,70,.035)}
+.pgtable .rtab tbody tr:hover td{background:rgba(31,92,70,.07)}
+.pgfoot{margin:0;padding:9px 14px;border-top:1px solid var(--line);background:var(--tint);font-size:.8rem;color:var(--muted);line-height:1.5}
+.setwrap{display:grid;gap:16px;margin-top:2px}
+.setgroup{border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.setgroup>.sghead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:11px 15px;background:linear-gradient(90deg,rgba(31,92,70,.12),rgba(31,92,70,0) 85%);border-bottom:1px solid var(--line)}
+.sghead .sgdot{width:27px;height:27px;border-radius:8px;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.8rem;font-weight:700;flex:none}
+.sghead b{font-family:var(--fh);font-size:.98rem}
+.sghead small{font-size:.78rem;color:var(--muted);margin-left:auto;text-align:right}
+.setgroup .gbody{display:grid}
+.setgroup .setsec{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
+.setgroup .setsec:first-child{border-top:0}
+.setgroup .setbtn{padding:11px 15px}
+.setgroup .setsec.open>.setbtn{background:var(--tint);box-shadow:inset 3px 0 0 var(--accent)}
+.setgroup .setbody{padding:2px 15px 14px}
+.savebar{position:sticky;bottom:10px;z-index:6;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);box-shadow:0 8px 22px rgba(0,0,0,.10)}
+.savebar .savenote{margin-left:auto;font-size:.78rem;color:var(--muted)}
+@media screen and (max-width:700px){
+  .pghero{padding:13px 15px;border-radius:12px}
+  .pghero h2{font-size:1.15rem}
+  .pghero p{font-size:.8rem}
+  .pghero .hchips{justify-content:flex-start}
+  .pgbar{padding:9px 11px;gap:8px 12px}
+  .pgbar .grp{width:100%}
+  .pgbar .grp.grow{flex:1 1 100%}
+  .psel{flex:1 1 100%;min-width:0}
+  .pgtable .scroll{max-height:none}
+  .sghead small{width:100%;margin-left:0;text-align:left}
+  .savebar{bottom:6px}
+  .savebar .savenote{width:100%;margin-left:0}
+}
+
 /* ---------- হিসাব ---------- */
 .acc-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .acc-tabs button{font:inherit;padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
@@ -678,6 +751,8 @@ body.bk{overflow:hidden}
   .tsg{border-top:1px solid #000;text-align:center;padding-top:3px;font-size:10.5px}
   #resultView{padding:0;margin:0;max-width:none}
   #resultView .box{border:0;padding:0}
+  #resultView .pgtable{border:0;border-radius:0;margin:0;overflow:visible}
+  #resultView .pgtable .scroll{max-height:none;overflow:visible}
   #resultView td input{border:0!important;padding:2px;width:34px;min-width:0;max-width:none;font-size:9.5px}
   .rtab th,.rtab td{font-size:9.5px;padding:2px 4px}
   .ms{break-after:page;border:1px solid #c9a227;padding:3mm;margin:0;min-height:268mm;display:flex;flex-direction:column;box-shadow:none}
@@ -1004,52 +1079,72 @@ body.bk{overflow:hidden}
 
 <section id="resultView" class="list wide" hidden>
   <div class="box">
+    <div class="pghero noprint">
+      <div>
+        <h2>রেজাল্ট ও মার্কশিট</h2>
+        <p>শ্রেণি ও পরীক্ষা বেছে নম্বর এন্ট্রি করুন, ফলাফল প্রকাশ করুন এবং মার্কশিট প্রিন্ট বা ডাউনলোড করুন।</p>
+      </div>
+      <div class="hchips"><span class="hchip" id="exState"></span><span class="hchip" id="exDates"></span></div>
+    </div>
     <div id="resMain">
-      <div class="tools noprint">
-        <span class="stat">শ্রেণি:</span>
-        <button type="button" data-rc="XI" aria-pressed="true">একাদশ</button>
-        <button type="button" data-rc="XII" aria-pressed="false">দ্বাদশ</button>
+      <div class="pgbar noprint">
+        <div class="grp">
+          <span class="glabel">শ্রেণি</span>
+          <div class="seg">
+            <button type="button" data-rc="XI" aria-pressed="true">একাদশ</button>
+            <button type="button" data-rc="XII" aria-pressed="false">দ্বাদশ</button>
+          </div>
+        </div>
+        <div class="grp grow">
+          <span class="glabel">পরীক্ষা</span>
+          <select id="exSel" class="psel" aria-label="পরীক্ষা"></select>
+          <button type="button" id="exNew" class="pbtn">+ নতুন পরীক্ষা</button>
+          <button type="button" id="exEdit" class="pbtn">সম্পাদনা</button>
+          <button type="button" id="exDel" class="pbtn dl">মুছুন</button>
+          <button type="button" id="exLock" class="pbtn">নম্বর লক করুন</button>
+          <button type="button" id="exPub" class="pbtn go">ফলাফল প্রকাশ</button>
+        </div>
       </div>
-      <div class="tools noprint">
-        <select id="exSel" aria-label="পরীক্ষা"></select>
-        <button type="button" id="exNew">নতুন পরীক্ষা</button>
-        <button type="button" id="exEdit">সম্পাদনা</button>
-        <button type="button" id="exDel" class="dl">মুছুন</button>
-        <button type="button" id="exLock">নম্বর লক করুন</button>
-        <button type="button" id="exPub" class="go">ফলাফল প্রকাশ</button>
-        <span class="stat" id="exState"></span>
-        <span class="stat" id="exDates"></span>
+      <div id="exForm" class="pgpanel noprint" hidden>
+        <div class="ph"><b>পরীক্ষা তৈরি / সম্পাদনা</b><span class="phint" id="exClsNote"></span></div>
+        <div class="pb">
+          <div class="pgform">
+            <label class="f nm"><span>পরীক্ষার নাম</span><input id="exName" placeholder="যেমন: অর্ধ-বার্ষিক পরীক্ষা ২০২৬"></label>
+            <label class="f"><span>প্রতিটি অংশে পাস নম্বর (%)</span><input id="exPass" type="number" min="0" max="100" value="33" title="দশমিক বাদ দিয়ে পূর্ণ সংখ্যায় পাস নম্বর ধরা হবে"></label>
+            <label class="f"><span>পরীক্ষা শুরু</span><input id="exStart" type="date"></label>
+            <label class="f"><span>পরীক্ষা শেষ</span><input id="exEnd" type="date"></label>
+            <label class="f"><span>ফলাফল প্রকাশের তারিখ</span><input id="exPubDate" type="date"></label>
+          </div>
+          <details id="exSplit" open><summary style="cursor:pointer;font-weight:600;margin-top:10px">নম্বর বণ্টন — বিষয় অনুযায়ী ঘর বদলানো যাবে (০ বা ফাঁকা রাখলে ঐ অংশ বাদ যাবে)</summary>
+            <div class="pgtable" style="margin:8px 0 0"><div class="scroll" style="max-height:340px"><table class="rtab" id="exSplitTab"><thead><tr><th>বিষয়</th><th>সৃজনশীল</th><th>বহুনির্বাচনি</th><th>ব্যবহারিক</th><th>মোট</th></tr></thead><tbody id="exSplitBody"></tbody></table></div></div>
+          </details>
+          <div class="pgactions"><span class="spacer"></span><button type="button" id="exCancel" class="pbtn">বাতিল</button><button type="button" id="exSave" class="pbtn go">সংরক্ষণ</button></div>
+        </div>
       </div>
-      <div id="exForm" class="tools noprint" hidden>
-        <input id="exName" placeholder="পরীক্ষার নাম (যেমন: অর্ধ-বার্ষিক পরীক্ষা ২০২৬)" style="flex:1;min-width:220px">
-        <label>প্রতিটি অংশে পাস নম্বর (%) <input id="exPass" type="number" min="0" max="100" value="33" title="দশমিক বাদ দিয়ে পূর্ণ সংখ্যায় পাস নম্বর ধরা হবে"></label>
-        <label>পরীক্ষা শুরু <input id="exStart" type="date"></label>
-        <label>পরীক্ষা শেষ <input id="exEnd" type="date"></label>
-        <label>ফলাফল প্রকাশের তারিখ <input id="exPubDate" type="date"></label>
-        <span class="stat" id="exClsNote"></span>
-        <button type="button" id="exSave" class="go">সংরক্ষণ</button>
-        <button type="button" id="exCancel">বাতিল</button>
-        <details id="exSplit" style="flex-basis:100%" open><summary style="cursor:pointer;font-weight:600">নম্বর বণ্টন — বিষয় অনুযায়ী ঘর বদলানো যাবে (০ বা ফাঁকা রাখলে ঐ অংশ বাদ যাবে)</summary>
-          <div class="scroll" style="max-height:340px;overflow:auto;margin-top:6px"><table class="rtab" id="exSplitTab"><thead><tr><th>বিষয়</th><th>সৃজনশীল</th><th>বহুনির্বাচনি</th><th>ব্যবহারিক</th><th>মোট</th></tr></thead><tbody id="exSplitBody"></tbody></table></div>
-        </details>
-      </div>
-      <div class="tools noprint">
-        <button type="button" data-rd="humanities" aria-pressed="true">মানবিক</button>
-        <button type="button" data-rd="business" aria-pressed="false">ব্যবসায় শিক্ষা</button>
-        <button type="button" data-rd="science" aria-pressed="false">বিজ্ঞান</button>
-        <span class="sep"></span>
-        <button type="button" id="rSave" class="go">নম্বর সংরক্ষণ</button>
-        <button type="button" id="rCsv">Excel (CSV)</button>
-        <button type="button" id="rPrintTab">ফলাফল তালিকা প্রিন্ট</button>
-        <button type="button" id="rPrintAll">সব মার্কশিট প্রিন্ট</button>
+      <div class="pgbar noprint">
+        <div class="grp">
+          <span class="glabel">বিভাগ</span>
+          <div class="seg">
+            <button type="button" data-rd="humanities" aria-pressed="true">মানবিক</button>
+            <button type="button" data-rd="business" aria-pressed="false">ব্যবসায় শিক্ষা</button>
+            <button type="button" data-rd="science" aria-pressed="false">বিজ্ঞান</button>
+          </div>
+        </div>
+        <span class="spacer"></span>
+        <div class="grp">
+          <button type="button" id="rSave" class="pbtn go">নম্বর সংরক্ষণ</button>
+          <button type="button" id="rCsv" class="pbtn">CSV ডাউনলোড</button>
+          <button type="button" id="rPrintTab" class="pbtn">ফলাফল তালিকা প্রিন্ট</button>
+          <button type="button" id="rPrintAll" class="pbtn">সব মার্কশিট প্রিন্ট</button>
+        </div>
       </div>
       <div id="tabHead" class="printonly tabhead"></div>
-      <div class="scroll"><table id="rtab" class="rtab"></table></div>
+      <div class="pgtable"><div class="scroll"><table id="rtab" class="rtab"></table></div></div>
       <div id="tabSigs" class="printonly tabsigs"><div class="tsg">আহ্বায়ক<br>পরীক্ষা কমিটি</div><div class="tsg">সদস্য<br>পরীক্ষা কমিটি</div><div class="tsg">সদস্য<br>পরীক্ষা কমিটি</div><div class="tsg">সদস্য<br>পরীক্ষা কমিটি</div><div class="tsg">অধ্যক্ষ</div></div>
       <p class="warn noprint">নম্বর লিখে "নম্বর সংরক্ষণ" চাপুন; অন্য ঘরে গেলেও নিজে থেকে সংরক্ষিত হয়। যে বিষয় শিক্ষার্থী নেয়নি সেখানে "–" দেখায়। সবুজ দাগের ঘর শিক্ষার্থীর ৪র্থ (ঐচ্ছিক) বিষয়। শিক্ষার্থীর তালিকা ভর্তি ফরমের সংরক্ষিত ফরম থেকে আসে।</p>
     </div>
     <div id="msView" hidden>
-      <div class="tools noprint"><button type="button" id="msBack">← তালিকায় ফিরুন</button><button type="button" id="msPrint" class="go">প্রিন্ট</button></div>
+      <div class="pgbar noprint"><button type="button" id="msBack" class="pbtn">← তালিকায় ফিরুন</button><span class="spacer"></span><button type="button" id="msPrint" class="pbtn go">প্রিন্ট</button></div>
       <div id="msBox"></div>
     </div>
   </div>
@@ -1536,7 +1631,7 @@ function toast(t) {
 }
 function collect() {
   const d = { dept, photo: photoData, fields: {}, subjects: {}, same: document.getElementById('sameAddr').checked };
-  document.querySelectorAll('#form input[name], #form select[name]').forEach(i => { d.fields[i.name] = i.value; });
+  document.querySelectorAll('#form input[name], #form select[name]').forEach(i => { if (!i.name.startsWith('g_')) d.fields[i.name] = i.value; });
   document.querySelectorAll('#subjects input:checked').forEach(i => { (d.subjects[i.dataset.g] = d.subjects[i.dataset.g] || []).push(i.value); });
   return d;
 }
@@ -1545,6 +1640,7 @@ function apply(d) {
   renderSubjects(); setPhoto(d.photo || '');
   document.getElementById('formCls').textContent = CLASSES[clsOf(d)];
   for (const k in d.fields) {
+    if (k.startsWith('g_')) continue;
     const el = q(k); if (!el) continue;
     const v = d.fields[k];
     if (el.tagName === 'SELECT' && v && ![...el.options].some(o => o.value === v)) {
@@ -4520,9 +4616,12 @@ function bindIdSettings() {
 function renderSettings() {
   const box = $('setBox');
   const isAdmin = !ME || ME.role === 'admin';
-  const sessHTML = `<section class="setsec" style="grid-column:1/-1">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>ভর্তি সেশন</b><small id="sumSess"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><p class="acc-note" style="margin-top:0">নতুন সেশন তৈরি করলে সেটি সক্রিয় হয় ও আবেদন ফরমে স্বয়ংক্রিয়ভাবে বসে; স্টুডেন্ট আইডি ও রোলের বছরও সক্রিয় সেশন থেকেই নেওয়া হয়।</p>
+  const sec = (title, sumId, body) => `<section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>${title}</b><small id="${sumId}"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody">${body}</div>
+      </section>`;
+  const group = (no, title, sub, inner) => `<section class="setgroup"><div class="sghead"><span class="sgdot">${bn(no)}</span><b>${title}</b><small>${sub}</small></div><div class="gbody">${inner}</div></section>`;
+  const sessHTML = sec('ভর্তি সেশন', 'sumSess', `<p class="acc-note" style="margin-top:8px">নতুন সেশন তৈরি করলে সেটি সক্রিয় হয় ও আবেদন ফরমে স্বয়ংক্রিয়ভাবে বসে; স্টুডেন্ট আইডি ও রোলের বছরও সক্রিয় সেশন থেকেই নেওয়া হয়।</p>
         <div class="tools" style="align-items:flex-end">
           <label class="f" style="flex:1;min-width:170px"><span>শুরুর বছর (যেমন ২০২৬)</span><input id="ssYear" inputmode="numeric" autocomplete="off"></label>
           <button type="button" id="ssAdd" class="go">সেশন তৈরি করুন</button>
@@ -4531,32 +4630,25 @@ function renderSettings() {
           <thead><tr><th>সেশন</th><th>শুরুর বছর</th><th>আবেদন</th><th>অবস্থা</th><th></th></tr></thead>
           <tbody id="ssRows"></tbody>
         </table></div>
-        <p class="acc-note">সক্রিয় বা ব্যবহৃত সেশন মোছা যাবে না; অন্তত একটি সেশন থাকতে হবে।</p></div>
-      </section>`;
-  const adminHTML = `<section class="setsec">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>শিক্ষার্থী পোর্টাল</b><small id="sumStu"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
+        <p class="acc-note">সক্রিয় বা ব্যবহৃত সেশন মোছা যাবে না; অন্তত একটি সেশন থাকতে হবে।</p>`);
+  const stuHTML = sec('শিক্ষার্থী পোর্টাল', 'sumStu', `<label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setStuPay" ${SET.studentPay ? 'checked' : ''}><span><b>ফি পরিশোধের অনুরোধ</b><small>শিক্ষার্থী বকেয়া ফি বেছে মোবাইল ব্যাংক/ব্যাংকের ট্রানজেকশন দিয়ে অনুরোধ পাঠাতে পারবে; হিসাব শাখা অনুমোদন করলে রসিদ তৈরি হবে।</small></span></label>
         <p class="acc-note">শিক্ষার্থী লগইন করে স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর (শিক্ষার্থী/পিতা/মাতা/অভিভাবক) দিয়ে।</p>
-        <p class="acc-note">উপরের দুটি বন্ধ রাখলে শিক্ষার্থী লগইন করে শুধু নিজের তথ্য দেখতে পারবে; ফলাফল ও ফি সেবা বন্ধ থাকবে। নতুন ভর্তির আবেদন আলাদাভাবে সব সময় খোলা।</p></div>
-      </section>
-      <section class="setsec">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>মার্কশিটের শিক্ষার্থী তথ্য</b><small id="sumMs"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><label class="f"><span>তথ্যের ধরন</span><select id="setMsInfo">
-          <option value="card" ${SET.msInfo === 'card' ? 'selected' : ''}>কার্ড — নাম বড় করে, বাকি তথ্য ঘরের ভেতরে</option>
-          <option value="grid" ${SET.msInfo === 'grid' ? 'selected' : ''}>গ্রিড — দুই কলামে লেবেল ও তথ্য</option>
-          <option value="compact" ${SET.msInfo === 'compact' ? 'selected' : ''}>সংক্ষিপ্ত — ছোট বাক্সে তিন কলাম</option>
-        </select></label>
-        <label class="f"><span>ছবির অবস্থান</span><select id="setMsPhoto">
-          <option value="right" ${SET.msPhoto === 'right' ? 'selected' : ''}>তথ্যের ডানে</option>
-          <option value="left" ${SET.msPhoto === 'left' ? 'selected' : ''}>তথ্যের বামে</option>
-        </select></label>
-        <p class="acc-note">নিচে নমুনা দেখুন। প্রিন্টেও একই সাজানো থাকবে।</p>
-        <div id="setPrev" class="setprev"></div></div>
-      </section>
-      <section class="setsec">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>রসিদের স্বাক্ষর</b><small id="sumSig"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><label class="f"><span>আদায়কারী / হিসাবরক্ষকের নাম</span><input id="setSigCollector" value="${H(SET.sigCollector || '')}" placeholder="যেমন: মোঃ রফিকুল ইসলাম" autocomplete="off"></label>
+        <p class="acc-note">উপরের দুটি বন্ধ রাখলে শিক্ষার্থী লগইন করে শুধু নিজের তথ্য দেখতে পারবে; ফলাফল ও ফি সেবা বন্ধ থাকবে। নতুন ভর্তির আবেদন আলাদাভাবে সব সময় খোলা।</p>`);
+  const msSetHTML = sec('মার্কশিটের শিক্ষার্থী তথ্য', 'sumMs', `<div class="pgform" style="margin-top:8px">
+          <label class="f"><span>তথ্যের ধরন</span><select id="setMsInfo">
+            <option value="card" ${SET.msInfo === 'card' ? 'selected' : ''}>কার্ড — নাম বড় করে, বাকি তথ্য ঘরের ভেতরে</option>
+            <option value="grid" ${SET.msInfo === 'grid' ? 'selected' : ''}>গ্রিড — দুই কলামে লেবেল ও তথ্য</option>
+            <option value="compact" ${SET.msInfo === 'compact' ? 'selected' : ''}>সংক্ষিপ্ত — ছোট বাক্সে তিন কলাম</option>
+          </select></label>
+          <label class="f"><span>ছবির অবস্থান</span><select id="setMsPhoto">
+            <option value="right" ${SET.msPhoto === 'right' ? 'selected' : ''}>তথ্যের ডানে</option>
+            <option value="left" ${SET.msPhoto === 'left' ? 'selected' : ''}>তথ্যের বামে</option>
+          </select></label>
+        </div>
+        <p class="acc-note">নিচে নমুনা দেখুন। প্রিন্টেও একই সাজানো থাকবে (A5)।</p>
+        <div id="setPrev" class="setprev"></div>`);
+  const sigHTML = sec('রসিদের স্বাক্ষর', 'sumSig', `<label class="f"><span>আদায়কারী / হিসাবরক্ষকের নাম</span><input id="setSigCollector" value="${H(SET.sigCollector || '')}" placeholder="যেমন: মোঃ রফিকুল ইসলাম" autocomplete="off"></label>
         <label class="f" style="margin-top:10px"><span>অধ্যক্ষের নাম</span><input id="setSigPrincipal" value="${H(SET.sigPrincipal || '')}" placeholder="যেমন: প্রফেসর মোঃ আব্দুল হাই" autocomplete="off"></label>
         <div class="sigup">
           <div class="sigcard"><label class="sigdrop" for="setSigCFile" title="স্বাক্ষরের ছবি আপলোড"><img id="setSigCImg" alt="আদায়কারীর স্বাক্ষর" hidden><span id="setSigCPh">স্বাক্ষরের ছবি<br><small>আপলোড</small></span></label>
@@ -4566,38 +4658,33 @@ function renderSettings() {
             <input type="file" id="setSigPFile" accept="image/*" hidden>
             <div class="sigmeta"><b>অধ্যক্ষের স্বাক্ষর</b><button type="button" id="setSigPDel" hidden>সরান</button></div></div>
         </div>
-        <p class="acc-note">আপলোড করা স্বাক্ষরের ছবি রসিদের স্বাক্ষর লাইনের ঠিক ওপরে ছাপা হবে; ছবি না থাকলে শুধু লেখা নাম দেখাবে। আদায়কারীর নাম খালি থাকলে দায়িত্বরত কর্মীর নাম, অধ্যক্ষের নাম খালি থাকলে প্রতিষ্ঠানের নাম বসবে।</p></div>
-      </section>
-      <section class="setsec">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>আইডি কার্ড</b><small id="sumId"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><label class="f"><span>আইডি কার্ড ফি (টাকা)</span><input type="number" min="0" step="1" id="setIdFee" value="${num(SET.idFee) || 200}" inputmode="numeric"></label>
+        <p class="acc-note">আপলোড করা স্বাক্ষরের ছবি রসিদের স্বাক্ষর লাইনের ঠিক ওপরে ছাপা হবে; ছবি না থাকলে শুধু লেখা নাম দেখাবে। আদায়কারীর নাম খালি থাকলে দায়িত্বরত কর্মীর নাম, অধ্যক্ষের নাম খালি থাকলে প্রতিষ্ঠানের নাম বসবে।</p>`);
+  const idHTML = sec('আইডি কার্ড', 'sumId', `<label class="f" style="margin-top:8px"><span>আইডি কার্ড ফি (টাকা)</span><input type="number" min="0" step="1" id="setIdFee" value="${num(SET.idFee) || 200}" inputmode="numeric"></label>
         <div class="sigup" style="margin-top:10px">
           <div class="sigcard"><label class="sigdrop" for="setIdLogoFile" title="প্রতিষ্ঠানের লোগো আপলোড"><img id="setIdLogoImg" alt="প্রতিষ্ঠানের লোগো" hidden><span id="setIdLogoPh">লোগো<br><small>আপলোড</small></span></label>
             <input type="file" id="setIdLogoFile" accept="image/*" hidden>
             <div class="sigmeta"><b>প্রতিষ্ঠানের লোগো</b><button type="button" id="setIdLogoDel" hidden>সরান</button></div></div>
         </div>
-        <p class="acc-note">আইডি কার্ডের আবেদনে ঠিক এই পরিমাণের «আইডি কার্ড ফি» সহ পরিশোধিত রসিদ নম্বর দিতে হবে। এখানের লোগো আইডি কার্ড ও সব প্রিন্টে ব্যবহৃত হবে; অধ্যক্ষের স্বাক্ষর «রসিদের স্বাক্ষর» অংশ থেকে নেওয়া হয়।</p></div>
-      </section>
-      <section class="setsec">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>অ্যাডমিট কার্ড</b><small id="sumAdmit"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><label class="setrow"><input type="checkbox" id="setAdmitFeeOn" ${SET.admitFeeOn ? 'checked' : ''}><span><b>ফি দিয়ে আবেদন</b><small>চালু থাকলে শিক্ষার্থী/অফিস আগে «অ্যাডমিট কার্ড ফি» সহ রসিদ নিয়ে সেই রসিদ নম্বর দিয়ে পরীক্ষাভিত্তিক আবেদন করবে। বন্ধ থাকলে পরীক্ষা বাছাই করলেই সরাসরি অ্যাডমিট তৈরি হবে।</small></span></label>
+        <p class="acc-note">আইডি কার্ডের আবেদনে ঠিক এই পরিমাণের «আইডি কার্ড ফি» সহ পরিশোধিত রসিদ নম্বর দিতে হবে। এখানের লোগো আইডি কার্ড ও সব প্রিন্টে ব্যবহৃত হবে; অধ্যক্ষের স্বাক্ষর «রসিদের স্বাক্ষর» অংশ থেকে নেওয়া হয়।</p>`);
+  const admitHTML = sec('অ্যাডমিট কার্ড', 'sumAdmit', `<label class="setrow"><input type="checkbox" id="setAdmitFeeOn" ${SET.admitFeeOn ? 'checked' : ''}><span><b>ফি দিয়ে আবেদন</b><small>চালু থাকলে শিক্ষার্থী/অফিস আগে «অ্যাডমিট কার্ড ফি» সহ রসিদ নিয়ে সেই রসিদ নম্বর দিয়ে পরীক্ষাভিত্তিক আবেদন করবে। বন্ধ থাকলে পরীক্ষা বাছাই করলেই সরাসরি অ্যাডমিট তৈরি হবে।</small></span></label>
         <label class="f" style="margin-top:10px"><span>প্রতি পরীক্ষার অ্যাডমিট কার্ড ফি (টাকা)</span><input type="number" min="0" step="1" id="setAdmitFee" value="${num(SET.admitFee) || 100}" inputmode="numeric"></label>
-        <p class="acc-note">ফি চালু থাকলে হিসাব শাখার «টাকা আদায়» ফর্মে «অ্যাডমিট কার্ড ফি» খাত থেকেই রসিদ তৈরি হবে; ওই ফি বকেয়ার হিসাবে ধরা হবে না।</p></div>
-      </section>
-      <section class="setsec">
-        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>হিসাব রক্ষকের অনুমতি</b><small id="sumAcc"></small></span><i class="setchev" aria-hidden="true"></i></button>
-        <div class="setbody"><label class="setrow"><input type="checkbox" id="setAccSetup" ${SET.accSetup ? 'checked' : ''}><span><b>ফি সেটআপ</b><small>শিক্ষার্থীর ভর্তি/সেশন/মাসিক ফি নির্ধারণ ও বিভাগে প্রয়োগ।</small></span></label>
+        <p class="acc-note">ফি চালু থাকলে হিসাব শাখার «টাকা আদায়» ফর্মে «অ্যাডমিট কার্ড ফি» খাত থেকেই রসিদ তৈরি হবে; ওই ফি বকেয়ার হিসাবে ধরা হবে না।</p>`);
+  const accHTML = sec('হিসাব রক্ষকের অনুমতি', 'sumAcc', `<label class="setrow"><input type="checkbox" id="setAccSetup" ${SET.accSetup ? 'checked' : ''}><span><b>ফি সেটআপ</b><small>শিক্ষার্থীর ভর্তি/সেশন/মাসিক ফি নির্ধারণ ও বিভাগে প্রয়োগ।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccVoid" ${SET.accVoid ? 'checked' : ''}><span><b>রসিদ বাতিল</b><small>ভুল রসিদ বাতিল করা। বাতিল করা রসিদ নম্বর আর ব্যবহার হয় না।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccReport" ${SET.accReport ? 'checked' : ''}><span><b>রিপোর্ট ও CSV</b><small>হিসাবের রিপোর্ট দেখা, CSV নামানো ও রসিদ প্রিন্ট করা।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccApprove" ${SET.accApprove ? 'checked' : ''}><span><b>ফি অনুরোধ অনুমোদন</b><small>শিক্ষার্থীর পাঠানো ফি অনুরোধ যাচাই করে রসিদ তৈরি করা।</small></span></label>
-        <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p></div>
-      </section>`;
-  box.innerHTML = `<div class="dhero">
+        <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p>`);
+  box.innerHTML = `<div class="pghero">
       <div><h2>সেটিংস</h2><p>${isAdmin ? 'প্রয়োজনীয় অংশে চাপ দিয়ে বিস্তারিত খুলুন; পরিবর্তন এই ডিভাইসের ডেটাবেসে ও ব্যাকআপে সংরক্ষিত হয়।' : 'ভর্তি সেশন অংশে চাপ দিয়ে নতুন সেশন তৈরি ও সক্রিয় করুন।'}</p></div>
+      <div class="hchips"><span class="hchip">কাঁচকুড়া কলেজ</span></div>
     </div>
-    <div class="setgrid">${sessHTML}${isAdmin ? adminHTML : ''}</div>
-    ${isAdmin ? `<div class="tools" style="margin-top:14px"><button type="button" id="setSave" class="go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload">আগের অবস্থায় ফিরুন</button></div>
-    <p class="acc-note">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</p>` : ''}`;
+    <div class="setwrap">
+      ${group(1, 'প্রতিষ্ঠান ও সেশন', 'ভর্তি সেশন ও রসিদের স্বাক্ষর', sessHTML + (isAdmin ? sigHTML : ''))}
+      ${isAdmin ? group(2, 'শিক্ষার্থী সেবা', 'পোর্টাল, ফলাফল ও মার্কশিটের তথ্য', stuHTML + msSetHTML) : ''}
+      ${isAdmin ? group(3, 'কার্ড ও প্রিন্ট', 'আইডি কার্ড ও অ্যাডমিট কার্ডের ফি', idHTML + admitHTML) : ''}
+      ${isAdmin ? group(4, 'হিসাব ও অনুমতি', 'হিসাব রক্ষকের কাজের সীমা', accHTML) : ''}
+    </div>
+    ${isAdmin ? `<div class="savebar noprint"><button type="button" id="setSave" class="pbtn go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload" class="pbtn">আগের অবস্থায় ফিরুন</button><span class="savenote">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</span></div>` : ''}`;
   renderSessions(); bindSessions(); setSums();
   if (!isAdmin) return;
   const prev = () => { renderSetPreview(); };
