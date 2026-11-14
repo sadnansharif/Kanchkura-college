@@ -991,16 +991,16 @@ body.bk{overflow:hidden}
     <p>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</p>
     </div>
     </div>
-    <div class="ttl"><span class="title">একাদশ শ্রেণিতে ভর্তির আবেদন ফরম-<input name="formYear" id="formYear" value="২০২৬" aria-label="বছর" autocomplete="off"></span><span class="dept-tag" id="deptTag">মানবিক বিভাগ</span></div>
+    <div class="ttl"><span class="title">একাদশ শ্রেণিতে ভর্তির আবেদন ফরম-<input type="hidden" name="formYear" id="formYear" value="২০২৬"><b id="formYearTxt" aria-label="শিক্ষাবর্ষ">২০২৬</b></span><span class="dept-tag" id="deptTag">মানবিক বিভাগ</span></div>
   </header>
 
   <div class="office" aria-label="অফিস পূরণ করবে">
     <div><b>শ্রেণি:</b> <span id="formCls">একাদশ</span></div>
     <div><b>বিভাগ:</b> <select id="deptSel" aria-label="বিভাগ নির্বাচন" style="width:155px"><option value="humanities">মানবিক</option><option value="business">ব্যবসায় শিক্ষা</option><option value="science">বিজ্ঞান</option></select></div>
-    <label class="f session"><b>ফরম নং:</b><input name="formNo" style="width:110px"></label>
+    <label class="f session"><b>ফরম নং:</b><input name="formNo" class="autono" style="width:110px" readonly aria-readonly="true" title="ফরম নং স্বয়ংক্রিয়ভাবে তৈরি হয়"></label>
     <label class="f session"><b>সেশন:</b><select name="session" id="sessionSel" style="width:170px" aria-label="ভর্তি সেশন"></select></label>
   </div>
-  <p style="margin:2px 0 0;font-size:.82rem;color:var(--muted)">ফরম নং অফিস পূরণ করবে; সেশন ভর্তি কমিটি তৈরি করে সক্রিয় রাখবে। রোল নং ও স্টুডেন্ট আইডি ভর্তি অনুমোদনের পর স্বয়ংক্রিয়ভাবে দেওয়া হবে।</p>
+  <p style="margin:2px 0 0;font-size:.82rem;color:var(--muted)">ফরম নং স্বয়ংক্রিয়ভাবে তৈরি হয়; শিক্ষাবর্ষ সেটিংসে সক্রিয় সেশন অনুযায়ী বসে। সেশন ভর্তি কমিটি তৈরি করে সক্রিয় রাখবে। রোল নং ও স্টুডেন্ট আইডি ভর্তি অনুমোদনের পর স্বয়ংক্রিয়ভাবে দেওয়া হবে।</p>
 
   <h2>শিক্ষার্থীর তথ্য</h2>
   <div class="pwrap">
@@ -1456,6 +1456,12 @@ function doPrint(skip) {
   box.hidden = true; window.print();
 }
 const syncYear = () => { document.getElementById('footYear').textContent = document.getElementById('formYear').value; };
+function setFormYear(v) {
+  const el = document.getElementById('formYear'), txt = document.getElementById('formYearTxt');
+  if (el) el.value = v;
+  if (txt) txt.textContent = v;
+  syncYear();
+}
 document.addEventListener('input', syncYear); window.addEventListener('beforeprint', syncYear);
 const markDates = () => document.querySelectorAll('input[type=date]').forEach(i => i.classList.toggle('empty', !i.value));
 document.addEventListener('input', markDates); window.addEventListener('beforeprint', markDates); markDates();
@@ -1666,6 +1672,7 @@ function apply(d) {
       const o = document.createElement('option'); o.value = v; o.textContent = v; el.appendChild(o);
     }
     el.value = v;
+    if (k === 'formYear') { const txt = document.getElementById('formYearTxt'); if (txt) txt.textContent = v; }
   }
   for (const g in d.subjects) d.subjects[g].forEach(v => {
     const el = [...document.querySelectorAll(`#subjects input[data-g="${g}"]`)].find(i => i.value === v); if (el) el.checked = true;
@@ -1679,7 +1686,7 @@ function newForm() {
   document.getElementById('errs').hidden = true;
   const act = activeSession();
   fillSessionOptions(act ? act.name : '');
-  if (act) q('formYear').value = bn(act.start);
+  if (act) setFormYear(bn(act.start));
   currentId = null; setTimeout(syncYear, 0); setPhoto(''); renderSubjects(); copyAddr(); autoFormNo();
   document.getElementById('formCls').textContent = CLASSES.XI;
 }
@@ -2387,13 +2394,13 @@ function fillSessionOptions(preferred) {
     el.value = cur;
     if (!currentId) {
       const s = SESSIONS.find(x => x.name === cur);
-      if (s) { q('formYear').value = bn(s.start); syncYear(); }
+      if (s) setFormYear(bn(s.start));
     }
   }
 }
 document.getElementById('sessionSel').addEventListener('change', () => {
   const s = SESSIONS.find(x => x.name === q('session').value);
-  if (s) { q('formYear').value = bn(s.start); syncYear(); }
+  if (s) setFormYear(bn(s.start));
 });
 let ssApps = [];
 function renderSessions() {
@@ -2476,8 +2483,7 @@ function enter() {
   $('login').hidden = true; applyRole(); renderPageHead(); showView(FIRST[ME.role]);
 }
 function applyRole() {
-  const st = ME.role === 'student' || ME.role === 'guest';
-  q('formNo').readOnly = st;
+  q('formNo').readOnly = true;
   $('bakBtn').hidden = $('impBtn').hidden = ME.role !== 'admin';
   $('promoBtn').hidden = $('demoBtn').hidden = !(ME.role === 'admin' || ME.role === 'admission');
   autoFormNo();
