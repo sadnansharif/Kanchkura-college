@@ -132,52 +132,74 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .tabsigs{display:none}
 .tabhead{align-items:center;gap:12px;margin-bottom:8px}
 .tabhead img{width:54px;height:54px;object-fit:contain}
-.ms{border:3px solid var(--accent);padding:10px;margin:14px 0;background:var(--paper);display:flex;flex-direction:column}
-.ms .mh{display:flex;align-items:center;justify-content:center;gap:14px;text-align:center}
-.ms .mh img{width:70px;height:70px;object-fit:contain;background:#fff;border-radius:6px}
-.ms h3{font-family:var(--fh);font-size:1.7rem;margin:0;line-height:1.3}
-.ms .mt{text-align:center;margin:8px 0 10px}
-.ms .mt span{display:inline-block;background:var(--accent);color:var(--paper);border-radius:4px;padding:2px 16px;font-weight:600}
-.ms .info{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;margin-top:6px}
+.ms{position:relative;overflow:hidden;border:1px solid #c9a227;padding:8px;margin:16px 0;background:#fff;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(15,74,55,.1)}
+.ms .ms-frame{border:2px double #c9a227;border-radius:6px;padding:14px 18px;position:relative;z-index:1;display:flex;flex-direction:column;flex:1;min-height:0;background:#fff}
+.ms .wm{position:absolute;left:50%;top:50%;width:64mm;height:64mm;object-fit:contain;transform:translate(-50%,-50%);opacity:.045;pointer-events:none;z-index:0}
+.ms .mh{display:flex;align-items:center;justify-content:center;gap:14px;text-align:center;padding-bottom:2px}
+.ms .mh img{width:58px;height:58px;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0;flex:none}
+.ms h3{font-family:var(--fh);font-size:1.5rem;margin:0;line-height:1.25;color:#0f4a37;letter-spacing:.2px}
+.ms .mh-addr{font-size:.76rem;color:#54635c;line-height:1.45;margin-top:1px}
+.ms .mt{text-align:center;margin:6px 0 10px;padding:6px 0 7px;border-top:1px solid #c9a227;border-bottom:1px solid #c9a227}
+.ms .mt span{display:inline-block;background:#0f4a37;color:#fff;border-radius:999px;padding:1px 14px;font-weight:600;font-size:.74rem;letter-spacing:.3px}
+.ms .mt h4{margin:5px 0 0;font-size:1.1rem;color:#1f5c46;letter-spacing:.6px}
+.ms .mt small{display:block;margin-top:2px;font-size:.74rem;color:#5b6a63}
+.ms .msdraft{text-align:center;color:#b3261e;font-weight:700;font-size:.8rem;margin:0 0 6px}
+.ms .mssec{display:flex;align-items:center;gap:8px;margin:10px 0 6px;font-weight:700;color:#0f4a37;font-size:.82rem}
+.ms .mssec::before{content:'';width:4px;height:13px;border-radius:2px;background:#c9a227;flex:none}
+.ms .mssec::after{content:'';flex:1;height:1px;background:#e3eae6}
+.ms .info{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;margin-top:0}
 .ms .info.ph-left{grid-template-columns:auto 1fr}
 .ms .info.ph-left .ig{order:2}
 .ms .info.ph-left .ph2{order:1}
 .ms .ig{display:grid;gap:4px 18px;min-width:0}
 .ms .ifield{min-width:0}
-.ms .ifield b{color:var(--muted);font-weight:500;font-size:.85em;display:block;line-height:1.35}
-.ms .ifield span{display:block;overflow-wrap:anywhere;line-height:1.4}
+.ms .ifield b{color:#5b6a63;font-weight:500;font-size:.74rem;display:block;line-height:1.35;letter-spacing:.1px}
+.ms .ifield span{display:block;overflow-wrap:anywhere;line-height:1.4;color:#14201b}
 .ms .i-grid .ig{grid-template-columns:1fr 1fr}
 .ms .i-grid .ifield.full{grid-column:1/-1}
-.ms .i-card .ig{grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:5px;overflow:hidden}
-.ms .i-card .ifield{display:grid;grid-template-columns:minmax(88px,.72fr) 1fr;gap:8px;align-items:baseline;padding:5px 9px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-.ms .i-card .ifield b{font-size:.78em}
-.ms .i-card .ifield span{font-weight:600;font-size:.95em}
-.ms .i-card .ifield.full{grid-column:1/-1;border-right:0;background:linear-gradient(90deg,var(--tint),transparent 70%)}
-.ms .i-card .ifield.nmf span{font-size:1.08em}
+.ms .i-card .ig{grid-template-columns:1fr 1fr;gap:0;border:1px solid #cfdcd5;border-radius:6px;overflow:hidden}
+.ms .i-card .ifield{display:grid;grid-template-columns:minmax(84px,.68fr) 1fr;gap:8px;align-items:baseline;padding:5px 10px;border-bottom:1px solid #e3eae6;border-right:1px solid #e3eae6}
+.ms .i-card .ifield b{font-size:.74rem}
+.ms .i-card .ifield span{font-weight:600;font-size:.92rem}
+.ms .i-card .ifield.full{grid-column:1/-1;border-right:0;background:linear-gradient(90deg,#eef6f1,#fff 75%)}
+.ms .i-card .ifield.nmf span{font-size:1.04rem;color:#0f4a37}
 .ms .i-card .ifield:nth-last-child(-n+2){border-bottom:0}
 .ms .i-compact .ig{grid-template-columns:repeat(3,1fr);gap:5px}
-.ms .i-compact .ifield{border:1px solid var(--line);border-radius:4px;padding:4px 7px;background:var(--tint)}
+.ms .i-compact .ifield{border:1px solid #d8e3dd;border-radius:5px;padding:4px 8px;background:#f7faf8}
 .ms .i-compact .ifield.full{grid-column:1/-1}
-.ms .i-compact .ifield b{font-size:.74em}
-.ms .i-compact .ifield span{font-size:.9em}
-.ms .ph2{width:30mm;height:38mm;object-fit:cover;border:1px solid var(--ink);flex:none}
-.ms .ph2.empty{display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--muted);text-align:center}
-.ms table{margin-top:12px}
-.ms td,.ms th{padding:5px 8px;font-size:.95rem}
-.ms td.l{text-align:left}
-.ms .sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
-.ms .sum div{border:1px solid var(--line);background:var(--tint);padding:6px 8px;text-align:center}
-.ms .sum b{display:block;font-size:.8em;color:var(--muted);font-weight:500}
-.ms .sum strong{font-size:1.15rem}
-.ms .sgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:56px}
-.ms .sg{border-top:1px solid var(--ink);padding-top:3px;text-align:center;font-size:.9rem}
-.ms .note{font-size:.78rem;color:var(--muted);margin-top:14px}
+.ms .i-compact .ifield b{font-size:.72rem}
+.ms .i-compact .ifield span{font-size:.87rem;font-weight:600}
+.ms .ph2{width:28mm;height:35mm;object-fit:cover;border:1px solid #cfdcd5;border-radius:4px;flex:none;background:#f7faf8}
+.ms .ph2.empty{display:flex;align-items:center;justify-content:center;font-size:.72rem;color:#8a9992;text-align:center;border-style:dashed}
+.ms table{margin-top:0;width:100%;border-collapse:collapse}
+.ms td,.ms th{border:1px solid #cfdcd5;padding:5px 8px;font-size:.9rem;text-align:center}
+.ms .ms-tab thead th{background:#0f4a37;color:#fff;border-color:#0f4a37;font-size:.76rem;font-weight:600;letter-spacing:.2px}
+.ms .ms-tab tbody td{background:#fff}
+.ms .ms-tab tbody tr:nth-child(even) td{background:#f6faf7}
+.ms td.l{text-align:left;font-weight:600;color:#14201b}
+.ms td small{color:#7b8a83}
+.ms td.bad{color:#b3261e;font-weight:700}
+.ms .sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.ms .sum div{border:1px solid #d8e3dd;border-top:3px solid #c9a227;border-radius:5px;background:#f7faf8;padding:6px 8px;text-align:center}
+.ms .sum b{display:block;font-size:.72rem;color:#5b6a63;font-weight:500;letter-spacing:.2px}
+.ms .sum strong{display:block;font-size:1.1rem;color:#0f4a37;margin-top:2px}
+.ms .sum .res-ok{color:#0f7a4a}
+.ms .sum .res-bad{color:#b3261e}
+.ms .sum.rank{grid-template-columns:1fr;margin-top:8px}
+.ms .sgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:48px}
+.ms .sg{position:relative;border-top:1px solid #33463d;padding-top:4px;text-align:center;font-size:.82rem;color:#33463d}
+.ms .sg small{display:block;color:#7b8a83;font-size:.72rem;margin-top:1px}
+.ms .sg img{position:absolute;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);height:30px;max-width:32mm;object-fit:contain}
+.ms .note{font-size:.74rem;color:#5b6a63;margin-top:12px;padding:6px 9px;background:#f7faf8;border-left:3px solid #c9a227;border-radius:0 4px 4px 0;line-height:1.55}
+.ms .msfoot{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #e3eae6;margin-top:8px;padding-top:4px;font-size:.7rem;color:#7b8a83}
 @media screen and (max-width:720px){
   .ms .i-grid .ig{grid-template-columns:1fr}
   .ms .i-card .ig{grid-template-columns:1fr}
-  .ms .i-card .ifield:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .ms .i-card .ifield:nth-last-child(-n+2){border-bottom:1px solid #e3eae6}
   .ms .i-card .ifield:last-child{border-bottom:0}
   .ms .i-compact .ig{grid-template-columns:1fr 1fr}
+  .ms .sum{grid-template-columns:1fr 1fr}
+  .ms .sgs{gap:16px}
 }
 .login{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:22px;overflow:auto;
   background:radial-gradient(1100px 520px at 12% 8%,rgba(31,92,70,.2),transparent 62%),radial-gradient(900px 520px at 92% 94%,rgba(201,162,39,.16),transparent 58%),var(--bg)}
@@ -257,10 +279,37 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .pstat.pending{border-color:#c9a227;background:#fff3cd;color:#7a5b00}
 .pstat.approved{border-color:var(--accent);background:rgba(31,92,70,.1);color:var(--accent)}
 .pstat.rejected{border-color:var(--err);color:var(--err)}
+/* ---------- ব্যবহারকারীর ছবি ---------- */
+.uavatar{width:82px;height:82px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:1.5px dashed var(--line);border-radius:14px;background:var(--tint);color:var(--muted);font-size:.72rem;line-height:1.35;text-align:center;cursor:pointer;overflow:hidden}
+.uavatar:hover{border-color:var(--accent);color:var(--accent)}
+.uavatar img{width:100%;height:100%;object-fit:cover}
+.uavatar small{font-size:.66rem}
+.uprow{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.upact{display:flex;flex-direction:column;gap:6px;align-items:flex-start;min-width:0}
+.upact .upt{font-size:.95rem}
+.upact small{max-width:560px}
+.urow-nm{display:inline-flex;align-items:center;gap:8px}
+.uav{width:28px;height:28px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--tint);display:inline-flex;align-items:center;justify-content:center;overflow:hidden;font-size:.78rem;font-weight:700;color:var(--muted)}
+.uav img{width:100%;height:100%;object-fit:cover}
 /* ---------- সেটিংস ---------- */
-.setgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
-.setsec{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--paper)}
-.setsec h3{font-family:var(--fh);font-size:1.02rem;margin:0 0 8px;padding:0 0 6px;border:0;border-bottom:1px solid var(--line)}
+.setgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}
+.setsec{border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden}
+.setbtn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;border:0;background:transparent;color:var(--ink);font-family:var(--fh);font-size:.93rem;font-weight:700;text-align:left;padding:8px 12px;cursor:pointer}
+.setbtn:hover{background:var(--tint)}
+.setttl{display:flex;align-items:baseline;gap:8px;min-width:0;flex:1 1 auto}
+.setttl b{font-weight:700;flex:none;white-space:nowrap}
+.setttl small{font-family:inherit;font-size:.74rem;font-weight:500;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.setchev{flex:none;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .18s;margin:0 2px 3px 0}
+.setsec.open .setchev{transform:rotate(225deg);margin:3px 2px 0 0}
+.setbody{display:none;padding:0 12px 12px;border-top:1px solid var(--line)}
+.setsec.open .setbody{display:block}
+.sigup{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.sigcard{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--tint)}
+.sigdrop{display:flex;align-items:center;justify-content:center;height:64px;border:1.5px dashed var(--line);border-radius:8px;background:var(--paper);cursor:pointer;overflow:hidden;color:var(--muted);font-size:.72rem;text-align:center;line-height:1.35}
+.sigdrop:hover{border-color:var(--accent);color:var(--accent)}
+.sigdrop img{width:100%;height:100%;object-fit:contain}
+.sigmeta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;font-size:.8rem}
+.sigmeta button{font:inherit;font-size:.78rem;padding:4px 10px;border-radius:7px;border:1.5px solid var(--line);background:var(--paper);color:var(--err);cursor:pointer}
 .setrow{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line);cursor:pointer}
 .setrow:last-child{border-bottom:0}
 .setrow input[type=checkbox]{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--accent)}
@@ -326,6 +375,8 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .chtab.on{background:var(--paper);color:var(--accent);box-shadow:0 -1px 4px rgba(0,0,0,.07)}
 .chtab.on::before{content:"";position:absolute;top:0;left:9px;right:9px;height:2.5px;border-radius:0 0 3px 3px;background:var(--accent)}
 .chuser{margin-left:auto;flex:none;display:flex;align-items:center;gap:10px;padding:0 4px 8px 12px;border-left:1px solid rgba(0,0,0,.12)}
+.chav{width:30px;height:30px;flex:none;border-radius:50%;overflow:hidden;border:1px solid rgba(0,0,0,.14);background:rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.chav img{width:100%;height:100%;object-fit:cover}
 .chwho{display:flex;flex-direction:column;align-items:flex-end;min-width:0}
 .chuser b{font-size:.78rem;color:var(--ink);white-space:nowrap;max-width:190px;overflow:hidden;text-overflow:ellipsis}
 .chuser small{font-size:.66rem;color:var(--muted);white-space:nowrap}
@@ -366,19 +417,6 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .dact .ar{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
 .dact .ar:last-child{border:0}
 .dact small{color:var(--muted);white-space:nowrap}
-/* ---------- সাজানো মার্কশিট ---------- */
-.ms{position:relative;overflow:hidden}
-.ms .ms-frame{border:1px solid #c9a227;padding:12px 16px;position:relative;z-index:1;display:flex;flex-direction:column;flex:1;min-height:0}
-.ms .wm{position:absolute;left:50%;top:50%;width:62mm;height:62mm;object-fit:contain;transform:translate(-50%,-50%);opacity:.06;pointer-events:none;z-index:0}
-.ms .mh{background:linear-gradient(135deg,#0f4a37,#1f5c46 55%,#2f7c5e);color:#fff;padding:12px 16px;border-radius:4px}
-.ms .mh img{background:#fff;border-radius:50%;padding:4px;width:64px;height:64px}
-.ms .mh h3{color:#fff}
-.ms .mh div{color:rgba(255,255,255,.9)}
-.ms .mt span{background:#c9a227;color:#1d2421}
-.ms table thead th{background:var(--tint)}
-.ms table tbody tr:nth-child(even) td{background:rgba(31,92,70,.04)}
-.ms .sum div{border-color:#c9a227}
-.ms .seal{width:22mm;height:22mm;border:1.5px dashed var(--muted);border-radius:50%;margin:8px auto 0;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--muted);text-align:center}
 /* ---------- রসিদ ---------- */
 #rcptSheet{display:none}
 body.rp #rcptSheet{display:block;position:fixed;inset:0;z-index:70;background:#39403d;overflow:auto;padding:24px}
@@ -403,13 +441,181 @@ body.rp{overflow:hidden}
 .rcpt .rtot{display:flex;justify-content:flex-end;gap:12px;border-top:1.5px solid #1f5c46;padding:3px 0;font-size:10px}
 .rcpt .rwords{font-size:8px;color:#333;margin:2px 0 4px}
 .rcpt .rmode{font-size:8px;color:#333}
-.rcpt .rsig{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:26px;font-size:9px;text-align:center}
-.rcpt .rsig span{border-top:1.5px solid #333;padding-top:3px;min-width:26mm}
+.rcpt .rsig{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:32px;font-size:9px;text-align:center}
+.rcpt .rsig span{position:relative;border-top:1.5px solid #333;padding-top:3px;min-width:26mm}
 .rcpt .rsig b{display:block;font-size:9.5px;font-weight:700;color:#14201b}
 .rcpt .rsig em{display:block;font-style:normal;font-weight:700;font-size:9.5px;color:#14201b;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rcpt .rsigimg{position:absolute;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);height:26px;max-width:30mm;object-fit:contain}
 .rcpt .rfoot{font-size:7px;color:#666;text-align:center;margin-top:4px}
 .rcpt .rnote{font-size:7px;color:#666;border-top:1px dashed #ccc;margin-top:4px;padding-top:2px}
 .rclose{position:fixed;right:18px;top:14px;z-index:80;font:inherit;padding:7px 14px;border-radius:8px;border:1px solid #fff;background:#1f5c46;color:#fff;cursor:pointer}
+/* ---------- অভিনন্দন পত্র ---------- */
+#letterSheet{display:none}
+body.lt #letterSheet{display:block;position:fixed;inset:0;z-index:72;background:#39403d;overflow:auto;padding:24px}
+body.lt{overflow:hidden}
+.ltbar{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;gap:8px;max-width:210mm;margin:0 auto 12px}
+.ltbar button{font:inherit;padding:7px 14px;border-radius:8px;border:1px solid #fff;background:#1f5c46;color:#fff;cursor:pointer}
+.ltbar button.ghost{background:transparent}
+.ltpage{position:relative;overflow:hidden;width:210mm;min-height:297mm;margin:0 auto 18px;background:#fff;color:#14201b;padding:18mm 20mm;box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:13px;line-height:1.7;display:flex;flex-direction:column}
+.ltpage .lwm{position:absolute;left:50%;top:52%;width:80mm;height:80mm;object-fit:contain;transform:translate(-50%,-50%);opacity:.045;pointer-events:none}
+.lthead{display:flex;gap:14px;align-items:center;border-bottom:3px double #1f5c46;padding-bottom:10px;position:relative;z-index:1}
+.lthead img{width:72px;height:72px;object-fit:contain;flex:none}
+.lthead b{display:block;font-size:26px;line-height:1.2;color:#0f4a37}
+.lthead small{display:block;font-size:12px;color:#444;line-height:1.5}
+.ltmeta{display:flex;justify-content:space-between;gap:12px;font-size:11.5px;color:#333;margin:14px 0 6px;position:relative;z-index:1}
+.lttitle{text-align:center;margin:16px 0 14px;position:relative;z-index:1}
+.lttitle h3{display:inline-block;margin:0;font-size:19px;color:#0f4a37;border-bottom:2px solid #c9a227;padding:0 18px 5px;letter-spacing:.5px}
+.ltpage p{margin:0 0 10px;position:relative;z-index:1}
+.ltids{display:flex;gap:14px;margin:14px 0;position:relative;z-index:1}
+.ltids div{flex:1;border:1.5px solid #1f5c46;border-radius:8px;padding:8px 12px;background:#f3f8f5;text-align:center}
+.ltids small{display:block;font-size:11px;color:#1f5c46;font-weight:700}
+.ltids b{font-size:21px;letter-spacing:1px}
+.lttab{width:100%;border-collapse:collapse;margin:4px 0 14px;position:relative;z-index:1;font-size:12px}
+.lttab th,.lttab td{border:1px solid #c9d3cd;padding:5px 9px;text-align:left}
+.lttab th{background:#e6f1ea;color:#1f5c46;width:34%;font-weight:700}
+.ltsign{margin-top:46px;display:flex;justify-content:flex-end;position:relative;z-index:1}
+.ltsign span{position:relative;min-width:58mm;border-top:1.5px solid #333;padding-top:4px;text-align:center;font-size:12px}
+.ltsign b{display:block}
+.ltsign em{display:block;font-style:normal;color:#333}
+.ltsign img{position:absolute;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);height:34px;max-width:40mm;object-fit:contain}
+.ltnote{font-size:10.5px;color:#555;border-top:1px dashed #c9d3cd;margin-top:20px;padding-top:8px;position:relative;z-index:1}
+.ltfoot{position:absolute;left:20mm;right:20mm;bottom:10mm;font-size:10px;color:#666;text-align:center;border-top:1px solid #c9d3cd;padding-top:4px}
+/* ---------- শিক্ষার্থী তালিকা প্রিন্ট ---------- */
+#listSheet{display:none}
+body.lp #listSheet{display:block;position:fixed;inset:0;z-index:73;background:#39403d;overflow:auto;padding:24px}
+body.lp{overflow:hidden}
+.lpbar{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;gap:8px;max-width:277mm;margin:0 auto 12px}
+.lpbar button{font:inherit;padding:7px 14px;border-radius:8px;border:1px solid #fff;background:#1f5c46;color:#fff;cursor:pointer}
+.lpbar button.ghost{background:transparent}
+.lppage{width:277mm;min-height:190mm;margin:0 auto 18px;background:#fff;color:#14201b;padding:10mm 12mm;box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:11px;line-height:1.45}
+.lphead{display:flex;align-items:center;gap:14px;border-bottom:3px double #1f5c46;padding-bottom:8px}
+.lphead img{width:56px;height:56px;object-fit:contain;flex:none}
+.lph b{display:block;font-size:21px;line-height:1.2;color:#0f4a37}
+.lph small{display:block;font-size:10.5px;color:#444}
+.lpm{margin-left:auto;text-align:right}
+.lpm b{display:block;font-size:16px;color:#0f4a37}
+.lpm small{display:block;font-size:10.5px;color:#444}
+.lpcount{display:flex;justify-content:space-between;gap:10px;margin:8px 0;font-size:11px;color:#333}
+.lptab{width:100%;border-collapse:collapse;font-size:10px}
+.lptab th,.lptab td{border:1px solid #b9c6c0;padding:3px 5px;text-align:left;vertical-align:top}
+.lptab th{background:#e6f1ea;color:#0f4a37;font-weight:700;white-space:nowrap}
+.lptab .c{text-align:center;white-space:nowrap}
+.lptab tbody tr:nth-child(even) td{background:#f7faf8}
+.lpsign{display:flex;justify-content:space-between;gap:40px;margin-top:46px}
+.lpsign span{border-top:1.5px solid #333;padding-top:3px;min-width:60mm;text-align:center;font-size:11px}
+.lpfoot{font-size:9.5px;color:#666;text-align:center;border-top:1px solid #c9d3cd;margin-top:22px;padding-top:4px}
+/* ---------- আদায় ও বকেয়া তালিকা প্রিন্ট ---------- */
+#dueSheet{display:none}
+body.dp #dueSheet{display:block;position:fixed;inset:0;z-index:74;background:#39403d;overflow:auto;padding:24px}
+body.dp{overflow:hidden}
+.lptab .r{text-align:right;white-space:nowrap}
+.lptab tfoot th,.lptab tfoot td{background:#e6f1ea;color:#0f4a37;font-weight:700;border-top:2px solid #1f5c46}
+/* ---------- স্টুডেন্ট আইডি কার্ড ---------- */
+#idSheet{display:none}
+body.idc #idSheet{display:block;position:fixed;inset:0;z-index:75;background:#39403d;overflow:auto;padding:24px}
+body.idc{overflow:hidden}
+.idbar{position:sticky;top:0;z-index:3;display:flex;justify-content:flex-end;gap:8px;max-width:210mm;margin:0 auto 12px}
+.idbar button{font:inherit;padding:7px 14px;border-radius:8px;border:1px solid #fff;background:#1f5c46;color:#fff;cursor:pointer}
+.idbar button.ghost{background:transparent}
+.idpage{display:flex;flex-direction:column;width:210mm;min-height:297mm;margin:0 auto 16px;background:#fff;color:#14201b;padding:12mm 10mm;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.idpage h2{margin:0 0 2mm;font-size:16px;color:#0f4a37;text-align:center;border-bottom:2px solid #c9a227;padding-bottom:2mm}
+.idpage .idsub{margin:0 0 8mm;text-align:center;font-size:11px;color:#555}
+.idcards{display:flex;flex-wrap:wrap;gap:12mm;justify-content:center;align-content:flex-start}
+.idnote{margin-top:10mm;text-align:center;font-size:10px;color:#666}
+.idcard{position:relative;width:86mm;height:54mm;background:#fff;color:#14201b;border-radius:2.5mm;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.15);font-size:7.5pt;line-height:1.3;flex:none}
+.idcard .idwm{position:absolute;right:-7mm;bottom:1mm;width:34mm;height:34mm;object-fit:contain;opacity:.05;pointer-events:none}
+.idtop{position:relative;display:flex;align-items:center;gap:2mm;padding:2mm 2.5mm 1.2mm;border-bottom:.35mm solid #1f5c46}
+.idtop img{width:9mm;height:9mm;object-fit:contain;flex:none}
+.idtop b{display:block;font-size:9.5pt;color:#0f4a37;line-height:1.1}
+.idtop small{display:block;font-size:5.4pt;color:#555;line-height:1.3}
+.idbody{position:relative;display:flex;gap:2.5mm;padding:1.6mm 2.5mm 0}
+.idphoto{width:19mm;height:24.5mm;border:.4mm solid #1f5c46;border-radius:1.2mm;object-fit:cover;background:#eef4f0;flex:none}
+.idph{display:flex;align-items:center;justify-content:center;width:19mm;height:24.5mm;border:.4mm dashed #9db3a9;border-radius:1.2mm;background:#f3f7f4;font-size:5.6pt;color:#7b8a83;text-align:center;flex:none}
+.idinfo{flex:1;min-width:0;padding-top:.4mm}
+.idname{margin-bottom:.8mm;font-size:9.5pt;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.idrow{display:flex;gap:1.2mm;font-size:6.1pt;color:#333;line-height:1.35}
+.idrow b{flex:none;min-width:9mm;color:#0f4a37;font-weight:700}
+.idrow span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.idids{display:flex;gap:1.8mm;margin-top:1.1mm}
+.idids div{flex:1;min-width:0;background:#e8f2ec;border-radius:1mm;padding:.6mm 1mm;text-align:center}
+.idids small{display:block;font-size:4.8pt;color:#1f5c46;line-height:1.2}
+.idids b{font-size:7.2pt;letter-spacing:.3px}
+.idstrip{position:absolute;left:0;right:0;bottom:0;height:5mm;display:flex;align-items:center;justify-content:space-between;gap:2mm;padding:0 2.5mm;background:linear-gradient(90deg,#0f4a37,#2f7c5e);color:#fff;font-size:5.4pt;white-space:nowrap;overflow:hidden}
+.idcard.back .idback{position:relative;padding:2mm 3mm 6mm;font-size:6pt;line-height:1.4;color:#333}
+.idcard.back h4{margin:0 0 1mm;padding-bottom:.6mm;font-size:7.6pt;color:#0f4a37;border-bottom:.3mm solid #c9d3cd}
+.idback ul{margin:.6mm 0 0;padding-left:3mm}
+.idback li{margin:0 0 .2mm}
+.idsignrow{display:flex;justify-content:space-between;gap:5mm;margin-top:1.6mm;padding:0 1mm}
+.idsignrow span{position:relative;min-width:24mm;border-top:.3mm solid #333;padding-top:.5mm;text-align:center;font-size:5.2pt;line-height:1.25}
+.idsignrow img{position:absolute;left:50%;bottom:calc(100% + .4mm);transform:translateX(-50%);height:6.5mm;max-width:22mm;object-fit:contain}
+.idups{width:210mm;max-width:100%;margin:0 auto;padding:14px 16px;background:#fff;border-radius:12px;color:#14201b;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.idups h3{margin:0 0 10px;font-size:1rem;color:#0f4a37}
+.idupgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.idup{padding:8px;border:1px dashed #9db3a9;border-radius:10px;background:#f7faf8;text-align:center}
+.idup .prev{display:flex;align-items:center;justify-content:center;height:52px;margin-bottom:6px;background:#fff;border:1px solid #e2eae5;border-radius:6px;overflow:hidden}
+.idup .prev img{max-width:100%;max-height:48px;object-fit:contain}
+.idup .prev span{font-size:.72rem;color:#7b8a83}
+.idup b{display:block;margin-bottom:6px;font-size:.8rem}
+.idup .row{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.idup button{font-size:.74rem;padding:4px 10px}
+.idkv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0 4px}
+.idkv div{padding:7px 10px;border-radius:8px;background:#f4f8f5;font-size:.8rem;color:#14201b;word-break:break-word}
+.idkv b{display:block;margin-bottom:2px;font-size:.7rem;color:#5a6b62;font-weight:600}
+.idhint{margin:6px 0 10px;padding:8px 10px;border-radius:8px;background:#eef7f1;border:1px solid #cfe6d8;color:#14532d;font-size:.78rem;line-height:1.45}
+.idhint.bad{background:#fdecea;border-color:#f3c9c4;color:#8a1c1c}
+.idchip{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:999px;font-size:.7rem;font-weight:600;vertical-align:middle}
+.idchip.pend{background:#fff4d6;color:#7a5200}
+.idchip.ok{background:#dff3e6;color:#14532d}
+.idchip.bad{background:#fde2df;color:#8a1c1c}
+.idact{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.idact button{font-size:.8rem;padding:7px 14px}
+/* ---------- অ্যাডমিট কার্ড ---------- */
+#admitSheet{display:none}
+body.adc #admitSheet{display:block;position:fixed;inset:0;z-index:75;background:#39403d;overflow:auto;padding:24px}
+body.adc{overflow:hidden}
+.adpage{position:relative;display:flex;flex-direction:column;width:148mm;min-height:210mm;margin:0 auto 16px;background:#fff;color:#14201b;padding:8mm;box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:9pt;line-height:1.4}
+.adpage .adwm{position:absolute;right:8mm;bottom:10mm;width:46mm;height:46mm;object-fit:contain;opacity:.045;pointer-events:none}
+.adhead{position:relative;display:flex;align-items:flex-start;gap:3mm;padding-bottom:2mm;border-bottom:.6mm solid #0f4a37}
+.adhead .adlogo{width:16mm;height:16mm;object-fit:contain;flex:none}
+.adhead .adt{flex:1;min-width:0;text-align:center}
+.adhead .adt b{display:block;font-size:12pt;color:#0f4a37;line-height:1.15}
+.adhead .adt small{display:block;font-size:6.6pt;color:#555;line-height:1.35}
+.adhead .adt h2{margin:1.6mm 0 0;padding:1mm 0;font-size:10pt;color:#14201b;border-top:.3mm solid #c9a227;border-bottom:.3mm solid #c9a227;letter-spacing:.3px}
+.adhead .adt .adexam{display:block;margin-top:.8mm;font-size:8pt;font-weight:700;color:#0f4a37}
+.adphoto{width:22mm;height:28mm;border:.45mm solid #0f4a37;border-radius:1mm;object-fit:cover;background:#eef4f0;flex:none}
+.adph{display:flex;align-items:center;justify-content:center;width:22mm;height:28mm;border:.45mm dashed #9db3a9;border-radius:1mm;background:#f3f7f4;font-size:6pt;color:#7b8a83;text-align:center;flex:none}
+.adinfo{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1mm 3mm;margin:2.6mm 0 1.6mm}
+.adinfo div{display:flex;gap:1.4mm;font-size:7.4pt;line-height:1.45;min-width:0}
+.adinfo b{flex:none;color:#0f4a37;font-weight:700}
+.adinfo span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.adinfo .adwide{grid-column:1/-1}
+.adsect{margin:2mm 0 0;font-size:8pt;font-weight:700;color:#0f4a37;border-bottom:.3mm solid #c9d3cd;padding-bottom:.8mm}
+.adsub{width:100%;margin-top:1.4mm;border-collapse:collapse;font-size:7.4pt}
+.adsub th,.adsub td{border:.25mm solid #b9c0bb;padding:.9mm 2mm;text-align:left}
+.adsub th{background:#e8f2ec;color:#0f4a37;font-weight:700}
+.adsub td:last-child,.adsub th:last-child{text-align:center;width:24mm}
+.adrules{margin:2mm 0 0;padding-left:4.4mm;font-size:6.8pt;line-height:1.5;color:#333}
+.adrules li{margin-bottom:.5mm}
+.adsign{display:flex;justify-content:space-between;gap:12mm;margin-top:auto;padding:7mm 3mm 0}
+.adsign span{position:relative;min-width:38mm;border-top:.3mm solid #333;padding-top:.8mm;text-align:center;font-size:6.6pt;line-height:1.3}
+.adsign img{position:absolute;left:50%;bottom:calc(100% + .5mm);transform:translateX(-50%);height:8mm;max-width:32mm;object-fit:contain}
+.adfoot{display:flex;justify-content:space-between;gap:2mm;margin-top:4mm;border-top:.25mm solid #c9d3cd;padding-top:1mm;font-size:6pt;color:#666}
+.adbar{max-width:148mm}
+.adpick{width:148mm;max-width:100%;margin:0 auto 12px;padding:12px 14px;background:#fff;border-radius:12px;color:#14201b;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.adpick .f{margin-bottom:0}
+.adnone{width:148mm;max-width:100%;margin:0 auto;padding:16px;background:#fff;border-radius:12px;color:#14201b}
+.adnone h3{margin:0 0 6px;color:#0f4a37}
+/* ---------- গ্রুপ আইডি ও অ্যাডমিট ডাউনলোড ---------- */
+#bulkSheet{display:none}
+body.bk #bulkSheet{display:block;position:fixed;inset:0;z-index:76;background:#39403d;overflow:auto;padding:24px}
+body.bk{overflow:hidden}
+.bkpick{width:210mm;max-width:100%;margin:0 auto 14px;padding:14px 16px;background:#fff;border-radius:12px;color:#14201b;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.bkpick h3{margin:0 0 6px;font-size:1rem;color:#0f4a37}
+.bkpick .bkmeta{font-size:.82rem;color:#555;margin-bottom:10px;line-height:1.55}
+.bkpick .f{margin-bottom:10px}
+.bkpick .bkrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.82rem;color:#333;margin:6px 0 0}
+.bkpick .bkprog{font-size:.8rem;color:#0f4a37;font-weight:600}
+.bkwarn{color:#8a1c1c;font-weight:600}
 @media print{
   @page{size:A4;margin:11mm 13mm 15mm}
   :root:root:root{--ink:#14201b;--muted:#55605a;--paper:#fff;--tint:#f1f5f2;--line:#9aa5a0;--accent:#1f5c46}
@@ -474,19 +680,84 @@ body.rp{overflow:hidden}
   #resultView .box{border:0;padding:0}
   #resultView td input{border:0!important;padding:2px;width:34px;min-width:0;max-width:none;font-size:9.5px}
   .rtab th,.rtab td{font-size:9.5px;padding:2px 4px}
-  .ms{break-after:page;border:2.5px solid var(--accent);padding:7mm;margin:0;min-height:270mm;display:flex;flex-direction:column}
+  .ms{break-after:page;border:1px solid #c9a227;padding:3mm;margin:0;min-height:268mm;display:flex;flex-direction:column;box-shadow:none}
   .ms:last-child{break-after:auto}
-  .ms .sgs{margin-top:auto;padding-top:60px}
+  .ms .sgs{margin-top:auto;padding-top:40px}
   .pfoot{display:block;position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:8.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:3px}
 }
 @media print{
   /* সাজানো মার্কশিট — শুধু .ms-এর ভেতরে */
-  .ms{padding:5mm}
   .ms .ms-frame{border:2px double #c9a227;padding:4mm;display:flex;flex-direction:column;flex:1}
-  .ms .mh{padding:7px 10px}
-  .ms .mh img{width:52px;height:52px;padding:2px}
+  .ms .mh{padding:0 4mm 1mm}
+  .ms .mh img{width:16mm;height:16mm;padding:1mm}
+  .ms .mh h3{font-size:15pt}
+  .ms .mh-addr{font-size:7.6pt}
+  .ms .mt{margin:1.5mm 0 2.5mm;padding:1.5mm 0 2mm}
+  .ms .mt span{font-size:7.2pt;padding:.4mm 3mm}
+  .ms .mt h4{font-size:11.5pt;margin:1mm 0 0}
+  .ms .mt small{font-size:7.4pt}
+  .ms .mssec{font-size:8pt;margin:2.2mm 0 1.2mm}
+  .ms .mssec::before{height:3.4mm;width:1.2mm}
   .ms .wm{opacity:.05}
-  .ms .seal{width:18mm;height:18mm;margin:4px auto 0}
+  .ms .info{gap:4mm}
+  .ms .i-card .ifield{padding:1mm 2.2mm}
+  .ms .i-card .ifield b{font-size:7pt}
+  .ms .i-card .ifield span{font-size:8.6pt}
+  .ms .i-compact .ifield{padding:.8mm 2mm}
+  .ms .ph2{width:25mm;height:32mm}
+  .ms td,.ms th{padding:1.2mm 1.6mm;font-size:8.4pt}
+  .ms .ms-tab thead th{font-size:7.4pt}
+  .ms .sum{gap:1.6mm;margin-top:2mm}
+  .ms .sum div{padding:1.2mm 2mm;border-top-width:2px}
+  .ms .sum b{font-size:6.8pt}
+  .ms .sum strong{font-size:9.6pt}
+  .ms .sum.rank{margin-top:1.6mm}
+  .ms .sgs{gap:10mm;margin-top:auto;padding-top:34px}
+  .ms .sg{font-size:8pt}
+  .ms .sg small{font-size:6.8pt}
+  .ms .sg img{height:9mm}
+  .ms .note{font-size:7pt;margin-top:2.4mm;padding:1.2mm 2mm;line-height:1.5}
+  .ms .msfoot{font-size:6.6pt;margin-top:1.6mm;padding-top:1mm}
+  /* মার্কশিট — A5 পোর্ট্রেট */
+  body.msa5 .ms{min-height:191mm;padding:2mm;border-width:.4mm}
+  body.msa5 .ms .ms-frame{padding:2.5mm 3mm;border-width:.35mm}
+  body.msa5 .ms .mh{gap:6px;padding:0 2mm .6mm}
+  body.msa5 .ms .mh img{width:12mm;height:12mm;padding:0;border:0;border-radius:0;background:transparent}
+  body.msa5 .ms .mh h3{font-size:12.5pt}
+  body.msa5 .ms .mh-addr{font-size:6pt}
+  body.msa5 .ms .mt{margin:.8mm 0 1.6mm;padding:.9mm 0 1.3mm}
+  body.msa5 .ms .mt span{font-size:6.2pt;padding:.3mm 2.2mm}
+  body.msa5 .ms .mt h4{font-size:9.2pt;margin:.6mm 0 0}
+  body.msa5 .ms .mt small{font-size:6pt}
+  body.msa5 .ms .wm{width:40mm;height:40mm}
+  body.msa5 .ms .mssec{font-size:6.8pt;margin:1.5mm 0 .8mm}
+  body.msa5 .ms .mssec::before{height:2.8mm;width:1mm}
+  body.msa5 .ms .info{gap:3mm}
+  body.msa5 .ms .i-card .ifield{padding:.7mm 1.6mm;grid-template-columns:minmax(18mm,.7fr) 1fr;gap:1.5mm}
+  body.msa5 .ms .i-card .ifield b{font-size:6pt}
+  body.msa5 .ms .i-card .ifield span{font-size:7.2pt}
+  body.msa5 .ms .i-card .ifield.nmf span{font-size:7.8pt}
+  body.msa5 .ms .i-grid .ig{gap:2px 9px}
+  body.msa5 .ms .ifield b{font-size:6pt}
+  body.msa5 .ms .ifield span{font-size:7.2pt}
+  body.msa5 .ms .i-compact .ig{gap:2.5px;grid-template-columns:repeat(3,1fr)}
+  body.msa5 .ms .i-compact .ifield{padding:.5mm 1.4mm}
+  body.msa5 .ms .i-compact .ifield b{font-size:5.8pt}
+  body.msa5 .ms .i-compact .ifield span{font-size:6.8pt}
+  body.msa5 .ms .ph2{width:18mm;height:23mm}
+  body.msa5 .ms td,body.msa5 .ms th{padding:.7mm 1mm;font-size:7pt}
+  body.msa5 .ms .ms-tab thead th{font-size:6.2pt}
+  body.msa5 .ms .sum{gap:1.2mm;margin-top:1.4mm}
+  body.msa5 .ms .sum div{padding:.8mm 1mm;border-top-width:1.2px}
+  body.msa5 .ms .sum b{font-size:5.6pt}
+  body.msa5 .ms .sum strong{font-size:7.8pt}
+  body.msa5 .ms .sum.rank{margin-top:1.2mm}
+  body.msa5 .ms .sgs{gap:7mm;padding-top:24px}
+  body.msa5 .ms .sg{font-size:6.8pt}
+  body.msa5 .ms .sg small{font-size:5.8pt}
+  body.msa5 .ms .sg img{height:6.5mm}
+  body.msa5 .ms .note{font-size:6pt;margin-top:1.6mm;padding:.8mm 1.5mm;line-height:1.45}
+  body.msa5 .ms .msfoot{font-size:5.6pt;margin-top:1mm;padding-top:.6mm}
   /* তিন কপি রসিদ — আলাদা প্রিন্ট স্তর, অন্য প্রিন্ট স্টাইল ছোঁয় না */
   body.rp>*:not(#rcptSheet){display:none!important}
   body.rp>#rcptSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
@@ -496,6 +767,52 @@ body.rp{overflow:hidden}
   #rcptSheet .rpage:last-child{break-after:auto;page-break-after:auto}
   #rcptSheet .rcpt{padding:3mm 3.5mm}
   #rcptSheet .rcpt .rwm{opacity:.05}
+  /* অভিনন্দন পত্র — একক A4 পত্র */
+  body.lt>*:not(#letterSheet){display:none!important}
+  body.lt>#letterSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.lt .ltbar{display:none!important}
+  #letterSheet .ltpage{width:auto;min-height:0;margin:0;box-shadow:none;padding:0}
+  #letterSheet .ltfoot{position:static;left:auto;right:auto;bottom:auto;margin-top:24px;padding-top:5px}
+  /* শিক্ষার্থী তালিকা — A4 ল্যান্ডস্কেপ */
+  body.lp>*:not(#listSheet){display:none!important}
+  body.lp>#listSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.lp .lpbar{display:none!important}
+  #listSheet .lppage{width:auto;min-height:0;margin:0;box-shadow:none;padding:0}
+  #listSheet .lptab thead{display:table-header-group}
+  #listSheet .lptab tr{break-inside:avoid;page-break-inside:avoid}
+  #listSheet .lpsign,#listSheet .lphead{break-inside:avoid;page-break-inside:avoid}
+  /* আদায় ও বকেয়া — A4 ল্যান্ডস্কেপ */
+  body.dp>*:not(#dueSheet){display:none!important}
+  body.dp>#dueSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.dp .lpbar{display:none!important}
+  #dueSheet .lppage{width:auto;min-height:0;margin:0;box-shadow:none;padding:0}
+  #dueSheet .lptab thead{display:table-header-group}
+  #dueSheet .lptab tr{break-inside:avoid;page-break-inside:avoid}
+  #dueSheet .lpsign,#dueSheet .lphead{break-inside:avoid;page-break-inside:avoid}
+  /* স্টুডেন্ট আইডি কার্ড — A4 পোর্ট্রেট */
+  body.idc>*:not(#idSheet){display:none!important}
+  body.idc>#idSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.idc .idbar{display:none!important}
+  #idSheet .idpage{width:auto;min-height:0;margin:0;padding:0;box-shadow:none}
+  #idSheet .idups{display:none!important}
+  #idSheet .idcards{gap:8mm}
+  #idSheet .idcard{box-shadow:none;outline:.3mm dashed #9aa5a0;outline-offset:2mm;break-inside:avoid;page-break-inside:avoid}
+  #idSheet .idnote{margin-top:8mm}
+  /* অ্যাডমিট কার্ড — A5 পোর্ট্রেট */
+  body.adc>*:not(#admitSheet){display:none!important}
+  body.adc>#admitSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.adc .adbar,body.adc .adpick,body.adc .idups,body.adc .adnone{display:none!important}
+  #admitSheet .adpage{width:148mm;height:209mm;min-height:0;margin:0 auto;padding:8mm;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  /* গ্রুপ আইডি ও অ্যাডমিট — শ্রেণি/বিভাগভিত্তিক */
+  body.bk>*:not(#bulkSheet){display:none!important}
+  body.bk>#bulkSheet{display:block!important;position:static;inset:auto;padding:0;background:#fff;overflow:visible}
+  body.bk .idbar,body.bk .bkpick{display:none!important}
+  #bulkSheet .idpage{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;break-after:page;page-break-after:always}
+  #bulkSheet .idpage:last-child{break-after:auto;page-break-after:auto}
+  #bulkSheet .idcards{gap:8mm}
+  #bulkSheet .idcard{box-shadow:none;outline:.3mm dashed #9aa5a0;outline-offset:2mm;break-inside:avoid;page-break-inside:avoid}
+  #bulkSheet .adpage{width:148mm;height:209mm;min-height:0;margin:0 auto;padding:8mm;box-shadow:none;break-after:page;page-break-after:always}
+  #bulkSheet .adpage:last-child{break-after:auto;page-break-after:auto}
 }
 .pfoot{display:none}
 /* ===== আধুনিক ও কমপ্যাক্ট স্ক্রিন লেআউট (প্রিন্ট অপরিবর্তিত) ===== */
@@ -543,8 +860,12 @@ body.rp{overflow:hidden}
   .dkpi{padding:11px 12px}
   .dcharts{gap:12px}
 
-  .setsec{border-radius:14px;padding:15px 16px}
-  .setsec h3{font-size:.98rem;color:var(--accent)}
+  .setsec{border-radius:14px}
+  .setbtn{font-size:.9rem;color:var(--accent);padding:8px 12px}
+  .setbody{padding:0 12px 12px}
+  #setBox .dhero{padding:11px 15px;margin-bottom:10px}
+  #setBox .dhero h2{font-size:1.12rem}
+  #setBox .dhero p{font-size:.8rem;margin:3px 0 0;line-height:1.4}
   .acc-box,.acc-stu,.acc-head{border-radius:11px}
   .acc-tabs button{padding:6px 14px;border-radius:99px}
 
@@ -662,9 +983,13 @@ body.rp{overflow:hidden}
     <div class="tools">
       <input type="search" id="q" placeholder="নাম, রোল, স্টুডেন্ট আইডি, মোবাইল বা বিভাগ দিয়ে খুঁজুন">
       <select id="listClsSel" class="dsel" aria-label="শ্রেণি ছাঁকুন"><option value="all">সব শ্রেণি</option><option value="XI">একাদশ</option><option value="XII">দ্বাদশ</option></select>
+      <select id="listDeptSel" class="dsel" aria-label="বিভাগ ছাঁকুন"><option value="all">সব বিভাগ</option><option value="science">বিজ্ঞান</option><option value="humanities">মানবিক</option><option value="business">ব্যবসায় শিক্ষা</option></select>
+      <button type="button" id="bkIdBtn">গ্রুপ আইডি কার্ড</button>
+      <button type="button" id="bkAdBtn">গ্রুপ অ্যাডমিট কার্ড</button>
       <button type="button" id="promoBtn" class="go">দ্বাদশে উত্তরন</button>
       <button type="button" id="demoBtn">একাদশে ফেরত</button>
       <button type="button" id="csvBtn">Excel (CSV) ফাইল</button>
+      <button type="button" id="prListBtn">তালিকা প্রিন্ট</button>
       <button type="button" id="bakBtn">ব্যাকআপ নিন</button>
       <button type="button" id="impBtn">ব্যাকআপ ফেরত আনুন</button>
       <input type="file" id="impFile" accept=".json,application/json" hidden>
@@ -713,6 +1038,7 @@ body.rp{overflow:hidden}
         <button type="button" data-rd="business" aria-pressed="false">ব্যবসায় শিক্ষা</button>
         <button type="button" data-rd="science" aria-pressed="false">বিজ্ঞান</button>
         <span class="sep"></span>
+        <button type="button" id="rSave" class="go">নম্বর সংরক্ষণ</button>
         <button type="button" id="rCsv">Excel (CSV)</button>
         <button type="button" id="rPrintTab">ফলাফল তালিকা প্রিন্ট</button>
         <button type="button" id="rPrintAll">সব মার্কশিট প্রিন্ট</button>
@@ -720,7 +1046,7 @@ body.rp{overflow:hidden}
       <div id="tabHead" class="printonly tabhead"></div>
       <div class="scroll"><table id="rtab" class="rtab"></table></div>
       <div id="tabSigs" class="printonly tabsigs"><div class="tsg">আহ্বায়ক<br>পরীক্ষা কমিটি</div><div class="tsg">সদস্য<br>পরীক্ষা কমিটি</div><div class="tsg">সদস্য<br>পরীক্ষা কমিটি</div><div class="tsg">সদস্য<br>পরীক্ষা কমিটি</div><div class="tsg">অধ্যক্ষ</div></div>
-      <p class="warn noprint">নম্বর লিখে অন্য ঘরে গেলেই নিজে থেকে সংরক্ষিত হয়। যে বিষয় শিক্ষার্থী নেয়নি সেখানে "–" দেখায়। সবুজ দাগের ঘর শিক্ষার্থীর ৪র্থ (ঐচ্ছিক) বিষয়। শিক্ষার্থীর তালিকা ভর্তি ফরমের সংরক্ষিত ফরম থেকে আসে।</p>
+      <p class="warn noprint">নম্বর লিখে "নম্বর সংরক্ষণ" চাপুন; অন্য ঘরে গেলেও নিজে থেকে সংরক্ষিত হয়। যে বিষয় শিক্ষার্থী নেয়নি সেখানে "–" দেখায়। সবুজ দাগের ঘর শিক্ষার্থীর ৪র্থ (ঐচ্ছিক) বিষয়। শিক্ষার্থীর তালিকা ভর্তি ফরমের সংরক্ষিত ফরম থেকে আসে।</p>
     </div>
     <div id="msView" hidden>
       <div class="tools noprint"><button type="button" id="msBack">← তালিকায় ফিরুন</button><button type="button" id="msPrint" class="go">প্রিন্ট</button></div>
@@ -799,6 +1125,15 @@ body.rp{overflow:hidden}
         <option value="admin">সুপার অ্যাডমিন</option></select></label>
       <div class="full" id="uSubWrap"><div class="sub">শিক্ষক যে বিষয়গুলোর নম্বর এন্ট্রি দেবেন</div>
         <div id="uSubs" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))"></div></div>
+      <div class="full uprow">
+        <label class="uavatar" for="uPhotoIn" title="ছবি আপলোড করুন"><img id="uPhotoImg" alt="প্রোফাইল ছবি" hidden><span id="uPhotoPh">ছবি<br><small>আপলোড</small></span></label>
+        <input type="file" id="uPhotoIn" accept="image/*" hidden>
+        <div class="upact">
+          <b class="upt">প্রোফাইল ছবি / স্বাক্ষর</b>
+          <button type="button" id="uPhotoDel" hidden>ছবি সরান</button>
+          <small class="acc-note">সব ধরনের ব্যবহারকারীর জন্য ঐচ্ছিক — শিক্ষক, হিসাব রক্ষক, কমিটি বা অ্যাডমিন। ছবিটি এই ব্রাউজারে সংরক্ষিত হয় এবং ব্যাকআপের সাথেও যায়।</small>
+        </div>
+      </div>
     </div>
     <div class="tools" style="margin-top:12px"><button type="button" id="uSave" class="go">সংরক্ষণ</button><button type="button" id="uCancel">নতুন করে শুরু</button></div>
     <h2>ব্যবহারকারীর তালিকা</h2>
@@ -818,6 +1153,7 @@ body.rp{overflow:hidden}
       <span class="sep"></span>
       <span class="acc-tabs" style="display:contents">
         <button type="button" data-acc="collect" aria-pressed="true">আদায় ও রসিদ</button>
+        <button type="button" data-acc="due" aria-pressed="false">আদায় ও বকেয়া</button>
         <button type="button" data-acc="ledger" aria-pressed="false">খাতা</button>
         <button type="button" data-acc="setup" aria-pressed="false">ফি সেটআপ</button>
         <button type="button" data-acc="req" aria-pressed="false">ফি অনুরোধ</button>
@@ -837,6 +1173,12 @@ body.rp{overflow:hidden}
 </section>
 
 <div id="rcptSheet" hidden></div>
+<div id="letterSheet" hidden></div>
+<div id="listSheet" hidden></div>
+<div id="dueSheet" hidden></div>
+<div id="idSheet" hidden></div>
+<div id="admitSheet" hidden></div>
+<div id="bulkSheet" hidden></div>
 
 <div class="pfoot">কাঁচকুড়া কলেজ, উত্তরখান, ঢাকা-১২৩০ &nbsp;|&nbsp; একাদশ শ্রেণির ভর্তি ফরম <span id="footYear">২০২৬</span></div>
 
@@ -1009,7 +1351,7 @@ document.getElementById('printBtn').onclick = () => doPrint(false);
 const DB = {
   open() {
     return new Promise((res, rej) => {
-      const r = indexedDB.open('kanchkura_admission', 5);
+      const r = indexedDB.open('kanchkura_admission', 7);
       r.onupgradeneeded = () => {
         const db = r.result;
         if (!db.objectStoreNames.contains('apps')) db.createObjectStore('apps', { keyPath: 'id', autoIncrement: true });
@@ -1019,6 +1361,8 @@ const DB = {
         if (!db.objectStoreNames.contains('feeplans')) db.createObjectStore('feeplans', { keyPath: 'key' });
         if (!db.objectStoreNames.contains('payments')) db.createObjectStore('payments', { keyPath: 'id', autoIncrement: true });
         if (!db.objectStoreNames.contains('feereqs')) db.createObjectStore('feereqs', { keyPath: 'id', autoIncrement: true });
+        if (!db.objectStoreNames.contains('idapps')) db.createObjectStore('idapps', { keyPath: 'id', autoIncrement: true });
+        if (!db.objectStoreNames.contains('admitapps')) db.createObjectStore('admitapps', { keyPath: 'id', autoIncrement: true });
         if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', { keyPath: 'k' });
       };
       r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
@@ -1055,6 +1399,10 @@ const DB = {
   feereqs() { return this.run('readonly', s => s.getAll(), 'feereqs'); },
   putFeereq(r) { return this.run('readwrite', s => s.put(r), 'feereqs'); },
   delFeereq(id) { return this.run('readwrite', s => s.delete(id), 'feereqs'); },
+  idapps() { return this.run('readonly', s => s.getAll(), 'idapps'); },
+  putIdapp(r) { return this.run('readwrite', s => s.put(r), 'idapps'); },
+  admitapps() { return this.run('readonly', s => s.getAll(), 'admitapps'); },
+  putAdmitapp(r) { return this.run('readwrite', s => s.put(r), 'admitapps'); },
   meta(k) { return this.run('readonly', s => s.get(k), 'meta'); },
   putMeta(m) { return this.run('readwrite', s => s.put(m), 'meta'); },
   // রসিদ নম্বর ধারাবাহিক: একটি লেনদেনে পড়া ও লেখা, তাই দুই ট্যাবেও নম্বর দ্বিগুণ হয় না
@@ -1236,21 +1584,69 @@ function showView(v) {
   window.scrollTo(0, 0);
 }
 async function loadList() {
-  try { cache = await DB.all(); } catch (e) { cache = []; document.getElementById('rows').innerHTML = '<tr><td colspan="13">এই ব্রাউজারে সংরক্ষণ চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।</td></tr>'; return; }
+  try { cache = await DB.all(); try { IDAPPS = await DB.idapps(); } catch (e2) { IDAPPS = []; } } catch (e) { cache = []; document.getElementById('rows').innerHTML = '<tr><td colspan="13">এই ব্রাউজারে সংরক্ষণ চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।</td></tr>'; return; }
   renderRows();
 }
-let listCls = 'all';
-function renderRows() {
+let listCls = 'all', listDept = 'all';
+function listRows() {
   const t = toEn(document.getElementById('q').value.trim().toLowerCase());
+  return cache.filter(r => (listCls === 'all' || clsOf(r) === listCls) && (listDept === 'all' || r.dept === listDept) && (!t || toEn(JSON.stringify([r.fields.nameBn, r.fields.nameEn, r.fields.roll, r.fields.stuId, r.fields.formNo, r.fields.mobile, r.fields.fatherMobile, r.fields.gMobile, DEPTS[r.dept].name, CLASSES[clsOf(r)], r.status || 'অনুমোদিত']).toLowerCase()).includes(t)));
+}
+function renderRows() {
   const esc = x => String(x || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const rows = cache.filter(r => (listCls === 'all' || clsOf(r) === listCls) && (!t || toEn(JSON.stringify([r.fields.nameBn, r.fields.nameEn, r.fields.roll, r.fields.stuId, r.fields.formNo, r.fields.mobile, r.fields.fatherMobile, r.fields.gMobile, DEPTS[r.dept].name, CLASSES[clsOf(r)], r.status || 'অনুমোদিত']).toLowerCase()).includes(t)));
+  const rows = listRows();
   document.getElementById('selAll').checked = false;
-  document.getElementById('rows').innerHTML = rows.length ? rows.map((r, i) =>
-    `<tr><td class="selcol"><input type="checkbox" data-sel="${r.id}" aria-label="বাছুন"></td><td>${i + 1}</td><td>${esc(r.fields.formNo)}</td><td>${esc(r.fields.roll)}</td><td>${esc(r.fields.stuId)}</td><td>${esc(r.fields.nameBn || r.fields.nameEn)}</td><td>${DEPTS[r.dept].name}</td><td>${CLASSES[clsOf(r)]}</td><td>${esc(r.fields.father)}</td><td>${esc(r.fields.fatherMobile)}</td><td>${esc(r.savedAt)}</td><td title="${esc(r.note)}">${esc(r.status || 'অনুমোদিত')}</td>
-     <td style="white-space:nowrap"><button data-open="${r.id}">খুলুন</button> ${(ME.role === 'admin' || ME.role === 'admission') && okApp(r) ? `<button data-ids="${r.id}"${(r.fields.roll && r.fields.stuId) ? '' : ' class="go"'}>${(r.fields.roll && r.fields.stuId) ? 'রোল/আইডি' : 'রোল/আইডি দিন'}</button> ` : ''}<button data-st="${r.id}|সুপারিশকৃত">সুপারিশ</button> ${ME.role === 'admin' ? `<button data-st="${r.id}|অনুমোদিত">অনুমোদন</button>` : ''} <button class="del" data-st="${r.id}|বাতিল">বাতিল</button> ${ME.role === 'admin' ? `<button class="del" data-del="${r.id}">মুছুন</button>` : ''}</td></tr>`).join('')
+  document.getElementById('rows').innerHTML = rows.length ? rows.map((r, i) => {
+    const ir = idRecOf(r.id);
+    const idLbl = ir ? (ir.status === 'approved' ? 'আইডি কার্ড ✓' : ir.status === 'pending' ? 'আইডি কার্ড •' : 'আইডি কার্ড') : 'আইডি কার্ড';
+    const idCls = ir && ir.status === 'pending' ? ' class="go"' : '';
+    return `<tr><td class="selcol"><input type="checkbox" data-sel="${r.id}" aria-label="বাছুন"></td><td>${i + 1}</td><td>${esc(r.fields.formNo)}</td><td>${esc(r.fields.roll)}</td><td>${esc(r.fields.stuId)}</td><td>${esc(r.fields.nameBn || r.fields.nameEn)}</td><td>${DEPTS[r.dept].name}</td><td>${CLASSES[clsOf(r)]}</td><td>${esc(r.fields.father)}</td><td>${esc(r.fields.fatherMobile)}</td><td>${esc(r.savedAt)}</td><td title="${esc(r.note)}">${esc(r.status || 'অনুমোদিত')}</td>
+     <td style="white-space:nowrap"><button data-open="${r.id}">খুলুন</button> ${(ME.role === 'admin' || ME.role === 'admission') && okApp(r) ? `<button data-ids="${r.id}"${(r.fields.roll && r.fields.stuId) ? '' : ' class="go"'}>${(r.fields.roll && r.fields.stuId) ? 'রোল/আইডি' : 'রোল/আইডি দিন'}</button> ` : ''}${okApp(r) && r.fields.roll && r.fields.stuId ? `<button data-lt="${r.id}">অভিনন্দন পত্র</button> <button data-idc="${r.id}"${idCls}>${idLbl}</button> <button data-adm="${r.id}">অ্যাডমিট</button> ` : ''}<button data-st="${r.id}|সুপারিশকৃত">সুপারিশ</button> ${ME.role === 'admin' ? `<button data-st="${r.id}|অনুমোদিত">অনুমোদন</button>` : ''} <button class="del" data-st="${r.id}|বাতিল">বাতিল</button> ${ME.role === 'admin' ? `<button class="del" data-del="${r.id}">মুছুন</button>` : ''}</td></tr>`;
+  }).join('')
     : '<tr><td colspan="13">কিছু পাওয়া যায়নি। ফরম পূরণ করে "সংরক্ষণ করুন" চাপলে এখানে জমা হবে।</td></tr>';
 }
+function listPrintHTML(rows) {
+  const logo = document.querySelector('.logo').src;
+  const now = new Date(), today = bn(now.getDate()) + ' ' + BNM[now.getMonth()] + ', ' + bn(now.getFullYear());
+  const q = document.getElementById('q').value.trim();
+  const clsLbl = listCls === 'all' ? 'সব শ্রেণি' : CLASSES[listCls];
+  const trs = rows.map((r, i) => {
+    const f = r.fields || {};
+    return `<tr><td class="c">${bn(i + 1)}</td><td>${H(f.roll || '—')}</td><td>${H(f.stuId || '—')}</td><td>${H(f.nameBn || f.nameEn || '')}</td><td>${H(f.father || '')}</td><td>${H(f.mobile || f.gMobile || f.fatherMobile || '')}</td><td>${H(DEPTS[r.dept].name)}</td><td class="c">${H(CLASSES[clsOf(r)])}</td><td>${H(f.session || '')}</td><td class="c">${H(r.status || 'অনুমোদিত')}</td></tr>`;
+  }).join('');
+  return `<div class="lppage">
+    <div class="lphead"><img src="${logo}" alt="">
+      <div class="lph"><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small></div>
+      <div class="lpm"><b>শিক্ষার্থী তালিকা</b><small>শ্রেণি: ${H(clsLbl)}${q ? ' • খোঁজ: ' + H(q) : ''}</small><small>প্রিন্ট: ${today}</small></div></div>
+    <div class="lpcount"><span>মোট শিক্ষার্থী: <b>${bn(rows.length)}</b> জন</span><span>${ME ? 'প্রস্তুতকারী: ' + H(ME.name) : ''}</span></div>
+    <table class="lptab"><thead><tr><th class="c">ক্রম</th><th>রোল</th><th>স্টুডেন্ট আইডি</th><th>শিক্ষার্থীর নাম</th><th>পিতার নাম</th><th>মোবাইল</th><th>বিভাগ</th><th class="c">শ্রেণি</th><th>সেশন</th><th class="c">অবস্থা</th></tr></thead>
+      <tbody>${trs || '<tr><td colspan="10" class="c">কোনো শিক্ষার্থী নেই</td></tr>'}</tbody></table>
+    <div class="lpsign"><span>প্রস্তুতকারী</span><span>অধ্যক্ষ</span></div>
+    <div class="lpfoot">কাঁচকুড়া কলেজ • শিক্ষার্থী তালিকা • ${today}</div>
+  </div>`;
+}
+function closeListPrint() {
+  const sh = $('listSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  document.body.classList.remove('lp');
+  const st = $('pglp'); if (st) st.remove();
+}
+function printList() {
+  const rows = listRows();
+  if (!rows.length) return toast('প্রিন্ট করার শিক্ষার্থী নেই');
+  const sheet = $('listSheet');
+  sheet.innerHTML = `<div class="lpbar"><button type="button" class="lpprt">প্রিন্ট</button><button type="button" class="ghost lpclose">বন্ধ করুন</button></div>${listPrintHTML(rows)}`;
+  sheet.hidden = false;
+  document.body.classList.add('lp');
+  let st = $('pglp');
+  if (!st) { st = document.createElement('style'); st.id = 'pglp'; st.textContent = '@page{size:A4 landscape;margin:10mm}'; document.head.appendChild(st); }
+  sheet.querySelector('.lpclose').onclick = closeListPrint;
+  sheet.querySelector('.lpprt').onclick = () => window.print();
+  sheet.scrollTop = 0;
+}
 document.getElementById('listClsSel').onchange = e => { listCls = e.target.value; renderRows(); };
+document.getElementById('listDeptSel').onchange = e => { listDept = e.target.value; renderRows(); };
+document.getElementById('bkIdBtn').onclick = () => openBulkSheet('id');
+document.getElementById('bkAdBtn').onclick = () => openBulkSheet('admit');
 document.getElementById('selAll').onchange = e => { document.querySelectorAll('#rows input[data-sel]').forEach(i => { i.checked = e.target.checked; }); };
 async function changeClass(to) {
   const ids = [...document.querySelectorAll('#rows input[data-sel]:checked')].map(i => +i.dataset.sel);
@@ -1265,11 +1661,15 @@ async function changeClass(to) {
 }
 document.getElementById('promoBtn').onclick = () => changeClass('XII');
 document.getElementById('demoBtn').onclick = () => changeClass('XI');
+document.getElementById('prListBtn').onclick = printList;
 document.getElementById('q').addEventListener('input', renderRows);
 document.getElementById('rows').addEventListener('click', async e => {
-  const o = e.target.dataset.open, d = e.target.dataset.del, iid = e.target.dataset.ids;
+  const o = e.target.dataset.open, d = e.target.dataset.del, iid = e.target.dataset.ids, lt = e.target.dataset.lt, idc = e.target.dataset.idc, adm = e.target.dataset.adm;
   if (o) { const r = cache.find(x => x.id == o); apply(r); currentId = r.id; showView('form'); }
   if (iid) await editIds(+iid);
+  if (lt) { const r = cache.find(x => x.id == lt); if (r) showLetter(r); }
+  if (idc) { const r = cache.find(x => x.id == idc); if (r) openIdSheet(r); }
+  if (adm) { const r = cache.find(x => x.id == adm); if (r) openAdmitSheet(r); }
   if (d && confirm('এই ফরমটি স্থায়ীভাবে মুছে যাবে। মুছবেন?')) { await DB.del(+d); if (currentId == d) currentId = null; loadList(); toast('মুছে ফেলা হয়েছে'); }
 });
 
@@ -1300,6 +1700,12 @@ document.getElementById('reset').onclick = () => { if (confirm('ফরম খা
 function download(name, text, type) {
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; document.body.appendChild(a); a.click(); a.remove();
 }
+function saveBlob(blob, name) {
+  const u = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = u; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(u), 5000);
+}
 document.getElementById('csvBtn').onclick = () => {
   if (!cache.length) return toast('তালিকা খালি');
   const pre = { present: 'বর্তমান ', permanent: 'স্থায়ী ', guardian: '' };
@@ -1316,7 +1722,7 @@ document.getElementById('bakBtn').onclick = async () => {
   const pays = await DB.payments();
   if (!cache.length && !pays.length) return toast('তালিকা খালি');
   const exams = await DB.exams(), marks = await DB.marks();
-  const payload = { v: 5, apps: cache, exams, marks, users: await DB.users(), feeplans: await DB.feeplans(), payments: pays, feereqs: await DB.feereqs(), meta: await DB.run('readonly', s => s.getAll(), 'meta') };
+  const payload = { v: 7, apps: cache, exams, marks, users: await DB.users(), feeplans: await DB.feeplans(), payments: pays, feereqs: await DB.feereqs(), idapps: await DB.idapps(), admitapps: await DB.admitapps(), meta: await DB.run('readonly', s => s.getAll(), 'meta') };
   download('admission-backup.json', JSON.stringify(payload), 'application/json');
 };
 document.getElementById('impBtn').onclick = () => document.getElementById('impFile').click();
@@ -1335,6 +1741,18 @@ document.getElementById('impFile').onchange = async e => {
       const rec = { ...r, appId: aMap[r.appId] };
       delete rec.id; delete rec.paymentId;
       await DB.putFeereq(rec);
+    }
+    for (const r of (data.idapps || [])) {
+      if (!aMap[r.appId]) continue;
+      const rec = { ...r, appId: aMap[r.appId] };
+      delete rec.id;
+      await DB.putIdapp(rec);
+    }
+    for (const r of (data.admitapps || [])) {
+      if (!aMap[r.appId] || !eMap[r.examId]) continue;
+      const rec = { ...r, appId: aMap[r.appId], examId: eMap[r.examId] };
+      delete rec.id;
+      await DB.putAdmitapp(rec);
     }
     for (const u of (data.users || [])) { if (!(await DB.user(u.username))) await DB.putUser(u); }
     for (const f of (data.feeplans || [])) {
@@ -1632,6 +2050,25 @@ rtab.addEventListener('change', async e => {
   } catch (err) { toast('সংরক্ষণ করা গেল না'); }
 });
 rtab.addEventListener('click', e => { if (e.target.dataset.ms) showMs([+e.target.dataset.ms]); });
+$('rSave').onclick = async () => {
+  if (!R.exam) return toast('আগে একটি পরীক্ষা বাছুন');
+  if (R.exam.locked) return toast('নম্বর লক করা আছে — আগে লক খুলুন');
+  const ins = [...document.querySelectorAll('#rtab input[data-a]')].filter(i => !i.disabled && (!isTeacher() || ME.subjects.includes(i.dataset.s)));
+  if (!ins.length) return toast('সংরক্ষণ করার মতো নম্বর নেই');
+  const bad = ins.find(i => i.value !== '' && (+i.value > +i.dataset.mx || +i.value < 0));
+  if (bad) { bad.focus(); bad.scrollIntoView({ behavior: 'smooth', block: 'center' }); return toast('নম্বর ০ থেকে ' + bn(bad.dataset.mx) + '-এর মধ্যে হতে হবে'); }
+  const apps = [...new Set(ins.map(i => i.dataset.a))];
+  let n = 0;
+  try {
+    for (const a of apps) {
+      await DB.putMark({ key: R.exam.id + ':' + a, examId: R.exam.id, appId: +a, marks: { ...(R.marks[a] || {}) } });
+      n++;
+    }
+    document.querySelectorAll('#rtab tr[data-row]').forEach(tr => refreshSubTot(tr));
+    refreshCalc();
+    toast(bn(n) + ' জন শিক্ষার্থীর নম্বর সংরক্ষিত হয়েছে');
+  } catch (e) { toast('সংরক্ষণ করা গেল না'); }
+};
 
 // ---------- মার্কশিট ----------
 function msInfoHTML(f, photo, meta = {}, o = {}) {
@@ -1660,17 +2097,30 @@ function msHTML(x, n, exam) {
       const v = pv[j]; return `<td${partFail(v, p, ex) ? ' class="bad"' : ''}>${v == null ? '—' : bn(v)}<small style="color:var(--muted)">/${bn(p.max)}</small></td>`; }).join('');
     return `<tr><td>${bn(i + 1)}</td><td class="l">${H(q.s)}${q.fourth ? ' <small>(৪র্থ বিষয়)</small>' : ''}</td><td>${bn(sfull(q.s, ex))}</td>${pc}<td>${q.m == null ? '—' : bn(q.m)}</td><td>${q.l || '—'}</td><td>${q.gp == null ? '—' : bn(q.gp.toFixed(2))}</td></tr>`; }).join('');
   const rk = c.rank ? `${bn(c.rank)} (${bn(n)} জনের মধ্যে)` : '—';
+  const resCls = c.res === 'উত্তীর্ণ' ? 'res-ok' : c.res === 'অকৃতকার্য' ? 'res-bad' : '';
   return `<div class="ms">
     <img class="wm" src="${logo}" alt="" aria-hidden="true">
     <div class="ms-frame">
-      <div class="mh"><img src="${logo}" alt=""><div><h3>কাঁচকুড়া কলেজ</h3><div>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</div></div></div>
-      <div class="mt"><span>${H(ex.name)} – ফলাফল পত্র</span></div>${ex.publishDate ? `<div style="text-align:center;font-size:.9rem;margin:0 0 6px">ফলাফল প্রকাশের তারিখ: <b>${fmtDate(ex.publishDate)}</b></div>` : ''}${ex.published ? '' : '<div class="note" style="text-align:center;color:var(--err);margin:0 0 6px">খসড়া – ফলাফল এখনো প্রকাশিত হয়নি</div>'}
+      <div class="mh"><img src="${logo}" alt=""><div><h3>কাঁচকুড়া কলেজ</h3><div class="mh-addr">কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</div></div></div>
+      <div class="mt">
+        <span>${H(ex.name)}</span>
+        <h4>ফলাফল পত্র</h4>
+        <small>${H(CLASSES[clsOf(r)])} শ্রেণি • ${H(DEPTS[r.dept].name)} বিভাগ${ex.publishDate ? ' • প্রকাশ: ' + fmtDate(ex.publishDate) : ''}</small>
+      </div>
+      ${ex.published ? '' : '<div class="msdraft">খসড়া — ফলাফল এখনো প্রকাশিত হয়নি</div>'}
+      <div class="mssec">শিক্ষার্থীর তথ্য</div>
       ${msInfoHTML(f, r.photo, { cls: CLASSES[clsOf(r)], dept: DEPTS[r.dept].name })}
-      <table><thead><tr><th>ক্রম</th><th>বিষয়</th><th>পূর্ণমান</th><th>সৃজনশীল</th><th>বহুনির্বাচনি</th><th>ব্যবহারিক</th><th>প্রাপ্ত নম্বর</th><th>গ্রেড</th><th>গ্রেড পয়েন্ট</th></tr></thead><tbody>${trs}</tbody></table>
-      <div class="sum"><div><b>মোট নম্বর</b><strong>${c.any ? bn(c.total) + ' / ' + bn(c.fullTotal) : '—'}</strong></div><div><b>জি.পি.এ</b><strong>${c.gpa == null ? '—' : bn(c.gpa.toFixed(2))}</strong></div><div><b>লেটার গ্রেড</b><strong>${c.letter || '—'}</strong></div><div><b>ফলাফল</b><strong>${c.res}</strong></div></div>
-      <div class="sum" style="grid-template-columns:1fr"><div><b>মেধাক্রম (${DEPTS[r.dept].name} বিভাগ)</b><strong>${rk}</strong></div></div>
-      <div class="sgs"><div class="sg">আহ্বায়ক, পরীক্ষা কমিটি</div><div class="sg">অভিভাবক</div><div class="sg">অধ্যক্ষ<div class="seal">কলেজ সীল</div></div></div>
+      <div class="mssec">বিষয়ভিত্তিক ফলাফল</div>
+      <table class="ms-tab"><thead><tr><th>ক্রম</th><th>বিষয়</th><th>পূর্ণমান</th><th>সৃজনশীল</th><th>বহুনির্বাচনি</th><th>ব্যবহারিক</th><th>প্রাপ্ত নম্বর</th><th>গ্রেড</th><th>গ্রেড পয়েন্ট</th></tr></thead><tbody>${trs}</tbody></table>
+      <div class="sum"><div><b>মোট নম্বর</b><strong>${c.any ? bn(c.total) + ' / ' + bn(c.fullTotal) : '—'}</strong></div><div><b>জি.পি.এ</b><strong>${c.gpa == null ? '—' : bn(c.gpa.toFixed(2))}</strong></div><div><b>লেটার গ্রেড</b><strong>${c.letter || '—'}</strong></div><div><b>ফলাফল</b><strong class="${resCls}">${c.res}</strong></div></div>
+      <div class="sum rank"><div><b>মেধাক্রম — ${H(DEPTS[r.dept].name)} বিভাগ</b><strong>${rk}</strong></div></div>
+      <div class="sgs">
+        <div class="sg">আহ্বায়ক<small>পরীক্ষা কমিটি</small></div>
+        <div class="sg">অভিভাবক<small>স্বাক্ষর</small></div>
+        <div class="sg">${SET.sigPrincipalImg ? `<img src="${H(SET.sigPrincipalImg)}" alt="">` : ''}অধ্যক্ষ${SET.sigPrincipal ? '<small>' + H(SET.sigPrincipal) + '</small>' : ''}</div>
+      </div>
       <div class="note">৪র্থ বিষয়ে ২.০০-এর ওপরের গ্রেড পয়েন্ট মোট জি.পি.এ-তে যোগ হয়। কোনো আবশ্যিক বিষয়ে F পেলে জি.পি.এ ০.০০ ধরা হয়। সৃজনশীল, বহুনির্বাচনি ও ব্যবহারিক প্রতিটি অংশে আলাদাভাবে ${bn(ex.pass)}% নম্বর না পেলে ঐ বিষয়ে F ধরা হয় (লাল নম্বর = অকৃতকার্য অংশ)।</div>
+      <div class="msfoot"><span>${H(ex.name)} • ${H(CLASSES[clsOf(r)])} • রোল ${H(f.roll || '—')}</span><span>স্টুডেন্ট আইডি: ${H(f.stuId || '—')}</span></div>
     </div>
   </div>`;
 }
@@ -1679,12 +2129,24 @@ function showMs(ids) {
   $('msBox').innerHTML = ids.map(id => res.find(x => x.r.id === id)).filter(Boolean).map(x => msHTML(x, res.n)).join('');
   $('resMain').hidden = true; $('msView').hidden = false; window.scrollTo(0, 0);
 }
+function printMarksheets() {
+  let st = document.getElementById('pgms');
+  if (!st) {
+    st = document.createElement('style');
+    st.id = 'pgms';
+    st.textContent = '@page{size:A5 portrait;margin:6mm}';
+    document.head.appendChild(st);
+  }
+  document.body.classList.add('msa5');
+  window.print();
+  setTimeout(() => { document.body.classList.remove('msa5'); const s = document.getElementById('pgms'); if (s) s.remove(); }, 1000);
+}
 $('msBack').onclick = () => { $('msView').hidden = true; $('resMain').hidden = false; };
-$('msPrint').onclick = () => window.print();
+$('msPrint').onclick = () => printMarksheets();
 $('rPrintAll').onclick = () => {
   if (!R.exam) return toast('আগে একটি পরীক্ষা বাছুন');
   const ids = students().map(r => r.id); if (!ids.length) return toast('কোনো শিক্ষার্থী নেই');
-  showMs(ids); window.print();
+  showMs(ids); printMarksheets();
 };
 $('rPrintTab').onclick = () => {
   if (!R.exam) return toast('আগে একটি পরীক্ষা বাছুন');
@@ -1745,11 +2207,12 @@ const FIRST = { student: 'student', guest: 'form', admission: 'dash', accountant
 const isAll = () => !!ME && (ME.role === 'admin' || ME.role === 'controller');
 const isTeacher = () => !!ME && ME.role === 'teacher';
 
-const DEFAULT_SET = { studentResult: true, studentPay: true, msInfo: 'card', msPhoto: 'right', accSetup: true, accVoid: false, accReport: true, accApprove: true, sigCollector: '', sigPrincipal: '' };
+const DEFAULT_SET = { studentResult: true, studentPay: true, msInfo: 'card', msPhoto: 'right', accSetup: true, accVoid: false, accReport: true, accApprove: true, sigCollector: '', sigPrincipal: '', sigCollectorImg: '', sigPrincipalImg: '', logoImg: '', idFee: 200, admitFeeOn: false, admitFee: 100 };
 let SET = { ...DEFAULT_SET };
 async function loadSettings() {
   try { const m = await DB.meta('settings'); SET = { ...DEFAULT_SET, ...((m || {}).v || {}) }; }
   catch (e) { SET = { ...DEFAULT_SET }; }
+  applyLogo();
 }
 const canAcc = k => {
   if (!ME) return false;
@@ -1915,7 +2378,7 @@ $('lForm').addEventListener('submit', async e => {
   const un = $('lUser').value.trim().toLowerCase(), pw = $('lPass').value;
   const u = un && await DB.user(un);
   if (!u || !u.active || u.hash !== await hashPw(pw, u.salt)) { $('lErr').textContent = 'ইউজারনেম বা পাসওয়ার্ড ভুল, অথবা অ্যাকাউন্ট বন্ধ।'; return; }
-  ME = { username: u.username, name: u.name, role: u.role, subjects: u.subjects || [] };
+  ME = { username: u.username, name: u.name, role: u.role, subjects: u.subjects || [], photo: u.photo || '' };
   $('lPass').value = ''; enter();
 });
 $('lStudent').onclick = () => {
@@ -1943,13 +2406,39 @@ $('lGuest').onclick = () => { ME = { username: '', name: 'শিক্ষার�
 // ---------- ব্যবহারকারী ব্যবস্থাপনা (সুপার অ্যাডমিন) ----------
 $('uSubs').innerHTML = allSubjects().map(s => `<label class="opt"><input type="checkbox" value="${H(s)}"><span>${H(s)}</span></label>`).join('');
 $('uRole').onchange = () => { $('uSubWrap').hidden = $('uRole').value !== 'teacher'; };
+let uPhoto = '';
+function setUPhoto(d) {
+  uPhoto = d || '';
+  const im = document.getElementById('uPhotoImg'); if (!im) return;
+  im.src = uPhoto; im.hidden = !uPhoto;
+  document.getElementById('uPhotoPh').hidden = !!uPhoto;
+  document.getElementById('uPhotoDel').hidden = !uPhoto;
+}
+document.getElementById('uPhotoIn').onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  if (!/^image\//.test(f.type)) { e.target.value = ''; return toast('শুধু ছবি ফাইল বাছুন'); }
+  const r = new FileReader();
+  r.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const S = 240, c = document.createElement('canvas'); c.width = c.height = S;
+      const k = Math.max(S / img.width, S / img.height), w = img.width * k, h = img.height * k;
+      c.getContext('2d').drawImage(img, (S - w) / 2, (S - h) / 2, w, h);
+      setUPhoto(c.toDataURL('image/jpeg', 0.85));
+    };
+    img.onerror = () => toast('ছবিটি পড়া গেল না');
+    img.src = r.result;
+  };
+  r.readAsDataURL(f); e.target.value = '';
+};
+document.getElementById('uPhotoDel').onclick = () => setUPhoto('');
 function resetUserForm() {
   uEdit = null; ['uName', 'uUser', 'uPass'].forEach(i => { $(i).value = ''; }); $('uUser').readOnly = false; $('uRole').value = 'teacher';
-  document.querySelectorAll('#uSubs input').forEach(i => { i.checked = false; }); $('uHint').textContent = ''; $('uRole').onchange();
+  document.querySelectorAll('#uSubs input').forEach(i => { i.checked = false; }); $('uHint').textContent = ''; $('uRole').onchange(); setUPhoto('');
 }
 async function loadUsers() {
   const us = (await DB.users()).sort((a, b) => a.role.localeCompare(b.role) || a.name.localeCompare(b.name));
-  $('uRows').innerHTML = us.map(u => `<tr><td class="nm">${H(u.name)}</td><td>${H(u.username)}</td><td>${ROLES[u.role]}</td><td class="nm" style="white-space:normal">${H((u.subjects || []).map(shortName).join(', '))}</td><td>${u.active ? 'সক্রিয়' : 'বন্ধ'}</td>
+  $('uRows').innerHTML = us.map(u => `<tr><td class="nm"><span class="urow-nm"><span class="uav">${u.photo ? `<img src="${H(u.photo)}" alt="">` : H((u.name || '?').trim().charAt(0))}</span>${H(u.name)}</span></td><td>${H(u.username)}</td><td>${ROLES[u.role]}</td><td class="nm" style="white-space:normal">${H((u.subjects || []).map(shortName).join(', '))}</td><td>${u.active ? 'সক্রিয়' : 'বন্ধ'}</td>
     <td style="white-space:nowrap"><button data-ue="${H(u.username)}">সম্পাদনা</button> <button data-ut="${H(u.username)}">${u.active ? 'বন্ধ করুন' : 'চালু করুন'}</button> <button class="del" data-ud="${H(u.username)}">মুছুন</button></td></tr>`).join('');
 }
 const lastAdmin = (us, un) => us.filter(u => u.role === 'admin' && u.active && u.username !== un).length === 0;
@@ -1963,9 +2452,9 @@ $('uSave').onclick = async () => {
   if (role === 'teacher' && !subjects.length) return toast('শিক্ষকের জন্য অন্তত একটি বিষয় বাছুন');
   const us = await DB.users();
   if (old && old.role === 'admin' && role !== 'admin' && (un === ME.username || lastAdmin(us, un))) return toast('এই অ্যাডমিনের ধরন বদলানো যাবে না');
-  const rec = { username: un, name, role, subjects: role === 'teacher' ? subjects : [], active: old ? old.active : true, salt: old ? old.salt : '', hash: old ? old.hash : '' };
+  const rec = { username: un, name, role, subjects: role === 'teacher' ? subjects : [], active: old ? old.active : true, photo: uPhoto, salt: old ? old.salt : '', hash: old ? old.hash : '' };
   if (pw) { rec.salt = randSalt(); rec.hash = await hashPw(pw, rec.salt); }
-  await DB.putUser(rec); resetUserForm(); loadUsers(); toast('ব্যবহারকারী সংরক্ষিত হয়েছে');
+  await DB.putUser(rec); if (ME && un === ME.username) { ME.name = name; ME.photo = uPhoto; renderPageHead(); } resetUserForm(); loadUsers(); toast('ব্যবহারকারী সংরক্ষিত হয়েছে');
 };
 $('uCancel').onclick = resetUserForm;
 $('uRows').addEventListener('click', async e => {
@@ -1973,7 +2462,7 @@ $('uRows').addEventListener('click', async e => {
   const u = await DB.user(un), us = await DB.users();
   if (d.ue) {
     uEdit = un; $('uName').value = u.name; $('uUser').value = u.username; $('uUser').readOnly = true; $('uPass').value = ''; $('uHint').textContent = '(ফাঁকা রাখলে আগের পাসওয়ার্ডই থাকবে)';
-    $('uRole').value = u.role; $('uRole').onchange();
+    $('uRole').value = u.role; $('uRole').onchange(); setUPhoto(u.photo || '');
     document.querySelectorAll('#uSubs input').forEach(i => { i.checked = (u.subjects || []).includes(i.value); });
     window.scrollTo(0, 0);
   } else if (d.ut) {
@@ -1989,6 +2478,7 @@ $('uRows').addEventListener('click', async e => {
 $('rows').addEventListener('click', async e => {
   const st = e.target.dataset.st; if (!st) return;
   const [id, status] = st.split('|'), r = cache.find(x => x.id == id); if (!r) return;
+  const wasApproved = okApp(r);
   let note = r.note || '';
   if (status === 'সুপারিশকৃত') { const n = prompt('ভর্তি কমিটির সুপারিশ / মন্তব্য (ঐচ্ছিক):', note); if (n === null) return; note = n; }
   if (status === 'বাতিল' && !confirm('এই আবেদন বাতিল করবেন?')) return;
@@ -1996,6 +2486,7 @@ $('rows').addEventListener('click', async e => {
   if (status === 'অনুমোদিত') rec = await assignMissingIds(rec);
   await DB.put(rec);
   loadList(); toast(status === 'অনুমোদিত' ? 'অনুমোদিত — রোল ' + bn(rec.fields.roll) + ', আইডি ' + rec.fields.stuId : 'আবেদনের অবস্থা বদলানো হয়েছে');
+  if (status === 'অনুমোদিত' && !wasApproved) showLetter(rec);
 });
 
 // ---------- পরীক্ষা: লক ও প্রকাশ ----------
@@ -2146,13 +2637,14 @@ function renderPageHead() {
   const role = ME.role, ok = VIEWS[role] || [], cur = document.body.dataset.view || FIRST[role];
   const roleLabel = ROLES[role] || '';
   const who = role === 'guest' ? 'শিক্ষার্থী (আবেদন)' : (ME.name === roleLabel ? roleLabel : `${H(ME.name)} – ${roleLabel}`);
+  const av = ME.photo ? `<span class="chav"><img src="${H(ME.photo)}" alt=""></span>` : `<span class="chav">${H((ME.name || '?').trim().charAt(0))}</span>`;
   const tabs = TAB_ORDER.filter(v => ok.includes(v)).map(v =>
     `<button type="button" class="chtab${v === cur ? ' on' : ''}" data-dgo="${v}" role="tab" aria-selected="${v === cur}">${TAB_LABELS[v]}</button>`).join('');
   const outLabel = (role === 'student' || role === 'guest') ? 'বের হন' : 'লগআউট';
   b.innerHTML = `<div class="chtabs">
     <div class="chbrand"><img src="${document.querySelector('.logo').src}" alt=""><b>কাঁচকুড়া কলেজ<small>ভর্তি ও পরীক্ষা</small></b></div>
     <div class="chtabstrip" role="tablist" aria-label="মেনু">${tabs}</div>
-    <div class="chuser"><div class="chwho"><b>${who}</b><small>${new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' })}</small></div><button type="button" class="chlogout" id="logoutBtn">${outLabel}</button></div>
+    <div class="chuser">${av}<div class="chwho"><b>${who}</b><small>${new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' })}</small></div><button type="button" class="chlogout" id="logoutBtn">${outLabel}</button></div>
   </div>`;
   w.hidden = false;
 }
@@ -2182,7 +2674,7 @@ async function renderDash() {
   approved.forEach(a => {
     const pl = plans.find(p => p.appId === a.id && String(p.year) === String(year));
     if (!pl) return;
-    const paid = cPays.filter(p => p.appId === a.id && String(p.year) === String(year)).reduce((s, p) => s + num(p.total), 0);
+    const paid = cPays.filter(p => p.appId === a.id && String(p.year) === String(year)).reduce((s, p) => s + nonIdTotal(p), 0);
     const d = expectedOf(pl) - paid;
     if (d > 0) { dueTotal += d; dueCount++; }
   });
@@ -2199,8 +2691,8 @@ async function renderDash() {
 }
 
 // ---------- হিসাব ----------
-const ACC = { tab: 'collect', year: '', apps: [], plans: [], pays: [], reqs: [], appId: null, q: '', dept: 'all', head: 'all', mode: 'all', from: '', to: '' };
-const FEE_KINDS = { admission: 'ভর্তি ফি', session: 'সেশন ফি', monthly: 'মাসিক ফি', other: 'অন্যান্য ফি' };
+const ACC = { tab: 'collect', year: '', apps: [], plans: [], pays: [], reqs: [], appId: null, q: '', dept: 'all', head: 'all', mode: 'all', from: '', to: '', duesQ: '', duesDept: 'all', duesCls: 'all', duesOnly: false };
+const FEE_KINDS = { admission: 'ভর্তি ফি', session: 'সেশন ফি', monthly: 'মাসিক ফি', idcard: 'আইডি কার্ড ফি', admit: 'অ্যাডমিট কার্ড ফি', other: 'অন্যান্য ফি' };
 const num = v => +String(toEn(v)).replace(/[^0-9.\-]/g, '') || 0;
 const taka = v => { const n = Math.round((+v || 0) * 100) / 100; return bn(n.toLocaleString('en-US', { maximumFractionDigits: 2 })); };
 const nameOf = a => (a.fields || {}).nameBn || (a.fields || {}).nameEn || '—';
@@ -2236,7 +2728,9 @@ function expectedOf(pl) {
   return num(pl.admission) + num(pl.session) + num(pl.monthly) * (pl.months || []).length + (pl.extras || []).reduce((s, x) => s + num(x.amount), 0);
 }
 function accPays(appId) { return ACC.pays.filter(p => p.appId === appId && String(p.year) === String(accYearOf())); }
-function paidOf(appId) { return accPays(appId).filter(p => !p.void).reduce((s, p) => s + num(p.total), 0); }
+// আইডি কার্ড ফি আলাদা চার্জ — সাধারণ বকেয়ার সাথে মেলানো হয় না
+const nonIdTotal = p => Math.max(0, num(p.total) - (p.items || []).filter(i => i.kind === 'idcard' || i.kind === 'admit').reduce((s, i) => s + num(i.amount), 0));
+function paidOf(appId) { return accPays(appId).filter(p => !p.void).reduce((s, p) => s + nonIdTotal(p), 0); }
 function paidMonthsOf(appId) {
   const o = {};
   accPays(appId).filter(p => !p.void).forEach(p => (p.items || []).forEach(i => { if (i.kind === 'monthly' && i.month) o[i.month] = true; }));
@@ -2279,7 +2773,7 @@ async function openAccounts() {
   renderAcc();
 }
 function renderAcc() {
-  const allowed = ['collect', 'ledger'];
+  const allowed = ['collect', 'ledger', 'due'];
   if (canAcc('setup')) allowed.push('setup');
   if (canAcc('report')) allowed.push('report');
   if (ME && ['admin', 'accountant', 'admission'].includes(ME.role)) allowed.push('req');
@@ -2291,6 +2785,7 @@ function renderAcc() {
   const body = $('accBody');
   if (ACC.tab === 'collect') renderCollect(body);
   else if (ACC.tab === 'ledger') renderLedger(body);
+  else if (ACC.tab === 'due') renderDues(body);
   else if (ACC.tab === 'setup') renderFeeSetup(body);
   else if (ACC.tab === 'req') renderRequests(body);
   else renderReport(body);
@@ -2328,6 +2823,8 @@ function collectForm(a) {
     <div class="acc-box"><h4>টাকা আদায়</h4>
       <div class="acc-head"><label><input type="checkbox" id="fh_admission"> ভর্তি ফি</label><span class="acc-note">নির্ধারিত: ${pl ? taka(pl.admission) + ' টাকা' : '—'}</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_admission" value="${pl ? num(pl.admission) || '' : ''}" placeholder="টাকা"></span></div>
       <div class="acc-head"><label><input type="checkbox" id="fh_session"> সেশন ফি</label><span class="acc-note">নির্ধারিত: ${pl ? taka(pl.session) + ' টাকা' : '—'}</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_session" value="${pl ? num(pl.session) || '' : ''}" placeholder="টাকা"></span></div>
+      <div class="acc-head"><label><input type="checkbox" id="fh_idcard"> আইডি কার্ড ফি</label><span class="acc-note">প্রতি কার্ড: ${taka(idFeeAmt())} টাকা — এই রসিদ নম্বরেই আবেদন হবে</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_idcard" value="${idFeeAmt()}" placeholder="টাকা"></span></div>
+      <div class="acc-head"><label><input type="checkbox" id="fh_admit"> অ্যাডমিট কার্ড ফি</label><span class="acc-note">${SET.admitFeeOn ? 'প্রতি পরীক্ষা: ' + taka(admitFeeAmt()) + ' টাকা — এই রসিদ নম্বরেই আবেদন হবে' : 'সেটিংসে চালু নেই — ফি ছাড়াই অ্যাডমিট তৈরি হবে'}</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_admit" value="${admitFeeAmt()}" placeholder="টাকা"></span></div>
       <div class="acc-head"><label><input type="checkbox" id="fh_monthly"> মাসিক ফি</label><span class="acc-note">প্রতি মাসের হার</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_monthly" value="${rate || ''}" placeholder="টাকা"></span></div>
       <div class="months" id="accMonths">${months.map(m => { const pd = pm[m]; return `<label class="${pd ? 'paid' : ''}"><input type="checkbox" data-month="${m}" ${pd ? 'disabled' : ''}> ${BNM[m - 1]}${pd ? ' (পরিশোধিত)' : ''}</label>`; }).join('')}</div>
       <div class="acc-head"><label><input type="checkbox" id="fh_other"> অন্যান্য ফি</label><input type="text" id="amt_other_label" placeholder="খাতের বিবরণ"><span class="amt"><input type="number" min="0" step="0.01" id="amt_other" placeholder="টাকা"></span></div>
@@ -2353,6 +2850,8 @@ function collectItems() {
   const add = (kind, label, amount, month) => { amount = num(amount); if (amount > 0) items.push({ kind, label, amount, month }); };
   if ($('fh_admission') && $('fh_admission').checked) add('admission', 'ভর্তি ফি', $('amt_admission').value);
   if ($('fh_session') && $('fh_session').checked) add('session', 'সেশন ফি', $('amt_session').value);
+  if ($('fh_idcard') && $('fh_idcard').checked) add('idcard', 'আইডি কার্ড ফি', $('amt_idcard').value);
+  if ($('fh_admit') && $('fh_admit').checked) add('admit', 'অ্যাডমিট কার্ড ফি', $('amt_admit').value);
   if ($('fh_monthly') && $('fh_monthly').checked) {
     const rate = num($('amt_monthly').value);
     document.querySelectorAll('#accMonths input:checked').forEach(i => { const m = +i.dataset.month; add('monthly', 'মাসিক ফি – ' + BNM[m - 1] + ' ' + bn(accYearOf()), rate, m); });
@@ -2371,9 +2870,9 @@ function accSumNow() {
 }
 function wireCollect(a) {
   const recalc = () => accSumNow();
-  [['fh_admission', 'amt_admission'], ['fh_session', 'amt_session'], ['fh_monthly', 'amt_monthly'], ['fh_other', 'amt_other']].forEach(([c, m]) => {
+  [['fh_admission', 'amt_admission'], ['fh_session', 'amt_session'], ['fh_monthly', 'amt_monthly'], ['fh_idcard', 'amt_idcard'], ['fh_admit', 'amt_admit'], ['fh_other', 'amt_other']].forEach(([c, m]) => {
     const cb = $(c), am = $(m);
-    cb.onchange = () => { if (!cb.checked && c !== 'fh_monthly') am.value = ''; recalc(); };
+    cb.onchange = () => { if (!cb.checked && c !== 'fh_monthly' && c !== 'fh_idcard' && c !== 'fh_admit') am.value = ''; recalc(); };
     am.oninput = () => { if (num(am.value) > 0) cb.checked = true; recalc(); };
   });
   document.querySelectorAll('#accMonths input').forEach(i => i.onchange = () => { if (i.checked) $('fh_monthly').checked = true; recalc(); });
@@ -2521,6 +3020,103 @@ function renderLedger(body) {
   body.querySelectorAll('[data-ldet]').forEach(b => b.onclick = () => { const tr = body.querySelector(`[data-ldets="${b.dataset.ldet}"]`); tr.hidden = !tr.hidden; });
 }
 
+// ---------- আদায় ও বকেয়া তালিকা ----------
+function duesMatch(a) {
+  if (ACC.duesDept !== 'all' && a.dept !== ACC.duesDept) return false;
+  if (ACC.duesCls !== 'all' && clsOf(a) !== ACC.duesCls) return false;
+  const t = toEn(ACC.duesQ.trim().toLowerCase());
+  if (!t) return true;
+  return toEn(JSON.stringify([(a.fields || {}).nameBn, (a.fields || {}).nameEn, (a.fields || {}).roll, (a.fields || {}).stuId, (a.fields || {}).formNo, (a.fields || {}).mobile, (a.fields || {}).fatherMobile, DEPTS[a.dept].name, CLASSES[clsOf(a)]])).toLowerCase().includes(t);
+}
+function duesRows() {
+  return accApproved().filter(duesMatch).map(a => {
+    const pl = accPlan(a.id), exp = expectedOf(pl), paid = paidOf(a.id);
+    return { a, exp, paid, due: exp == null ? null : Math.max(0, exp - paid) };
+  }).sort((x, y) => String(x.a.dept).localeCompare(String(y.a.dept)) || accSort(x.a, y.a));
+}
+const duesStatus = x => x.exp == null ? 'সেটআপ হয়নি' : x.due > 0 ? 'বাকি' : 'পরিশোধিত';
+function renderDues(body) {
+  const rows = duesRows();
+  const list = ACC.duesOnly ? rows.filter(x => x.due > 0) : rows;
+  const expSum = list.reduce((s, x) => s + (x.exp == null ? 0 : x.exp), 0);
+  const paidSum = list.reduce((s, x) => s + x.paid, 0);
+  const dueSum = list.reduce((s, x) => s + (x.due == null ? 0 : x.due), 0);
+  const dueN = list.filter(x => x.due > 0).length, noPlan = rows.filter(x => x.exp == null).length;
+  body.innerHTML = `<div class="tools noprint">
+      <input type="search" id="duQ" placeholder="নাম, রোল, স্টুডেন্ট আইডি বা ফরম নং..." value="${H(ACC.duesQ)}">
+      <select id="duDept" class="dsel"><option value="all">সব বিভাগ</option>${Object.keys(DEPTS).map(d => `<option value="${d}" ${ACC.duesDept === d ? 'selected' : ''}>${DEPTS[d].name}</option>`).join('')}</select>
+      <select id="duCls" class="dsel"><option value="all">সব শ্রেণি</option><option value="XI" ${ACC.duesCls === 'XI' ? 'selected' : ''}>একাদশ</option><option value="XII" ${ACC.duesCls === 'XII' ? 'selected' : ''}>দ্বাদশ</option></select>
+      <label class="stat"><input type="checkbox" id="duOnly" ${ACC.duesOnly ? 'checked' : ''}> শুধু বকেয়া</label>
+      <button type="button" id="duCsv">Excel (CSV)</button>
+      <button type="button" id="duPrint" class="go">তালিকা প্রিন্ট</button>
+    </div>
+    <div class="acc-kpis">
+      <div class="acc-kpi"><b>নির্ধারিত মোট</b><strong>${taka(expSum)} টাকা</strong></div>
+      <div class="acc-kpi"><b>আদায় মোট</b><strong>${taka(paidSum)} টাকা</strong></div>
+      <div class="acc-kpi ${dueSum > 0 ? 'warn' : ''}"><b>বকেয়া মোট</b><strong>${taka(dueSum)} টাকা</strong></div>
+      <div class="acc-kpi"><b>বকেয়া শিক্ষার্থী</b><strong>${bn(dueN)} জন</strong></div>
+    </div>
+    <p class="acc-note" style="margin-top:0">বছর: ${bn(accYearOf())} • দেখানো হয়েছে ${bn(list.length)} জন${noPlan ? ' • ' + bn(noPlan) + ' জনের ফি সেটআপ নেই' : ''}</p>
+    <div class="scroll"><table class="acc-table"><thead><tr><th>রোল</th><th>নাম</th><th>স্টুডেন্ট আইডি</th><th>বিভাগ</th><th>শ্রেণি</th><th class="r">নির্ধারিত</th><th class="r">আদায়</th><th class="r">বাকি</th><th>অবস্থা</th></tr></thead><tbody>${list.length ? list.map(x => {
+      const a = x.a;
+      return `<tr><td>${H((a.fields || {}).roll || '')}</td><td>${H(nameOf(a))}</td><td>${H((a.fields || {}).stuId || '')}</td><td>${DEPTS[a.dept].name}</td><td>${CLASSES[clsOf(a)]}</td><td class="r">${x.exp == null ? '—' : taka(x.exp)}</td><td class="r">${taka(x.paid)}</td><td class="r ${x.due > 0 ? 'bad' : ''}">${x.due == null ? '—' : taka(x.due)}</td><td>${duesStatus(x)}</td></tr>`;
+    }).join('') : '<tr><td colspan="9">এই শর্তে কোনো শিক্ষার্থী নেই।</td></tr>'}</tbody></table></div>
+    <p class="warn">বকেয়া = নির্ধারিত ফি − বাতিল ছাড়া আদায়। ফি সেটআপ নেই এমন শিক্ষার্থীর নির্ধারিত ও বকেয়া হিসাব দেখানো হয় না; "ফি সেটআপ" ট্যাব থেকে সেটআপ দিন।</p>`;
+  $('duQ').oninput = e => { ACC.duesQ = e.target.value; renderDues(body); const n = $('duQ'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); };
+  $('duDept').onchange = e => { ACC.duesDept = e.target.value; renderDues(body); };
+  $('duCls').onchange = e => { ACC.duesCls = e.target.value; renderDues(body); };
+  $('duOnly').onchange = e => { ACC.duesOnly = e.target.checked; renderDues(body); };
+  $('duCsv').onclick = () => duesCsv(list);
+  $('duPrint').onclick = () => printDues(list);
+}
+function duesCsv(list) {
+  if (!list.length) return toast('এই শর্তে কোনো শিক্ষার্থী নেই');
+  const cell = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const head = ['রোল', 'নাম', 'স্টুডেন্ট আইডি', 'বিভাগ', 'শ্রেণি', 'নির্ধারিত', 'আদায়', 'বাকি', 'অবস্থা'];
+  const lines = list.map(x => [(x.a.fields || {}).roll, nameOf(x.a), (x.a.fields || {}).stuId, DEPTS[x.a.dept].name, CLASSES[clsOf(x.a)], x.exp == null ? '' : x.exp, x.paid, x.due == null ? '' : x.due, duesStatus(x)].map(cell).join(','));
+  download('dues-' + accYearOf() + '.csv', '\ufeff' + [head.map(cell).join(','), ...lines].join('\r\n'), 'text/csv;charset=utf-8');
+}
+function duePrintHTML(list) {
+  const logo = document.querySelector('.logo').src, now = new Date();
+  const today = bn(now.getDate()) + ' ' + BNM[now.getMonth()] + ', ' + bn(now.getFullYear());
+  const expSum = list.reduce((s, x) => s + (x.exp == null ? 0 : x.exp), 0);
+  const paidSum = list.reduce((s, x) => s + x.paid, 0);
+  const dueSum = list.reduce((s, x) => s + (x.due == null ? 0 : x.due), 0);
+  const fLbl = [ACC.duesDept === 'all' ? 'সব বিভাগ' : DEPTS[ACC.duesDept].name, ACC.duesCls === 'all' ? 'সব শ্রেণি' : CLASSES[ACC.duesCls], ACC.duesQ ? 'খোঁজ: ' + ACC.duesQ : '', ACC.duesOnly ? 'শুধু বকেয়া' : ''].filter(Boolean).join(' • ');
+  const trs = list.map((x, i) => {
+    const a = x.a, f = a.fields || {};
+    return `<tr><td class="c">${bn(i + 1)}</td><td>${H(f.roll || '—')}</td><td>${H(f.stuId || '—')}</td><td>${H(nameOf(a))}</td><td>${H(DEPTS[a.dept].name)}</td><td class="c">${H(CLASSES[clsOf(a)])}</td><td class="r">${x.exp == null ? '—' : taka(x.exp)}</td><td class="r">${taka(x.paid)}</td><td class="r">${x.due == null ? '—' : taka(x.due)}</td><td class="c">${duesStatus(x)}</td></tr>`;
+  }).join('');
+  return `<div class="lppage">
+    <div class="lphead"><img src="${logo}" alt="">
+      <div class="lph"><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small></div>
+      <div class="lpm"><b>আদায় ও বকেয়া তালিকা</b><small>হিসাবের বছর: ${bn(accYearOf())}</small><small>${H(fLbl)}</small></div></div>
+    <div class="lpcount"><span>শিক্ষার্থী: <b>${bn(list.length)}</b> জন</span><span>নির্ধারিত: <b>${taka(expSum)}</b> • আদায়: <b>${taka(paidSum)}</b> • বকেয়া: <b>${taka(dueSum)}</b> টাকা</span></div>
+    <table class="lptab"><thead><tr><th class="c">ক্রম</th><th>রোল</th><th>স্টুডেন্ট আইডি</th><th>শিক্ষার্থীর নাম</th><th>বিভাগ</th><th class="c">শ্রেণি</th><th class="r">নির্ধারিত</th><th class="r">আদায়</th><th class="r">বাকি</th><th class="c">অবস্থা</th></tr></thead>
+      <tbody>${trs || '<tr><td colspan="10" class="c">কোনো শিক্ষার্থী নেই</td></tr>'}</tbody>
+      <tfoot><tr><th colspan="6">মোট</th><th class="r">${taka(expSum)}</th><th class="r">${taka(paidSum)}</th><th class="r">${taka(dueSum)}</th><th></th></tr></tfoot></table>
+    <div class="lpsign"><span>হিসাবরক্ষক${SET.sigCollector ? ' — ' + H(SET.sigCollector) : ''}</span><span>অধ্যক্ষ${SET.sigPrincipal ? ' — ' + H(SET.sigPrincipal) : ''}</span></div>
+    <div class="lpfoot">কাঁচকুড়া কলেজ • আদায় ও বকেয়া তালিকা • ${today}</div>
+  </div>`;
+}
+function closeDuePrint() {
+  const sh = $('dueSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  document.body.classList.remove('dp');
+  const st = $('pgdp'); if (st) st.remove();
+}
+function printDues(list) {
+  if (!list.length) return toast('প্রিন্ট করার শিক্ষার্থী নেই');
+  const sheet = $('dueSheet');
+  sheet.innerHTML = `<div class="lpbar"><button type="button" class="dpprt">প্রিন্ট</button><button type="button" class="ghost dpclose">বন্ধ করুন</button></div>${duePrintHTML(list)}`;
+  sheet.hidden = false;
+  document.body.classList.add('dp');
+  let st = $('pgdp');
+  if (!st) { st = document.createElement('style'); st.id = 'pgdp'; st.textContent = '@page{size:A4 landscape;margin:10mm}'; document.head.appendChild(st); }
+  sheet.querySelector('.dpclose').onclick = closeDuePrint;
+  sheet.querySelector('.dpprt').onclick = () => window.print();
+  sheet.scrollTop = 0;
+}
+
 // ---------- শিক্ষার্থীর ফি অনুরোধ ----------
 const REQ_STATUS = { pending: 'অপেক্ষমাণ', approved: 'অনুমোদিত', rejected: 'বাতিল' };
 function reqConflict(r) {
@@ -2644,6 +3240,7 @@ function rcptPage(p) {
 function rcptCopy(p, copy) {
   const s = p.snap || {}, logo = document.querySelector('.logo').src, disc = num(p.discount);
   const sigC = (SET.sigCollector || p.by || '').trim(), sigP = (SET.sigPrincipal || 'কাঁচকুড়া কলেজ').trim();
+  const sigimg = v => v ? `<img class="rsigimg" src="${H(v)}" alt="">` : '';
   const rows = (p.items || []).map(i => `<tr><td>${H(i.label)}</td><td class="r">${taka(i.amount)}</td></tr>`).join('');
   const bank = p.mode === 'ব্যাংক'
     ? `<div class="rmode">ব্যাংক: ${H((p.bank || {}).name || '—')}${(p.bank || {}).branch ? ' (' + H(p.bank.branch) + ')' : ''}${(p.bank || {}).slip ? ' • জমার রসিদ নং: ' + H(p.bank.slip) : ''}</div>`
@@ -2663,7 +3260,7 @@ function rcptCopy(p, copy) {
     <div class="rwords"><b>কথায়:</b> ${takaWords(p.total)}</div>
     ${bank}
     <div class="rnote">এই রসিদ তিন কপি — শিক্ষার্থী, অফিস ও ব্যাংক। রসিদ নম্বর ছাড়া কোনো জমা গ্রহণযোগ্য নয়।</div>
-    <div class="rsig"><span><b>আদায়কারী</b><em>${H(sigC)}</em></span><span><b>অধ্যক্ষ</b><em>${H(sigP)}</em></span></div>
+    <div class="rsig"><span>${sigimg(SET.sigCollectorImg)}<b>আদায়কারী</b><em>${H(sigC)}</em></span><span>${sigimg(SET.sigPrincipalImg)}<b>অধ্যক্ষ</b><em>${H(sigP)}</em></span></div>
     <div class="rfoot">কাঁচকুড়া কলেজ • হিসাব শাখা • ${bn(p.year)}</div>
   </div>`;
 }
@@ -2681,12 +3278,948 @@ function printReceipts(ids, list) {
 }
 window.addEventListener('afterprint', () => {
   document.body.classList.remove('rp');
+  document.body.classList.remove('msa5');
   const st = $('pgrcpt'); if (st) st.remove();
+  const ms = $('pgms'); if (ms) ms.remove();
   const sh = $('rcptSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  closeLetter();
+  closeListPrint();
+  closeDuePrint();
+  closeIdCard();
+  closeAdmitCard();
 });
 
+// ---------- অভিনন্দন পত্র ----------
+function letterHTML(r) {
+  const f = r.fields || {}, logo = document.querySelector('.logo').src;
+  const name = f.nameBn || f.nameEn || 'শিক্ষার্থী';
+  const sess = String(f.session || '').trim() || (activeSession() ? activeSession().name : '');
+  const yr = yearOfRec(r), now = new Date();
+  const today = bn(now.getDate()) + ' ' + BNM[now.getMonth()] + ', ' + bn(now.getFullYear());
+  const sigP = (SET.sigPrincipal || 'কাঁচকুড়া কলেজ').trim();
+  const sigimg = SET.sigPrincipalImg ? `<img src="${H(SET.sigPrincipalImg)}" alt="">` : '';
+  const ref = 'কাঁচকুড়া কলেজ/ভর্তি/' + bn(yr) + (f.formNo ? '/' + H(f.formNo) : '');
+  return `<div class="ltpage">
+    <img class="lwm" src="${logo}" alt="">
+    <div class="lthead"><img src="${logo}" alt=""><div><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small><small>একাদশ শ্রেণি ভর্তি — ${bn(yr)} শিক্ষাবর্ষ</small></div></div>
+    <div class="ltmeta"><span><b>সূত্র:</b> ${ref}</span><span><b>তারিখ:</b> ${today}</span></div>
+    <div class="lttitle"><h3>অভিনন্দন পত্র</h3></div>
+    <p>প্রিয় <b>${H(name)}</b>,</p>
+    <p>কাঁচকুড়া কলেজ পরিবারের পক্ষ থেকে আপনাকে আন্তরিক অভিনন্দন ও শুভেচ্ছা। ${sess ? '<b>' + H(sess) + '</b> শিক্ষাবর্ষে ' : ''}${H(CLASSES[clsOf(r)])} শ্রেণির <b>${H(DEPTS[r.dept].name)}</b> বিভাগে আপনার ভর্তি নিশ্চিত হয়েছে।</p>
+    <div class="ltids">
+      <div><small>রোল নং</small><b>${H(f.roll || '—')}</b></div>
+      <div><small>স্টুডেন্ট আইডি</small><b>${H(f.stuId || '—')}</b></div>
+    </div>
+    <table class="lttab"><tbody>
+      <tr><th>শিক্ষার্থীর নাম</th><td>${H(name)}</td></tr>
+      <tr><th>শ্রেণি ও বিভাগ</th><td>${H(CLASSES[clsOf(r)])} — ${H(DEPTS[r.dept].name)}</td></tr>
+      <tr><th>সেশন</th><td>${H(sess || '—')}</td></tr>
+      <tr><th>মোবাইল</th><td>${H(f.mobile || f.gMobile || f.fatherMobile || '—')}</td></tr>
+      <tr><th>ভর্তি নিশ্চিতকরণ</th><td>${H(r.statusAt || today)}${r.statusBy ? ' — ' + H(r.statusBy) : ''}</td></tr>
+    </tbody></table>
+    <p>উপরের রোল নং ও স্টুডেন্ট আইডি অবশ্যই সংরক্ষণ করবেন; পরবর্তী সব পরীক্ষা, রসিদ ও ফলাফলে এই দুটি নম্বর ব্যবহার হবে। ভর্তি সম্পন্ন করতে কলেজের হিসাব শাখা থেকে নির্ধারিত ফির রসিদ সংগ্রহ করুন এবং শ্রেণি কার্যক্রম শুরুর দিন নির্ধারিত সময়ে কলেজে উপস্থিত থাকবেন।</p>
+    <p>আপনার শিক্ষাজীবন সফল ও সুন্দর হোক — এই কামনা করি।</p>
+    <div class="ltsign"><span>${sigimg}<b>${H(sigP)}</b><em>অধ্যক্ষ, কাঁচকুড়া কলেজ</em></span></div>
+    <div class="ltnote">এই পত্রটি কলেজের অনুমোদিত ভর্তি তালিকা অনুযায়ী স্বয়ংক্রিয়ভাবে তৈরি হয়েছে; রোল বা স্টুডেন্ট আইডি ভুল হলে হিসাব শাখায় যোগাযোগ করুন।</div>
+    <div class="ltfoot">কাঁচকুড়া কলেজ • উত্তরখান, ঢাকা-১২৩০ • অভিনন্দন পত্র • ${bn(yr)}</div>
+  </div>`;
+}
+function closeLetter() {
+  const sh = $('letterSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  document.body.classList.remove('lt');
+  const st = $('pglt'); if (st) st.remove();
+}
+function showLetter(r) {
+  if (!r) return toast('আবেদন পাওয়া যায়নি');
+  const f = r.fields || {};
+  if (!okApp(r)) return toast('ভর্তি অনুমোদনের পর অভিনন্দন পত্র তৈরি হবে');
+  if (!String(f.roll || '').trim() || !String(f.stuId || '').trim()) return toast('আগে রোল ও স্টুডেন্ট আইডি দিন');
+  const sheet = $('letterSheet');
+  sheet.innerHTML = `<div class="ltbar"><button type="button" class="ltprint">প্রিন্ট / PDF</button><button type="button" class="ghost ltclose">বন্ধ করুন</button></div>${letterHTML(r)}`;
+  sheet.hidden = false;
+  document.body.classList.add('lt');
+  let st = $('pglt');
+  if (!st) { st = document.createElement('style'); st.id = 'pglt'; st.textContent = '@page{size:A4 portrait;margin:12mm}'; document.head.appendChild(st); }
+  sheet.querySelector('.ltclose').onclick = closeLetter;
+  sheet.querySelector('.ltprint').onclick = () => window.print();
+  sheet.scrollTop = 0;
+}
+
+// ---------- স্টুডেন্ট আইডি কার্ড ----------
+const DEFAULT_LOGO = document.querySelector('.logo').src;
+const logoSrc = () => SET.logoImg || DEFAULT_LOGO;
+function applyLogo() {
+  const src = logoSrc(), lg = document.querySelector('.logo');
+  if (lg && lg.getAttribute('src') !== src) lg.src = src;
+  const ll = document.getElementById('lLogo'); if (ll) ll.src = src;
+  const fv = document.querySelector('link[rel="icon"]'); if (fv) fv.href = src;
+}
+let idApp = null, idRec = null, idUpKind = '', idPhoto = '', idSign = '', idBusy = false;
+let IDPAYS = [], IDAPPS = [];
+const ID_SIZES = { photo: [350, 450, 'jpeg', true], sign: [480, 180, 'png', false] };
+const idFeeAmt = () => num(SET.idFee) || 200;
+const admitFeeAmt = () => num(SET.admitFee) || 100;
+const normRno = v => toEn(String(v || '')).toUpperCase().replace(/\s+/g, '');
+const idStatusLbl = s => ({ pending: 'অনুমোদনের অপেক্ষায়', approved: 'অনুমোদিত', rejected: 'বাতিল' }[s] || s || '');
+function idRecOf(appId, list) { return (list || IDAPPS).filter(x => x.appId === appId).sort((a, b) => (b.ts || 0) - (a.ts || 0))[0] || null; }
+async function idLoadData() {
+  try { IDPAYS = await DB.payments(); IDAPPS = await DB.idapps(); }
+  catch (e) { IDPAYS = []; IDAPPS = []; }
+}
+function idPayCheck(rno, appId, selfId) {
+  const t = normRno(rno);
+  if (!t) return { err: 'পেমেন্ট রসিদ নম্বর লিখুন' };
+  const p = IDPAYS.find(x => !x.void && x.appId === appId && normRno(x.rno) === t);
+  if (!p) return { err: 'এই রসিদ নম্বরটি এই শিক্ষার্থীর কোনো বৈধ রসিদের সঙ্গে মেলেনি' };
+  const amt = (p.items || []).filter(i => i.kind === 'idcard').reduce((s, i) => s + num(i.amount), 0);
+  const need = idFeeAmt();
+  if (amt < need) return { err: 'রসিদে আইডি কার্ড ফি ' + taka(need) + ' টাকা নেই (পাওয়া গেছে ' + taka(amt) + ' টাকা)' };
+  const used = (IDAPPS || []).find(x => x.id !== selfId && x.status !== 'rejected' && normRno(x.rno) === t);
+  if (used) return { err: 'এই রসিদ নম্বরটি আগেই অন্য আইডি কার্ড আবেদনে ব্যবহৃত হয়েছে' };
+  return { pay: p, amt };
+}
+function idAddr(f) {
+  return [f.prVillage, f.prRoad, f.prPost && 'পোঃ ' + f.prPost, f.prThana, f.prDist].filter(Boolean).join(', ') || f.gVillage || f.gDist || '—';
+}
+const idSigImg = v => v ? `<img src="${H(v)}" alt="">` : '';
+function idCardFront(r) {
+  const f = r.fields || {}, logo = logoSrc();
+  const sess = f.session || (activeSession() ? activeSession().name : '');
+  return `<div class="idcard">
+    <img class="idwm" src="${logo}" alt="">
+    <div class="idtop"><img src="${logo}" alt=""><div><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small><small>স্টুডেন্ট আইডি কার্ড</small></div></div>
+    <div class="idbody">
+      ${r.photo ? `<img class="idphoto" src="${H(r.photo)}" alt="">` : '<div class="idph">ছবি<br>নেই</div>'}
+      <div class="idinfo">
+        <div class="idname">${H(f.nameBn || f.nameEn || '')}</div>
+        <div class="idrow"><b>পিতা</b><span>${H(f.father || '—')}</span></div>
+        <div class="idrow"><b>শ্রেণি</b><span>${H(CLASSES[clsOf(r)])} • ${H(DEPTS[r.dept].name)}</span></div>
+        <div class="idrow"><b>সেশন</b><span>${H(sess || '—')}</span></div>
+        <div class="idids"><div><small>রোল নং</small><b>${H(f.roll || '—')}</b></div><div><small>স্টুডেন্ট আইডি</small><b>${H(f.stuId || '—')}</b></div></div>
+      </div>
+    </div>
+    <div class="idstrip"><span>রক্তের গ্রুপ: ${H(f.blood || '—')}</span><span>মেয়াদ: ৩১ ডিসেম্বর ${bn(+yearOfRec(r) + 1)}</span></div>
+  </div>`;
+}
+function idCardBack(r, rec) {
+  const f = r.fields || {}, logo = logoSrc();
+  return `<div class="idcard back">
+    <img class="idwm" src="${logo}" alt="">
+    <div class="idback">
+      <h4>কাঁচকুড়া কলেজ — স্টুডেন্ট আইডি</h4>
+      <div class="idrow"><b>নাম</b><span>${H(f.nameBn || f.nameEn || '')}</span></div>
+      <div class="idrow"><b>স্টুডেন্ট আইডি</b><span>${H(f.stuId || '—')}</span></div>
+      <div class="idrow"><b>মোবাইল</b><span>${H(f.mobile || '—')}</span></div>
+      ${rec && rec.rno ? `<div class="idrow"><b>কার্ড ফি রসিদ</b><span>${H(rec.rno)} • ${fmtDate(rec.payDate || rec.date || '')}</span></div>` : ''}
+      <div class="idrow"><b>ঠিকানা</b><span>${H(idAddr(f))}</span></div>
+      <div class="idrow"><b>জরুরি</b><span>${H(f.gMobile || f.fatherMobile || f.mobile || '—')}</span></div>
+      <ul><li>কার্ড সর্বদা সাথে রাখতে হবে ও চাইলে দেখাতে হবে।</li><li>কার্ড অন্যকে ব্যবহার করতে দেওয়া যাবে না।</li><li>হারালে অফিসে জানিয়ে নতুন কার্ড সংগ্রহ করতে হবে।</li></ul>
+      <div class="idsignrow"><span>${idSigImg(r.sign)}শিক্ষার্থীর স্বাক্ষর</span><span>${idSigImg(SET.sigPrincipalImg)}অধ্যক্ষ${SET.sigPrincipal ? '<br>' + H(SET.sigPrincipal) : ''}</span></div>
+    </div>
+    <div class="idstrip"><span>কার্ড নং: ${H(f.stuId || '—')}</span><span>উত্তরখান, ঢাকা</span></div>
+  </div>`;
+}
+function idStuLine() {
+  const f = idApp.fields || {};
+  return `<div class="idkv">
+    <div><b>শিক্ষার্থী</b>${H(nameOf(idApp))}</div>
+    <div><b>স্টুডেন্ট আইডি</b>${H(f.stuId || '—')}</div>
+    <div><b>শ্রেণি ও বিভাগ</b>${H(CLASSES[clsOf(idApp)])} • ${H(DEPTS[idApp.dept].name)}</div>
+    <div><b>রোল</b>${H(f.roll || '—')}</div>
+  </div>`;
+}
+function idStagedTiles() {
+  const tiles = [{ k: 'photo', t: 'শিক্ষার্থীর ছবি', v: idPhoto }, { k: 'sign', t: 'শিক্ষার্থীর স্বাক্ষর', v: idSign }];
+  return `<div class="idupgrid">${tiles.map(x => `<div class="idup">
+      <div class="prev">${x.v ? `<img src="${H(x.v)}" alt="">` : '<span>আপলোড করা হয়নি</span>'}</div>
+      <b>${x.t}</b>
+      <div class="row"><button type="button" data-idPick="${x.k}">${x.v ? 'বদলান' : 'আপলোড'}</button>${x.v ? `<button type="button" class="del" data-idClear="${x.k}">সরান</button>` : ''}</div>
+    </div>`).join('')}</div>`;
+}
+function idFormHTML() {
+  const rej = idRec && idRec.status === 'rejected' ? `<div class="idhint bad">আগের আবেদন বাতিল হয়েছে${idRec.reason ? ' — ' + H(idRec.reason) : ''}। নতুন রসিদ দিয়ে আবার জমা দেওয়া যাবে।</div>` : '';
+  return `<div class="idups noprint">
+    <h3>আইডি কার্ডের আবেদন</h3>
+    ${rej}
+    ${idStuLine()}
+    <label class="f" style="margin-top:10px"><span>পেমেন্ট রসিদ নম্বর</span><input type="text" id="idRno" placeholder="যেমন: R-2026-0001" autocomplete="off"></label>
+    <div id="idRnoHint" class="idhint">আইডি কার্ড ফি ${taka(idFeeAmt())} টাকা। আগে হিসাব শাখা থেকে এই খাতে রসিদ নিয়ে রসিদ নম্বরটি লিখুন।</div>
+    <h4 style="margin:12px 0 6px;color:#0f4a37">ছবি ও স্বাক্ষর</h4>
+    ${idStagedTiles()}
+    <label class="f" style="margin-top:10px"><span>মন্তব্য (ঐচ্ছিক)</span><input type="text" id="idNote" value="${H(idRec && idRec.status === 'rejected' ? idRec.note || '' : '')}" placeholder="যেমন: নতুন কার্ড / হারানো কার্ডের বদলে"></label>
+    <div class="tools"><button type="button" id="idSubmit" class="go">আবেদন জমা দিন</button></div>
+    <p class="acc-note">রসিদের টাকা আগে আদায় না হলে আবেদন গ্রহণ হবে না। অফিস যাচাই করে অনুমোদন করলে কার্ড প্রিন্ট করা যাবে।</p>
+  </div>`;
+}
+function idStatusCardHTML() {
+  const rec = idRec;
+  if (!rec) return '';
+  const cls = rec.status === 'approved' ? 'ok' : rec.status === 'rejected' ? 'bad' : 'pend';
+  const canReview = ME && ME.role === 'admin' && rec.status === 'pending';
+  return `<div class="idups noprint">
+    <h3>আবেদনের অবস্থা <span class="idchip ${cls}">${H(idStatusLbl(rec.status))}</span></h3>
+    <div class="idkv">
+      <div><b>রসিদ নং</b>${H(rec.rno)}</div>
+      <div><b>রসিদের তারিখ</b>${fmtDate(rec.payDate || rec.date || '')}</div>
+      <div><b>আইডি কার্ড ফি</b>${taka(rec.fee)} টাকা</div>
+      <div><b>আবেদন জমা</b>${H(rec.by || '')}${rec.ts ? ' • ' + new Date(rec.ts).toLocaleDateString('bn-BD') : ''}</div>
+    </div>
+    ${rec.note ? `<p class="acc-note">মন্তব্য: ${H(rec.note)}</p>` : ''}
+    ${rec.status === 'rejected' ? `<div class="idhint bad">বাতিলের কারণ${rec.reason ? ': ' + H(rec.reason) : ' উল্লেখ করা হয়নি'}।</div>` : ''}
+    ${rec.status === 'approved' ? `<div class="idhint">অনুমোদিত${rec.reviewedBy ? ' — ' + H(rec.reviewedBy) : ''}${rec.reviewedAt ? ' • ' + H(rec.reviewedAt) : ''}। কার্ড প্রিন্ট করতে পারেন।</div>` : ''}
+    ${canReview ? `<div class="idact"><button type="button" id="idApprove" class="go">আবেদন অনুমোদন</button><button type="button" id="idReject" class="del">বাতিল করুন</button></div>` : ''}
+    ${rec.status === 'pending' && !canReview ? '<p class="acc-note">অফিস যাচাই করে অনুমোদন করলে কার্ড তৈরি হবে।</p>' : ''}
+  </div>`;
+}
+function idCardsHTML() {
+  const r = { ...idApp, photo: idRec.photo || '', sign: idRec.sign || '' };
+  return `<div class="idpage">
+    <h2>স্টুডেন্ট আইডি কার্ড</h2>
+    <p class="idsub">${H(nameOf(idApp))} • ${H(CLASSES[clsOf(idApp)])} • ${H(DEPTS[idApp.dept].name)} • ${H((idApp.fields || {}).stuId || '')}</p>
+    <div class="idcards">${idCardFront(r)}${idCardBack(r, idRec)}</div>
+    <div class="idnote">প্রিন্টের পর কার্ডের চারপাশের কাটার দাগ বরাবর কেটে দুই পাশে ল্যামিনেট করুন।</div>
+  </div>`;
+}
+async function idCardBlob(r, rec) {
+  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) { }
+  const k = 8, W = 98 * k, Hh = 126 * k;
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = Hh;
+  const g = cv.getContext('2d');
+  const mm = v => v * k;
+  const FS = (pt, wt) => `${wt || '400'} ${(pt * 0.3528 * k).toFixed(1)}px "Noto Sans Bengali", sans-serif`;
+  const fill = (c, x, y, w, h) => { g.fillStyle = c; g.fillRect(mm(x), mm(y), mm(w), mm(h)); };
+  const ln = (x1, y1, x2, y2, c, lw) => { g.strokeStyle = c || '#b9c0bb'; g.lineWidth = mm(lw || 0.3); g.beginPath(); g.moveTo(mm(x1), mm(y1)); g.lineTo(mm(x2), mm(y2)); g.stroke(); };
+  const txt = (t, x, y, font, c, align, maxW) => {
+    g.font = font; g.fillStyle = c || '#14201b'; g.textAlign = align || 'left'; g.textBaseline = 'middle';
+    let s = String(t == null ? '' : t);
+    if (maxW && g.measureText(s).width > mm(maxW)) { while (s.length > 1 && g.measureText(s + '…').width > mm(maxW)) s = s.slice(0, -1); s += '…'; }
+    g.fillText(s, mm(x), mm(y));
+  };
+  const path = (x, y, w, h, rad) => { g.beginPath(); if (g.roundRect) g.roundRect(mm(x), mm(y), mm(w), mm(h), mm(rad || 0)); else g.rect(mm(x), mm(y), mm(w), mm(h)); };
+  const load = src => new Promise(res => { if (!src) return res(null); const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+  const [logo, photo, sign, psig] = await Promise.all([
+    load(logoSrc()),
+    load((rec && rec.photo) || r.photo || ''),
+    load((rec && rec.sign) || r.sign || ''),
+    load(SET.sigPrincipalImg || '')
+  ]);
+  const f = r.fields || {};
+  const GREEN = '#0f4a37', INK = '#14201b', MUT = '#5b6a63', LINE = '#c9d3cd';
+  const x0 = 6, cw = 86, ch = 54, yf = 6, yb = 66;
+  fill('#fff', 0, 0, 98, 126);
+  g.setLineDash([mm(2), mm(1.5)]); g.strokeStyle = '#9aa5a0'; g.lineWidth = mm(.3);
+  g.beginPath(); g.moveTo(mm(6), mm(62.5)); g.lineTo(mm(92), mm(62.5)); g.stroke(); g.setLineDash([]);
+  txt('কাটার দাগ', 49, 60.9, FS(4.6), '#7b8a83', 'center');
+
+  g.save(); path(x0, yf, cw, ch, 2.4); g.clip();
+  fill('#fff', x0, yf, cw, ch);
+  if (logo) { g.globalAlpha = .05; g.drawImage(logo, mm(x0 + 52), mm(yf + 20), mm(32), mm(32)); g.globalAlpha = 1; }
+  if (logo) g.drawImage(logo, mm(x0 + 3.6), mm(yf + 2.8), mm(11), mm(11));
+  txt('কাঁচকুড়া কলেজ', x0 + 16, yf + 6.6, FS(8.2, '700'), GREEN, 'left', 46);
+  txt('কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০', x0 + 16, yf + 10.2, FS(5), MUT, 'left', 62);
+  txt('স্টুডেন্ট আইডি কার্ড', x0 + 16, yf + 13.4, FS(5.4, '700'), GREEN);
+  ln(x0 + 3.4, yf + 16.4, x0 + 82.6, yf + 16.4, '#c9a227', .3);
+  if (photo) { g.drawImage(photo, mm(x0 + 4), mm(yf + 19), mm(22), mm(26)); g.strokeStyle = GREEN; g.lineWidth = mm(.35); g.strokeRect(mm(x0 + 4), mm(yf + 19), mm(22), mm(26)); }
+  else {
+    g.setLineDash([mm(1.2), mm(1)]); g.strokeStyle = '#9db3a9'; g.lineWidth = mm(.35);
+    g.strokeRect(mm(x0 + 4), mm(yf + 19), mm(22), mm(26)); g.setLineDash([]);
+    txt('ছবি নেই', x0 + 15, yf + 31, FS(5.4), '#7b8a83', 'center', 18);
+  }
+  txt(f.nameBn || f.nameEn || '', x0 + 30, yf + 21.4, FS(7.8, '700'), INK, 'left', 52);
+  const row = (lab, val, y, maxW) => { txt(lab, x0 + 30, y, FS(5.6, '700'), GREEN); txt(val || '—', x0 + 38, y, FS(6), INK, 'left', maxW || 44); };
+  row('পিতা', f.father, yf + 26.2, 46);
+  row('শ্রেণি', (CLASSES[clsOf(r)] || '') + ' • ' + DEPTS[r.dept].name, yf + 30.4, 46);
+  row('সেশন', f.session || '', yf + 34.6, 46);
+  const box = (bx, bw, lab, val) => {
+    fill('#f2f8f4', bx, yf + 38.6, bw, 8.6);
+    g.strokeStyle = '#cfe0d6'; g.lineWidth = mm(.25); g.strokeRect(mm(bx), mm(yf + 38.6), mm(bw), mm(8.6));
+    txt(lab, bx + 2, yf + 41.1, FS(4.6), MUT); txt(val || '—', bx + 2, yf + 44.9, FS(6.8, '700'), INK, 'left', bw - 4);
+  };
+  box(x0 + 30, 25, 'রোল নং', f.roll);
+  box(x0 + 57, 25.6, 'স্টুডেন্ট আইডি', f.stuId);
+  fill('#e8f2ec', x0, yf + 48.8, cw, 5.2);
+  ln(x0, yf + 48.8, x0 + cw, yf + 48.8, '#cfe0d6', .25);
+  txt('রক্তের গ্রুপ: ' + (f.blood || '—'), x0 + 4, yf + 51.4, FS(5.6), '#33463d', 'left', 40);
+  txt('মেয়াদ: ৩১ ডিসেম্বর ' + bn(+yearOfRec(r) + 1), x0 + 82, yf + 51.4, FS(5.6), '#33463d', 'right', 42);
+  g.restore();
+  g.strokeStyle = GREEN; g.lineWidth = mm(.35); path(x0, yf, cw, ch, 2.4); g.stroke();
+
+  g.save(); path(x0, yb, cw, ch, 2.4); g.clip();
+  fill('#fff', x0, yb, cw, ch);
+  if (logo) { g.globalAlpha = .05; g.drawImage(logo, mm(x0 + 52), mm(yb + 16), mm(32), mm(32)); g.globalAlpha = 1; }
+  txt('কাঁচকুড়া কলেজ — স্টুডেন্ট আইডি', x0 + 3.4, yb + 4.2, FS(7.2, '700'), GREEN, 'left', 80);
+  ln(x0 + 3.4, yb + 6.2, x0 + 82.6, yb + 6.2, LINE, .25);
+  const rowb = (lab, val, y) => { txt(lab, x0 + 3.4, y, FS(5.2, '700'), GREEN, 'left', 16); txt(val || '—', x0 + 21, y, FS(5.6), INK, 'left', 62); };
+  let ry = yb + 9.4;
+  rowb('নাম', f.nameBn || f.nameEn, ry); ry += 3.9;
+  rowb('স্টুডেন্ট আইডি', f.stuId, ry); ry += 3.9;
+  rowb('মোবাইল', f.mobile, ry); ry += 3.9;
+  if (rec && rec.rno) { rowb('কার্ড ফি রসিদ', rec.rno + ' • ' + fmtDate(rec.payDate || rec.date || ''), ry); ry += 3.9; }
+  rowb('ঠিকানা', idAddr(f), ry); ry += 3.9;
+  rowb('জরুরি', f.gMobile || f.fatherMobile || f.mobile, ry); ry += 3.9;
+  ['কার্ড সর্বদা সাথে রাখতে হবে ও চাইলে দেখাতে হবে।', 'কার্ড অন্যকে ব্যবহার করতে দেওয়া যাবে না।', 'হারালে অফিসে জানিয়ে নতুন কার্ড সংগ্রহ করতে হবে।'].forEach((t, i) => {
+    txt('•', x0 + 3.6, yb + 31.5 + i * 3.6, FS(5.2));
+    txt(t, x0 + 6, yb + 31.5 + i * 3.6, FS(5.2), '#333', 'left', 76);
+  });
+  const sy = yb + 46;
+  ln(x0 + 7, sy, x0 + 35, sy, '#333', .25); ln(x0 + 51, sy, x0 + 79, sy, '#333', .25);
+  txt('শিক্ষার্থীর স্বাক্ষর', x0 + 21, sy + 2.6, FS(5.2), '#333', 'center', 32);
+  txt('অধ্যক্ষ', x0 + 65, sy + 2.6, FS(5.2), '#333', 'center', 32);
+  const fitImg = (im, cx, bottom, maxW, maxH) => {
+    if (!im) return;
+    const rr = Math.min(maxW / im.width, maxH / im.height);
+    const w = im.width * rr, h = im.height * rr;
+    g.drawImage(im, mm(cx - w / 2), mm(bottom - h), mm(w), mm(h));
+  };
+  fitImg(sign, x0 + 21, sy - .5, 26, 6);
+  fitImg(psig, x0 + 65, sy - .5, 26, 6);
+  fill('#e8f2ec', x0, yb + 50.4, cw, 3.6);
+  ln(x0, yb + 50.4, x0 + cw, yb + 50.4, '#cfe0d6', .25);
+  txt('কার্ড নং: ' + (f.stuId || '—'), x0 + 4, yb + 52.2, FS(4.8), '#33463d', 'left', 44);
+  txt('উত্তরখান, ঢাকা', x0 + 82, yb + 52.2, FS(4.8), '#33463d', 'right', 26);
+  g.restore();
+  g.strokeStyle = GREEN; g.lineWidth = mm(.35); path(x0, yb, cw, ch, 2.4); g.stroke();
+  return new Promise(res => cv.toBlob(res, 'image/png'));
+}
+async function idDownloadPNG() {
+  if (!idApp || !idRec || idRec.status !== 'approved') return toast('আগে আবেদন অনুমোদন হতে হবে');
+  const app = idApp, rec = idRec;
+  const b = await idCardBlob(app, rec);
+  if (!b) return toast('ছবি তৈরি করা গেল না');
+  saveBlob(b, 'idcard-' + (((app.fields || {}).stuId) || app.id) + '.png');
+  toast('আইডি কার্ড PNG ডাউনলোড হয়েছে');
+}
+function renderIdSheet() {
+  const sheet = $('idSheet'), sc = sheet.scrollTop;
+  const approved = idRec && idRec.status === 'approved';
+  sheet.innerHTML = `<div class="idbar">${approved ? '<button type="button" class="idprint">প্রিন্ট / PDF</button><button type="button" class="idpng">PNG ডাউনলোড</button>' : ''}<button type="button" class="ghost idclose">বন্ধ করুন</button></div>
+    ${approved ? idCardsHTML() : ''}
+    ${idStatusCardHTML()}
+    ${!idRec || idRec.status === 'rejected' ? idFormHTML() : ''}
+    <input type="file" id="idFile" accept="image/*" hidden>`;
+  sheet.querySelector('.idclose').onclick = closeIdCard;
+  const pr = sheet.querySelector('.idprint'); if (pr) pr.onclick = () => window.print();
+  const pg = sheet.querySelector('.idpng'); if (pg) pg.onclick = idDownloadPNG;
+  sheet.querySelectorAll('[data-idPick]').forEach(b => b.onclick = () => { idUpKind = b.dataset.idPick; $('idFile').click(); });
+  sheet.querySelectorAll('[data-idClear]').forEach(b => b.onclick = () => {
+    if (b.dataset.idClear === 'photo') idPhoto = ''; else idSign = '';
+    redrawIdSheet();
+  });
+  $('idFile').onchange = onIdFile;
+  const rno = $('idRno'); if (rno) { rno.oninput = idRnoHint; idRnoHint(); }
+  const sub = $('idSubmit'); if (sub) sub.onclick = submitIdApp;
+  const ap = $('idApprove'); if (ap) ap.onclick = () => reviewIdApp('approved');
+  const rj = $('idReject'); if (rj) rj.onclick = () => reviewIdApp('rejected');
+  sheet.scrollTop = sc;
+}
+function redrawIdSheet() {
+  const rno = $('idRno') ? $('idRno').value : '', note = $('idNote') ? $('idNote').value : '';
+  renderIdSheet();
+  if ($('idRno')) { $('idRno').value = rno; idRnoHint(); }
+  if ($('idNote')) $('idNote').value = note;
+}
+function idRnoHint() {
+  const el = $('idRnoHint'), inp = $('idRno');
+  if (!el || !inp) return;
+  const v = inp.value.trim();
+  if (!v) { el.className = 'idhint'; el.textContent = 'আইডি কার্ড ফি ' + taka(idFeeAmt()) + ' টাকা। আগে হিসাব শাখা থেকে এই খাতে রসিদ নিয়ে রসিদ নম্বরটি লিখুন।'; return; }
+  const chk = idPayCheck(v, idApp.id, idRec ? idRec.id : undefined);
+  if (chk.err) { el.className = 'idhint bad'; el.textContent = chk.err; }
+  else { el.className = 'idhint'; el.textContent = 'রসিদ পাওয়া গেছে — ' + fmtDate(chk.pay.date) + ' • আইডি কার্ড ফি ' + taka(chk.amt) + ' টাকা • ' + chk.pay.mode; }
+}
+async function submitIdApp() {
+  if (idBusy || !idApp) return;
+  const rno = $('idRno') ? $('idRno').value.trim() : '';
+  const chk = idPayCheck(rno, idApp.id, idRec ? idRec.id : undefined);
+  if (chk.err) return toast(chk.err);
+  if (!idPhoto) return toast('শিক্ষার্থীর ছবি আপলোড করুন');
+  if (!idSign) return toast('শিক্ষার্থীর স্বাক্ষর আপলোড করুন');
+  idBusy = true;
+  const rec = {
+    ...(idRec || {}),
+    appId: idApp.id, rno: chk.pay.rno, fee: chk.amt, payDate: chk.pay.date, payMode: chk.pay.mode,
+    note: $('idNote') ? $('idNote').value.trim() : '',
+    photo: idPhoto, sign: idSign,
+    status: 'pending', by: ME.name, ts: Date.now()
+  };
+  delete rec.reason; delete rec.reviewedBy; delete rec.reviewedAt;
+  try {
+    rec.id = await DB.putIdapp(rec);
+    idRec = rec;
+    IDAPPS = IDAPPS.filter(x => x.appId !== idApp.id).concat([rec]);
+    toast('আইডি কার্ডের আবেদন জমা হয়েছে');
+    renderIdSheet();
+  } catch (e) { toast('সংরক্ষণ করা গেল না'); }
+  idBusy = false;
+}
+async function reviewIdApp(status) {
+  if (!ME || ME.role !== 'admin') return toast('শুধু অ্যাডমিন আবেদন অনুমোদন করতে পারেন');
+  if (!idRec || idRec.status !== 'pending' || idBusy) return;
+  let reason = '';
+  if (status === 'rejected') {
+    const v = prompt('আবেদন বাতিলের কারণ (ঐচ্ছিক):', '');
+    if (v === null) return;
+    reason = v.trim();
+  } else if (!confirm('এই আবেদনটি অনুমোদন করবেন? অনুমোদনের পর কার্ড প্রিন্ট করা যাবে।')) return;
+  idBusy = true;
+  const rec = { ...idRec, status, reviewedBy: ME.name, reviewedAt: new Date().toLocaleString('bn-BD') };
+  if (reason) rec.reason = reason; else delete rec.reason;
+  try {
+    await DB.putIdapp(rec);
+    idRec = rec;
+    IDAPPS = IDAPPS.map(x => x.id === rec.id ? rec : x);
+    toast(status === 'approved' ? 'আবেদন অনুমোদিত — কার্ড প্রস্তুত' : 'আবেদন বাতিল করা হয়েছে');
+    renderIdSheet();
+  } catch (e) { toast('সংরক্ষণ করা গেল না'); }
+  idBusy = false;
+}
+async function openIdSheet(r) {
+  if (!r) return toast('আবেদন পাওয়া যায়নি');
+  const f = r.fields || {};
+  if (!okApp(r)) return toast('ভর্তি অনুমোদনের পর আইডি কার্ডের আবেদন করা যাবে');
+  if (!String(f.roll || '').trim() || !String(f.stuId || '').trim()) return toast('আগে রোল ও স্টুডেন্ট আইডি দিন');
+  idApp = { ...r };
+  await idLoadData();
+  idRec = idRecOf(r.id);
+  idPhoto = idRec ? (idRec.photo || '') : (r.photo || '');
+  idSign = idRec ? (idRec.sign || '') : (r.sign || '');
+  const sheet = $('idSheet');
+  sheet.hidden = false;
+  document.body.classList.add('idc');
+  let st = $('pgid');
+  if (!st) { st = document.createElement('style'); st.id = 'pgid'; st.textContent = '@page{size:A4 portrait;margin:10mm}'; document.head.appendChild(st); }
+  renderIdSheet();
+  sheet.scrollTop = 0;
+}
+function closeIdCard() {
+  const sh = $('idSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  document.body.classList.remove('idc');
+  const st = $('pgid'); if (st) st.remove();
+  idApp = null; idRec = null; idPhoto = ''; idSign = '';
+  const v = document.body.dataset.view;
+  if (v === 'list' && ME && (ME.role === 'admin' || ME.role === 'admission')) { DB.idapps().then(l => { IDAPPS = l; renderRows(); }).catch(() => {}); }
+  if (v === 'student' && ME && ME.role === 'student') { DB.idapps().then(l => { PORT.idapps = l; renderPortal(); }).catch(() => {}); }
+}
+function onIdFile(e) {
+  const file = e.target.files[0]; e.target.value = '';
+  if (!file || !idApp || !ID_SIZES[idUpKind]) return;
+  if (!/^image\//.test(file.type)) return toast('শুধু ছবি ফাইল বাছুন');
+  const kind = idUpKind;
+  const rd = new FileReader();
+  rd.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const [W, Hh, fmt, cover] = ID_SIZES[kind];
+      const c = document.createElement('canvas'); c.width = W; c.height = Hh;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, Hh);
+      const k = cover ? Math.max(W / img.width, Hh / img.height) : Math.min(W / img.width, Hh / img.height, 1);
+      const w = img.width * k, h = img.height * k;
+      ctx.drawImage(img, (W - w) / 2, (Hh - h) / 2, w, h);
+      const data = c.toDataURL(fmt === 'jpeg' ? 'image/jpeg' : 'image/png', 0.9);
+      if (kind === 'photo') idPhoto = data; else idSign = data;
+      redrawIdSheet();
+      toast(kind === 'photo' ? 'ছবি যোগ হয়েছে — জমা দিলে সংরক্ষিত হবে' : 'স্বাক্ষর যোগ হয়েছে — জমা দিলে সংরক্ষিত হবে');
+    };
+    img.onerror = () => toast('ছবিটি পড়া গেল না');
+    img.src = rd.result;
+  };
+  rd.readAsDataURL(file);
+}
+
+// ---------- অ্যাডমিট কার্ড ----------
+let adApp = null, adRec = null, adExam = null, adBusy = false;
+let ADPAYS = [], ADAPPS = [], ADEXAMS = [], ADIDAPPS = [];
+const adFeeOn = () => !!SET.admitFeeOn;
+const adStatusLbl = s => ({ pending: 'অনুমোদনের অপেক্ষায়', approved: 'অনুমোদিত', rejected: 'বাতিল' }[s] || s || '');
+function adRecOf(appId, examId, list) {
+  return (list || ADAPPS).filter(x => x.appId === appId && x.examId === examId).sort((a, b) => (b.ts || 0) - (a.ts || 0))[0] || null;
+}
+async function adLoadData() {
+  try {
+    ADPAYS = await DB.payments(); ADAPPS = await DB.admitapps(); ADEXAMS = await DB.exams();
+    try { ADIDAPPS = await DB.idapps(); } catch (e2) { ADIDAPPS = []; }
+  } catch (e) { ADPAYS = []; ADAPPS = []; ADEXAMS = []; ADIDAPPS = []; }
+}
+function adExamsFor(r) {
+  return (ADEXAMS || []).filter(e => exCls(e) === clsOf(r))
+    .sort((a, b) => String(b.startDate || '').localeCompare(String(a.startDate || '')) || (b.id || 0) - (a.id || 0));
+}
+function adAssets(r) {
+  const idr = (ADIDAPPS || []).filter(x => x.appId === r.id && x.status === 'approved').sort((a, b) => (b.ts || 0) - (a.ts || 0))[0];
+  return { photo: (idr && idr.photo) || r.photo || '', sign: (idr && idr.sign) || r.sign || '' };
+}
+function adPayCheck(rno, appId, examId, selfId) {
+  const t = normRno(rno);
+  if (!t) return { err: 'পেমেন্ট রসিদ নম্বর লিখুন' };
+  const p = ADPAYS.find(x => !x.void && x.appId === appId && normRno(x.rno) === t);
+  if (!p) return { err: 'এই রসিদ নম্বরটি এই শিক্ষার্থীর কোনো বৈধ রসিদের সঙ্গে মেলেনি' };
+  const amt = (p.items || []).filter(i => i.kind === 'admit').reduce((s, i) => s + num(i.amount), 0);
+  const need = admitFeeAmt();
+  if (amt < need) return { err: 'রসিদে অ্যাডমিট কার্ড ফি ' + taka(need) + ' টাকা নেই (পাওয়া গেছে ' + taka(amt) + ' টাকা)' };
+  const used = (ADAPPS || []).find(x => x.id !== selfId && x.status !== 'rejected' && normRno(x.rno) === t);
+  if (used) return { err: 'এই রসিদ নম্বরটি আগেই অন্য অ্যাডমিট আবেদনে ব্যবহৃত হয়েছে' };
+  return { pay: p, amt };
+}
+const adSubs = r => { const sj = subjOf(r); return sj.fourth ? sj.main.concat([sj.fourth]) : sj.main; };
+const adDateRange = e => !e.startDate ? '—' : fmtDate(e.startDate) + (e.endDate && e.endDate !== e.startDate ? ' – ' + fmtDate(e.endDate) : '');
+function adCardHTML(r, exam, rec, assets) {
+  const f = r.fields || {}, logo = logoSrc();
+  const sess = f.session || (activeSession() ? activeSession().name : '');
+  const rows = adSubs(r).map(s => `<tr><td>${H(s)}</td><td>${bn(sfull(s, exam))}</td></tr>`).join('');
+  return `<div class="adpage">
+    <img class="adwm" src="${logo}" alt="">
+    <div class="adhead">
+      <img class="adlogo" src="${logo}" alt="">
+      <div class="adt"><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small><h2>প্রবেশপত্র (অ্যাডমিট কার্ড)</h2><span class="adexam">${H(exam.name)}</span></div>
+      ${assets.photo ? `<img class="adphoto" src="${H(assets.photo)}" alt="">` : '<div class="adph">ছবি<br>নেই</div>'}
+    </div>
+    <div class="adinfo">
+      <div class="adwide"><b>নাম</b><span>${H(f.nameBn || f.nameEn || '')}</span></div>
+      <div><b>পিতা</b><span>${H(f.father || '—')}</span></div>
+      <div><b>মাতা</b><span>${H(f.mother || '—')}</span></div>
+      <div><b>শ্রেণি</b><span>${H(CLASSES[clsOf(r)])}</span></div>
+      <div><b>বিভাগ</b><span>${H(DEPTS[r.dept].name)}</span></div>
+      <div><b>রোল নং</b><span>${H(f.roll || '—')}</span></div>
+      <div><b>স্টুডেন্ট আইডি</b><span>${H(f.stuId || '—')}</span></div>
+      <div><b>সেশন</b><span>${H(sess || '—')}</span></div>
+      <div><b>শুরুর তারিখ</b><span>${H(exam.startDate ? fmtDate(exam.startDate) : '—')}</span></div>
+      ${rec && rec.rno ? `<div class="adwide"><b>রসিদ নং</b><span>${H(rec.rno)} • ${fmtDate(rec.payDate || rec.date || '')} • অ্যাডমিট ফি ${taka(rec.fee)} টাকা</span></div>` : ''}
+    </div>
+    <div class="adsect">পরীক্ষার বিষয় ও পূর্ণমান <span style="float:right;font-weight:400;font-size:7pt">তারিখ: ${H(adDateRange(exam))}</span></div>
+    <table class="adsub"><thead><tr><th>বিষয়</th><th>পূর্ণমান</th></tr></thead><tbody>${rows || '<tr><td colspan="2">বিষয় পাওয়া যায়নি</td></tr>'}</tbody></table>
+    <div class="adsect">পরীক্ষার্থীর জন্য নির্দেশনা</div>
+    <ul class="adrules">
+      <li>পরীক্ষা শুরুর অন্তত ৩০ মিনিট আগে কেন্দ্রে উপস্থিত হতে হবে।</li>
+      <li>প্রবেশপত্র ও স্টুডেন্ট আইডি কার্ড সঙ্গে আনতে হবে।</li>
+      <li>মোবাইল ফোন, স্মার্ট ওয়াচ বা কোনো ইলেকট্রনিক ডিভাইস পরীক্ষা কক্ষে আনা যাবে না।</li>
+      <li>প্রবেশপত্রে উল্লেখিত তথ্যে ভুল থাকলে পরীক্ষার আগে অফিসে জানাতে হবে।</li>
+      <li>এই প্রবেশপত্র অন্য কাউকে ব্যবহার করতে দেওয়া যাবে না।</li>
+    </ul>
+    <div class="adsign"><span>${idSigImg(assets.sign)}পরীক্ষার্থীর স্বাক্ষর</span><span>${idSigImg(SET.sigPrincipalImg)}অধ্যক্ষ${SET.sigPrincipal ? '<br>' + H(SET.sigPrincipal) : ''}</span></div>
+    <div class="adfoot"><span>${H(exam.name)} • রোল ${H(f.roll || '—')}</span><span>${H(f.stuId || '')}</span></div>
+  </div>`;
+}
+function adExamPickerHTML() {
+  const list = adExamsFor(adApp);
+  return `<div class="adpick noprint"><label class="f"><span>পরীক্ষা বাছুন</span><select id="adExamSel">${list.map(e => `<option value="${e.id}" ${adExam && e.id === adExam.id ? 'selected' : ''}>${H(e.name)}${e.startDate ? ' — ' + fmtDate(e.startDate) : ''}</option>`).join('')}</select></label></div>`;
+}
+function adStatusCardHTML() {
+  const rec = adRec; if (!rec) return '';
+  const cls = rec.status === 'approved' ? 'ok' : rec.status === 'rejected' ? 'bad' : 'pend';
+  const canReview = ME && ME.role === 'admin' && rec.status === 'pending';
+  return `<div class="idups noprint">
+    <h3>আবেদনের অবস্থা <span class="idchip ${cls}">${H(adStatusLbl(rec.status))}</span></h3>
+    <div class="idkv">
+      <div><b>পরীক্ষা</b>${H(adExam ? adExam.name : '—')}</div>
+      <div><b>রসিদ নং</b>${H(rec.rno)}</div>
+      <div><b>রসিদের তারিখ</b>${fmtDate(rec.payDate || rec.date || '')}</div>
+      <div><b>অ্যাডমিট ফি</b>${taka(rec.fee)} টাকা</div>
+      <div><b>আবেদন জমা</b>${H(rec.by || '')}${rec.ts ? ' • ' + new Date(rec.ts).toLocaleDateString('bn-BD') : ''}</div>
+    </div>
+    ${rec.note ? `<p class="acc-note">মন্তব্য: ${H(rec.note)}</p>` : ''}
+    ${rec.status === 'rejected' ? `<div class="idhint bad">বাতিলের কারণ${rec.reason ? ': ' + H(rec.reason) : ' উল্লেখ করা হয়নি'}। নতুন রসিদ দিয়ে আবার আবেদন করা যাবে।</div>` : ''}
+    ${rec.status === 'approved' ? `<div class="idhint">অনুমোদিত${rec.reviewedBy ? ' — ' + H(rec.reviewedBy) : ''}${rec.reviewedAt ? ' • ' + H(rec.reviewedAt) : ''}। কার্ড প্রিন্ট বা PNG ডাউনলোড করতে পারেন।</div>` : ''}
+    ${canReview ? `<div class="idact"><button type="button" id="adApprove" class="go">আবেদন অনুমোদন</button><button type="button" id="adReject" class="del">বাতিল করুন</button></div>` : ''}
+    ${rec.status === 'pending' && !canReview ? '<p class="acc-note">অফিস যাচাই করে অনুমোদন করলে অ্যাডমিট কার্ড তৈরি হবে।</p>' : ''}
+  </div>`;
+}
+function adFormHTML() {
+  const rej = adRec && adRec.status === 'rejected' ? `<div class="idhint bad">আগের আবেদন বাতিল হয়েছে${adRec.reason ? ' — ' + H(adRec.reason) : ''}। নতুন রসিদ দিয়ে আবার জমা দেওয়া যাবে।</div>` : '';
+  return `<div class="idups noprint">
+    <h3>অ্যাডমিট কার্ডের আবেদন</h3>
+    ${rej}
+    <div class="idkv">
+      <div><b>শিক্ষার্থী</b>${H(nameOf(adApp))}</div>
+      <div><b>পরীক্ষা</b>${H(adExam ? adExam.name : '—')}</div>
+      <div><b>শ্রেণি</b>${H(CLASSES[clsOf(adApp)])} • ${H(DEPTS[adApp.dept].name)}</div>
+      <div><b>রোল</b>${H((adApp.fields || {}).roll || '—')}</div>
+    </div>
+    <label class="f" style="margin-top:10px"><span>পেমেন্ট রসিদ নম্বর</span><input type="text" id="adRno" placeholder="যেমন: R-2026-0001" autocomplete="off"></label>
+    <div id="adRnoHint" class="idhint"></div>
+    <label class="f" style="margin-top:10px"><span>মন্তব্য (ঐচ্ছিক)</span><input type="text" id="adNote" value="${H(adRec && adRec.status === 'rejected' ? adRec.note || '' : '')}" placeholder="যেমন: মূল কপি হারানো"></label>
+    <div class="tools"><button type="button" id="adSubmit" class="go">আবেদন জমা দিন</button></div>
+    <p class="acc-note">রসিদে অ্যাডমিট কার্ড ফি আগে আদায় না হলে আবেদন গ্রহণ হবে না। অফিস যাচাই করে অনুমোদন করলে কার্ড প্রিন্ট ও PNG ডাউনলোড করা যাবে।</p>
+  </div>`;
+}
+function renderAdmitSheet() {
+  const sheet = $('admitSheet'), sc = sheet.scrollTop;
+  const list = adExamsFor(adApp);
+  const assets = adAssets(adApp);
+  const approved = adRec && adRec.status === 'approved';
+  const showCard = adExam && (!adFeeOn() || approved);
+  let html = `<div class="idbar adbar">${showCard ? '<button type="button" class="adprint">প্রিন্ট / PDF</button><button type="button" class="adpng">PNG ডাউনলোড</button>' : ''}<button type="button" class="ghost adclose">বন্ধ করুন</button></div>`;
+  if (!list.length) {
+    html += `<div class="adnone"><h3>কোনো পরীক্ষা পাওয়া যায়নি</h3><p class="acc-note">${H(CLASSES[clsOf(adApp)])} শ্রেণির জন্য প্রথমে «পরীক্ষা ও ফলাফল» অংশে পরীক্ষা তৈরি করতে হবে। তারপর এখানে অ্যাডমিট কার্ড তৈরি করা যাবে।</p></div>`;
+  } else {
+    html += adExamPickerHTML();
+    if (showCard) html += adCardHTML(adApp, adExam, adFeeOn() ? adRec : null, assets);
+    if (adFeeOn()) {
+      html += adStatusCardHTML();
+      if (!adRec || adRec.status === 'rejected') html += adFormHTML();
+    } else {
+      html += `<p class="acc-note noprint" style="width:148mm;max-width:100%;margin:0 auto;color:#dfe8e3">ফি ছাড়াই সরাসরি অ্যাডমিট কার্ড তৈরি হচ্ছে। সেটিংসে «ফি দিয়ে আবেদন» চালু করলে রসিদভিত্তিক আবেদন লাগবে।</p>`;
+    }
+  }
+  sheet.innerHTML = html;
+  sheet.querySelector('.adclose').onclick = closeAdmitCard;
+  const pr = sheet.querySelector('.adprint'); if (pr) pr.onclick = () => window.print();
+  const pg = sheet.querySelector('.adpng'); if (pg) pg.onclick = adDownloadPNG;
+  const sel = $('adExamSel');
+  if (sel) sel.onchange = () => {
+    adExam = list.find(e => e.id === +sel.value) || list[0] || null;
+    adRec = adExam ? adRecOf(adApp.id, adExam.id) : null;
+    renderAdmitSheet();
+  };
+  const rno = $('adRno'); if (rno) { rno.oninput = adRnoHint; adRnoHint(); }
+  const sub = $('adSubmit'); if (sub) sub.onclick = submitAdApp;
+  const ap = $('adApprove'); if (ap) ap.onclick = () => reviewAdApp('approved');
+  const rj = $('adReject'); if (rj) rj.onclick = () => reviewAdApp('rejected');
+  sheet.scrollTop = sc;
+}
+function adRnoHint() {
+  const el = $('adRnoHint'), inp = $('adRno');
+  if (!el || !inp || !adExam) return;
+  const v = inp.value.trim();
+  if (!v) { el.className = 'idhint'; el.textContent = 'অ্যাডমিট কার্ড ফি ' + taka(admitFeeAmt()) + ' টাকা। আগে হিসাব শাখা থেকে «অ্যাডমিট কার্ড ফি» খাতে রসিদ নিয়ে রসিদ নম্বরটি লিখুন।'; return; }
+  const chk = adPayCheck(v, adApp.id, adExam.id, adRec ? adRec.id : undefined);
+  if (chk.err) { el.className = 'idhint bad'; el.textContent = chk.err; }
+  else { el.className = 'idhint'; el.textContent = 'রসিদ পাওয়া গেছে — ' + fmtDate(chk.pay.date) + ' • অ্যাডমিট ফি ' + taka(chk.amt) + ' টাকা • ' + chk.pay.mode; }
+}
+async function submitAdApp() {
+  if (adBusy || !adApp || !adExam) return;
+  const rno = $('adRno') ? $('adRno').value.trim() : '';
+  const chk = adPayCheck(rno, adApp.id, adExam.id, adRec ? adRec.id : undefined);
+  if (chk.err) return toast(chk.err);
+  adBusy = true;
+  const rec = {
+    ...(adRec || {}),
+    appId: adApp.id, examId: adExam.id, rno: chk.pay.rno, fee: chk.amt, payDate: chk.pay.date, payMode: chk.pay.mode,
+    note: $('adNote') ? $('adNote').value.trim() : '',
+    status: 'pending', by: ME.name, ts: Date.now()
+  };
+  delete rec.reason; delete rec.reviewedBy; delete rec.reviewedAt;
+  try {
+    rec.id = await DB.putAdmitapp(rec);
+    adRec = rec;
+    ADAPPS = ADAPPS.filter(x => x.id !== rec.id).concat([rec]);
+    toast('অ্যাডমিট কার্ডের আবেদন জমা হয়েছে');
+    renderAdmitSheet();
+  } catch (e) { toast('সংরক্ষণ করা গেল না'); }
+  adBusy = false;
+}
+async function reviewAdApp(status) {
+  if (!ME || ME.role !== 'admin') return toast('শুধু অ্যাডমিন আবেদন অনুমোদন করতে পারেন');
+  if (!adRec || adRec.status !== 'pending' || adBusy) return;
+  let reason = '';
+  if (status === 'rejected') {
+    const v = prompt('আবেদন বাতিলের কারণ (ঐচ্ছিক):', '');
+    if (v === null) return;
+    reason = v.trim();
+  } else if (!confirm('এই অ্যাডমিট আবেদনটি অনুমোদন করবেন? অনুমোদনের পর কার্ড প্রিন্ট ও ডাউনলোড করা যাবে।')) return;
+  adBusy = true;
+  const rec = { ...adRec, status, reviewedBy: ME.name, reviewedAt: new Date().toLocaleString('bn-BD') };
+  if (reason) rec.reason = reason; else delete rec.reason;
+  try {
+    await DB.putAdmitapp(rec);
+    adRec = rec;
+    ADAPPS = ADAPPS.map(x => x.id === rec.id ? rec : x);
+    toast(status === 'approved' ? 'আবেদন অনুমোদিত — অ্যাডমিট কার্ড প্রস্তুত' : 'আবেদন বাতিল করা হয়েছে');
+    renderAdmitSheet();
+  } catch (e) { toast('সংরক্ষণ করা গেল না'); }
+  adBusy = false;
+}
+async function openAdmitSheet(r, examId) {
+  if (!r) return toast('আবেদন পাওয়া যায়নি');
+  const f = r.fields || {};
+  if (!okApp(r)) return toast('ভর্তি অনুমোদনের পর অ্যাডমিট কার্ড তৈরি হবে');
+  if (!String(f.roll || '').trim() || !String(f.stuId || '').trim()) return toast('আগে রোল ও স্টুডেন্ট আইডি দিন');
+  adApp = { ...r };
+  await adLoadData();
+  const list = adExamsFor(adApp);
+  adExam = (examId && list.find(e => e.id === +examId)) || list[0] || null;
+  adRec = adExam ? adRecOf(adApp.id, adExam.id) : null;
+  const sheet = $('admitSheet');
+  sheet.hidden = false;
+  document.body.classList.add('adc');
+  let st = $('pgad');
+  if (!st) { st = document.createElement('style'); st.id = 'pgad'; st.textContent = '@page{size:A5 portrait;margin:0}'; document.head.appendChild(st); }
+  renderAdmitSheet();
+  sheet.scrollTop = 0;
+}
+function closeAdmitCard() {
+  const sh = $('admitSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  document.body.classList.remove('adc');
+  const st = $('pgad'); if (st) st.remove();
+  adApp = null; adRec = null; adExam = null; adBusy = false;
+  if (document.body.dataset.view === 'student' && ME && ME.role === 'student') {
+    DB.admitapps().then(l => { PORT.admitapps = l; renderPortal(); }).catch(() => {});
+  }
+}
+async function adDownloadPNG() {
+  if (!adApp || !adExam) return toast('আগে পরীক্ষা বাছুন');
+  if (adFeeOn() && !(adRec && adRec.status === 'approved')) return toast('আবেদন অনুমোদনের পর ডাউনলোড করা যাবে');
+  const app = adApp, exam = adExam, rec = adFeeOn() ? adRec : null;
+  const blob = await adCardBlob(app, exam, rec);
+  if (!blob) return toast('ছবি তৈরি করা গেল না');
+  saveBlob(blob, 'admit-' + (exam.id || 'exam') + '-' + ((app.fields || {}).stuId || app.id) + '.png');
+  toast('অ্যাডমিট কার্ড PNG ডাউনলোড হয়েছে');
+}
+async function adCardBlob(app, exam, rec) {
+  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) { }
+  const k = 8, W = 148 * k, Hh = 210 * k;
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = Hh;
+  const g = cv.getContext('2d');
+  const mm = v => v * k;
+  const FS = (pt, wt) => `${wt || '400'} ${(pt * 0.3528 * k).toFixed(1)}px "Noto Sans Bengali", sans-serif`;
+  const fill = (c, x, y, w, h) => { g.fillStyle = c; g.fillRect(mm(x), mm(y), mm(w), mm(h)); };
+  const ln = (x1, y1, x2, y2, c, lw) => { g.strokeStyle = c || '#b9c0bb'; g.lineWidth = mm(lw || 0.3); g.beginPath(); g.moveTo(mm(x1), mm(y1)); g.lineTo(mm(x2), mm(y2)); g.stroke(); };
+  const txt = (t, x, y, font, c, align, maxW) => {
+    g.font = font; g.fillStyle = c || '#14201b'; g.textAlign = align || 'left'; g.textBaseline = 'middle';
+    let s = String(t == null ? '' : t);
+    if (maxW && g.measureText(s).width > mm(maxW)) { while (s.length > 1 && g.measureText(s + '…').width > mm(maxW)) s = s.slice(0, -1); s += '…'; }
+    g.fillText(s, mm(x), mm(y));
+  };
+  const load = src => new Promise(res => { if (!src) return res(null); const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+  const assets = adAssets(app);
+  const [logo, photo, psig, ssign] = await Promise.all([load(logoSrc()), load(assets.photo), load(SET.sigPrincipalImg || ''), load(assets.sign || '')]);
+  const f = app.fields || {};
+  const sess = f.session || (activeSession() ? activeSession().name : '');
+  fill('#fff', 0, 0, 148, 210);
+  if (logo) { g.globalAlpha = .05; g.drawImage(logo, mm(92), mm(140), mm(46), mm(46)); g.globalAlpha = 1; }
+  g.strokeStyle = '#0f4a37'; g.lineWidth = mm(.5); g.strokeRect(mm(4), mm(4), mm(140), mm(202));
+  if (logo) g.drawImage(logo, mm(10), mm(8), mm(16), mm(16));
+  txt('কাঁচকুড়া কলেজ', 74, 11.4, FS(12, '700'), '#0f4a37', 'center', 96);
+  txt('কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০', 74, 15.6, FS(6.6), '#555', 'center', 96);
+  ln(30, 18.4, 118, 18.4, '#c9a227', .35);
+  ln(30, 24.4, 118, 24.4, '#c9a227', .35);
+  txt('প্রবেশপত্র (অ্যাডমিট কার্ড)', 74, 21.4, FS(10, '700'), '#14201b', 'center', 88);
+  txt(exam.name, 74, 26.8, FS(8, '700'), '#0f4a37', 'center', 88);
+  const px = 116, py = 33.5;
+  if (photo) { g.drawImage(photo, mm(px), mm(py), mm(22), mm(28)); g.strokeStyle = '#0f4a37'; g.lineWidth = mm(.45); g.strokeRect(mm(px), mm(py), mm(22), mm(28)); }
+  else { g.strokeStyle = '#9db3a9'; g.lineWidth = mm(.4); g.setLineDash([mm(1.2), mm(1)]); g.strokeRect(mm(px), mm(py), mm(22), mm(28)); g.setLineDash([]); txt('ছবি নেই', px + 11, py + 14, FS(6), '#7b8a83', 'center', 18); }
+  const y0 = 35.2, dy = 5.1;
+  const pair = (lab, val, x, vx, y, maxW) => { txt(lab, x, y, FS(7, '700'), '#0f4a37'); txt(val || '—', vx, y, FS(7), '#14201b', 'left', maxW); };
+  txt('নাম', 10, y0, FS(7.6, '700'), '#0f4a37');
+  txt(f.nameBn || f.nameEn || '', 22, y0, FS(8, '700'), '#14201b', 'left', 88);
+  pair('পিতা', f.father, 10, 22, y0 + dy, 36);
+  pair('মাতা', f.mother, 62, 74, y0 + dy, 34);
+  pair('শ্রেণি', CLASSES[clsOf(app)], 10, 25, y0 + 2 * dy, 33);
+  pair('বিভাগ', DEPTS[app.dept].name, 62, 76, y0 + 2 * dy, 32);
+  pair('রোল নং', f.roll, 10, 23, y0 + 3 * dy, 35);
+  pair('স্টুডেন্ট আইডি', f.stuId, 62, 88, y0 + 3 * dy, 21);
+  pair('সেশন', sess, 10, 22, y0 + 4 * dy, 36);
+  pair('শুরুর তারিখ', exam.startDate ? fmtDate(exam.startDate) : '—', 62, 88, y0 + 4 * dy, 21);
+  if (rec && rec.rno) pair('রসিদ নং', rec.rno + ' • ' + fmtDate(rec.payDate || rec.date || ''), 10, 23, y0 + 5 * dy, 88);
+  let ty = rec && rec.rno ? 69.5 : 66.5;
+  txt('পরীক্ষার বিষয় ও পূর্ণমান', 10, ty, FS(8, '700'), '#0f4a37', 'left', 70);
+  txt('তারিখ: ' + adDateRange(exam), 138, ty, FS(6.8), '#555', 'right', 52);
+  ln(10, ty + 2.2, 138, ty + 2.2);
+  ty += 4;
+  const tX = 10, tW = 128, tx2 = tX + 98;
+  fill('#e8f2ec', tX, ty, tW, 6);
+  g.strokeStyle = '#b9c0bb'; g.lineWidth = mm(.25); g.strokeRect(mm(tX), mm(ty), mm(tW), mm(6));
+  ln(tx2, ty, tx2, ty + 6, '#b9c0bb', .25);
+  txt('বিষয়', tX + 2, ty + 3, FS(7.4, '700'), '#0f4a37');
+  txt('পূর্ণমান', tx2 + 15, ty + 3, FS(7.4, '700'), '#0f4a37', 'center');
+  ty += 6;
+  const subs = adSubs(app);
+  subs.forEach((s, i) => {
+    if (i % 2) fill('#f7faf8', tX, ty, tW, 6);
+    g.strokeStyle = '#b9c0bb'; g.lineWidth = mm(.25); g.strokeRect(mm(tX), mm(ty), mm(tW), mm(6));
+    ln(tx2, ty, tx2, ty + 6, '#b9c0bb', .25);
+    txt(s, tX + 2, ty + 3, FS(7.4), '#14201b', 'left', 94);
+    txt(bn(sfull(s, exam)), tx2 + 15, ty + 3, FS(7.4), '#14201b', 'center');
+    ty += 6;
+  });
+  if (!subs.length) { g.strokeStyle = '#b9c0bb'; g.strokeRect(mm(tX), mm(ty), mm(tW), mm(6)); txt('বিষয় পাওয়া যায়নি', tX + 2, ty + 3, FS(7.4), '#333'); ty += 6; }
+  ty += 5;
+  txt('পরীক্ষার্থীর জন্য নির্দেশনা', 10, ty, FS(8, '700'), '#0f4a37');
+  ln(10, ty + 2.2, 138, ty + 2.2);
+  const rules = [
+    'পরীক্ষা শুরুর অন্তত ৩০ মিনিট আগে কেন্দ্রে উপস্থিত হতে হবে।',
+    'প্রবেশপত্র ও স্টুডেন্ট আইডি কার্ড সঙ্গে আনতে হবে।',
+    'মোবাইল ফোন, স্মার্ট ওয়াচ বা কোনো ইলেকট্রনিক ডিভাইস পরীক্ষা কক্ষে আনা যাবে না।',
+    'প্রবেশপত্রে উল্লেখিত তথ্যে ভুল থাকলে পরীক্ষার আগে অফিসে জানাতে হবে।',
+    'এই প্রবেশপত্র অন্য কাউকে ব্যবহার করতে দেওয়া যাবে না।'
+  ];
+  rules.forEach((r, i) => {
+    txt('•', 10.6, ty + 6 + i * 4.4, FS(7));
+    txt(r, 14, ty + 6 + i * 4.4, FS(6.6), '#333', 'left', 121);
+  });
+  const sy = 190;
+  ln(14, sy, 58, sy, '#333', .3); ln(90, sy, 134, sy, '#333', .3);
+  txt('পরীক্ষার্থীর স্বাক্ষর', 36, sy + 3.2, FS(6.6), '#333', 'center', 40);
+  txt('অধ্যক্ষ', 112, sy + 3.2, FS(6.6), '#333', 'center', 40);
+  const fitImg = (im, cx, bottom, maxW, maxH) => {
+    if (!im) return;
+    const r = Math.min(maxW / im.width, maxH / im.height);
+    const w = im.width * r, h = im.height * r;
+    g.drawImage(im, mm(cx - w / 2), mm(bottom - h), mm(w), mm(h));
+  };
+  fitImg(ssign, 36, sy - .6, 30, 8);
+  fitImg(psig, 112, sy - .6, 30, 8);
+  ln(10, 198, 138, 198, '#c9d3cd', .25);
+  txt(exam.name + ' • রোল ' + (f.roll || '—'), 10, 201.6, FS(6), '#666', 'left', 80);
+  txt(f.stuId || '', 138, 201.6, FS(6), '#666', 'right', 40);
+  return new Promise(res => cv.toBlob(res, 'image/png'));
+}
+
+// ---------- গ্রুপ আইডি ও অ্যাডমিট কার্ড ----------
+const BK = { kind: 'id', examId: null, rows: [], ready: [], skip: [], busy: false };
+const bulkExam = () => (ADEXAMS || []).find(e => e.id === +BK.examId) || null;
+function bulkCheckedIds() {
+  return [...document.querySelectorAll('#rows input[data-sel]:checked')].map(i => +i.dataset.sel);
+}
+function bulkSourceRows() {
+  const ids = bulkCheckedIds(), base = listRows();
+  return ids.length ? base.filter(r => ids.includes(r.id)) : base;
+}
+const bulkIdRec = r => {
+  const rec = idRecOf(r.id, ADIDAPPS);
+  return rec && rec.status === 'approved' ? rec : null;
+};
+function bulkIdWhy(r) {
+  const f = r.fields || {};
+  if (!okApp(r)) return 'ভর্তি অনুমোদিত নয়';
+  if (!String(f.roll || '').trim() || !String(f.stuId || '').trim()) return 'রোল/স্টুডেন্ট আইডি নেই';
+  if (bulkIdRec(r)) return '';
+  const any = idRecOf(r.id, ADIDAPPS);
+  return any ? 'আইডি আবেদন ' + idStatusLbl(any.status) : 'আইডি কার্ডের আবেদন নেই';
+}
+function bulkAdWhy(r, exam) {
+  const f = r.fields || {};
+  if (!exam) return 'পরীক্ষা বাছা হয়নি';
+  if (exCls(exam) !== clsOf(r)) return 'পরীক্ষাটি ' + CLASSES[exCls(exam)] + ' শ্রেণির';
+  if (!okApp(r)) return 'ভর্তি অনুমোদিত নয়';
+  if (!String(f.roll || '').trim() || !String(f.stuId || '').trim()) return 'রোল/স্টুডেন্ট আইডি নেই';
+  if (adFeeOn()) {
+    const rec = adRecOf(r.id, exam.id);
+    if (!rec) return 'অ্যাডমিট আবেদন নেই';
+    if (rec.status !== 'approved') return 'আবেদন ' + adStatusLbl(rec.status);
+  }
+  return '';
+}
+function idBulkPagesHTML(ready) {
+  const groups = new Map();
+  ready.forEach(r => {
+    const k = clsOf(r) + '|' + r.dept;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(r);
+  });
+  let html = '';
+  groups.forEach((list, k) => {
+    const [cls, dept] = k.split('|');
+    for (let i = 0; i < list.length; i += 4) {
+      const chunk = list.slice(i, i + 4);
+      const cards = chunk.map(r => {
+        const rec = bulkIdRec(r);
+        const rr = { ...r, photo: rec.photo || '', sign: rec.sign || '' };
+        return idCardFront(rr) + idCardBack(rr, rec);
+      }).join('');
+      html += `<div class="idpage">
+        <h2>স্টুডেন্ট আইডি কার্ড</h2>
+        <p class="idsub">${H(CLASSES[cls])} • ${H(DEPTS[dept].name)} • শিক্ষার্থী ${bn(i + 1)}–${bn(i + chunk.length)} / ${bn(list.length)}</p>
+        <div class="idcards">${cards}</div>
+        <div class="idnote">প্রিন্টের পর কার্ডের চারপাশের কাটার দাগ বরাবর কেটে দুই পাশে ল্যামিনেট করুন।</div>
+      </div>`;
+    }
+  });
+  return html;
+}
+function adBulkPagesHTML(ready, exam) {
+  return ready.map(r => adCardHTML(r, exam, adFeeOn() ? adRecOf(r.id, exam.id) : null, adAssets(r))).join('');
+}
+async function openBulkSheet(kind) {
+  if (!ME || (ME.role !== 'admin' && ME.role !== 'admission')) return toast('এই কাজের অনুমতি নেই');
+  const rows = bulkSourceRows();
+  if (!rows.length) return toast('আগে শ্রেণি বা বিভাগ ছাঁকিয়ে শিক্ষার্থী বাছুন');
+  await adLoadData();
+  BK.kind = kind === 'admit' ? 'admit' : 'id';
+  BK.rows = rows; BK.ready = []; BK.skip = []; BK.busy = false;
+  if (BK.kind === 'admit') {
+    const ex = (ADEXAMS || []).slice().sort((a, b) => String(b.startDate || '').localeCompare(String(a.startDate || '')) || (b.id || 0) - (a.id || 0));
+    BK.examId = ex.length ? ex[0].id : null;
+  }
+  const sheet = $('bulkSheet');
+  sheet.hidden = false;
+  document.body.classList.add('bk');
+  let st = $('pgbk');
+  if (!st) { st = document.createElement('style'); st.id = 'pgbk'; document.head.appendChild(st); }
+  st.textContent = '@page{size:' + (BK.kind === 'id' ? 'A4 portrait;margin:10mm' : 'A5 portrait;margin:0') + '}';
+  renderBulkSheet();
+  sheet.scrollTop = 0;
+}
+function renderBulkSheet() {
+  const sheet = $('bulkSheet'), sc = sheet.scrollTop;
+  const isId = BK.kind === 'id', exam = isId ? null : bulkExam();
+  const ready = [], skip = [];
+  BK.rows.forEach(r => {
+    const why = isId ? bulkIdWhy(r) : bulkAdWhy(r, exam);
+    if (why) skip.push({ r, why }); else ready.push(r);
+  });
+  BK.ready = ready; BK.skip = skip;
+  const total = BK.rows.length, selCount = bulkCheckedIds().length;
+  const examOpts = (ADEXAMS || []).slice()
+    .sort((a, b) => String(b.startDate || '').localeCompare(String(a.startDate || '')) || (b.id || 0) - (a.id || 0))
+    .map(e => `<option value="${e.id}" ${exam && e.id === exam.id ? 'selected' : ''}>${H(e.name)} — ${H(CLASSES[exCls(e)])}${e.startDate ? ' • ' + fmtDate(e.startDate) : ''}</option>`).join('');
+  const pickHTML = isId ? '' : `<label class="f"><span>পরীক্ষা বাছুন</span><select id="bkExamSel">${examOpts || '<option value="">কোনো পরীক্ষা নেই</option>'}</select></label>`;
+  const skipHTML = skip.length ? `<div class="bkrow bkwarn">${skip.slice(0, 10).map(x => H(nameOf(x.r)) + ' — ' + H(x.why)).join(' • ')}${skip.length > 10 ? ' • আরও ' + bn(skip.length - 10) + ' জন' : ''}</div>` : '';
+  const pages = ready.length ? (isId ? idBulkPagesHTML(ready) : adBulkPagesHTML(ready, exam)) : '';
+  sheet.innerHTML = `<div class="idbar">
+      ${ready.length ? '<button type="button" class="bkprint">প্রিন্ট / PDF</button><button type="button" class="bkpng">সব PNG ডাউনলোড</button>' : ''}
+      <button type="button" class="ghost bkclose">বন্ধ করুন</button>
+    </div>
+    <div class="bkpick">
+      <h3>${isId ? 'গ্রুপ আইডি কার্ড' : 'গ্রুপ অ্যাডমিট কার্ড'}</h3>
+      <div class="bkmeta">${selCount ? 'টিক দেওয়া ' + bn(total) + ' জন' : 'ছাঁকানো তালিকার সব ' + bn(total) + ' জন'} শিক্ষার্থী — কার্ড প্রস্তুত ${bn(ready.length)} জন${skip.length ? ' • বাদ ' + bn(skip.length) + ' জন' : ''}।</div>
+      ${pickHTML}
+      <div class="bkrow"><span id="bkProg" class="bkprog"></span><span>একাধিক PNG নামালে ব্রাউজার অনুমতি চাইতে পারে — অনুমতি দিন।</span></div>
+      ${skipHTML}
+      ${ready.length ? '' : '<div class="bkrow bkwarn">এই তালিকায় প্রস্তুত কার্ড নেই। পূর্বের বাদ তালিকা দেখে আবেদন অনুমোদন বা রোল/আইডি সম্পন্ন করুন।</div>'}
+    </div>
+    ${pages}`;
+  sheet.querySelector('.bkclose').onclick = closeBulkSheet;
+  const pr = sheet.querySelector('.bkprint'); if (pr) pr.onclick = () => BK.ready.length ? window.print() : toast('প্রিন্ট করার কার্ড নেই');
+  const pg = sheet.querySelector('.bkpng'); if (pg) pg.onclick = bulkDownloadPNG;
+  const sel = $('bkExamSel');
+  if (sel) sel.onchange = () => { BK.examId = +sel.value || null; renderBulkSheet(); };
+  sheet.scrollTop = sc;
+}
+async function bulkDownloadPNG() {
+  if (BK.busy) return;
+  const ready = BK.ready.slice(), exam = bulkExam();
+  if (!ready.length) return toast('ডাউনলোড করার কার্ড নেই');
+  if (BK.kind === 'admit' && !exam) return toast('আগে পরীক্ষা বাছুন');
+  BK.busy = true;
+  const prog = $('bkProg');
+  let done = 0;
+  for (const r of ready) {
+    try {
+      let b;
+      if (BK.kind === 'id') b = await idCardBlob(r, bulkIdRec(r));
+      else b = await adCardBlob(r, exam, adFeeOn() ? adRecOf(r.id, exam.id) : null);
+      if (b) {
+        if (BK.kind === 'id') saveBlob(b, 'idcard-' + ((r.fields || {}).stuId || r.id) + '.png');
+        else saveBlob(b, 'admit-' + (exam.id || 'exam') + '-' + ((r.fields || {}).stuId || r.id) + '.png');
+      }
+    } catch (e) { }
+    done++;
+    if (prog) prog.textContent = 'তৈরি হচ্ছে ' + bn(done) + ' / ' + bn(ready.length);
+    await new Promise(res => setTimeout(res, 180));
+  }
+  BK.busy = false;
+  toast(bn(ready.length) + 'টি কার্ড PNG ডাউনলোড শুরু হয়েছে');
+}
+function closeBulkSheet() {
+  const sh = $('bulkSheet'); if (sh) { sh.hidden = true; sh.innerHTML = ''; }
+  document.body.classList.remove('bk');
+  const st = $('pgbk'); if (st) st.remove();
+  BK.rows = []; BK.ready = []; BK.skip = []; BK.busy = false;
+}
+
 // ---------- শিক্ষার্থী পোর্টাল ----------
-const PORT = { tab: 'result', app: null, apps: [], exams: [], marks: [], pays: [], plans: [], reqs: [], examId: null, year: '', out: [], busy: false };
+const PORT = { tab: 'result', app: null, apps: [], exams: [], allExams: [], marks: [], pays: [], plans: [], reqs: [], idapps: [], admitapps: [], examId: null, year: '', out: [], busy: false };
 const REQ_METHODS = ['বিকাশ', 'নগদ', 'রকেট', 'ব্যাংক'];
 function portalOutstanding(pl, pays) {
   const paidMonths = {}, labels = new Set(); let adm = false, ses = false;
@@ -2724,7 +4257,8 @@ async function openStudentPortal() {
   box.innerHTML = '<p class="pnotice">পোর্টাল লোড হচ্ছে…</p>';
   try {
     PORT.apps = await DB.all(); PORT.exams = await DB.exams(); PORT.marks = await DB.marks();
-    PORT.pays = await DB.payments(); PORT.plans = await DB.feeplans(); PORT.reqs = await DB.feereqs();
+    PORT.pays = await DB.payments(); PORT.plans = await DB.feeplans(); PORT.reqs = await DB.feereqs(); PORT.idapps = await DB.idapps();
+    PORT.admitapps = await DB.admitapps(); PORT.allExams = await DB.exams();
   } catch (e) { box.innerHTML = '<p class="warn">এই ব্রাউজারে তথ্য পাওয়া যাচ্ছে না। ফাইলটি Chrome বা Firefox-এ খুলুন।</p>'; return; }
   PORT.app = PORT.apps.find(a => a.id === ME.appId) || null;
   if (!PORT.app) { box.innerHTML = '<p class="warn">আপনার ভর্তি আবেদনটি আর পাওয়া যাচ্ছে না। অফিসে যোগাযোগ করুন।</p>'; return; }
@@ -2745,8 +4279,10 @@ function renderPortal() {
     <div class="ptabs noprint">
       <button type="button" data-ptab="result" aria-pressed="${PORT.tab === 'result'}">ফলাফল ও মার্কশিট</button>
       <button type="button" data-ptab="fees" aria-pressed="${PORT.tab === 'fees'}">ফি, বকেয়া ও রসিদ</button>
+      <button type="button" data-ptab="idcard" aria-pressed="${PORT.tab === 'idcard'}">আইডি কার্ড</button>
+      <button type="button" data-ptab="admit" aria-pressed="${PORT.tab === 'admit'}">অ্যাডমিট কার্ড</button>
     </div>
-    <div id="portalBody">${PORT.tab === 'fees' ? portalFees() : portalResult()}</div>`;
+    <div id="portalBody">${PORT.tab === 'idcard' ? portalIdCard() : PORT.tab === 'admit' ? portalAdmit() : PORT.tab === 'fees' ? portalFees() : portalResult()}</div>`;
   wirePortal();
 }
 function portalResult() {
@@ -2763,7 +4299,7 @@ function portalFees() {
   const a = PORT.app, f = a.fields || {}, year = PORT.year;
   const pl = PORT.plans.find(p => p.appId === a.id && String(p.year) === String(year)) || null;
   const pays = PORT.pays.filter(p => p.appId === a.id && String(p.year) === String(year)).sort((x, y) => (y.ts || 0) - (x.ts || 0));
-  const valid = pays.filter(p => !p.void), paid = valid.reduce((s, p) => s + num(p.total), 0);
+  const valid = pays.filter(p => !p.void), paid = valid.reduce((s, p) => s + nonIdTotal(p), 0);
   const exp = pl ? expectedOf(pl) : null, due = exp == null ? null : Math.max(0, exp - paid);
   const out = pl ? portalOutstanding(pl, pays) : [];
   PORT.out = out;
@@ -2799,13 +4335,53 @@ function portalFees() {
     ${reqBox}
     <div class="acc-box"><h4>পরিশোধের ইতিহাস</h4>${hist}</div>`;
 }
+function portalIdCard() {
+  const a = PORT.app, f = a.fields || {};
+  if (!f.roll || !f.stuId) return '<p class="pnotice">রোল ও স্টুডেন্ট আইডি দেওয়ার পর আইডি কার্ডের আবেদন করা যাবে। অফিসে যোগাযোগ করুন।</p>';
+  const rec = (PORT.idapps || []).filter(x => x.appId === a.id).sort((x, y) => (y.ts || 0) - (x.ts || 0))[0] || null;
+  const st = rec ? idStatusLbl(rec.status) : '';
+  const cls = rec ? (rec.status === 'approved' ? 'ok' : rec.status === 'rejected' ? 'bad' : 'pend') : '';
+  const statusBox = rec ? `<div class="idkv">
+      <div><b>রসিদ নং</b>${H(rec.rno)}</div>
+      <div><b>আইডি কার্ড ফি</b>${taka(rec.fee)} টাকা</div>
+      <div><b>জমা দেওয়া</b>${fmtDate(rec.payDate || rec.date || '')}</div>
+      <div><b>অবস্থা</b><span class="idchip ${cls}">${H(st)}</span></div>
+    </div>${rec.status === 'rejected' && rec.reason ? `<div class="idhint bad">বাতিলের কারণ: ${H(rec.reason)}</div>` : ''}` : '';
+  const btn = rec && rec.status === 'approved' ? 'কার্ড দেখুন / প্রিন্ট' : rec && rec.status === 'pending' ? 'আবেদনের অবস্থা দেখুন' : 'আইডি কার্ডের আবেদন করুন';
+  return `<div class="acc-box"><h4>স্টুডেন্ট আইডি কার্ড</h4>
+    ${statusBox}
+    <p class="acc-note">আইডি কার্ড ফি ${taka(idFeeAmt())} টাকা। অফিস থেকে «আইডি কার্ড ফি» খাতে রসিদ নিয়ে সেই রসিদ নম্বর দিয়ে আবেদন করুন; সাথে ছবি ও স্বাক্ষর আপলোড করতে হবে।</p>
+    <div class="tools"><button type="button" data-idopen class="go">${btn}</button></div>
+  </div>`;
+}
+function portalAdmit() {
+  const a = PORT.app, f = a.fields || {};
+  if (!f.roll || !f.stuId) return '<p class="pnotice">রোল ও স্টুডেন্ট আইডি দেওয়ার পর অ্যাডমিট কার্ড তৈরি করা যাবে। অফিসে যোগাযোগ করুন।</p>';
+  const list = (PORT.allExams || []).filter(e => exCls(e) === clsOf(a))
+    .sort((x, y) => String(y.startDate || '').localeCompare(String(x.startDate || '')) || (y.id || 0) - (x.id || 0));
+  if (!list.length) return '<p class="pnotice">এই শ্রেণির কোনো পরীক্ষা তৈরি হয়নি। পরীক্ষার সময়সূচি প্রকাশ হলে এখানে দেখা যাবে।</p>';
+  const rows = list.map(e => {
+    const rec = (PORT.admitapps || []).filter(x => x.appId === a.id && x.examId === e.id).sort((x, y) => (y.ts || 0) - (x.ts || 0))[0] || null;
+    const st = adFeeOn() ? (rec ? adStatusLbl(rec.status) : 'আবেদন করা হয়নি') : 'সরাসরি তৈরি';
+    const cls = adFeeOn() ? (rec ? (rec.status === 'approved' ? 'ok' : rec.status === 'rejected' ? 'bad' : 'pend') : '') : 'ok';
+    const btn = !adFeeOn() || (rec && rec.status === 'approved') ? 'কার্ড দেখুন / ডাউনলোড' : rec && rec.status === 'pending' ? 'অবস্থা দেখুন' : 'আবেদন করুন';
+    return `<tr><td>${H(e.name)}</td><td>${e.startDate ? fmtDate(e.startDate) : '—'}</td><td><span class="idchip ${cls}">${H(st)}</span></td><td><button type="button" data-adopen="${e.id}">${btn}</button></td></tr>`;
+  }).join('');
+  return `<div class="acc-box"><h4>অ্যাডমিট কার্ড</h4>
+    <p class="acc-note">${adFeeOn() ? 'অ্যাডমিট কার্ড ফি ' + taka(admitFeeAmt()) + ' টাকা। অফিস থেকে «অ্যাডমিট কার্ড ফি» খাতে রসিদ নিয়ে রসিদ নম্বর দিয়ে পরীক্ষাভিত্তিক আবেদন করুন।' : 'এই মুহূর্তে ফি ছাড়াই পরীক্ষার অ্যাডমিট কার্ড সরাসরি তৈরি করা যাবে।'}</p>
+    <div class="scroll"><table class="acc-table"><thead><tr><th>পরীক্ষা</th><th>শুরুর তারিখ</th><th>অবস্থা</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+  </div>`;
+}
 function wirePortal() {
   const box = $('portalBox');
   box.querySelectorAll('[data-ptab]').forEach(b => b.onclick = () => { PORT.tab = b.dataset.ptab; renderPortal(); });
+  const idopen = box.querySelector('[data-idopen]');
+  if (idopen) idopen.onclick = () => openIdSheet(PORT.app);
+  box.querySelectorAll('[data-adopen]').forEach(b => b.onclick = () => openAdmitSheet(PORT.app, +b.dataset.adopen));
   const exSel = $('pExam');
   if (exSel) exSel.onchange = e => { PORT.examId = +e.target.value; renderPortal(); };
   const pr = $('pMsPrint');
-  if (pr) pr.onclick = () => window.print();
+  if (pr) pr.onclick = () => printMarksheets();
   const recalc = () => {
     const total = [...document.querySelectorAll('#pFeeItems input:checked')].reduce((s, i) => s + num(PORT.out[+i.dataset.pi].amount), 0);
     const el = $('pTotal'); if (el) el.textContent = taka(total) + ' টাকা';
@@ -2855,11 +4431,97 @@ async function openSettings() {
   try { ssApps = await DB.all(); } catch (e) { ssApps = []; }
   renderSettings();
 }
+function setSums() {
+  const put = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+  const act = activeSession();
+  put('sumSess', SESSIONS.length ? bn(SESSIONS.length) + 'টি সেশন • সক্রিয়: ' + (act ? act.name : 'নেই') : 'কোনো সেশন নেই');
+  if (!document.getElementById('sumStu')) return;
+  put('sumStu', SET.studentResult && SET.studentPay ? 'ফলাফল ও ফি অনুরোধ চালু' : SET.studentResult ? 'শুধু ফলাফল চালু' : SET.studentPay ? 'শুধু ফি অনুরোধ চালু' : 'সব বন্ধ');
+  put('sumMs', ({ card: 'কার্ড', grid: 'গ্রিড', compact: 'সংক্ষিপ্ত' }[SET.msInfo] || 'কার্ড') + ' • ছবি ' + (SET.msPhoto === 'left' ? 'বামে' : 'ডানে'));
+  const sc = [SET.sigCollector, SET.sigPrincipal].filter(v => String(v || '').trim()).length;
+  const ic = [SET.sigCollectorImg, SET.sigPrincipalImg].filter(Boolean).length;
+  put('sumSig', [sc ? bn(sc) + 'টি নাম' : '', ic ? bn(ic) + 'টি স্বাক্ষর ছবি' : ''].filter(Boolean).join(' • ') || 'ডিফল্ট নাম ব্যবহৃত হবে');
+  put('sumId', 'ফি ' + taka(idFeeAmt()) + ' টাকা' + (SET.logoImg ? ' • লোগো আপলোড হয়েছে' : ''));
+  put('sumAdmit', SET.admitFeeOn ? 'রসিদভিত্তিক আবেদন • ফি ' + taka(admitFeeAmt()) + ' টাকা' : 'ফি ছাড়াই সরাসরি তৈরি');
+  const oc = [SET.accSetup, SET.accVoid, SET.accReport, SET.accApprove].filter(Boolean).length;
+  put('sumAcc', oc === 4 ? 'সব অনুমতি চালু' : oc === 0 ? 'সব বন্ধ' : bn(oc) + 'টি চালু');
+}
+let sigCImg = '', sigPImg = '';
+function setSigUploads() {
+  const paint = (imId, phId, delId, v) => {
+    const im = document.getElementById(imId); if (!im) return;
+    im.src = v; im.hidden = !v;
+    document.getElementById(phId).hidden = !!v;
+    document.getElementById(delId).hidden = !v;
+  };
+  paint('setSigCImg', 'setSigCPh', 'setSigCDel', sigCImg);
+  paint('setSigPImg', 'setSigPPh', 'setSigPDel', sigPImg);
+}
+function bindSigUploads() {
+  sigCImg = SET.sigCollectorImg || ''; sigPImg = SET.sigPrincipalImg || '';
+  const load = (fileId, set) => {
+    $(fileId).onchange = e => {
+      const f = e.target.files[0]; if (!f) return;
+      if (!/^image\//.test(f.type)) { e.target.value = ''; return toast('শুধু ছবি ফাইল বাছুন'); }
+      const r = new FileReader();
+      r.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          const W = 480, Hh = 180, k = Math.min(W / img.width, Hh / img.height, 1), w = Math.round(img.width * k), h = Math.round(img.height * k);
+          const c = document.createElement('canvas'); c.width = W; c.height = Hh;
+          const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, W, Hh);
+          x.drawImage(img, (W - w) / 2, (Hh - h) / 2, w, h);
+          set(c.toDataURL('image/png')); setSigUploads();
+        };
+        img.onerror = () => toast('ছবিটি পড়া গেল না');
+        img.src = r.result;
+      };
+      r.readAsDataURL(f); e.target.value = '';
+    };
+  };
+  load('setSigCFile', d => { sigCImg = d; });
+  load('setSigPFile', d => { sigPImg = d; });
+  $('setSigCDel').onclick = () => { sigCImg = ''; setSigUploads(); };
+  $('setSigPDel').onclick = () => { sigPImg = ''; setSigUploads(); };
+  setSigUploads();
+}
+let idLogoImg = '';
+function setIdLogoPreview() {
+  const im = document.getElementById('setIdLogoImg'); if (!im) return;
+  im.src = idLogoImg; im.hidden = !idLogoImg;
+  document.getElementById('setIdLogoPh').hidden = !!idLogoImg;
+  document.getElementById('setIdLogoDel').hidden = !idLogoImg;
+}
+function bindIdSettings() {
+  idLogoImg = SET.logoImg || '';
+  $('setIdLogoFile').onchange = e => {
+    const f = e.target.files[0]; e.target.value = '';
+    if (!f) return;
+    if (!/^image\//.test(f.type)) return toast('শুধু ছবি ফাইল বাছুন');
+    const r = new FileReader();
+    r.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const c = document.createElement('canvas'); c.width = 300; c.height = 300;
+        const k = Math.min(300 / img.width, 300 / img.height, 1), w = Math.round(img.width * k), h = Math.round(img.height * k);
+        const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, 300, 300);
+        x.drawImage(img, (300 - w) / 2, (300 - h) / 2, w, h);
+        idLogoImg = c.toDataURL('image/png'); setIdLogoPreview();
+      };
+      img.onerror = () => toast('ছবিটি পড়া গেল না');
+      img.src = r.result;
+    };
+    r.readAsDataURL(f);
+  };
+  $('setIdLogoDel').onclick = () => { idLogoImg = ''; setIdLogoPreview(); };
+  setIdLogoPreview();
+}
 function renderSettings() {
   const box = $('setBox');
   const isAdmin = !ME || ME.role === 'admin';
-  const sessHTML = `<section class="setsec" style="grid-column:1/-1"><h3>ভর্তি সেশন</h3>
-        <p class="acc-note" style="margin-top:0">নতুন সেশন তৈরি করলে সেটি সক্রিয় হয় ও আবেদন ফরমে স্বয়ংক্রিয়ভাবে বসে; স্টুডেন্ট আইডি ও রোলের বছরও সক্রিয় সেশন থেকেই নেওয়া হয়।</p>
+  const sessHTML = `<section class="setsec" style="grid-column:1/-1">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>ভর্তি সেশন</b><small id="sumSess"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><p class="acc-note" style="margin-top:0">নতুন সেশন তৈরি করলে সেটি সক্রিয় হয় ও আবেদন ফরমে স্বয়ংক্রিয়ভাবে বসে; স্টুডেন্ট আইডি ও রোলের বছরও সক্রিয় সেশন থেকেই নেওয়া হয়।</p>
         <div class="tools" style="align-items:flex-end">
           <label class="f" style="flex:1;min-width:170px"><span>শুরুর বছর (যেমন ২০২৬)</span><input id="ssYear" inputmode="numeric" autocomplete="off"></label>
           <button type="button" id="ssAdd" class="go">সেশন তৈরি করুন</button>
@@ -2868,16 +4530,18 @@ function renderSettings() {
           <thead><tr><th>সেশন</th><th>শুরুর বছর</th><th>আবেদন</th><th>অবস্থা</th><th></th></tr></thead>
           <tbody id="ssRows"></tbody>
         </table></div>
-        <p class="acc-note">সক্রিয় বা ব্যবহৃত সেশন মোছা যাবে না; অন্তত একটি সেশন থাকতে হবে।</p>
+        <p class="acc-note">সক্রিয় বা ব্যবহৃত সেশন মোছা যাবে না; অন্তত একটি সেশন থাকতে হবে।</p></div>
       </section>`;
-  const adminHTML = `<section class="setsec"><h3>শিক্ষার্থী পোর্টাল</h3>
-        <label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
+  const adminHTML = `<section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>শিক্ষার্থী পোর্টাল</b><small id="sumStu"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setStuPay" ${SET.studentPay ? 'checked' : ''}><span><b>ফি পরিশোধের অনুরোধ</b><small>শিক্ষার্থী বকেয়া ফি বেছে মোবাইল ব্যাংক/ব্যাংকের ট্রানজেকশন দিয়ে অনুরোধ পাঠাতে পারবে; হিসাব শাখা অনুমোদন করলে রসিদ তৈরি হবে।</small></span></label>
         <p class="acc-note">শিক্ষার্থী লগইন করে স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর (শিক্ষার্থী/পিতা/মাতা/অভিভাবক) দিয়ে।</p>
-        <p class="acc-note">উপরের দুটি বন্ধ রাখলে শিক্ষার্থী লগইন করে শুধু নিজের তথ্য দেখতে পারবে; ফলাফল ও ফি সেবা বন্ধ থাকবে। নতুন ভর্তির আবেদন আলাদাভাবে সব সময় খোলা।</p>
+        <p class="acc-note">উপরের দুটি বন্ধ রাখলে শিক্ষার্থী লগইন করে শুধু নিজের তথ্য দেখতে পারবে; ফলাফল ও ফি সেবা বন্ধ থাকবে। নতুন ভর্তির আবেদন আলাদাভাবে সব সময় খোলা।</p></div>
       </section>
-      <section class="setsec"><h3>মার্কশিটের শিক্ষার্থী তথ্য</h3>
-        <label class="f"><span>তথ্যের ধরন</span><select id="setMsInfo">
+      <section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>মার্কশিটের শিক্ষার্থী তথ্য</b><small id="sumMs"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><label class="f"><span>তথ্যের ধরন</span><select id="setMsInfo">
           <option value="card" ${SET.msInfo === 'card' ? 'selected' : ''}>কার্ড — নাম বড় করে, বাকি তথ্য ঘরের ভেতরে</option>
           <option value="grid" ${SET.msInfo === 'grid' ? 'selected' : ''}>গ্রিড — দুই কলামে লেবেল ও তথ্য</option>
           <option value="compact" ${SET.msInfo === 'compact' ? 'selected' : ''}>সংক্ষিপ্ত — ছোট বাক্সে তিন কলাম</option>
@@ -2887,31 +4551,58 @@ function renderSettings() {
           <option value="left" ${SET.msPhoto === 'left' ? 'selected' : ''}>তথ্যের বামে</option>
         </select></label>
         <p class="acc-note">নিচে নমুনা দেখুন। প্রিন্টেও একই সাজানো থাকবে।</p>
+        <div id="setPrev" class="setprev"></div></div>
       </section>
-      <section class="setsec"><h3>রসিদের স্বাক্ষর</h3>
-        <label class="f"><span>আদায়কারী / হিসাবরক্ষকের নাম</span><input id="setSigCollector" value="${H(SET.sigCollector || '')}" placeholder="যেমন: মোঃ রফিকুল ইসলাম" autocomplete="off"></label>
+      <section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>রসিদের স্বাক্ষর</b><small id="sumSig"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><label class="f"><span>আদায়কারী / হিসাবরক্ষকের নাম</span><input id="setSigCollector" value="${H(SET.sigCollector || '')}" placeholder="যেমন: মোঃ রফিকুল ইসলাম" autocomplete="off"></label>
         <label class="f" style="margin-top:10px"><span>অধ্যক্ষের নাম</span><input id="setSigPrincipal" value="${H(SET.sigPrincipal || '')}" placeholder="যেমন: প্রফেসর মোঃ আব্দুল হাই" autocomplete="off"></label>
-        <p class="acc-note">লেখা নাম রসিদের নিচের স্বাক্ষর লাইনে ছাপা হবে। আদায়কারীর ঘর খালি থাকলে দায়িত্বরত কর্মীর নাম, অধ্যক্ষের ঘর খালি থাকলে প্রতিষ্ঠানের নাম বসবে।</p>
+        <div class="sigup">
+          <div class="sigcard"><label class="sigdrop" for="setSigCFile" title="স্বাক্ষরের ছবি আপলোড"><img id="setSigCImg" alt="আদায়কারীর স্বাক্ষর" hidden><span id="setSigCPh">স্বাক্ষরের ছবি<br><small>আপলোড</small></span></label>
+            <input type="file" id="setSigCFile" accept="image/*" hidden>
+            <div class="sigmeta"><b>আদায়কারীর স্বাক্ষর</b><button type="button" id="setSigCDel" hidden>সরান</button></div></div>
+          <div class="sigcard"><label class="sigdrop" for="setSigPFile" title="স্বাক্ষরের ছবি আপলোড"><img id="setSigPImg" alt="অধ্যক্ষের স্বাক্ষর" hidden><span id="setSigPPh">স্বাক্ষরের ছবি<br><small>আপলোড</small></span></label>
+            <input type="file" id="setSigPFile" accept="image/*" hidden>
+            <div class="sigmeta"><b>অধ্যক্ষের স্বাক্ষর</b><button type="button" id="setSigPDel" hidden>সরান</button></div></div>
+        </div>
+        <p class="acc-note">আপলোড করা স্বাক্ষরের ছবি রসিদের স্বাক্ষর লাইনের ঠিক ওপরে ছাপা হবে; ছবি না থাকলে শুধু লেখা নাম দেখাবে। আদায়কারীর নাম খালি থাকলে দায়িত্বরত কর্মীর নাম, অধ্যক্ষের নাম খালি থাকলে প্রতিষ্ঠানের নাম বসবে।</p></div>
       </section>
-      <section class="setsec"><h3>হিসাব রক্ষকের অনুমতি</h3>
-        <label class="setrow"><input type="checkbox" id="setAccSetup" ${SET.accSetup ? 'checked' : ''}><span><b>ফি সেটআপ</b><small>শিক্ষার্থীর ভর্তি/সেশন/মাসিক ফি নির্ধারণ ও বিভাগে প্রয়োগ।</small></span></label>
+      <section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>আইডি কার্ড</b><small id="sumId"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><label class="f"><span>আইডি কার্ড ফি (টাকা)</span><input type="number" min="0" step="1" id="setIdFee" value="${num(SET.idFee) || 200}" inputmode="numeric"></label>
+        <div class="sigup" style="margin-top:10px">
+          <div class="sigcard"><label class="sigdrop" for="setIdLogoFile" title="প্রতিষ্ঠানের লোগো আপলোড"><img id="setIdLogoImg" alt="প্রতিষ্ঠানের লোগো" hidden><span id="setIdLogoPh">লোগো<br><small>আপলোড</small></span></label>
+            <input type="file" id="setIdLogoFile" accept="image/*" hidden>
+            <div class="sigmeta"><b>প্রতিষ্ঠানের লোগো</b><button type="button" id="setIdLogoDel" hidden>সরান</button></div></div>
+        </div>
+        <p class="acc-note">আইডি কার্ডের আবেদনে ঠিক এই পরিমাণের «আইডি কার্ড ফি» সহ পরিশোধিত রসিদ নম্বর দিতে হবে। এখানের লোগো আইডি কার্ড ও সব প্রিন্টে ব্যবহৃত হবে; অধ্যক্ষের স্বাক্ষর «রসিদের স্বাক্ষর» অংশ থেকে নেওয়া হয়।</p></div>
+      </section>
+      <section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>অ্যাডমিট কার্ড</b><small id="sumAdmit"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><label class="setrow"><input type="checkbox" id="setAdmitFeeOn" ${SET.admitFeeOn ? 'checked' : ''}><span><b>ফি দিয়ে আবেদন</b><small>চালু থাকলে শিক্ষার্থী/অফিস আগে «অ্যাডমিট কার্ড ফি» সহ রসিদ নিয়ে সেই রসিদ নম্বর দিয়ে পরীক্ষাভিত্তিক আবেদন করবে। বন্ধ থাকলে পরীক্ষা বাছাই করলেই সরাসরি অ্যাডমিট তৈরি হবে।</small></span></label>
+        <label class="f" style="margin-top:10px"><span>প্রতি পরীক্ষার অ্যাডমিট কার্ড ফি (টাকা)</span><input type="number" min="0" step="1" id="setAdmitFee" value="${num(SET.admitFee) || 100}" inputmode="numeric"></label>
+        <p class="acc-note">ফি চালু থাকলে হিসাব শাখার «টাকা আদায়» ফর্মে «অ্যাডমিট কার্ড ফি» খাত থেকেই রসিদ তৈরি হবে; ওই ফি বকেয়ার হিসাবে ধরা হবে না।</p></div>
+      </section>
+      <section class="setsec">
+        <button type="button" class="setbtn" aria-expanded="false"><span class="setttl"><b>হিসাব রক্ষকের অনুমতি</b><small id="sumAcc"></small></span><i class="setchev" aria-hidden="true"></i></button>
+        <div class="setbody"><label class="setrow"><input type="checkbox" id="setAccSetup" ${SET.accSetup ? 'checked' : ''}><span><b>ফি সেটআপ</b><small>শিক্ষার্থীর ভর্তি/সেশন/মাসিক ফি নির্ধারণ ও বিভাগে প্রয়োগ।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccVoid" ${SET.accVoid ? 'checked' : ''}><span><b>রসিদ বাতিল</b><small>ভুল রসিদ বাতিল করা। বাতিল করা রসিদ নম্বর আর ব্যবহার হয় না।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccReport" ${SET.accReport ? 'checked' : ''}><span><b>রিপোর্ট ও CSV</b><small>হিসাবের রিপোর্ট দেখা, CSV নামানো ও রসিদ প্রিন্ট করা।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccApprove" ${SET.accApprove ? 'checked' : ''}><span><b>ফি অনুরোধ অনুমোদন</b><small>শিক্ষার্থীর পাঠানো ফি অনুরোধ যাচাই করে রসিদ তৈরি করা।</small></span></label>
-        <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p>
+        <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p></div>
       </section>`;
   box.innerHTML = `<div class="dhero">
-      <div><h2>সেটিংস</h2><p>${isAdmin ? 'শিক্ষার্থী পোর্টাল, মার্কশিটের তথ্য সাজানো ও হিসাব রক্ষকের অনুমতি এখান থেকে ঠিক করুন।' : 'ভর্তি কমিটি এখান থেকে নতুন ভর্তি সেশন তৈরি ও সক্রিয় করতে পারে।'}</p><p>${isAdmin ? 'পরিবর্তন এই ডিভাইসের ডেটাবেসে সংরক্ষিত হয় এবং ব্যাকআপের সাথেও যায়।' : 'সেশন বদলালে আবেদন ফরম, স্টুডেন্ট আইডি ও রোলের বছর সঙ্গে সঙ্গে বদলে যাবে।'}</p></div>
+      <div><h2>সেটিংস</h2><p>${isAdmin ? 'প্রয়োজনীয় অংশে চাপ দিয়ে বিস্তারিত খুলুন; পরিবর্তন এই ডিভাইসের ডেটাবেসে ও ব্যাকআপে সংরক্ষিত হয়।' : 'ভর্তি সেশন অংশে চাপ দিয়ে নতুন সেশন তৈরি ও সক্রিয় করুন।'}</p></div>
     </div>
     <div class="setgrid">${sessHTML}${isAdmin ? adminHTML : ''}</div>
-    ${isAdmin ? `<div class="dsec"><h3>নমুনা মার্কশিট তথ্য</h3></div>
-    <div id="setPrev"></div>
-    <div class="tools" style="margin-top:14px"><button type="button" id="setSave" class="go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload">আগের অবস্থায় ফিরুন</button></div>
+    ${isAdmin ? `<div class="tools" style="margin-top:14px"><button type="button" id="setSave" class="go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload">আগের অবস্থায় ফিরুন</button></div>
     <p class="acc-note">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</p>` : ''}`;
-  renderSessions(); bindSessions();
+  renderSessions(); bindSessions(); setSums();
   if (!isAdmin) return;
   const prev = () => { renderSetPreview(); };
   $('setMsInfo').onchange = prev; $('setMsPhoto').onchange = prev;
+  bindSigUploads();
+  bindIdSettings();
   $('setReload').onclick = () => openSettings();
   $('setSave').onclick = async () => {
     SET = {
@@ -2919,14 +4610,24 @@ function renderSettings() {
       studentResult: $('setStuRes').checked, studentPay: $('setStuPay').checked,
       msInfo: $('setMsInfo').value, msPhoto: $('setMsPhoto').value,
       sigCollector: $('setSigCollector').value.trim(), sigPrincipal: $('setSigPrincipal').value.trim(),
+      sigCollectorImg: sigCImg, sigPrincipalImg: sigPImg,
+      logoImg: idLogoImg, idFee: num($('setIdFee').value) || 200,
+      admitFeeOn: $('setAdmitFeeOn').checked, admitFee: num($('setAdmitFee').value) || 100,
       accSetup: $('setAccSetup').checked, accVoid: $('setAccVoid').checked,
       accReport: $('setAccReport').checked, accApprove: $('setAccApprove').checked
     };
-    try { await DB.putMeta({ k: 'settings', v: { ...SET }, at: Date.now() }); toast('সেটিংস সংরক্ষিত হয়েছে'); renderSetPreview(); }
+    try { await DB.putMeta({ k: 'settings', v: { ...SET }, at: Date.now() }); applyLogo(); toast('সেটিংস সংরক্ষিত হয়েছে'); setSums(); renderSetPreview(); }
     catch (e) { toast('সেটিংস সংরক্ষণ করা গেল না'); }
   };
   renderSetPreview();
 }
+$('setBox').addEventListener('click', e => {
+  const b = e.target.closest('.setbtn'); if (!b) return;
+  const sec = b.closest('.setsec'); if (!sec) return;
+  const open = !sec.classList.contains('open');
+  sec.classList.toggle('open', open);
+  b.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
 const fav = document.createElement('link');
 fav.rel = 'icon'; fav.href = document.querySelector('.logo').src;
 document.head.appendChild(fav);
