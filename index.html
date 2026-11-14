@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>কাঁচকুড়া কলেজ – একাদশ শ্রেণির ভর্তি ফরম ২০২৬</title>
+<script>
+try{var kcTheme=localStorage.getItem('kc_theme');if(kcTheme==='dark'||kcTheme==='light')document.documentElement.dataset.theme=kcTheme;}catch(e){}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -11,9 +14,19 @@
   --fb:"Noto Sans Bengali",system-ui,sans-serif;--fh:"Noto Sans Bengali",system-ui,sans-serif;
   --ink:#1d2421; --muted:#5d6762; --paper:#fffefa; --bg:#e9ece8; --line:#b9c0bb;
   --accent:#1f5c46; --tint:#e6f1ea; --err:#b3261e;
+  --chrome1:#eef2f0; --chrome2:#e2e8e5; --chromeInk:#4c5752; --chromeHover:rgba(255,255,255,.6); --chromeLine:rgba(0,0,0,.12); --chromeAv:rgba(255,255,255,.4);
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --ink:#e8ece9; --muted:#a3ada7; --paper:#1c2420; --bg:#121815; --line:#415049;
+  --accent:#7cc4a2; --tint:#24352d; --err:#ff8a80;
+  --chrome1:#242f29; --chrome2:#1a221e; --chromeInk:#b9c4be; --chromeHover:rgba(255,255,255,.07); --chromeLine:rgba(255,255,255,.14); --chromeAv:rgba(255,255,255,.08);
+  color-scheme:dark;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-print]){--ink:#e8ece9;--muted:#a3ada7;--paper:#1c2420;--bg:#121815;--line:#415049;--accent:#7cc4a2;--tint:#24352d;--err:#ff8a80}
+  :root:not([data-theme="light"]){--ink:#e8ece9;--muted:#a3ada7;--paper:#1c2420;--bg:#121815;--line:#415049;--accent:#7cc4a2;--tint:#24352d;--err:#ff8a80;
+    --chrome1:#242f29;--chrome2:#1a221e;--chromeInk:#b9c4be;--chromeHover:rgba(255,255,255,.07);--chromeLine:rgba(255,255,255,.14);--chromeAv:rgba(255,255,255,.08);
+    color-scheme:dark}
 }
 *{box-sizing:border-box}
 html{scroll-padding-top:70px}
@@ -437,24 +450,29 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
 .dhero .hbtn button:hover{background:rgba(255,255,255,.25)}
 .pagehead{margin:10px 0 0}
 .pagehead[hidden]{display:none}
-.chtabs{display:flex;align-items:flex-end;gap:6px;background:linear-gradient(#eef2f0,#e2e8e5);border:1px solid var(--line);border-radius:12px 12px 0 0;padding:7px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,.07);overflow:hidden}
-.chbrand{display:flex;align-items:center;gap:8px;padding:6px 14px 10px 6px;border-right:1px solid rgba(0,0,0,.12);flex:none}
+.chtabs{display:flex;align-items:flex-end;gap:6px;background:linear-gradient(var(--chrome1),var(--chrome2));border:1px solid var(--line);border-radius:12px 12px 0 0;padding:7px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,.07);overflow:hidden}
+.chbrand{display:flex;align-items:center;gap:8px;padding:6px 14px 10px 6px;border-right:1px solid var(--chromeLine);flex:none}
 .chbrand img{width:30px;height:30px;border-radius:50%;background:#fff;object-fit:contain;padding:2px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .chbrand b{font-size:.88rem;color:var(--ink);line-height:1.1;white-space:nowrap}
 .chbrand small{display:block;font-size:.62rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
 .chtabstrip{display:flex;align-items:flex-end;gap:3px;flex:1 1 0;min-width:0}
-.chtab{position:relative;flex:1 1 0;min-width:0;display:block;text-align:center;font:inherit;font-size:.83rem;font-weight:600;color:#4c5752;background:transparent;border:0;border-radius:9px 9px 0 0;padding:8px 10px 10px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s,color .15s}
-.chtab:hover{background:rgba(255,255,255,.6)}
+.chtab{position:relative;flex:1 1 0;min-width:0;display:block;text-align:center;font:inherit;font-size:.83rem;font-weight:600;color:var(--chromeInk);background:transparent;border:0;border-radius:9px 9px 0 0;padding:8px 10px 10px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s,color .15s}
+.chtab:hover{background:var(--chromeHover)}
 .chtab.on{background:var(--paper);color:var(--accent);box-shadow:0 -1px 4px rgba(0,0,0,.07)}
 .chtab.on::before{content:"";position:absolute;top:0;left:9px;right:9px;height:2.5px;border-radius:0 0 3px 3px;background:var(--accent)}
-.chuser{margin-left:auto;flex:none;display:flex;align-items:center;gap:10px;padding:0 4px 8px 12px;border-left:1px solid rgba(0,0,0,.12)}
-.chav{width:30px;height:30px;flex:none;border-radius:50%;overflow:hidden;border:1px solid rgba(0,0,0,.14);background:rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.chuser{margin-left:auto;flex:none;display:flex;align-items:center;gap:10px;padding:0 4px 8px 12px;border-left:1px solid var(--chromeLine)}
+.chav{width:30px;height:30px;flex:none;border-radius:50%;overflow:hidden;border:1px solid var(--chromeLine);background:var(--chromeAv);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
 .chav img{width:100%;height:100%;object-fit:cover}
 .chwho{display:flex;flex-direction:column;align-items:flex-end;min-width:0}
 .chuser b{font-size:.78rem;color:var(--ink);white-space:nowrap;max-width:190px;overflow:hidden;text-overflow:ellipsis}
 .chuser small{font-size:.66rem;color:var(--muted);white-space:nowrap}
 .chlogout{font:inherit;font-size:.74rem;font-weight:600;padding:5px 11px;border-radius:7px;border:1.5px solid var(--err);background:transparent;color:var(--err);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
 .chlogout:hover{background:var(--err);color:var(--paper)}
+.themebtn{width:30px;height:30px;flex:none;display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid var(--chromeLine);background:transparent;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
+.themebtn:hover{background:var(--chromeHover);color:var(--accent)}
+.themebtn svg{width:16px;height:16px;display:block;pointer-events:none}
+.themeFloat{position:fixed;top:16px;right:16px;z-index:51;width:38px;height:38px;background:var(--paper);border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.themeFloat svg{width:18px;height:18px}
 @media (max-width:720px){
   .chtabs{flex-wrap:wrap;padding:6px 6px 0;gap:4px}
   .chbrand{padding:3px 8px 5px 2px;border-right:0;flex:1 1 auto;min-width:0}
@@ -464,7 +482,7 @@ td input{width:100%;font:inherit;background:transparent;color:var(--ink);border:
   .chuser{padding:0 0 5px 8px;border-left:0}
   .chwho small{display:none}
   .chuser b{max-width:96px;font-size:.7rem}
-  .chtabstrip{flex:1 0 100%;order:3;border-top:1px solid rgba(0,0,0,.12);padding-top:3px}
+  .chtabstrip{flex:1 0 100%;order:3;border-top:1px solid var(--chromeLine);padding-top:3px}
   .chtab{padding:7px 4px 9px;font-size:.75rem}
 }
 @media (max-width:480px){
@@ -691,7 +709,7 @@ body.bk{overflow:hidden}
 .bkwarn{color:#8a1c1c;font-weight:600}
 @media print{
   @page{size:A4;margin:11mm 13mm 15mm}
-  :root:root:root{--ink:#14201b;--muted:#55605a;--paper:#fff;--tint:#f1f5f2;--line:#9aa5a0;--accent:#1f5c46}
+  :root:root:root{--ink:#14201b;--muted:#55605a;--paper:#fff;--tint:#f1f5f2;--line:#9aa5a0;--accent:#1f5c46;color-scheme:light}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   html{scroll-padding-top:0}
   body{background:#fff;color:var(--ink);font-size:10.5px;line-height:1.35}
@@ -1151,6 +1169,7 @@ body.bk{overflow:hidden}
 </section>
 
 <div id="login" class="login" role="dialog" aria-modal="true" aria-label="লগইন">
+  <button type="button" id="themeBtnL" class="themeFloat themebtn" aria-label="ডার্ক মোডে যান" aria-pressed="false"></button>
   <div class="lwrap">
     <aside class="lside">
       <img id="lLogo" alt="কাঁচকুড়া কলেজ লোগো">
@@ -1243,8 +1262,8 @@ body.bk{overflow:hidden}
 <section id="accountsView" class="list wide" hidden>
   <div class="box">
     <div class="tools noprint">
-      <span class="stat">হিসাবের বছর:</span>
-      <select id="accYear" class="dsel" aria-label="হিসাবের বছর"></select>
+      <span class="stat">শিক্ষাবর্ষ:</span>
+      <select id="accYear" class="dsel" aria-label="শিক্ষাবর্ষ"></select>
       <span class="sep"></span>
       <span class="acc-tabs" style="display:contents">
         <button type="button" data-acc="collect" aria-pressed="true">আদায় ও রসিদ</button>
@@ -1834,7 +1853,7 @@ document.getElementById('impFile').onchange = async e => {
     }
     for (const r of (data.feereqs || [])) {
       if (!aMap[r.appId]) continue;
-      const rec = { ...r, appId: aMap[r.appId] };
+      const rec = { ...r, appId: aMap[r.appId], year: yearSessionId(r.year) };
       delete rec.id; delete rec.paymentId;
       await DB.putFeereq(rec);
     }
@@ -1853,7 +1872,8 @@ document.getElementById('impFile').onchange = async e => {
     for (const u of (data.users || [])) { if (!(await DB.user(u.username))) await DB.putUser(u); }
     for (const f of (data.feeplans || [])) {
       if (!aMap[f.appId]) continue;
-      const rec = { ...f, appId: aMap[f.appId], key: aMap[f.appId] + ':' + f.year };
+      const year = yearSessionId(f.year);
+      const rec = { ...f, appId: aMap[f.appId], year, key: aMap[f.appId] + ':' + year };
       await DB.putFeeplan(rec);
     }
     const existing = await DB.payments(), rnoOwner = new Map(existing.map(p => [p.rno, p.appId]));
@@ -1861,7 +1881,7 @@ document.getElementById('impFile').onchange = async e => {
     for (const p of (data.payments || [])) {
       if (!aMap[p.appId]) { skipped++; continue; }
       if (rnoOwner.has(p.rno) && rnoOwner.get(p.rno) !== aMap[p.appId]) { skipped++; continue; }
-      const rec = { ...p, appId: aMap[p.appId] };
+      const rec = { ...p, appId: aMap[p.appId], year: yearSessionId(p.year) };
       delete rec.id;
       await DB.putPay(rec);
     }
@@ -1873,8 +1893,9 @@ document.getElementById('impFile').onchange = async e => {
         continue;
       }
       if (m.k === 'sessions' && Array.isArray(m.v)) {
-        await DB.putMeta({ k: 'sessions', v: m.v, at: Date.now() });
-        SESSIONS = m.v.slice().sort((a, b) => a.start - b.start);
+        const list = m.v.map(s => ({ ...s, sm: +s.sm || 7 }));
+        await DB.putMeta({ k: 'sessions', v: list, at: Date.now() });
+        SESSIONS = list.slice().sort((a, b) => a.start - b.start);
         fillSessionOptions();
         continue;
       }
@@ -2348,10 +2369,11 @@ async function loadSessions() {
   try { const m = await DB.meta('sessions'); if (m && Array.isArray(m.v)) list = m.v; } catch (e) {}
   if (!list.length) {
     const yr = (toEn(document.getElementById('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
-    list = [{ id: yr + '-' + (+yr + 1), start: +yr, end: +yr + 1, name: bn(yr) + ' – ' + bn(+yr + 1), active: true, ts: Date.now() }];
+    list = [{ id: yr + '-' + (+yr + 1), start: +yr, end: +yr + 1, sm: 7, name: bn(yr) + ' – ' + bn(+yr + 1), active: true, ts: Date.now() }];
     try { await DB.putMeta({ k: 'sessions', v: list }); } catch (e) {}
   }
-  SESSIONS = list.slice().sort((a, b) => a.start - b.start);
+  SESSIONS = list.map(s => ({ ...s, sm: +s.sm || 7 })).sort((a, b) => a.start - b.start);
+  if (list.some(s => !s.sm)) { try { await DB.putMeta({ k: 'sessions', v: SESSIONS.slice(), at: Date.now() }); } catch (e) {} }
   return SESSIONS;
 }
 function fillSessionOptions(preferred) {
@@ -2378,10 +2400,11 @@ function renderSessions() {
   const t = $('ssRows'); if (!t) return;
   const rows = SESSIONS.map(s => {
     const n = ssApps.filter(a => (a.fields || {}).session === s.name).length;
-    return `<tr><td class="nm">${H(s.name)}</td><td>${bn(s.start)}</td><td>${bn(n)}</td><td>${s.active ? '<b>সক্রিয়</b>' : 'নিষ্ক্রিয়'}</td>
+    const mm = sessionMonths(s), first = mm[0], last = mm[11];
+    return `<tr><td class="nm">${H(s.name)}</td><td><select data-smon="${H(s.id)}" class="dsel">${BNM.map((m, i) => `<option value="${i + 1}" ${(+s.sm || 7) === i + 1 ? 'selected' : ''}>${m}</option>`).join('')}</select> ${bn(s.start)}</td><td class="mini">${first.label} – ${last.label}</td><td>${bn(n)}</td><td>${s.active ? '<b>সক্রিয়</b>' : 'নিষ্ক্রিয়'}</td>
       <td style="white-space:nowrap">${s.active ? '' : `<button type="button" data-sact="${H(s.id)}">সক্রিয় করুন</button> `}<button type="button" class="del" data-sdel="${H(s.id)}">মুছুন</button></td></tr>`;
   }).join('');
-  t.innerHTML = rows || '<tr><td colspan="5">এখনো কোনো সেশন নেই।</td></tr>';
+  t.innerHTML = rows || '<tr><td colspan="6">এখনো কোনো সেশন নেই।</td></tr>';
 }
 function bindSessions() {
   const add = $('ssAdd'), rows = $('ssRows'); if (!add || !rows) return;
@@ -2390,13 +2413,21 @@ function bindSessions() {
     if (!/^(20|21)\d{2}$/.test(raw)) return toast('শুরুর বছর চার সংখ্যায় দিন (যেমন ২০২৬)');
     const start = +raw;
     if (SESSIONS.some(s => s.start === start)) return toast('এই বছর থেকে সেশন আগেই তৈরি করা হয়েছে');
+    const sm = +($('ssMonth') ? $('ssMonth').value : 7) || 7;
     const name = bn(start) + ' – ' + bn(start + 1);
     SESSIONS = SESSIONS.map(s => ({ ...s, active: false }));
-    SESSIONS.push({ id: start + '-' + (start + 1), start, end: start + 1, name, active: true, ts: Date.now() });
+    SESSIONS.push({ id: start + '-' + (start + 1), start, end: start + 1, sm, name, active: true, ts: Date.now() });
     SESSIONS.sort((a, b) => a.start - b.start);
     await saveSessions();
     $('ssYear').value = ''; renderSessions(); fillSessionOptions(name);
     toast('সেশন তৈরি ও সক্রিয় হয়েছে: ' + name);
+  };
+  rows.onchange = async e => {
+    const id = e.target.dataset.smon; if (!id) return;
+    const sm = +e.target.value || 7;
+    SESSIONS = SESSIONS.map(s => s.id === id ? { ...s, sm } : s);
+    await saveSessions(); renderSessions();
+    toast('হিসাবের শুরুর মাস ' + BNM[sm - 1] + ' নির্ধারণ হয়েছে');
   };
   rows.onclick = async e => {
     const act = e.target.dataset.sact, del = e.target.dataset.sdel;
@@ -2727,6 +2758,35 @@ function dashRecent(apps, pays) {
 }
 const TAB_LABELS = { dash: 'ড্যাশবোর্ড', student: 'আমার পোর্টাল', form: 'ফরম', list: 'তালিকা', accounts: 'হিসাব', result: 'রেজাল্ট', users: 'ব্যবহারকারী', settings: 'সেটিংস' };
 const TAB_ORDER = ['dash', 'student', 'form', 'list', 'accounts', 'result', 'users', 'settings'];
+const THEME_KEY = 'kc_theme';
+const THEME_SVG = {
+  light: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 12H2M22 12h-2.2M5.8 5.8 4.2 4.2M19.8 19.8l-1.6-1.6M18.2 5.8l1.6-1.6M4.2 19.8l1.6-1.6"/></svg>',
+  dark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.6 8.6 0 1 0 10.9 10.9Z"/></svg>'
+};
+function storedTheme() { try { const t = localStorage.getItem(THEME_KEY); return (t === 'dark' || t === 'light') ? t : ''; } catch (e) { return ''; } }
+function systemTheme() { try { return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch (e) { return 'light'; } }
+function effectiveTheme() { const d = document.documentElement.dataset.theme; return (d === 'dark' || d === 'light') ? d : systemTheme(); }
+function renderThemeBtns() {
+  const dark = effectiveTheme() === 'dark', label = dark ? 'লাইট মোডে যান' : 'ডার্ক মোডে যান';
+  document.querySelectorAll('.themebtn').forEach(btn => {
+    btn.innerHTML = dark ? THEME_SVG.light : THEME_SVG.dark;
+    btn.title = label; btn.setAttribute('aria-label', label);
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+  });
+}
+function setTheme(t) {
+  const dark = t === 'dark';
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  try { localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light'); } catch (e) {}
+  renderThemeBtns();
+}
+function toggleTheme() { setTheme(effectiveTheme() === 'dark' ? 'light' : 'dark'); }
+document.addEventListener('click', e => { if (e.target.closest('.themebtn')) toggleTheme(); });
+try {
+  const mq = matchMedia('(prefers-color-scheme: dark)');
+  const onSys = () => { if (!storedTheme()) renderThemeBtns(); };
+  if (mq.addEventListener) mq.addEventListener('change', onSys); else if (mq.addListener) mq.addListener(onSys);
+} catch (e) {}
 function renderPageHead() {
   const w = $('pageHeadWrap'), b = $('pageHead');
   if (!w || !b) return;
@@ -2741,9 +2801,10 @@ function renderPageHead() {
   b.innerHTML = `<div class="chtabs">
     <div class="chbrand"><img src="${document.querySelector('.logo').src}" alt=""><b>কাঁচকুড়া কলেজ<small>ভর্তি ও পরীক্ষা</small></b></div>
     <div class="chtabstrip" role="tablist" aria-label="মেনু">${tabs}</div>
-    <div class="chuser">${av}<div class="chwho"><b>${who}</b><small>${new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' })}</small></div><button type="button" class="chlogout" id="logoutBtn">${outLabel}</button></div>
+    <div class="chuser"><button type="button" class="themebtn" id="themeBtn" aria-label="ডার্ক মোডে যান" aria-pressed="false"></button>${av}<div class="chwho"><b>${who}</b><small>${new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'short', year: 'numeric' })}</small></div><button type="button" class="chlogout" id="logoutBtn">${outLabel}</button></div>
   </div>`;
   w.hidden = false;
+  renderThemeBtns();
 }
 $('pageHead').addEventListener('click', e => {
   if (e.target.closest('#logoutBtn')) {
@@ -2766,12 +2827,12 @@ async function renderDash() {
   const today = apps.filter(a => a.ts && a.ts >= t0).length;
   const cPays = pays.filter(p => !p.void);
   const todayPay = cPays.filter(p => p.ts && p.ts >= t0).reduce((s, p) => s + num(p.total), 0);
-  const year = accYearOf();
+  const year = activeSession() ? activeSession().id : accYearOf();
   let dueTotal = 0, dueCount = 0;
   approved.forEach(a => {
-    const pl = plans.find(p => p.appId === a.id && String(p.year) === String(year));
+    const pl = plans.find(p => p.appId === a.id && yearSessionId(p.year) === year);
     if (!pl) return;
-    const paid = cPays.filter(p => p.appId === a.id && String(p.year) === String(year)).reduce((s, p) => s + nonIdTotal(p), 0);
+    const paid = cPays.filter(p => p.appId === a.id && yearSessionId(p.year) === year).reduce((s, p) => s + nonIdTotal(p), 0);
     const d = expectedOf(pl) - paid;
     if (d > 0) { dueTotal += d; dueCount++; }
   });
@@ -2794,7 +2855,82 @@ const num = v => +String(toEn(v)).replace(/[^0-9.\-]/g, '') || 0;
 const taka = v => { const n = Math.round((+v || 0) * 100) / 100; return bn(n.toLocaleString('en-US', { maximumFractionDigits: 2 })); };
 const nameOf = a => (a.fields || {}).nameBn || (a.fields || {}).nameEn || '—';
 const accSort = (a, b) => (+toEn((a.fields || {}).roll) || 0) - (+toEn((b.fields || {}).roll) || 0) || String((a.fields || {}).formNo).localeCompare(String((b.fields || {}).formNo));
-const accYearOf = () => ACC.year || ((toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0]);
+const ACC_START_MONTH = 7;
+// হিসাব চলে শিক্ষাবর্ষ ধরে (যেমন ২০২৬ – ২০২৭); পুরোনো ক্যালেন্ডার বছরের তথ্যও এই আইডিতে মিলিয়ে পড়া হয়
+function yearSessionId(y) {
+  const s = String(y || '').trim();
+  if (s.includes('-')) return s;
+  const n = +s;
+  if (!n) return s;
+  const f = SESSIONS.find(x => +x.start === n);
+  return f ? f.id : n + '-' + (n + 1);
+}
+function sessionOfYear(y) {
+  const id = yearSessionId(y);
+  const found = SESSIONS.find(s => s.id === id);
+  if (found) return { ...found, sm: +found.sm || ACC_START_MONTH };
+  const n = +(String(id).match(/\d{4}/) || [new Date().getFullYear()])[0];
+  return { id: n + '-' + (n + 1), start: n, end: n + 1, sm: ACC_START_MONTH, name: bn(n) + ' – ' + bn(n + 1) };
+}
+const accYearOf = () => {
+  if (ACC.year) return String(ACC.year);
+  const fy = (toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
+  return yearSessionId(fy);
+};
+const accSession = () => sessionOfYear(accYearOf());
+const accLabel = () => accSession().name;
+const yearLabelOf = y => sessionOfYear(y).name;
+function sessionMonths(s) {
+  const ses = s || accSession();
+  const start = +ses.start || new Date().getFullYear(), sm = +ses.sm || ACC_START_MONTH;
+  return Array.from({ length: 12 }, (_, i) => {
+    const m0 = sm - 1 + i, y = start + Math.floor(m0 / 12), m = (m0 % 12) + 1;
+    return { key: y + '-' + String(m).padStart(2, '0'), y, m, label: BNM[m - 1] + ' ' + bn(y) };
+  });
+}
+function monthInfo(key) {
+  const m = String(key || '').match(/^(\d{4})-(\d{2})$/);
+  if (!m) return { key: String(key || ''), y: 0, m: 0, label: String(key || '') };
+  const y = +m[1], mo = +m[2];
+  return { key: String(key), y, m: mo, label: (BNM[mo - 1] || '') + ' ' + bn(y) };
+}
+function planMonthKeys(pl) {
+  if (!pl) return [];
+  const list = sessionMonths(sessionOfYear(pl.year)), raw = pl.months || [], out = [];
+  raw.forEach(m => {
+    if (typeof m === 'number' || /^\d{1,2}$/.test(String(m))) {
+      const x = list[(+m) - 1]; if (x) out.push(x.key);
+    } else if (/^\d{4}-\d{2}$/.test(String(m))) out.push(String(m));
+  });
+  return [...new Set(out)].sort();
+}
+function admissionMonthKey(a, s) {
+  const ses = s || accSession(), list = sessionMonths(ses), first = list[0].key, last = list[11].key;
+  let key = '';
+  // ভর্তি নিশ্চিতকরণের তারিখ থাকলে সেটিই ভর্তির মাস; নাহলে আবেদনের সময়
+  const at = toEn(String(a.statusAt || '')).match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if (at) {
+    let d = +at[1], mo = +at[2];
+    if (d <= 12 && mo > 12) { const t = d; d = mo; mo = t; }
+    if (mo >= 1 && mo <= 12) key = at[3] + '-' + String(mo).padStart(2, '0');
+  }
+  const ts = +a.ts || 0;
+  if (!key && ts) { const dt = new Date(ts); key = dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0'); }
+  if (!key || key < first) key = first;
+  if (key > last) key = last;
+  return key;
+}
+const monthsFrom = (fromKey, s) => sessionMonths(s).filter(x => x.key >= fromKey).map(x => x.key);
+function monthKeyOfItem(i, pay) {
+  if (!i || i.kind !== 'monthly') return '';
+  if (i.mkey && /^\d{4}-\d{2}$/.test(String(i.mkey))) return String(i.mkey);
+  if (typeof i.month === 'string' && /^\d{4}-\d{2}$/.test(i.month)) return i.month;
+  if (i.month != null && i.month !== '') {
+    const x = sessionMonths(sessionOfYear((pay || {}).year))[(+i.month) - 1];
+    if (x) return x.key;
+  }
+  return '';
+}
 
 const BN_ONES = ['শূন্য', 'এক', 'দুই', 'তিন', 'চার', 'পাঁচ', 'ছয়', 'সাত', 'আট', 'নয়', 'দশ', 'এগারো', 'বারো', 'তেরো', 'চৌদ্দ', 'পনেরো', 'ষোলো', 'সতেরো', 'আঠারো', 'উনিশ'];
 const BN_TENS = ['', '', 'বিশ', 'ত্রিশ', 'চল্লিশ', 'পঞ্চাশ', 'ষাট', 'সত্তর', 'আশি', 'নব্বই'];
@@ -2819,18 +2955,18 @@ function takaWords(amount) {
   return bn(out) + ' টাকা মাত্র';
 }
 
-function accPlan(appId) { return ACC.plans.find(p => p.appId === appId && String(p.year) === String(accYearOf())) || null; }
+function accPlan(appId) { return ACC.plans.find(p => p.appId === appId && yearSessionId(p.year) === accYearOf()) || null; }
 function expectedOf(pl) {
   if (!pl) return null;
   return num(pl.admission) + num(pl.session) + num(pl.monthly) * (pl.months || []).length + (pl.extras || []).reduce((s, x) => s + num(x.amount), 0);
 }
-function accPays(appId) { return ACC.pays.filter(p => p.appId === appId && String(p.year) === String(accYearOf())); }
+function accPays(appId) { return ACC.pays.filter(p => p.appId === appId && yearSessionId(p.year) === accYearOf()); }
 // আইডি কার্ড ফি আলাদা চার্জ — সাধারণ বকেয়ার সাথে মেলানো হয় না
 const nonIdTotal = p => Math.max(0, num(p.total) - (p.items || []).filter(i => i.kind === 'idcard' || i.kind === 'admit').reduce((s, i) => s + num(i.amount), 0));
 function paidOf(appId) { return accPays(appId).filter(p => !p.void).reduce((s, p) => s + nonIdTotal(p), 0); }
 function paidMonthsOf(appId) {
   const o = {};
-  accPays(appId).filter(p => !p.void).forEach(p => (p.items || []).forEach(i => { if (i.kind === 'monthly' && i.month) o[i.month] = true; }));
+  accPays(appId).filter(p => !p.void).forEach(p => (p.items || []).forEach(i => { const k = monthKeyOfItem(i, p); if (k) o[k] = true; }));
   return o;
 }
 function accMatch(a) {
@@ -2859,13 +2995,26 @@ function wirePicker(prefix, rerender) {
 async function openAccounts() {
   try { ACC.apps = await DB.all(); ACC.plans = await DB.feeplans(); ACC.pays = await DB.payments(); ACC.reqs = await DB.feereqs(); }
   catch (e) { $('accBody').textContent = 'এই ব্রাউজারে হিসাব চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।'; return; }
-  const fy = (toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
-  const years = new Set([fy]);
-  ACC.pays.forEach(p => p.year && years.add(String(p.year)));
-  ACC.plans.forEach(p => p.year && years.add(String(p.year)));
-  if (!ACC.year || !years.has(String(ACC.year))) ACC.year = fy;
+  // পুরোনো ক্যালেন্ডার-বছরের পরিকল্পনা একই শিক্ষাবর্ষের নতুন রেকর্ডে মিলিয়ে নেওয়া হয়
+  const bySess = new Map();
+  for (const p of ACC.plans) {
+    const nk = p.appId + ':' + yearSessionId(p.year), cur = bySess.get(nk);
+    const isNew = p.key === nk, curIsNew = cur && cur.key === nk;
+    if (!cur || (isNew && !curIsNew) || (isNew === curIsNew && String(p.updatedAt || '') > String(cur.updatedAt || ''))) bySess.set(nk, p);
+  }
+  const stale = ACC.plans.filter(p => bySess.get(p.appId + ':' + yearSessionId(p.year)) !== p);
+  for (const p of stale) { try { await DB.delFeeplan(p.key); } catch (e) {} }
+  ACC.plans = [...bySess.values()];
+  const fy = yearSessionId((toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0]);
+  const ids = new Set(SESSIONS.map(s => s.id));
+  ids.add(fy);
+  if (activeSession()) ids.add(activeSession().id);
+  ACC.pays.forEach(p => p.year && ids.add(yearSessionId(p.year)));
+  ACC.plans.forEach(p => p.year && ids.add(yearSessionId(p.year)));
+  ACC.reqs.forEach(r => r.year && ids.add(yearSessionId(r.year)));
+  if (!ACC.year || !ids.has(String(ACC.year))) ACC.year = fy;
   const sel = $('accYear');
-  sel.innerHTML = [...years].sort((a, b) => b - a).map(y => `<option value="${y}">${bn(y)}</option>`).join('');
+  sel.innerHTML = [...ids].sort((a, b) => sessionOfYear(b).start - sessionOfYear(a).start).map(id => `<option value="${H(id)}">${H(sessionOfYear(id).name)}</option>`).join('');
   sel.value = ACC.year;
   renderAcc();
 }
@@ -2906,13 +3055,15 @@ function renderCollect(body) {
 function collectForm(a) {
   const pl = accPlan(a.id), exp = expectedOf(pl), paid = paidOf(a.id), due = exp == null ? null : exp - paid;
   const pm = paidMonthsOf(a.id);
-  const months = pl ? (pl.months || []) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const keys = pl ? planMonthKeys(pl) : sessionMonths(accSession()).map(x => x.key);
   const rate = pl ? num(pl.monthly) : 0;
   return `<div class="acc-stu"><div class="sg">
       <div><b>শিক্ষার্থী</b>${H(nameOf(a))}</div>
       <div><b>স্টুডেন্ট আইডি</b>${H((a.fields || {}).stuId || '—')}</div>
       <div><b>রোল</b>${H((a.fields || {}).roll || '—')}</div>
       <div><b>শ্রেণি ও বিভাগ</b>${CLASSES[clsOf(a)]}, ${DEPTS[a.dept].name}</div>
+      <div><b>শিক্ষাবর্ষ</b>${H(accLabel())}</div>
+      <div><b>ফি শুরুর মাস</b>${monthInfo((pl && pl.from) || admissionMonthKey(a)).label}</div>
       <div><b>নির্ধারিত</b>${exp == null ? '—' : taka(exp) + ' টাকা'}</div>
       <div><b>আদায়</b>${taka(paid)} টাকা</div>
       <div><b>বাকি</b>${due == null ? '—' : taka(due) + ' টাকা'}</div>
@@ -2923,7 +3074,7 @@ function collectForm(a) {
       <div class="acc-head"><label><input type="checkbox" id="fh_idcard"> আইডি কার্ড ফি</label><span class="acc-note">প্রতি কার্ড: ${taka(idFeeAmt())} টাকা — এই রসিদ নম্বরেই আবেদন হবে</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_idcard" value="${idFeeAmt()}" placeholder="টাকা"></span></div>
       <div class="acc-head"><label><input type="checkbox" id="fh_admit"> অ্যাডমিট কার্ড ফি</label><span class="acc-note">${SET.admitFeeOn ? 'প্রতি পরীক্ষা: ' + taka(admitFeeAmt()) + ' টাকা — এই রসিদ নম্বরেই আবেদন হবে' : 'সেটিংসে চালু নেই — ফি ছাড়াই অ্যাডমিট তৈরি হবে'}</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_admit" value="${admitFeeAmt()}" placeholder="টাকা"></span></div>
       <div class="acc-head"><label><input type="checkbox" id="fh_monthly"> মাসিক ফি</label><span class="acc-note">প্রতি মাসের হার</span><span class="amt"><input type="number" min="0" step="0.01" id="amt_monthly" value="${rate || ''}" placeholder="টাকা"></span></div>
-      <div class="months" id="accMonths">${months.map(m => { const pd = pm[m]; return `<label class="${pd ? 'paid' : ''}"><input type="checkbox" data-month="${m}" ${pd ? 'disabled' : ''}> ${BNM[m - 1]}${pd ? ' (পরিশোধিত)' : ''}</label>`; }).join('')}</div>
+      <div class="months" id="accMonths">${keys.map(k => { const pd = pm[k], mi = monthInfo(k); return `<label class="${pd ? 'paid' : ''}"><input type="checkbox" data-month="${k}" ${pd ? 'disabled' : ''}> ${mi.label}${pd ? ' (পরিশোধিত)' : ''}</label>`; }).join('')}</div>
       <div class="acc-head"><label><input type="checkbox" id="fh_other"> অন্যান্য ফি</label><input type="text" id="amt_other_label" placeholder="খাতের বিবরণ"><span class="amt"><input type="number" min="0" step="0.01" id="amt_other" placeholder="টাকা"></span></div>
     </div>
     <div class="acc-grid">
@@ -2944,14 +3095,18 @@ function collectForm(a) {
 }
 function collectItems() {
   const items = [];
-  const add = (kind, label, amount, month) => { amount = num(amount); if (amount > 0) items.push({ kind, label, amount, month }); };
+  const add = (kind, label, amount, mkey) => {
+    amount = num(amount);
+    if (amount <= 0) return;
+    items.push(mkey ? { kind, label, amount, month: mkey, mkey } : { kind, label, amount });
+  };
   if ($('fh_admission') && $('fh_admission').checked) add('admission', 'ভর্তি ফি', $('amt_admission').value);
   if ($('fh_session') && $('fh_session').checked) add('session', 'সেশন ফি', $('amt_session').value);
   if ($('fh_idcard') && $('fh_idcard').checked) add('idcard', 'আইডি কার্ড ফি', $('amt_idcard').value);
   if ($('fh_admit') && $('fh_admit').checked) add('admit', 'অ্যাডমিট কার্ড ফি', $('amt_admit').value);
   if ($('fh_monthly') && $('fh_monthly').checked) {
     const rate = num($('amt_monthly').value);
-    document.querySelectorAll('#accMonths input:checked').forEach(i => { const m = +i.dataset.month; add('monthly', 'মাসিক ফি – ' + BNM[m - 1] + ' ' + bn(accYearOf()), rate, m); });
+    document.querySelectorAll('#accMonths input:checked').forEach(i => { const k = i.dataset.month; add('monthly', 'মাসিক ফি – ' + monthInfo(k).label, rate, k); });
   }
   if ($('fh_other') && $('fh_other').checked) {
     const lab = ($('amt_other_label').value || '').trim() || 'অন্যান্য ফি';
@@ -2976,8 +3131,7 @@ function wireCollect(a) {
   $('accDiscount').oninput = recalc;
   const showRno = async () => {
     const el = $('accRno'); if (!el) return;
-    const d = $('accDate').value || todayISO();
-    const y = (d.match(/^(\d{4})/) || [accYearOf()])[1];
+    const y = accYearOf();
     let m = null; try { m = await DB.meta('rcp:' + y); } catch (e) {}
     if (el !== $('accRno')) return;
     el.innerHTML = 'পরবর্তী রসিদ নং (আনুমানিক): <b>R-' + y + '-' + String((((m || {}).v) || 0) + 1).padStart(4, '0') + '</b> — সংরক্ষণের সময় চূড়ান্ত হবে।';
@@ -2996,7 +3150,7 @@ async function savePayment(a) {
   const total = sub - disc;
   if (total <= 0) return toast('মোট আদায় শূন্য হতে পারে না');
   const date = $('accDate').value || todayISO();
-  const year = (date.match(/^(\d{4})/) || [accYearOf()])[1];
+  const year = accYearOf();
   const mode = $('accMode').value;
   const bank = mode === 'ব্যাংক' ? { name: $('accBankName').value.trim(), branch: $('accBankBranch').value.trim(), slip: $('accBankSlip').value.trim() } : null;
   const seq = await DB.nextSeq(year);
@@ -3038,33 +3192,37 @@ function renderFeeSetup(body) {
   if (sel) wireSetup(sel);
 }
 function setupForm(a) {
-  const pl = accPlan(a.id);
-  const months = pl ? (pl.months || []) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const pl = accPlan(a.id), ses = accSession(), mm = sessionMonths(ses);
+  const from = (pl && pl.from) || admissionMonthKey(a, ses);
+  const keys = pl ? planMonthKeys(pl) : monthsFrom(from, ses);
   return `<div class="acc-stu"><div class="sg">
       <div><b>শিক্ষার্থী</b>${H(nameOf(a))}</div><div><b>স্টুডেন্ট আইডি</b>${H((a.fields || {}).stuId || '—')}</div>
-      <div><b>শ্রেণি ও বিভাগ</b>${CLASSES[clsOf(a)]}, ${DEPTS[a.dept].name}</div><div><b>হিসাবের বছর</b>${bn(accYearOf())}</div>
+      <div><b>শ্রেণি ও বিভাগ</b>${CLASSES[clsOf(a)]}, ${DEPTS[a.dept].name}</div><div><b>শিক্ষাবর্ষ</b>${H(accLabel())}</div>
     </div></div>
-    <div class="acc-box"><h4>${bn(accYearOf())} সালের ফি নির্ধারণ</h4>
+    <div class="acc-box"><h4>${H(accLabel())} শিক্ষাবর্ষের ফি নির্ধারণ</h4>
       <div class="acc-grid">
         <label class="f"><span>ভর্তি ফি</span><input type="number" min="0" step="0.01" id="spAdmission" value="${pl ? num(pl.admission) || '' : ''}"></label>
         <label class="f"><span>সেশন ফি</span><input type="number" min="0" step="0.01" id="spSession" value="${pl ? num(pl.session) || '' : ''}"></label>
         <label class="f"><span>মাসিক ফি (প্রতি মাস)</span><input type="number" min="0" step="0.01" id="spMonthly" value="${pl ? num(pl.monthly) || '' : ''}"></label>
+        <label class="f"><span>মাসিক ফি শুরুর মাস (ভর্তির মাস)</span><select id="spFrom">${mm.map(x => `<option value="${x.key}" ${x.key === from ? 'selected' : ''}>${x.label}</option>`).join('')}</select></label>
       </div>
       <div class="sub">কোন কোন মাসের ফি ধার্য হবে</div>
-      <div class="months">${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(m => `<label><input type="checkbox" data-sm="${m}" ${months.includes(m) ? 'checked' : ''}> ${BNM[m - 1]}</label>`).join('')}</div>
+      <div class="months">${mm.map(x => `<label><input type="checkbox" data-sm="${x.key}" ${keys.includes(x.key) ? 'checked' : ''}> ${x.label}</label>`).join('')}</div>
       <div class="sub">অতিরিক্ত খাত (ঐচ্ছিক)</div>
       <div id="spExtras">${(pl ? pl.extras || [] : []).map(extraRow).join('')}</div>
       <div class="tools noprint"><button type="button" id="spAdd">+ খাত যোগ করুন</button><button type="button" id="spSave" class="go">সংরক্ষণ</button>${pl ? '<button type="button" id="spDel" class="dl">সেটআপ মুছুন</button>' : ''}</div>
     </div>
     <div class="acc-box"><h4>একসাথে অনেক শিক্ষার্থীর জন্য</h4>
-      <div class="tools noprint"><select id="spDept" class="dsel">${Object.keys(DEPTS).map(d => `<option value="${d}">${DEPTS[d].name}</option>`).join('')}</select><button type="button" id="spApply" class="go">এই বিভাগের সব অনুমোদিত শিক্ষার্থীতে প্রয়োগ</button></div>
-      <p class="acc-note">এখানে দেওয়া ফি ও মাস ওই বিভাগের সব অনুমোদিত শিক্ষার্থীর সেটআপে লেখা হবে।</p>
+      <div class="tools noprint"><select id="spDept" class="dsel">${Object.keys(DEPTS).map(d => `<option value="${d}">${DEPTS[d].name}</option>`).join('')}</select>
+        <select id="spApplyMode" class="dsel"><option value="adm">প্রতি শিক্ষার্থীর ভর্তি মাস থেকে</option><option value="picked">উপরে বাছাই করা মাসগুলো</option></select>
+        <button type="button" id="spApply" class="go">এই বিভাগের সব অনুমোদিত শিক্ষার্থীতে প্রয়োগ</button></div>
+      <p class="acc-note">এখানে দেওয়া ফি ওই বিভাগের সব অনুমোদিত শিক্ষার্থীর সেটআপে লেখা হবে। মাস "প্রতি শিক্ষার্থীর ভর্তি মাস থেকে" বাছলে প্রত্যেকের মাসিক ফি তার নিজের ভর্তির মাস থেকে সেশন শেষ পর্যন্ত ধার্য হবে।</p>
     </div>`;
 }
 function setupValues() {
-  const months = [...document.querySelectorAll('#accBody input[data-sm]:checked')].map(i => +i.dataset.sm);
+  const months = [...document.querySelectorAll('#accBody input[data-sm]:checked')].map(i => i.dataset.sm);
   const extras = [...document.querySelectorAll('#accBody .sprow')].map(r => ({ label: r.querySelector('.spLabel').value.trim(), amount: num(r.querySelector('.spAmt').value) })).filter(x => x.label && x.amount > 0);
-  return { admission: num($('spAdmission').value), session: num($('spSession').value), monthly: num($('spMonthly').value), months, extras };
+  return { admission: num($('spAdmission').value), session: num($('spSession').value), monthly: num($('spMonthly').value), months, from: $('spFrom').value, extras };
 }
 function wireSetup(a) {
   const addX = () => {
@@ -3073,6 +3231,10 @@ function wireSetup(a) {
   };
   document.querySelectorAll('#accBody .spX').forEach(b => b.onclick = () => b.closest('.sprow').remove());
   $('spAdd').onclick = addX;
+  $('spFrom').onchange = e => {
+    const from = e.target.value;
+    document.querySelectorAll('#accBody input[data-sm]').forEach(i => { i.checked = i.dataset.sm >= from; });
+  };
   $('spSave').onclick = async () => {
     const v = setupValues();
     const rec = { key: a.id + ':' + accYearOf(), appId: a.id, year: accYearOf(), ...v, updatedAt: new Date().toLocaleString('bn-BD'), by: ME.name };
@@ -3081,18 +3243,20 @@ function wireSetup(a) {
     toast('ফি সেটআপ সংরক্ষিত হয়েছে'); renderAcc();
   };
   if ($('spDel')) $('spDel').onclick = async () => {
-    if (!confirm('এই শিক্ষার্থীর ' + bn(accYearOf()) + ' সালের ফি সেটআপ মুছে যাবে। মুছবেন?')) return;
+    if (!confirm('এই শিক্ষার্থীর ' + accLabel() + ' শিক্ষাবর্ষের ফি সেটআপ মুছে যাবে। মুছবেন?')) return;
     await DB.delFeeplan(a.id + ':' + accYearOf());
     ACC.plans = ACC.plans.filter(p => p.key !== a.id + ':' + accYearOf());
     toast('ফি সেটআপ মুছে ফেলা হয়েছে'); renderAcc();
   };
   $('spApply').onclick = async () => {
-    const dep = $('spDept').value, v = setupValues();
+    const dep = $('spDept').value, mode = $('spApplyMode').value, v = setupValues(), ses = accSession();
     const list = ACC.apps.filter(x => x.dept === dep && okApp(x));
     if (!list.length) return toast('এই বিভাগে অনুমোদিত কোনো শিক্ষার্থী নেই');
     if (!confirm(DEPTS[dep].name + ' বিভাগের ' + bn(list.length) + ' জনের ফি সেটআপে এই তথ্য লেখা হবে। চালিয়ে যাবেন?')) return;
     for (const x of list) {
-      const rec = { key: x.id + ':' + accYearOf(), appId: x.id, year: accYearOf(), ...v, updatedAt: new Date().toLocaleString('bn-BD'), by: ME.name };
+      const from = mode === 'adm' ? admissionMonthKey(x, ses) : v.from;
+      const months = mode === 'adm' ? monthsFrom(from, ses) : v.months;
+      const rec = { key: x.id + ':' + accYearOf(), appId: x.id, year: accYearOf(), ...v, months, from, updatedAt: new Date().toLocaleString('bn-BD'), by: ME.name };
       await DB.putFeeplan(rec);
       ACC.plans = ACC.plans.filter(p => p.key !== rec.key).concat([rec]);
     }
@@ -3106,7 +3270,7 @@ function payRows(pays) {
 }
 function renderLedger(body) {
   const st = accApproved();
-  body.innerHTML = `<div class="tools noprint"><span class="stat">শিক্ষার্থী: ${bn(st.length)} জন • বছর: ${bn(accYearOf())}</span></div>
+  body.innerHTML = `<div class="tools noprint"><span class="stat">শিক্ষার্থী: ${bn(st.length)} জন • শিক্ষাবর্ষ: ${H(accLabel())}</span></div>
     <div class="scroll"><table class="acc-table"><thead><tr><th>রোল</th><th>নাম</th><th>স্টুডেন্ট আইডি</th><th>বিভাগ</th><th>শ্রেণি</th><th class="r">নির্ধারিত</th><th class="r">আদায়</th><th class="r">বাকি</th><th></th></tr></thead><tbody>${st.length ? st.map(a => {
       const pl = accPlan(a.id), exp = expectedOf(pl), paid = paidOf(a.id), due = exp == null ? null : exp - paid;
       const pays = accPays(a.id).sort((x, y) => (y.ts || 0) - (x.ts || 0));
@@ -3153,7 +3317,7 @@ function renderDues(body) {
       <div class="acc-kpi ${dueSum > 0 ? 'warn' : ''}"><b>বকেয়া মোট</b><strong>${taka(dueSum)} টাকা</strong></div>
       <div class="acc-kpi"><b>বকেয়া শিক্ষার্থী</b><strong>${bn(dueN)} জন</strong></div>
     </div>
-    <p class="acc-note" style="margin-top:0">বছর: ${bn(accYearOf())} • দেখানো হয়েছে ${bn(list.length)} জন${noPlan ? ' • ' + bn(noPlan) + ' জনের ফি সেটআপ নেই' : ''}</p>
+    <p class="acc-note" style="margin-top:0">শিক্ষাবর্ষ: ${H(accLabel())} • দেখানো হয়েছে ${bn(list.length)} জন${noPlan ? ' • ' + bn(noPlan) + ' জনের ফি সেটআপ নেই' : ''}</p>
     <div class="scroll"><table class="acc-table"><thead><tr><th>রোল</th><th>নাম</th><th>স্টুডেন্ট আইডি</th><th>বিভাগ</th><th>শ্রেণি</th><th class="r">নির্ধারিত</th><th class="r">আদায়</th><th class="r">বাকি</th><th>অবস্থা</th></tr></thead><tbody>${list.length ? list.map(x => {
       const a = x.a;
       return `<tr><td>${H((a.fields || {}).roll || '')}</td><td>${H(nameOf(a))}</td><td>${H((a.fields || {}).stuId || '')}</td><td>${DEPTS[a.dept].name}</td><td>${CLASSES[clsOf(a)]}</td><td class="r">${x.exp == null ? '—' : taka(x.exp)}</td><td class="r">${taka(x.paid)}</td><td class="r ${x.due > 0 ? 'bad' : ''}">${x.due == null ? '—' : taka(x.due)}</td><td>${duesStatus(x)}</td></tr>`;
@@ -3187,7 +3351,7 @@ function duePrintHTML(list) {
   return `<div class="lppage">
     <div class="lphead"><img src="${logo}" alt="">
       <div class="lph"><b>কাঁচকুড়া কলেজ</b><small>কাঁচকুড়া, উত্তরখান, ঢাকা-১২৩০</small></div>
-      <div class="lpm"><b>আদায় ও বকেয়া তালিকা</b><small>হিসাবের বছর: ${bn(accYearOf())}</small><small>${H(fLbl)}</small></div></div>
+      <div class="lpm"><b>আদায় ও বকেয়া তালিকা</b><small>শিক্ষাবর্ষ: ${H(accLabel())}</small><small>${H(fLbl)}</small></div></div>
     <div class="lpcount"><span>শিক্ষার্থী: <b>${bn(list.length)}</b> জন</span><span>নির্ধারিত: <b>${taka(expSum)}</b> • আদায়: <b>${taka(paidSum)}</b> • বকেয়া: <b>${taka(dueSum)}</b> টাকা</span></div>
     <table class="lptab"><thead><tr><th class="c">ক্রম</th><th>রোল</th><th>স্টুডেন্ট আইডি</th><th>শিক্ষার্থীর নাম</th><th>বিভাগ</th><th class="c">শ্রেণি</th><th class="r">নির্ধারিত</th><th class="r">আদায়</th><th class="r">বাকি</th><th class="c">অবস্থা</th></tr></thead>
       <tbody>${trs || '<tr><td colspan="10" class="c">কোনো শিক্ষার্থী নেই</td></tr>'}</tbody>
@@ -3217,19 +3381,19 @@ function printDues(list) {
 // ---------- শিক্ষার্থীর ফি অনুরোধ ----------
 const REQ_STATUS = { pending: 'অপেক্ষমাণ', approved: 'অনুমোদিত', rejected: 'বাতিল' };
 function reqConflict(r) {
-  const pays = ACC.pays.filter(p => p.appId === r.appId && String(p.year) === String(r.year) && !p.void);
+  const pays = ACC.pays.filter(p => p.appId === r.appId && yearSessionId(p.year) === yearSessionId(r.year) && !p.void);
   const paidMonths = {}; let adm = false, ses = false; const labels = new Set();
   pays.forEach(p => (p.items || []).forEach(i => {
-    if (i.kind === 'monthly') paidMonths[i.month] = true;
+    if (i.kind === 'monthly') { const k = monthKeyOfItem(i, p); if (k) paidMonths[k] = true; }
     if (i.kind === 'admission') adm = true;
     if (i.kind === 'session') ses = true;
     labels.add(i.label);
   }));
-  const bad = (r.items || []).find(i => (i.kind === 'monthly' && paidMonths[i.month]) || (i.kind === 'admission' && adm) || (i.kind === 'session' && ses) || (i.kind === 'other' && labels.has(i.label)));
+  const bad = (r.items || []).find(i => (i.kind === 'monthly' && paidMonths[monthKeyOfItem(i, r)]) || (i.kind === 'admission' && adm) || (i.kind === 'session' && ses) || (i.kind === 'other' && labels.has(i.label)));
   return bad ? bad.label : '';
 }
 function renderRequests(body) {
-  const list = ACC.reqs.filter(r => String(r.year) === String(accYearOf())).sort((a, b) => (a.status === 'pending' ? 0 : 1) - (b.status === 'pending' ? 0 : 1) || (b.ts || 0) - (a.ts || 0));
+  const list = ACC.reqs.filter(r => yearSessionId(r.year) === accYearOf()).sort((a, b) => (a.status === 'pending' ? 0 : 1) - (b.status === 'pending' ? 0 : 1) || (b.ts || 0) - (a.ts || 0));
   const pend = list.filter(r => r.status === 'pending');
   body.innerHTML = `<div class="acc-kpis">
       <div class="acc-kpi"><b>অপেক্ষমাণ অনুরোধ</b><strong>${bn(pend.length)}</strong></div>
@@ -3244,7 +3408,7 @@ function renderRequests(body) {
       <td>${H(r.mode)}${r.trx ? '<br><span class="mini">' + H(r.trx) + '</span>' : ''}</td>
       <td><span class="pstat ${r.status}">${REQ_STATUS[r.status] || r.status}</span>${r.rejectReason ? '<br><span class="mini">' + H(r.rejectReason) + '</span>' : ''}</td>
       <td style="white-space:nowrap">${r.status === 'pending' && canAcc('approve') ? `<button type="button" class="go" data-areq="${r.id}">অনুমোদন</button> <button type="button" class="del" data-rreq="${r.id}">বাতিল</button>` : ''}${r.status === 'approved' && r.paymentId ? ` <button type="button" data-prt="${r.paymentId}">রসিদ</button>` : ''}</td>
-    </tr>`).join('') : '<tr><td colspan="7">এই বছরে কোনো ফি অনুরোধ নেই।</td></tr>'}</tbody></table></div>
+    </tr>`).join('') : '<tr><td colspan="7">এই শিক্ষাবর্ষে কোনো ফি অনুরোধ নেই।</td></tr>'}</tbody></table></div>
     <p class="warn">শিক্ষার্থী মোবাইল ব্যাংক/ব্যাংক দিয়ে ফি পাঠিয়ে পোর্টাল থেকে অনুরোধ জমা দেয়। অনুমোদন করলে তিন কপি রসিদ তৈরি হবে; টাকা হাতে পাওয়ার পর যাচাই করে অনুমোদন দিন।</p>`;
 }
 async function approveReq(id) {
@@ -3257,9 +3421,10 @@ async function approveReq(id) {
   const bad = reqConflict(r);
   if (bad) return toast('"' + bad + '" ইতিমধ্যে পরিশোধিত — অনুরোধটি বাতিল করুন');
   if (!confirm(`${nameOf(a)} — ${taka(r.total)} টাকার ফি অনুরোধ অনুমোদন করবেন? তিন কপি রসিদ তৈরি হবে।`)) return;
-  const seq = await DB.nextSeq(r.year || accYearOf());
+  const sid = yearSessionId(r.year || accYearOf());
+  const seq = await DB.nextSeq(sid);
   const rec = {
-    rno: 'R-' + (r.year || accYearOf()) + '-' + String(seq).padStart(4, '0'), year: r.year || accYearOf(), appId: r.appId,
+    rno: 'R-' + sid + '-' + String(seq).padStart(4, '0'), year: sid, appId: r.appId,
     snap: { name: nameOf(a), roll: (a.fields || {}).roll, stuId: (a.fields || {}).stuId, formNo: (a.fields || {}).formNo, cls: CLASSES[clsOf(a)], dept: DEPTS[a.dept].name, deptCode: a.dept, session: (a.fields || {}).session },
     date: r.date || todayISO(), mode: r.mode || 'বিকাশ', bank: r.mode === 'ব্যাংক' ? { name: '', branch: '', slip: r.trx || '' } : null,
     trx: r.trx || '', items: r.items, discount: 0, total: num(r.total), note: 'পোর্টাল ফি অনুরোধ #' + r.id + (r.note ? ' • ' + r.note : ''), by: ME.name, ts: Date.now(), reqId: r.id
@@ -3287,7 +3452,7 @@ async function rejectReq(id) {
   toast('অনুরোধ বাতিল করা হয়েছে'); renderAcc();
 }
 function reportList() {
-  return ACC.pays.filter(p => String(p.year) === String(accYearOf())).filter(p => {
+  return ACC.pays.filter(p => yearSessionId(p.year) === accYearOf()).filter(p => {
     if (ACC.dept !== 'all' && ((p.snap || {}).deptCode || '') !== ACC.dept) return false;
     if (ACC.head !== 'all' && !(p.items || []).some(i => i.kind === ACC.head)) return false;
     if (ACC.mode !== 'all' && p.mode !== ACC.mode) return false;
@@ -3358,7 +3523,7 @@ function rcptCopy(p, copy) {
     ${bank}
     <div class="rnote">এই রসিদ তিন কপি — শিক্ষার্থী, অফিস ও ব্যাংক। রসিদ নম্বর ছাড়া কোনো জমা গ্রহণযোগ্য নয়।</div>
     <div class="rsig"><span>${sigimg(SET.sigCollectorImg)}<b>আদায়কারী</b><em>${H(sigC)}</em></span><span>${sigimg(SET.sigPrincipalImg)}<b>অধ্যক্ষ</b><em>${H(sigP)}</em></span></div>
-    <div class="rfoot">কাঁচকুড়া কলেজ • হিসাব শাখা • ${bn(p.year)}</div>
+    <div class="rfoot">কাঁচকুড়া কলেজ • হিসাব শাখা • ${H(yearLabelOf(p.year))}</div>
   </div>`;
 }
 function printReceipts(ids, list) {
@@ -4318,18 +4483,26 @@ function closeBulkSheet() {
 // ---------- শিক্ষার্থী পোর্টাল ----------
 const PORT = { tab: 'result', app: null, apps: [], exams: [], allExams: [], marks: [], pays: [], plans: [], reqs: [], idapps: [], admitapps: [], examId: null, year: '', out: [], busy: false };
 const REQ_METHODS = ['বিকাশ', 'নগদ', 'রকেট', 'ব্যাংক'];
+function studentSessionId(a) {
+  const nm = toEn(String((a.fields || {}).session || '')).replace(/\s+/g, ' ').trim();
+  const hit = SESSIONS.find(s => toEn(s.name).replace(/\s+/g, ' ').trim() === nm);
+  if (hit) return hit.id;
+  const y4 = nm.match(/\d{4}/);
+  if (y4) return yearSessionId(y4[0]);
+  return activeSession() ? activeSession().id : yearSessionId(new Date().getFullYear());
+}
 function portalOutstanding(pl, pays) {
   const paidMonths = {}, labels = new Set(); let adm = false, ses = false;
   pays.filter(p => !p.void).forEach(p => (p.items || []).forEach(i => {
-    if (i.kind === 'monthly') paidMonths[i.month] = true;
+    if (i.kind === 'monthly') { const k = monthKeyOfItem(i, p); if (k) paidMonths[k] = true; }
     if (i.kind === 'admission') adm = true;
     if (i.kind === 'session') ses = true;
     labels.add(i.label);
   }));
-  const out = [], year = PORT.year;
+  const out = [];
   if (num(pl.admission) > 0 && !adm) out.push({ kind: 'admission', label: 'ভর্তি ফি', amount: num(pl.admission) });
   if (num(pl.session) > 0 && !ses) out.push({ kind: 'session', label: 'সেশন ফি', amount: num(pl.session) });
-  if (num(pl.monthly) > 0) (pl.months || []).forEach(m => { if (!paidMonths[m]) out.push({ kind: 'monthly', label: 'মাসিক ফি – ' + BNM[m - 1] + ' ' + bn(year), amount: num(pl.monthly), month: m }); });
+  if (num(pl.monthly) > 0) planMonthKeys(pl).forEach(k => { if (!paidMonths[k]) out.push({ kind: 'monthly', label: 'মাসিক ফি – ' + monthInfo(k).label, amount: num(pl.monthly), month: k, mkey: k }); });
   (pl.extras || []).forEach(x => { if (num(x.amount) > 0 && !labels.has(x.label)) out.push({ kind: 'other', label: x.label, amount: num(x.amount) }); });
   return out;
 }
@@ -4359,7 +4532,7 @@ async function openStudentPortal() {
   } catch (e) { box.innerHTML = '<p class="warn">এই ব্রাউজারে তথ্য পাওয়া যাচ্ছে না। ফাইলটি Chrome বা Firefox-এ খুলুন।</p>'; return; }
   PORT.app = PORT.apps.find(a => a.id === ME.appId) || null;
   if (!PORT.app) { box.innerHTML = '<p class="warn">আপনার ভর্তি আবেদনটি আর পাওয়া যাচ্ছে না। অফিসে যোগাযোগ করুন।</p>'; return; }
-  PORT.year = (toEn($('formYear').value).match(/\d{4}/) || [String(new Date().getFullYear())])[0];
+  PORT.year = studentSessionId(PORT.app);
   PORT.exams = PORT.exams.filter(e => exCls(e) === clsOf(PORT.app) && e.published)
     .sort((a, b) => String(b.publishDate || '').localeCompare(String(a.publishDate || '')) || (b.id || 0) - (a.id || 0));
   if (!PORT.exams.some(e => e.id === PORT.examId)) PORT.examId = PORT.exams[0] ? PORT.exams[0].id : null;
@@ -4393,21 +4566,21 @@ function portalResult() {
   return head + `<div id="pMs">${msHTML(r.mine, r.n, ex)}</div>`;
 }
 function portalFees() {
-  const a = PORT.app, f = a.fields || {}, year = PORT.year;
-  const pl = PORT.plans.find(p => p.appId === a.id && String(p.year) === String(year)) || null;
-  const pays = PORT.pays.filter(p => p.appId === a.id && String(p.year) === String(year)).sort((x, y) => (y.ts || 0) - (x.ts || 0));
+  const a = PORT.app, year = PORT.year;
+  const pl = PORT.plans.find(p => p.appId === a.id && yearSessionId(p.year) === year) || null;
+  const pays = PORT.pays.filter(p => p.appId === a.id && yearSessionId(p.year) === year).sort((x, y) => (y.ts || 0) - (x.ts || 0));
   const valid = pays.filter(p => !p.void), paid = valid.reduce((s, p) => s + nonIdTotal(p), 0);
   const exp = pl ? expectedOf(pl) : null, due = exp == null ? null : Math.max(0, exp - paid);
   const out = pl ? portalOutstanding(pl, pays) : [];
   PORT.out = out;
-  const reqs = PORT.reqs.filter(r => r.appId === a.id && String(r.year) === String(year)).sort((x, y) => (y.ts || 0) - (x.ts || 0));
+  const reqs = PORT.reqs.filter(r => r.appId === a.id && yearSessionId(r.year) === year).sort((x, y) => (y.ts || 0) - (x.ts || 0));
   const pending = reqs.find(r => r.status === 'pending');
   const hist = valid.length ? `<div class="scroll"><table class="acc-table"><thead><tr><th>রসিদ নং</th><th>তারিখ</th><th>খাত</th><th class="r">টাকা</th><th>মাধ্যম</th><th></th></tr></thead><tbody>${valid.map(p => `<tr><td>${H(p.rno)}</td><td>${fmtDate(p.date)}</td><td>${H((p.items || []).map(i => i.label).join(', '))}</td><td class="r">${taka(p.total)}</td><td>${H(p.mode)}</td><td><button type="button" data-pprt="${p.id}">প্রিন্ট</button></td></tr>`).join('')}</tbody></table></div>` : '<p class="pnotice">এখনো কোনো ফি পরিশোধের রসিদ নেই।</p>';
   let payBox = '';
-  if (!pl) payBox = '<p class="pnotice">এই বছরের ফি সেটআপ হয়নি। ফি নির্ধারণের জন্য অফিসে যোগাযোগ করুন।</p>';
+  if (!pl) payBox = '<p class="pnotice">এই শিক্ষাবর্ষের ফি সেটআপ হয়নি। ফি নির্ধারণের জন্য অফিসে যোগাযোগ করুন।</p>';
   else if (!SET.studentPay) payBox = '<p class="pnotice">পোর্টাল থেকে ফি জমার সুবিধা এখন বন্ধ আছে। অফিসে সরাসরি ফি দিন।</p>';
   else if (pending) payBox = `<div class="preq pending"><div class="ph"><b>ফি জমার অনুরোধ অপেক্ষমাণ</b><span class="pstat pending">অপেক্ষমাণ</span></div><p>${taka(pending.total)} টাকা — ${H(pending.mode)}${pending.trx ? ' • ' + H(pending.trx) : ''} • ${fmtDate(pending.date)}</p><p class="mini">অফিস যাচাই করে অনুমোদন করলে রসিদ তৈরি হবে। অনুমোদনের আগে আবার অনুরোধ দিতে হবে না।</p></div>`;
-  else if (!out.length) payBox = '<p class="pnotice">এই বছরের সব ফি পরিশোধিত হয়েছে। ধন্যবাদ।</p>';
+  else if (!out.length) payBox = '<p class="pnotice">এই শিক্ষাবর্ষের সব ফি পরিশোধিত হয়েছে। ধন্যবাদ।</p>';
   else payBox = `<div class="acc-box"><h4>ফি পরিশোধের অনুরোধ</h4>
       <p class="acc-note">যে খাতগুলোর টাকা পাঠিয়েছেন সেগুলো বাছুন, তারপর মাধ্যম ও ট্রানজেকশন নম্বর দিয়ে অনুরোধ জমা দিন। অফিস যাচাই করে অনুমোদন করলে রসিদ তৈরি হবে।</p>
       <div class="months" id="pFeeItems">${out.map((x, i) => `<label><input type="checkbox" data-pi="${i}"> ${H(x.label)} — ${taka(x.amount)} টাকা</label>`).join('')}</div>
@@ -4427,7 +4600,7 @@ function portalFees() {
       <div class="acc-kpi ${due > 0 ? 'warn' : ''}"><b>বাকি</b><strong>${due == null ? '—' : taka(due) + ' টাকা'}</strong></div>
       <div class="acc-kpi"><b>রসিদ</b><strong>${bn(valid.length)}</strong></div>
     </div>
-    <div class="dsec"><h3>ফিসমূহ</h3></div>
+    <div class="dsec"><h3>ফিসমূহ — ${H(yearLabelOf(year))}</h3></div>
     ${payBox}
     ${reqBox}
     <div class="acc-box"><h4>পরিশোধের ইতিহাস</h4>${hist}</div>`;
@@ -4495,7 +4668,7 @@ function wirePortal() {
     const mode = $('pMode').value, trx = $('pTrx').value.trim();
     if (total <= 0) return toast('মোট টাকা শূন্য হতে পারে না');
     if (!trx) return toast('ট্রানজেকশন বা স্লিপ নম্বর লিখুন');
-    if (PORT.reqs.some(r => r.appId === PORT.app.id && r.status === 'pending' && String(r.year) === String(PORT.year))) return toast('একটি অনুরোধ এখনো অপেক্ষমাণ আছে');
+    if (PORT.reqs.some(r => r.appId === PORT.app.id && r.status === 'pending' && yearSessionId(r.year) === PORT.year)) return toast('একটি অনুরোধ এখনো অপেক্ষমাণ আছে');
     if (!confirm(`${taka(total)} টাকার ফি জমার অনুরোধ পাঠাবেন?`)) return;
     PORT.busy = true;
     const rec = {
@@ -4623,13 +4796,15 @@ function renderSettings() {
   const group = (no, title, sub, inner) => `<section class="setgroup"><div class="sghead"><span class="sgdot">${bn(no)}</span><b>${title}</b><small>${sub}</small></div><div class="gbody">${inner}</div></section>`;
   const sessHTML = sec('ভর্তি সেশন', 'sumSess', `<p class="acc-note" style="margin-top:8px">নতুন সেশন তৈরি করলে সেটি সক্রিয় হয় ও আবেদন ফরমে স্বয়ংক্রিয়ভাবে বসে; স্টুডেন্ট আইডি ও রোলের বছরও সক্রিয় সেশন থেকেই নেওয়া হয়।</p>
         <div class="tools" style="align-items:flex-end">
-          <label class="f" style="flex:1;min-width:170px"><span>শুরুর বছর (যেমন ২০২৬)</span><input id="ssYear" inputmode="numeric" autocomplete="off"></label>
+          <label class="f" style="flex:1;min-width:150px"><span>শুরুর বছর (যেমন ২০২৬)</span><input id="ssYear" inputmode="numeric" autocomplete="off"></label>
+          <label class="f" style="flex:1;min-width:150px"><span>হিসাবের শুরুর মাস</span><select id="ssMonth">${BNM.map((m, i) => `<option value="${i + 1}" ${i === 6 ? 'selected' : ''}>${m}</option>`).join('')}</select></label>
           <button type="button" id="ssAdd" class="go">সেশন তৈরি করুন</button>
         </div>
         <div class="scroll" style="margin-top:10px"><table>
-          <thead><tr><th>সেশন</th><th>শুরুর বছর</th><th>আবেদন</th><th>অবস্থা</th><th></th></tr></thead>
+          <thead><tr><th>সেশন</th><th>হিসাব শুরু</th><th>হিসাবের মাস</th><th>আবেদন</th><th>অবস্থা</th><th></th></tr></thead>
           <tbody id="ssRows"></tbody>
         </table></div>
+        <p class="acc-note">হিসাবের মাস অনুযায়ী ওই শিক্ষাবর্ষের ১২ মাসের ফি তালিকা তৈরি হয়; প্রতিটি শিক্ষার্থীর মাসিক ফি তার ভর্তির মাস থেকে শুরু হয়ে সেশন শেষ পর্যন্ত ধার্য হয়।</p>
         <p class="acc-note">সক্রিয় বা ব্যবহৃত সেশন মোছা যাবে না; অন্তত একটি সেশন থাকতে হবে।</p>`);
   const stuHTML = sec('শিক্ষার্থী পোর্টাল', 'sumStu', `<label class="setrow"><input type="checkbox" id="setStuRes" ${SET.studentResult ? 'checked' : ''}><span><b>ফলাফল দেখা</b><small>শিক্ষার্থী নিজের প্রকাশিত ফলাফল ও মার্কশিট দেখতে পারবে।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setStuPay" ${SET.studentPay ? 'checked' : ''}><span><b>ফি পরিশোধের অনুরোধ</b><small>শিক্ষার্থী বকেয়া ফি বেছে মোবাইল ব্যাংক/ব্যাংকের ট্রানজেকশন দিয়ে অনুরোধ পাঠাতে পারবে; হিসাব শাখা অনুমোদন করলে রসিদ তৈরি হবে।</small></span></label>
@@ -4719,6 +4894,7 @@ $('setBox').addEventListener('click', e => {
 const fav = document.createElement('link');
 fav.rel = 'icon'; fav.href = document.querySelector('.logo').src;
 document.head.appendChild(fav);
+renderThemeBtns();
 showLogin();
 autoFormNo();
 </script>
