@@ -1022,7 +1022,7 @@ body.bk{overflow:hidden}
       </div>
       <div id="exForm" class="tools noprint" hidden>
         <input id="exName" placeholder="পরীক্ষার নাম (যেমন: অর্ধ-বার্ষিক পরীক্ষা ২০২৬)" style="flex:1;min-width:220px">
-        <label>প্রতিটি অংশে পাস নম্বর (%) <input id="exPass" type="number" min="0" max="100" value="33"></label>
+        <label>প্রতিটি অংশে পাস নম্বর (%) <input id="exPass" type="number" min="0" max="100" value="33" title="দশমিক বাদ দিয়ে পূর্ণ সংখ্যায় পাস নম্বর ধরা হবে"></label>
         <label>পরীক্ষা শুরু <input id="exStart" type="date"></label>
         <label>পরীক্ষা শেষ <input id="exEnd" type="date"></label>
         <label>ফলাফল প্রকাশের তারিখ <input id="exPubDate" type="date"></label>
@@ -1818,7 +1818,8 @@ const splitOf = (s, ex) => { const c = ex && ex.split && ex.split[shortName(s)];
 const partsOf = (s, ex) => splitOf(s, ex).map((max, i) => ({ i, name: PART_NAMES[i], max })).filter(p => p.max > 0);
 const sfull = (s, ex) => +partsOf(s, ex).reduce((t, p) => t + p.max, 0).toFixed(2);
 const pkey = (s, p, n) => n > 1 ? s + '|' + p.i : s;
-const partFail = (v, p, ex) => has(v) && +v / p.max * 100 < ex.pass;
+const passMark = (full, pct) => Math.floor(full * pct / 100 + 1e-9);
+const partFail = (v, p, ex) => has(v) && +v < passMark(p.max, ex.pass);
 // একটি বিষয়ের নম্বর: সব সক্রিয় অংশ দেওয়া হলে ok; কোনো অংশে পাস নম্বর না পেলে fail
 function entry(mk, s, ex) {
   const ps = partsOf(s, ex), n = ps.length;
@@ -1846,8 +1847,8 @@ function subjOf(r) {
   return { main, fourth: opt && !main.includes(opt) ? opt : null };
 }
 function gradeOf(m, full, pass) {
+  if (m < passMark(full, pass)) return { l: 'F', gp: 0 };
   const p = m / full * 100;
-  if (p < pass) return { l: 'F', gp: 0 };
   if (p >= 80) return { l: 'A+', gp: 5 };
   if (p >= 70) return { l: 'A', gp: 4 };
   if (p >= 60) return { l: 'A-', gp: 3.5 };
@@ -2005,7 +2006,7 @@ function refreshSubTot(row) {
   row.querySelectorAll('td.st').forEach(td => {
     const e = entry(mk, td.dataset.s, ex);
     td.textContent = e.m == null ? '' : bn(e.m);
-    td.classList.toggle('bad', e.ok && (e.fail || e.m / sfull(td.dataset.s, ex) * 100 < ex.pass));
+    td.classList.toggle('bad', e.ok && (e.fail || e.m < passMark(sfull(td.dataset.s, ex), ex.pass)));
   });
 }
 function refreshCalc() {
@@ -2027,7 +2028,7 @@ rtab.addEventListener('input', e => {
   if (i.value === '') delete o[k]; else o[k] = i.value;
   if (k !== i.dataset.s) delete o[i.dataset.s];
   i.classList.toggle('over', +i.value > +i.dataset.mx || +i.value < 0);
-  i.classList.toggle('pf', has(i.value) && +i.value / +i.dataset.mx * 100 < R.exam.pass);
+  i.classList.toggle('pf', has(i.value) && +i.value < passMark(+i.dataset.mx, R.exam.pass));
   refreshSubTot(i.closest('tr')); refreshCalc();
 });
 rtab.addEventListener('change', async e => {
@@ -2039,7 +2040,7 @@ rtab.addEventListener('change', async e => {
     const old = await DB.run('readonly', s => s.get(key), 'marks');
     const m = { ...((old && old.marks) || {}) };
     if (bad) {
-      i.value = has(m[k]) ? m[k] : ''; i.classList.remove('over'); i.classList.toggle('pf', has(i.value) && +i.value / +i.dataset.mx * 100 < R.exam.pass); R.marks[a] = m;
+      i.value = has(m[k]) ? m[k] : ''; i.classList.remove('over'); i.classList.toggle('pf', has(i.value) && +i.value < passMark(+i.dataset.mx, R.exam.pass)); R.marks[a] = m;
       refreshSubTot(i.closest('tr')); refreshCalc();
       return toast('নম্বর ০ থেকে ' + bn(i.dataset.mx) + '-এর মধ্যে হতে হবে');
     }
@@ -2119,7 +2120,7 @@ function msHTML(x, n, exam) {
         <div class="sg">অভিভাবক<small>স্বাক্ষর</small></div>
         <div class="sg">${SET.sigPrincipalImg ? `<img src="${H(SET.sigPrincipalImg)}" alt="">` : ''}অধ্যক্ষ${SET.sigPrincipal ? '<small>' + H(SET.sigPrincipal) + '</small>' : ''}</div>
       </div>
-      <div class="note">৪র্থ বিষয়ে ২.০০-এর ওপরের গ্রেড পয়েন্ট মোট জি.পি.এ-তে যোগ হয়। কোনো আবশ্যিক বিষয়ে F পেলে জি.পি.এ ০.০০ ধরা হয়। সৃজনশীল, বহুনির্বাচনি ও ব্যবহারিক প্রতিটি অংশে আলাদাভাবে ${bn(ex.pass)}% নম্বর না পেলে ঐ বিষয়ে F ধরা হয় (লাল নম্বর = অকৃতকার্য অংশ)।</div>
+      <div class="note">৪র্থ বিষয়ে ২.০০-এর ওপরের গ্রেড পয়েন্ট মোট জি.পি.এ-তে যোগ হয়। কোনো আবশ্যিক বিষয়ে F পেলে জি.পি.এ ০.০০ ধরা হয়। সৃজনশীল, বহুনির্বাচনি ও ব্যবহারিক প্রতিটি অংশে আলাদাভাবে পূর্ণমানের ${bn(ex.pass)}% নম্বর (দশমিক বাদ দিয়ে পূর্ণ সংখ্যায়) না পেলে ঐ বিষয়ে F ধরা হয় (লাল নম্বর = অকৃতকার্য অংশ)।</div>
       <div class="msfoot"><span>${H(ex.name)} • ${H(CLASSES[clsOf(r)])} • রোল ${H(f.roll || '—')}</span><span>স্টুডেন্ট আইডি: ${H(f.stuId || '—')}</span></div>
     </div>
   </div>`;
