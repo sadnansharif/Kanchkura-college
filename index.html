@@ -990,6 +990,80 @@ body.bk{overflow:hidden}
   .chview{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1 1 auto;padding:0 8px 6px}
   .chview b{font-size:.9rem;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .chview small{font-size:.64rem;font-weight:500;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* ---------- ভর্তি আবেদন অনুমোদন ---------- */
+  .apflow{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px;padding:0;list-style:none;counter-reset:apstep}
+  .apflow li{display:flex;align-items:center;gap:8px;flex:1 1 auto;font-size:.8rem;font-weight:600;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:5px 12px 5px 6px}
+  .apflow li::before{counter-increment:apstep;content:counter(apstep, bengali);display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--tint);color:var(--accent);font-size:.7rem;font-weight:800;flex:none}
+  .apflow li.done{color:var(--ink)}
+  .apflow li.done::before{background:var(--accent);color:var(--paper)}
+  .apflow li.on{border-color:var(--accent);background:var(--tint);color:var(--accent)}
+  .aptabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+  .aptabs button{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.8rem;font-weight:600;padding:7px 13px;border-radius:99px;border:1.5px solid var(--line);background:var(--paper);color:var(--muted);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .aptabs button b{font-size:.7rem;font-weight:800;background:var(--tint);color:var(--accent);border-radius:99px;padding:1px 7px}
+  .aptabs button:hover{border-color:var(--accent);color:var(--accent)}
+  .aptabs button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+  .aptabs button[aria-pressed=true] b{background:rgba(255,255,255,.22);color:var(--paper)}
+  .apgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+  .apcard{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:12px 14px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .apcard.pending{border-color:#c9a227;box-shadow:0 3px 14px rgba(201,162,39,.14)}
+  .aphead{display:flex;align-items:center;gap:10px;min-width:0}
+  .apav{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:12px;border:1px solid var(--line);background:var(--tint);color:var(--accent);font-size:1rem;font-weight:800;overflow:hidden}
+  .apav img{width:100%;height:100%;object-fit:cover}
+  .apwho{flex:1;min-width:0}
+  .apwho b{display:block;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .apwho small{display:block;font-size:.74rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .apst{flex:none;font-size:.7rem;font-weight:700;white-space:nowrap;border-radius:99px;padding:3px 9px;border:1px solid var(--line);background:var(--tint);color:var(--muted)}
+  .apst.pending{background:#fff3cd;color:#7a5b00;border-color:#e3c24d}
+  .apst.recommended{background:#e3edff;color:#1d4ed8;border-color:#b7cdfa}
+  .apst.approved{background:#dff3e6;color:#14532d;border-color:#a9d9bb}
+  .apst.rejected{background:#fde2df;color:#8a1c1c;border-color:#f0bcb6}
+  .apmeta{display:grid;grid-template-columns:1fr 1fr;gap:7px 14px;margin:0;padding-top:9px;border-top:1px dashed var(--line);font-size:.79rem}
+  .apmeta div{min-width:0}
+  .apmeta small{display:block;font-size:.68rem;color:var(--muted)}
+  .apmeta b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .apacts{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:auto}
+  .apacts button{font:inherit;font-size:.76rem;font-weight:600;padding:6px 11px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .apacts button:hover{background:var(--tint);border-color:var(--accent);color:var(--accent)}
+  .apacts button.go{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+  .apacts button.go:hover{filter:brightness(1.07);color:var(--paper)}
+  .apacts button.del{color:var(--err);border-color:var(--err)}
+  .apacts button.del:hover{background:rgba(179,38,30,.07);color:var(--err)}
+  .apempty{border:1px dashed var(--line);border-radius:14px;padding:30px 18px;text-align:center;color:var(--muted);font-size:.9rem;background:linear-gradient(180deg,var(--tint),transparent 85%)}
+  .apcount{margin:0 0 10px;font-size:.78rem;color:var(--muted)}
+  .apcount b{color:var(--ink);font-weight:700}
+  .navbadge{display:grid;place-items:center;min-width:18px;height:18px;margin-left:auto;padding:0 5px;border-radius:99px;background:var(--accent);color:var(--paper);font-size:.64rem;font-weight:800;flex:none}
+  .navbadge[hidden]{display:none}
+  #apSheet{display:none}
+  body.ap #apSheet{display:flex;position:fixed;inset:0;z-index:78;background:rgba(8,20,14,.6);backdrop-filter:blur(3px);padding:18px;overflow:auto}
+  body.ap{overflow:hidden}
+  .apmodal{width:min(560px,100%);margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 24px 70px rgba(0,0,0,.38)}
+  .apmodal h3{margin:0 0 2px;font-size:1.15rem}
+  .apmodal .apsub{margin:0 0 12px;color:var(--muted);font-size:.82rem;line-height:1.5}
+  .apbox{margin:0 0 12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+  .apkv{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;font-size:.84rem}
+  .apkv small{display:block;font-size:.7rem;color:var(--muted)}
+  .apkv b{display:block;font-weight:600}
+  .apnote{display:block;margin:0 0 4px;font-size:.8rem;font-weight:600}
+  .apmodal textarea{width:100%;min-height:64px;resize:vertical;font:inherit;font-size:.9rem;padding:8px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+  .apwarn{margin:8px 0 0;font-size:.78rem;color:var(--muted);line-height:1.55}
+  .apmodal .apacts{justify-content:flex-end;margin-top:14px}
+  .apdone{display:grid;place-items:center;width:46px;height:46px;margin:2px 0 10px;border-radius:50%;background:rgba(31,92,70,.12);color:var(--accent);font-size:1.5rem;font-weight:800;border:1px solid var(--accent)}
+  /* ---------- সার্ভার ঠিকানা ---------- */
+  #srvSheet{display:none}
+  body.srv #srvSheet{display:flex;position:fixed;inset:0;z-index:82;background:rgba(8,20,14,.6);backdrop-filter:blur(3px);padding:18px;overflow:auto}
+  body.srv{overflow:hidden}
+  .srvurls{display:grid;gap:8px;margin:0 0 12px}
+  .srvurl{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:9px 12px}
+  .srvurl.primary{border-color:var(--accent);background:var(--tint)}
+  .srvurl small{display:block;font-size:.68rem;color:var(--muted)}
+  .srvurl code{font:inherit;font-size:.92rem;font-weight:700;letter-spacing:.2px;word-break:break-all;user-select:all;cursor:text}
+  .srvurl .copy{font:inherit;font-size:.74rem;font-weight:600;padding:5px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+  .srvurl .copy:hover{background:var(--tint);border-color:var(--accent);color:var(--accent)}
+  .srvnone{border:1px dashed var(--line);border-radius:12px;padding:14px 16px;font-size:.84rem;line-height:1.65;color:var(--muted);background:linear-gradient(180deg,var(--tint),transparent 85%)}
+  .srvnone b{color:var(--ink)}
+  .srvnone ol{margin:6px 0 0;padding-left:20px}
+  .srvstate{font-size:.76rem;color:var(--muted)}
   @media (max-width:980px){
     body.sided{padding-left:0}
     body.sided .appside{display:flex;transform:translateX(-102%);transition:transform .22s cubic-bezier(.4,0,.2,1);width:min(288px,86vw);box-shadow:none;will-change:transform}
@@ -1134,6 +1208,10 @@ body.bk{overflow:hidden}
   </div>
 </section>
 
+<section id="approvalView" class="list wide" hidden>
+  <div class="box" id="approvalBox"></div>
+</section>
+
 <section id="resultView" class="list wide" hidden>
   <div class="box">
     <div class="pghero noprint">
@@ -1256,7 +1334,7 @@ body.bk{overflow:hidden}
         <button type="button" id="lGuest" class="alt">নতুন শিক্ষার্থী: ভর্তির আবেদন করুন</button>
       </div>
       <div class="lerr" id="lErr" role="alert"></div>
-      <div class="lnote">এই লগইন শুধু এই ব্রাউজারের ভেতরের নিয়ন্ত্রণ। তথ্য অন্য কম্পিউটার বা ফোনে যায় না।</div>
+      <div class="lnote" id="lNote">এই লগইন শুধু এই ব্রাউজারের ভেতরের নিয়ন্ত্রণ। তথ্য অন্য কম্পিউটার বা ফোনে যায় না।</div>
     </div>
   </div>
 </div>
@@ -1269,7 +1347,7 @@ body.bk{overflow:hidden}
     <div class="grid">
       <label class="f"><span>নাম</span><input id="uName" autocomplete="off"></label>
       <label class="f"><span>ইউজারনেম (ইংরেজিতে, ছোট হাতের অক্ষর/সংখ্যা)</span><input id="uUser" autocomplete="off"></label>
-      <label class="f"><span>পাসওয়ার্ড <small id="uHint"></small></span><input id="uPass" type="text" autocomplete="off"></label>
+      <label class="f"><span>পাসওয়ার্ড <small id="uHint"></small></span><input id="uPass" type="password" autocomplete="new-password"></label>
       <label class="f"><span>ধরন</span><select id="uRole">
         <option value="teacher">শিক্ষক (বিষয়ভিত্তিক)</option>
         <option value="accountant">হিসাব রক্ষক</option>
@@ -1327,6 +1405,8 @@ body.bk{overflow:hidden}
 
 <div id="rcptSheet" hidden></div>
 <div id="letterSheet" hidden></div>
+<div id="apSheet" hidden></div>
+<div id="srvSheet" hidden></div>
 <div id="listSheet" hidden></div>
 <div id="dueSheet" hidden></div>
 <div id="idSheet" hidden></div>
@@ -1563,6 +1643,8 @@ const DB = {
   admitapps() { return this.run('readonly', s => s.getAll(), 'admitapps'); },
   putAdmitapp(r) { return this.run('readwrite', s => s.put(r), 'admitapps'); },
   meta(k) { return this.run('readonly', s => s.get(k), 'meta'); },
+  metaAll() { return this.run('readonly', s => s.getAll(), 'meta'); },
+  mark(key) { return this.run('readonly', s => s.get(key), 'marks'); },
   putMeta(m) { return this.run('readwrite', s => s.put(m), 'meta'); },
   // রসিদ নম্বর ধারাবাহিক: একটি লেনদেনে পড়া ও লেখা, তাই দুই ট্যাবেও নম্বর দ্বিগুণ হয় না
   async nextSeq(year) {
@@ -1580,6 +1662,70 @@ const DB = {
     });
   }
 };
+
+// ---------- সার্ভার মোড: কেন্দ্রীয় ডেটাবেস ----------
+// সার্ভার ঠিকানা দিয়ে খুললে সব তথ্য কেন্দ্রীয় SQLite-এ যায়। ফাইল হিসেবে খুললে আগের মতো IndexedDB।
+const SERVER = /^https?:$/.test(location.protocol);
+const API = {
+  async call(path, opt = {}) {
+    const o = { method: opt.method || 'GET', credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } };
+    if (opt.body !== undefined) { o.headers['Content-Type'] = 'application/json'; o.body = JSON.stringify(opt.body); }
+    let r;
+    try { r = await fetch(path, o); } catch (e) { const err = new Error('offline'); err.code = 'offline'; throw err; }
+    let data = null; try { data = await r.json(); } catch (e) {}
+    if (!r.ok || (data && data.ok === false)) {
+      const err = new Error((data && data.error) || 'http-' + r.status);
+      err.code = (data && data.error) || 'http-' + r.status; err.status = r.status; throw err;
+    }
+    return data || {};
+  }
+};
+const apiMsg = e => (e && e.code === 'offline')
+  ? 'সার্ভারে পৌঁছানো যাচ্ছে না। সার্ভার পিসি চালু আছে কি না দেখুন।'
+  : 'কিছু একটা ভুল হয়েছে। আবার চেষ্টা করুন।';
+if (SERVER) {
+  const rows = s => API.call('/api/store/' + s).then(d => d.rows || []);
+  const post = (s, r) => API.call('/api/store/' + s, { method: 'POST', body: r });
+  DB.all = () => rows('apps');
+  DB.put = async r => {
+    const d = await post('apps', r);
+    if (d.record && r) {
+      if (d.record.fields) r.fields = { ...(r.fields || {}), formNo: d.record.fields.formNo };
+      if (d.record.status) r.status = d.record.status;
+    }
+    return d.id;
+  };
+  DB.del = id => API.call('/api/store/apps/' + encodeURIComponent(id), { method: 'DELETE' }).then(() => undefined);
+  DB.exams = () => rows('exams');
+  DB.putExam = e => post('exams', e).then(d => d.id);
+  DB.delExam = id => API.call('/api/store/exams/' + encodeURIComponent(id), { method: 'DELETE' }).then(() => undefined);
+  DB.marks = () => rows('marks');
+  DB.mark = key => API.call('/api/store/marks/' + encodeURIComponent(key)).then(d => d.record).catch(e => e.code === 'not-found' ? null : Promise.reject(e));
+  DB.putMark = m => post('marks', m).then(() => undefined);
+  DB.delMarksOf = async examId => {
+    for (const m of (await rows('marks')).filter(x => x.examId === examId)) await API.call('/api/store/marks/' + encodeURIComponent(m.key), { method: 'DELETE' });
+  };
+  DB.feeplans = () => rows('feeplans');
+  DB.putFeeplan = f => post('feeplans', f).then(() => undefined);
+  DB.delFeeplan = k => API.call('/api/store/feeplans/' + encodeURIComponent(k), { method: 'DELETE' }).then(() => undefined);
+  DB.payments = () => rows('payments');
+  DB.putPay = r => post('payments', r).then(d => d.id);
+  DB.feereqs = () => rows('feereqs');
+  DB.putFeereq = r => post('feereqs', r).then(d => d.id);
+  DB.delFeereq = id => API.call('/api/store/feereqs/' + encodeURIComponent(id), { method: 'DELETE' }).then(() => undefined);
+  DB.idapps = () => rows('idapps');
+  DB.putIdapp = r => post('idapps', r).then(d => d.id);
+  DB.admitapps = () => rows('admitapps');
+  DB.putAdmitapp = r => post('admitapps', r).then(d => d.id);
+  DB.meta = k => API.call('/api/meta/' + encodeURIComponent(k)).catch(e => e.code === 'not-found' ? null : Promise.reject(e));
+  DB.putMeta = m => post('meta', m).then(() => undefined);
+  DB.metaAll = () => API.call('/api/meta').then(d => d.rows || []);
+  DB.nextSeq = async year => (await API.call('/api/nextseq', { method: 'POST', body: { year } })).seq;
+  DB.users = () => API.call('/api/users').then(d => d.users || []);
+  DB.user = n => API.call('/api/users/' + encodeURIComponent(n)).then(d => d.user).catch(e => e.code === 'not-found' ? null : Promise.reject(e));
+  DB.putUser = u => API.call('/api/users', { method: 'POST', body: u }).then(d => d.user);
+  DB.delUser = n => API.call('/api/users/' + encodeURIComponent(n), { method: 'DELETE' }).then(() => undefined);
+}
 let currentId = null, cache = [];
 // ---------- ছবি ----------
 let photoData = '';
@@ -1611,6 +1757,10 @@ async function autoFormNo() {
   if (currentId) return;
   const el = q('formNo');
   if (el.value && !/^(SC|HU|BS)-\d+$/.test(el.value)) return;
+  if (SERVER) {
+    try { const d = await API.call('/api/formno?dept=' + encodeURIComponent(dept)); if (!currentId) el.value = d.formNo; } catch (e) {}
+    return;
+  }
   let list = []; try { list = await DB.all(); } catch (e) {}
   const pf = PFX[dept]; let max = 0;
   list.forEach(r => { const m = /^([A-Z]{2})-(\d+)$/.exec(r.fields.formNo || ''); if (m && m[1] === pf) max = Math.max(max, +m[2]); });
@@ -1731,11 +1881,12 @@ function newForm() {
 }
 function showView(v) {
   if (ME && !(VIEWS[ME.role] || []).includes(v)) return;
-  ['form', 'list', 'result', 'users', 'dash', 'accounts', 'settings', 'student'].forEach(n => { document.getElementById(n + 'View').hidden = v !== n; });
+  ['form', 'list', 'approval', 'result', 'users', 'dash', 'accounts', 'settings', 'student'].forEach(n => { document.getElementById(n + 'View').hidden = v !== n; });
   document.body.dataset.view = v;
   renderPageHead();
   closeSide();
   if (v === 'list') loadList();
+  if (v === 'approval') openApproval();
   if (v === 'form') fillSessionOptions();
   if (v === 'accounts') openAccounts();
   if (v === 'result') openResult();
@@ -1763,7 +1914,7 @@ function renderRows() {
     const idLbl = ir ? (ir.status === 'approved' ? 'আইডি কার্ড ✓' : ir.status === 'pending' ? 'আইডি কার্ড •' : 'আইডি কার্ড') : 'আইডি কার্ড';
     const idCls = ir && ir.status === 'pending' ? ' class="go"' : '';
     return `<tr><td class="selcol"><input type="checkbox" data-sel="${r.id}" aria-label="বাছুন"></td><td>${i + 1}</td><td>${esc(r.fields.formNo)}</td><td>${esc(r.fields.roll)}</td><td>${esc(r.fields.stuId)}</td><td>${esc(r.fields.nameBn || r.fields.nameEn)}</td><td>${DEPTS[r.dept].name}</td><td>${CLASSES[clsOf(r)]}</td><td>${esc(r.fields.father)}</td><td>${esc(r.fields.fatherMobile)}</td><td>${esc(r.savedAt)}</td><td title="${esc(r.note)}">${esc(r.status || 'অনুমোদিত')}</td>
-     <td style="white-space:nowrap"><button data-open="${r.id}">খুলুন</button> ${(ME.role === 'admin' || ME.role === 'admission') && okApp(r) ? `<button data-ids="${r.id}"${(r.fields.roll && r.fields.stuId) ? '' : ' class="go"'}>${(r.fields.roll && r.fields.stuId) ? 'রোল/আইডি' : 'রোল/আইডি দিন'}</button> ` : ''}${okApp(r) && r.fields.roll && r.fields.stuId ? `<button data-lt="${r.id}">অভিনন্দন পত্র</button> <button data-idc="${r.id}"${idCls}>${idLbl}</button> <button data-adm="${r.id}">অ্যাডমিট</button> ` : ''}<button data-st="${r.id}|সুপারিশকৃত">সুপারিশ</button> ${ME.role === 'admin' ? `<button data-st="${r.id}|অনুমোদিত">অনুমোদন</button>` : ''} <button class="del" data-st="${r.id}|বাতিল">বাতিল</button> ${ME.role === 'admin' ? `<button class="del" data-del="${r.id}">মুছুন</button>` : ''}</td></tr>`;
+     <td style="white-space:nowrap"><button data-open="${r.id}">খুলুন</button> ${(ME.role === 'admin' || ME.role === 'admission') && okApp(r) ? `<button data-ids="${r.id}"${(r.fields.roll && r.fields.stuId) ? '' : ' class="go"'}>${(r.fields.roll && r.fields.stuId) ? 'রোল/আইডি' : 'রোল/আইডি দিন'}</button> ` : ''}${okApp(r) && r.fields.roll && r.fields.stuId ? `<button data-lt="${r.id}">অভিনন্দন পত্র</button> <button data-idc="${r.id}"${idCls}>${idLbl}</button> <button data-adm="${r.id}">অ্যাডমিট</button> ` : ''}<button data-st="${r.id}|সুপারিশকৃত">সুপারিশ</button> ${ME.role === 'admin' || ME.role === 'admission' ? `<button data-st="${r.id}|অনুমোদিত">অনুমোদন</button>` : ''} <button class="del" data-st="${r.id}|বাতিল">বাতিল</button> ${ME.role === 'admin' ? `<button class="del" data-del="${r.id}">মুছুন</button>` : ''}</td></tr>`;
   }).join('')
     : '<tr><td colspan="13">কিছু পাওয়া যায়নি। ফরম পূরণ করে "সংরক্ষণ করুন" চাপলে এখানে জমা হবে।</td></tr>';
 }
@@ -1853,8 +2004,14 @@ document.getElementById('saveBtn').onclick = async () => {
   rec.ts = old && old.ts ? old.ts : Date.now();
   rec.cls = old ? clsOf(old) : 'XI';
   if (okApp(rec)) rec = await assignMissingIds(rec);
-  try { currentId = await DB.put(rec); toast(ME.role === 'student' ? 'আবেদন জমা হয়েছে। ধন্যবাদ।' : 'সংরক্ষিত হয়েছে'); cache = await DB.all(); if (ME.role === 'student') newForm(); }
-  catch (e) { box.innerHTML = 'সংরক্ষণ করা গেল না। ফাইলটি Chrome বা Firefox-এ খুলুন।'; box.hidden = false; }
+  try {
+    currentId = await DB.put(rec);
+    if (ME.role !== 'guest') cache = await DB.all();
+    toast(ME.role === 'student' ? 'আবেদন জমা হয়েছে। ধন্যবাদ।' : 'সংরক্ষিত হয়েছে');
+    if (!old && ME.role !== 'admin') showApplyDone({ ...rec, id: currentId });
+    if (ME.role === 'student') newForm();
+  }
+  catch (e) { box.innerHTML = SERVER ? apiMsg(e) : 'সংরক্ষণ করা গেল না। ফাইলটি Chrome বা Firefox-এ খুলুন।'; box.hidden = false; }
 };
 document.getElementById('reset').onclick = () => { if (confirm('ফরম খালি হয়ে যাবে (সংরক্ষিত তথ্য মুছবে না)। চালিয়ে যাবেন?')) newForm(); };
 
@@ -1884,7 +2041,7 @@ document.getElementById('bakBtn').onclick = async () => {
   const pays = await DB.payments();
   if (!cache.length && !pays.length) return toast('তালিকা খালি');
   const exams = await DB.exams(), marks = await DB.marks();
-  const payload = { v: 7, apps: cache, exams, marks, users: await DB.users(), feeplans: await DB.feeplans(), payments: pays, feereqs: await DB.feereqs(), idapps: await DB.idapps(), admitapps: await DB.admitapps(), meta: await DB.run('readonly', s => s.getAll(), 'meta') };
+  const payload = { v: 7, apps: cache, exams, marks, users: await DB.users(), feeplans: await DB.feeplans(), payments: pays, feereqs: await DB.feereqs(), idapps: await DB.idapps(), admitapps: await DB.admitapps(), meta: await DB.metaAll() };
   download('admission-backup.json', JSON.stringify(payload), 'application/json');
 };
 document.getElementById('impBtn').onclick = () => document.getElementById('impFile').click();
@@ -2201,7 +2358,7 @@ rtab.addEventListener('change', async e => {
   const k = i.dataset.k, a = i.dataset.a, bad = i.value !== '' && (+i.value > +i.dataset.mx || +i.value < 0);
   try {
     const key = R.exam.id + ':' + a;
-    const old = await DB.run('readonly', s => s.get(key), 'marks');
+    const old = await DB.mark(key);
     const m = { ...((old && old.marks) || {}) };
     if (bad) {
       i.value = has(m[k]) ? m[k] : ''; i.classList.remove('over'); i.classList.toggle('pf', has(i.value) && +i.value < passMark(+i.dataset.mx, R.exam.pass)); R.marks[a] = m;
@@ -2367,7 +2524,7 @@ $('lEye').onclick = () => {
 // ---------- ব্যবহারকারী ও লগইন ----------
 let ME = null, uEdit = null;
 const ROLES = { admin: 'সুপার অ্যাডমিন', admission: 'ভর্তি কমিটি', accountant: 'হিসাব রক্ষক', teacher: 'শিক্ষক', controller: 'পরীক্ষা নিয়ন্ত্রণ কমিটি', student: 'শিক্ষার্থী' };
-const VIEWS = { student: ['student'], guest: ['form'], admission: ['dash', 'form', 'list', 'accounts', 'settings'], accountant: ['dash', 'accounts'], teacher: ['dash', 'result'], controller: ['dash', 'result'], admin: ['dash', 'form', 'list', 'accounts', 'result', 'users', 'settings'] };
+const VIEWS = { student: ['student'], guest: ['form'], admission: ['dash', 'approval', 'form', 'list', 'accounts', 'settings'], accountant: ['dash', 'accounts'], teacher: ['dash', 'result'], controller: ['dash', 'result'], admin: ['dash', 'approval', 'form', 'list', 'accounts', 'result', 'users', 'settings'] };
 const FIRST = { student: 'student', guest: 'form', admission: 'dash', accountant: 'dash', teacher: 'dash', controller: 'dash', admin: 'dash' };
 const isAll = () => !!ME && (ME.role === 'admin' || ME.role === 'controller');
 const isTeacher = () => !!ME && ME.role === 'teacher';
@@ -2402,10 +2559,12 @@ async function hashPw(pw, salt) {
   let h = 5381; const s = salt + pw; for (let i = 0; i < s.length; i++) h = ((h << 5) + h) ^ s.charCodeAt(i);
   return 'w' + (h >>> 0).toString(16);
 }
-DB.users = function () { return this.run('readonly', s => s.getAll(), 'users'); };
-DB.user = function (n) { return this.run('readonly', s => s.get(n), 'users'); };
-DB.putUser = function (u) { return this.run('readwrite', s => s.put(u), 'users'); };
-DB.delUser = function (n) { return this.run('readwrite', s => s.delete(n), 'users'); };
+if (!SERVER) {
+  DB.users = function () { return this.run('readonly', s => s.getAll(), 'users'); };
+  DB.user = function (n) { return this.run('readonly', s => s.get(n), 'users'); };
+  DB.putUser = function (u) { return this.run('readwrite', s => s.put(u), 'users'); };
+  DB.delUser = function (n) { return this.run('readwrite', s => s.delete(n), 'users'); };
+}
 
 // ---------- ভর্তি সেশন (ভর্তি কমিটি) ----------
 let SESSIONS = [];
@@ -2498,15 +2657,11 @@ function bindSessions() {
   };
 }
 
-async function ensureDefaultAdmin() {
-  try {
-    if ((await DB.users()).length) return;
-    const salt = randSalt();
-    await DB.putUser({ username: 'admin', name: 'সুপার অ্যাডমিন', role: 'admin', subjects: [], active: true, salt, hash: await hashPw('admn123', salt) });
-  } catch (e) {}
-}
 async function showLogin() {
   ME = null; $('login').hidden = false; $('lErr').textContent = '';
+  $('lNote').textContent = SERVER
+    ? 'লগইন ও সব তথ্য কেন্দ্রীয় সার্ভারে থাকে — একই সার্ভারের সব পিসি ও মোবাইল একই ডেটা ব্যবহার করে।'
+    : 'এই লগইন শুধু এই ব্রাউজারের ভেতরের নিয়ন্ত্রণ। তথ্য অন্য কম্পিউটার বা ফোনে যায় না।';
   renderPageHead();
   $('lLogo').src = document.querySelector('.logo').src;
   $('lForm').hidden = false; $('lStudent').hidden = false; $('lGuest').hidden = false; $('stuBox').hidden = true;
@@ -2514,7 +2669,15 @@ async function showLogin() {
   $('lPass').type = 'password'; $('lEye').textContent = 'দেখুন'; $('lEye').setAttribute('aria-label', 'পাসওয়ার্ড দেখুন');
   await loadSettings();
   await loadSessions();
-  await ensureDefaultAdmin();
+  if (SERVER) {
+    try {
+      const st = await API.call('/api/auth/status');
+      if (st.user) { ME = st.user; enter(); return; }
+      if (st.student) { ME = { username: st.student.username, name: st.student.name, role: 'student', subjects: [], appId: st.student.appId }; enter(); return; }
+      $('lSetup').hidden = !st.needsSetup; $('lMain').hidden = !!st.needsSetup;
+    } catch (e) { $('lErr').textContent = apiMsg(e); }
+    return;
+  }
   let n = 0;
   try { n = (await DB.users()).length; } catch (e) { $('lErr').textContent = 'এই ব্রাউজারে সংরক্ষণ চালু নেই। ফাইলটি Chrome বা Firefox-এ খুলুন।'; }
   $('lSetup').hidden = n > 0; $('lMain').hidden = n === 0;
@@ -2543,6 +2706,15 @@ $('sForm').addEventListener('submit', async e => {
   e.preventDefault();
   const name = $('sName').value.trim(), un = $('sUser').value.trim().toLowerCase(), pw = $('sPass').value;
   if (!name || !/^[a-z0-9_.-]{3,}$/.test(un) || pw.length < 6) { $('lErr').textContent = 'নাম, ইউজারনেম (ইংরেজি, কমপক্ষে ৩) ও পাসওয়ার্ড (কমপক্ষে ৬) লিখুন।'; return; }
+  if (SERVER) {
+    try {
+      const d = await API.call('/api/auth/setup', { method: 'POST', body: { name, username: un, password: pw } });
+      ME = d.user; $('sPass').value = ''; enter();
+    } catch (e) {
+      $('lErr').textContent = e.code === 'already-setup' ? 'এই সার্ভারে ইতিমধ্যে অ্যাডমিন তৈরি আছে — লগইন করুন।' : e.code === 'offline' ? apiMsg(e) : 'অ্যাডমিন তৈরি করা গেল না। আবার চেষ্টা করুন।';
+    }
+    return;
+  }
   const salt = randSalt();
   await DB.putUser({ username: un, name, role: 'admin', subjects: [], active: true, salt, hash: await hashPw(pw, salt) });
   ME = { username: un, name, role: 'admin', subjects: [] }; $('sPass').value = ''; enter();
@@ -2550,6 +2722,15 @@ $('sForm').addEventListener('submit', async e => {
 $('lForm').addEventListener('submit', async e => {
   e.preventDefault();
   const un = $('lUser').value.trim().toLowerCase(), pw = $('lPass').value;
+  if (SERVER) {
+    try {
+      const d = await API.call('/api/auth/login', { method: 'POST', body: { username: un, password: pw } });
+      ME = d.user; $('lPass').value = ''; enter();
+    } catch (e) {
+      $('lErr').textContent = e.code === 'too-many-attempts' ? 'অনেকবার ভুল পাসওয়ার্ড দেওয়া হয়েছে। ১০ মিনিট পর আবার চেষ্টা করুন।' : e.code === 'offline' ? apiMsg(e) : 'ইউজারনেম বা পাসওয়ার্ড ভুল, অথবা অ্যাকাউন্ট বন্ধ।';
+    }
+    return;
+  }
   const u = un && await DB.user(un);
   if (!u || !u.active || u.hash !== await hashPw(pw, u.salt)) { $('lErr').textContent = 'ইউজারনেম বা পাসওয়ার্ড ভুল, অথবা অ্যাকাউন্ট বন্ধ।'; return; }
   ME = { username: u.username, name: u.name, role: u.role, subjects: u.subjects || [], photo: u.photo || '' };
@@ -2568,6 +2749,16 @@ $('stuForm').addEventListener('submit', async e => {
   e.preventDefault();
   const id = $('stuIdIn').value.trim(), mob = $('stuMobIn').value.trim();
   if (!id || !mob) { $('lErr').textContent = 'স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর লিখুন।'; return; }
+  if (SERVER) {
+    try {
+      const d = await API.call('/api/auth/student', { method: 'POST', body: { stuId: id, mobile: mob } });
+      ME = { username: 'stu:' + d.appId, name: d.name, role: 'student', subjects: [], appId: d.appId };
+      $('lErr').textContent = ''; enter();
+    } catch (e) {
+      $('lErr').textContent = e.code === 'too-many-attempts' ? 'অনেকবার চেষ্টা হয়েছে। ১০ মিনিট পর আবার চেষ্টা করুন।' : e.code === 'offline' ? apiMsg(e) : 'স্টুডেন্ট আইডি বা মোবাইল নম্বর মেলেনি, অথবা আবেদন এখনো অনুমোদিত নয়।';
+    }
+    return;
+  }
   let apps = [];
   try { apps = await DB.all(); } catch (err) { $('lErr').textContent = 'এই ব্রাউজারে সংরক্ষণ চালু নেই।'; return; }
   const a = stuFind(apps, id, mob);
@@ -2628,7 +2819,18 @@ $('uSave').onclick = async () => {
   if (old && old.role === 'admin' && role !== 'admin' && (un === ME.username || lastAdmin(us, un))) return toast('এই অ্যাডমিনের ধরন বদলানো যাবে না');
   const rec = { username: un, name, role, subjects: role === 'teacher' ? subjects : [], active: old ? old.active : true, photo: uPhoto, salt: old ? old.salt : '', hash: old ? old.hash : '' };
   if (pw) { rec.salt = randSalt(); rec.hash = await hashPw(pw, rec.salt); }
-  await DB.putUser(rec); if (ME && un === ME.username) { ME.name = name; ME.photo = uPhoto; renderPageHead(); } resetUserForm(); loadUsers(); toast('ব্যবহারকারী সংরক্ষিত হয়েছে');
+  try {
+    if (SERVER) {
+      const body = { username: un, name, role: rec.role, subjects: rec.subjects, active: rec.active, photo: uPhoto };
+      if (pw) body.password = pw;
+      await DB.putUser(body);
+    } else {
+      await DB.putUser(rec);
+    }
+  } catch (e) {
+    return toast(e.code === 'last-admin' ? 'শেষ অ্যাডমিনটি বদলানো যাবে না' : e.code === 'weak-password' ? 'পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে' : apiMsg(e));
+  }
+  if (ME && un === ME.username) { ME.name = name; ME.photo = uPhoto; renderPageHead(); } resetUserForm(); loadUsers(); toast('ব্যবহারকারী সংরক্ষিত হয়েছে');
 };
 $('uCancel').onclick = resetUserForm;
 $('uRows').addEventListener('click', async e => {
@@ -2661,6 +2863,199 @@ $('rows').addEventListener('click', async e => {
   await DB.put(rec);
   loadList(); toast(status === 'অনুমোদিত' ? 'অনুমোদিত — রোল ' + bn(rec.fields.roll) + ', আইডি ' + rec.fields.stuId : 'আবেদনের অবস্থা বদলানো হয়েছে');
   if (status === 'অনুমোদিত' && !wasApproved) showLetter(rec);
+});
+
+// ---------- কর্তৃপক্ষের ভর্তি অনুমোদন ----------
+const AP = { tab: 'pending', q: '', apps: [], busy: false, dept: 'all', cls: 'all', ses: 'all' };
+const AP_KIND = a => ({ 'জমা': 'pending', 'সুপারিশকৃত': 'recommended', 'অনুমোদিত': 'approved', 'বাতিল': 'rejected' }[a.status || 'অনুমোদিত'] || 'approved');
+const AP_LBL = { pending: 'জমা', recommended: 'সুপারিশকৃত', approved: 'অনুমোদিত', rejected: 'বাতিল' };
+const AP_TABS = [['pending', 'যাচাইয়ের অপেক্ষায়'], ['recommended', 'সুপারিশকৃত'], ['approved', 'অনুমোদিত'], ['rejected', 'বাতিল'], ['all', 'সব']];
+async function updateApprovalBadge() {
+  if (!ME || !['admin', 'admission'].includes(ME.role)) return;
+  let n = 0;
+  try { n = (await DB.all()).filter(a => ['জমা', 'সুপারিশকৃত'].includes(a.status || '')).length; } catch (e) {}
+  document.querySelectorAll('[data-dgo="approval"] .navbadge').forEach(b => { b.textContent = n ? bn(n) : ''; b.hidden = !n; });
+}
+async function openApproval() {
+  const box = $('approvalBox');
+  box.innerHTML = '<p class="pnotice">আবেদন লোড হচ্ছে…</p>';
+  try { AP.apps = await DB.all(); } catch (e) { box.innerHTML = '<p class="warn">এই ব্রাউজারে তথ্য পাওয়া যাচ্ছে না। ফাইলটি Chrome বা Firefox-এ খুলুন।</p>'; return; }
+  renderApproval();
+}
+function apFiltered() {
+  const q = toEn(AP.q.toLowerCase().trim());
+  return AP.apps.slice().sort((a, b) => (b.ts || 0) - (a.ts || 0)).filter(a => {
+    const f = a.fields || {};
+    if (AP.tab !== 'all' && AP_KIND(a) !== AP.tab) return false;
+    if (AP.dept !== 'all' && a.dept !== AP.dept) return false;
+    if (AP.cls !== 'all' && clsOf(a) !== AP.cls) return false;
+    if (AP.ses !== 'all' && String(f.session || '').trim() !== AP.ses) return false;
+    if (!q) return true;
+    return toEn([nameOf(a), f.formNo, f.roll, f.stuId, f.mobile, f.fatherMobile, f.gMobile, DEPTS[a.dept] && DEPTS[a.dept].name].join(' ').toLowerCase()).includes(q);
+  });
+}
+function apCard(a) {
+  const k = AP_KIND(a), f = a.fields || {}, phone = f.mobile || f.gMobile || f.fatherMobile || '—';
+  const av = a.photo ? `<span class="apav"><img src="${a.photo}" alt=""></span>` : `<span class="apav">${H((nameOf(a) || '?').trim().charAt(0))}</span>`;
+  let acts = `<button type="button" data-apsee="${a.id}">ফর্ম দেখুন</button>`;
+  if (k === 'pending' || k === 'recommended') {
+    if (k === 'pending') acts += `<button type="button" data-aprec="${a.id}">সুপারিশ</button>`;
+    acts += `<button type="button" class="go" data-apok="${a.id}">অনুমোদন দিন</button><button type="button" class="del" data-apno="${a.id}">বাতিল</button>`;
+  } else if (k === 'approved') {
+    acts = `<span class="mini" style="font-size:.74rem;color:var(--muted)">রোল ${H(f.roll || '—')} • আইডি ${H(f.stuId || '—')}</span>` + acts + `<button type="button" data-aplt="${a.id}">অভিনন্দন পত্র</button>`;
+  } else {
+    acts += `<button type="button" class="go" data-apok="${a.id}">পুনরায় অনুমোদন</button>`;
+  }
+  return `<article class="apcard ${k}">
+    <div class="aphead">${av}<div class="apwho"><b>${H(nameOf(a))}</b><small>ফরম ${H(f.formNo || '—')} • ${H(DEPTS[a.dept].name)} • ${H(CLASSES[clsOf(a)])}</small></div><span class="apst ${k}">${AP_LBL[k]}</span></div>
+    <div class="apmeta">
+      <div><small>মোবাইল</small><b>${H(phone)}</b></div>
+      <div><small>পিতা / অভিভাবক</small><b>${H(f.father || f.gName || '—')}</b></div>
+      <div><small>শিক্ষাবর্ষ</small><b>${H(f.session || '—')}</b></div>
+      <div><small>জমা দেওয়ার সময়</small><b>${H(a.savedAt || '—')}</b></div>
+    </div>
+    <div class="apacts">${acts}</div>
+  </article>`;
+}
+function renderApList() {
+  const rows = apFiltered(), el = $('apList'); if (!el) return;
+  const inTab = AP.apps.filter(a => AP.tab === 'all' || AP_KIND(a) === AP.tab).length;
+  const c = $('apCount');
+  if (c) c.innerHTML = `দেখানো হচ্ছে <b>${bn(rows.length)}</b> / <b>${bn(inTab)}</b>টি আবেদন`;
+  const filtered = AP.dept !== 'all' || AP.cls !== 'all' || AP.ses !== 'all' || !!AP.q.trim();
+  el.innerHTML = rows.length ? rows.map(apCard).join('') : `<div class="apempty">${filtered ? 'এই ফিল্টারে কোনো আবেদন মেলেনি। খোঁজ বা ফিল্টার বদলে আবার দেখুন।' : AP.tab === 'pending' ? 'যাচাইয়ের অপেক্ষায় কোনো নতুন আবেদন নেই। শিক্ষার্থী ফরম জমা দিলে এখানে দেখা যাবে।' : 'এই তালিকায় কোনো আবেদন নেই।'}</div>`;
+}
+function renderApproval() {
+  const box = $('approvalBox'), cnt = k => AP.apps.filter(a => AP_KIND(a) === k).length;
+  const pend = cnt('pending'), rec = cnt('recommended'), okc = cnt('approved'), bad = cnt('rejected');
+  const tabs = AP_TABS.map(([k, l]) => `<button type="button" data-aptab="${k}" aria-pressed="${AP.tab === k}">${l}<b>${bn(k === 'all' ? AP.apps.length : cnt(k))}</b></button>`).join('');
+  const flow = ['আবেদন জমা', 'কর্তৃপক্ষের যাচাই', 'অনুমোদন ও রোল/আইডি', 'ভর্তি সম্পন্ন']
+    .map((t, i) => `<li class="${i < 2 ? 'done' : ''}${i === 1 ? ' on' : ''}">${t}</li>`).join('');
+  const sesList = [...new Set(AP.apps.map(a => String((a.fields || {}).session || '').trim()).filter(Boolean))].sort();
+  if (AP.ses !== 'all' && !sesList.includes(AP.ses)) AP.ses = 'all';
+  const deptOpts = Object.keys(DEPTS).map(k => `<option value="${k}" ${AP.dept === k ? 'selected' : ''}>${H(DEPTS[k].name)}</option>`).join('');
+  const sesOpts = sesList.map(s => `<option value="${H(s)}" ${AP.ses === s ? 'selected' : ''}>${H(s)}</option>`).join('');
+  box.innerHTML = `<div class="pghero"><div><h2>আবেদন যাচাই ও ভর্তি অনুমোদন</h2><p>শিক্ষার্থীর জমা দেওয়া আবেদন যাচাই করে অনুমোদন দিন। অনুমোদনের সাথে সাথে রোল ও স্টুডেন্ট আইডি তৈরি হবে, অভিনন্দন পত্র প্রস্তুত হবে এবং শিক্ষার্থী পোর্টালে প্রবেশ করতে পারবে।</p></div>
+      <div class="hchips"><span class="hchip">যাচাইয়ের অপেক্ষায়: ${bn(pend + rec)}</span><span class="hchip">অনুমোদিত: ${bn(okc)}</span></div></div>
+    <ol class="apflow">${flow}</ol>
+    <div class="acc-kpis">
+      <div class="acc-kpi${pend ? ' warn' : ''}"><b>নতুন আবেদন</b><strong>${bn(pend)}</strong></div>
+      <div class="acc-kpi"><b>সুপারিশকৃত</b><strong>${bn(rec)}</strong></div>
+      <div class="acc-kpi"><b>অনুমোদিত</b><strong>${bn(okc)}</strong></div>
+      <div class="acc-kpi"><b>বাতিল</b><strong>${bn(bad)}</strong></div>
+    </div>
+    <div class="aptabs">${tabs}</div>
+    <div class="tools">
+      <input type="search" id="apQ" value="${H(AP.q)}" placeholder="নাম, ফরম নং, রোল, আইডি বা মোবাইল দিয়ে খুঁজুন">
+      <select id="apDept" class="dsel" aria-label="বিভাগ"><option value="all">সব বিভাগ</option>${deptOpts}</select>
+      <select id="apCls" class="dsel" aria-label="শ্রেণি"><option value="all">সব শ্রেণি</option><option value="XI" ${AP.cls === 'XI' ? 'selected' : ''}>একাদশ</option><option value="XII" ${AP.cls === 'XII' ? 'selected' : ''}>দ্বাদশ</option></select>
+      <select id="apSes" class="dsel" aria-label="শিক্ষাবর্ষ"><option value="all">সব শিক্ষাবর্ষ</option>${sesOpts}</select>
+      <button type="button" id="apClear">ফিল্টার মুছুন</button>
+      <button type="button" id="apRefresh">হালনাগাদ করুন</button>
+    </div>
+    <p class="apcount" id="apCount"></p>
+    <div id="apList" class="apgrid"></div>`;
+  renderApList();
+}
+function closeApprovalSheet() {
+  const s = $('apSheet'); if (s) { s.hidden = true; s.innerHTML = ''; }
+  document.body.classList.remove('ap');
+}
+function openApproveSheet(id) {
+  const r = AP.apps.find(x => x.id === id); if (!r) return;
+  const f = r.fields || {}, sheet = $('apSheet');
+  sheet.innerHTML = `<div class="apmodal" role="dialog" aria-modal="true" aria-labelledby="apTitle">
+    <h3 id="apTitle">ভর্তি অনুমোদন</h3>
+    <p class="apsub">আবেদনটি যাচাই করে নিশ্চিত করুন। অনুমোদন দিলে রোল ও স্টুডেন্ট আইডি স্বয়ংক্রিয়ভাবে তৈরি হবে।</p>
+    <div class="apbox"><div class="apkv">
+      <div><small>শিক্ষার্থীর নাম</small><b>${H(nameOf(r))}</b></div>
+      <div><small>ফরম নং</small><b>${H(f.formNo || '—')}</b></div>
+      <div><small>বিভাগ</small><b>${H(DEPTS[r.dept].name)}</b></div>
+      <div><small>শ্রেণি ও সেশন</small><b>${H(CLASSES[clsOf(r)])} • ${H(f.session || '—')}</b></div>
+      <div><small>মোবাইল</small><b>${H(f.mobile || f.gMobile || f.fatherMobile || '—')}</b></div>
+      <div><small>জমা দেওয়ার সময়</small><b>${H(r.savedAt || '—')}</b></div>
+    </div></div>
+    <label class="apnote" for="apNote">কর্তৃপক্ষের মন্তব্য (ঐচ্ছিক)</label>
+    <textarea id="apNote" placeholder="যেমন: কাগজপত্র যাচাই সম্পন্ন, ভর্তি অনুমোদিত"></textarea>
+    <p class="apwarn">অনুমোদনের পর শিক্ষার্থী স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর দিয়ে পোর্টালে লগইন করতে পারবে।</p>
+    <div class="apacts"><button type="button" data-apcancel>ফিরে যান</button><button type="button" class="go" data-apconfirm="${r.id}">হ্যাঁ, অনুমোদন দিন</button></div>
+  </div>`;
+  sheet.hidden = false; document.body.classList.add('ap');
+  const n = $('apNote'); if (n) n.focus();
+}
+function showApplyDone(r) {
+  const f = r.fields || {}, sheet = $('apSheet');
+  sheet.innerHTML = `<div class="apmodal" role="dialog" aria-modal="true" aria-labelledby="apDoneTitle">
+    <div class="apdone" aria-hidden="true">✓</div>
+    <h3 id="apDoneTitle">আবেদন সফলভাবে জমা হয়েছে</h3>
+    <p class="apsub">আপনার আবেদন কর্তৃপক্ষের কাছে যাচাইয়ের জন্য জমা হয়েছে। অনুমোদনের পর রোল ও স্টুডেন্ট আইডি তৈরি হবে।</p>
+    <div class="apbox"><div class="apkv">
+      <div><small>ফরম নং</small><b>${H(f.formNo || '—')}</b></div>
+      <div><small>শিক্ষার্থীর নাম</small><b>${H(nameOf(r))}</b></div>
+      <div><small>বিভাগ</small><b>${H(DEPTS[r.dept].name)}</b></div>
+      <div><small>শিক্ষাবর্ষ</small><b>${H(f.session || '—')}</b></div>
+    </div></div>
+    <p class="apwarn">ফরম নম্বরটি সংরক্ষণ করুন। অনুমোদনের পর স্টুডেন্ট আইডি ও নিবন্ধিত মোবাইল নম্বর দিয়ে পোর্টালে লগইন করতে পারবেন।</p>
+    <div class="apacts"><button type="button" class="go" data-apdone>ঠিক আছে</button></div>
+  </div>`;
+  sheet.hidden = false; document.body.classList.add('ap');
+}
+async function approveApplication(id) {
+  const r = AP.apps.find(x => x.id === id); if (!r || AP.busy) return;
+  AP.busy = true;
+  const noteEl = $('apNote'), note = noteEl ? noteEl.value.trim() : (r.note || '');
+  try {
+    let rec = { ...r, status: 'অনুমোদিত', note, statusBy: ME.name, statusAt: new Date().toLocaleString('bn-BD') };
+    rec = await assignMissingIds(rec);
+    await DB.put(rec);
+    AP.apps = AP.apps.map(x => x.id === rec.id ? rec : x);
+    closeApprovalSheet(); renderApproval(); updateApprovalBadge();
+    toast('ভর্তি অনুমোদিত — রোল ' + bn(rec.fields.roll) + ', আইডি ' + rec.fields.stuId);
+    showLetter(rec);
+  } catch (e) { toast('অনুমোদন করা গেল না'); }
+  AP.busy = false;
+}
+async function recommendApplication(id) {
+  const r = AP.apps.find(x => x.id === id); if (!r) return;
+  const n = prompt('ভর্তি কমিটির সুপারিশ / মন্তব্য (ঐচ্ছিক):', r.note || '');
+  if (n === null) return;
+  const rec = { ...r, status: 'সুপারিশকৃত', note: n, statusBy: ME.name, statusAt: new Date().toLocaleString('bn-BD') };
+  await DB.put(rec);
+  AP.apps = AP.apps.map(x => x.id === rec.id ? rec : x);
+  renderApproval(); updateApprovalBadge(); toast('সুপারিশ সংরক্ষিত হয়েছে');
+}
+async function rejectApplication(id) {
+  const r = AP.apps.find(x => x.id === id); if (!r) return;
+  if (!confirm('এই আবেদনটি বাতিল করবেন? শিক্ষার্থী পোর্টালে প্রবেশ করতে পারবে না।')) return;
+  const rec = { ...r, status: 'বাতিল', statusBy: ME.name, statusAt: new Date().toLocaleString('bn-BD') };
+  await DB.put(rec);
+  AP.apps = AP.apps.map(x => x.id === rec.id ? rec : x);
+  renderApproval(); updateApprovalBadge(); toast('আবেদন বাতিল করা হয়েছে');
+}
+$('approvalBox').addEventListener('click', async e => {
+  const t = e.target.closest('button'); if (!t) return;
+  const d = t.dataset;
+  if (d.aptab) { AP.tab = d.aptab; renderApproval(); return; }
+  if (t.id === 'apClear') { AP.q = ''; AP.dept = 'all'; AP.cls = 'all'; AP.ses = 'all'; renderApproval(); return; }
+  if (t.id === 'apRefresh') { openApproval(); return; }
+  if (d.apsee) { const r = AP.apps.find(x => x.id == d.apsee); if (!r) return; apply(r); currentId = r.id; showView('form'); return; }
+  if (d.aprec) return recommendApplication(+d.aprec);
+  if (d.apok) return openApproveSheet(+d.apok);
+  if (d.apno) return rejectApplication(+d.apno);
+  if (d.aplt) { const r = AP.apps.find(x => x.id == d.aplt); if (r) showLetter(r); }
+});
+$('approvalBox').addEventListener('input', e => {
+  if (e.target.id === 'apQ') { AP.q = e.target.value; renderApList(); }
+});
+$('approvalBox').addEventListener('change', e => {
+  const id = e.target.id;
+  if (id === 'apDept') { AP.dept = e.target.value; renderApList(); }
+  else if (id === 'apCls') { AP.cls = e.target.value; renderApList(); }
+  else if (id === 'apSes') { AP.ses = e.target.value; renderApList(); }
+});
+$('apSheet').addEventListener('click', e => {
+  if (e.target.id === 'apSheet' || e.target.closest('[data-apcancel]') || e.target.closest('[data-apdone]')) return closeApprovalSheet();
+  const ok = e.target.closest('[data-apconfirm]'); if (ok) approveApplication(+ok.dataset.apconfirm);
 });
 
 // ---------- পরীক্ষা: লক ও প্রকাশ ----------
@@ -2802,8 +3197,8 @@ function dashRecent(apps, pays) {
   pays.forEach(p => { if (!p.void) acts.push({ ts: p.ts || 0, txt: (p.snap || {}).name + ' — ' + p.rno + ' • ' + taka(p.total) + ' টাকা', sub: 'ফি আদায়' }); });
   return acts.filter(x => x.ts).sort((a, b) => b.ts - a.ts).slice(0, 6);
 }
-const TAB_LABELS = { dash: 'ড্যাশবোর্ড', student: 'আমার পোর্টাল', form: 'ফরম', list: 'তালিকা', accounts: 'হিসাব', result: 'রেজাল্ট', users: 'ব্যবহারকারী', settings: 'সেটিংস' };
-const TAB_ORDER = ['dash', 'student', 'form', 'list', 'accounts', 'result', 'users', 'settings'];
+const TAB_LABELS = { dash: 'ড্যাশবোর্ড', student: 'আমার পোর্টাল', form: 'ফরম', list: 'তালিকা', approval: 'আবেদন অনুমোদন', accounts: 'হিসাব', result: 'রেজাল্ট', users: 'ব্যবহারকারী', settings: 'সেটিংস' };
+const TAB_ORDER = ['dash', 'student', 'approval', 'form', 'list', 'accounts', 'result', 'users', 'settings'];
 const THEME_KEY = 'kc_theme';
 const THEME_SVG = {
   light: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 12H2M22 12h-2.2M5.8 5.8 4.2 4.2M19.8 19.8l-1.6-1.6M18.2 5.8l1.6-1.6M4.2 19.8l1.6-1.6"/></svg>',
@@ -2838,13 +3233,14 @@ const NAV_SVG = {
   student: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4"/></svg>',
   form: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
   list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>',
+  approval: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 20 6v5.6c0 4.8-3.2 8.2-8 9.6-4.8-1.4-8-4.8-8-9.6V6Z"/><path d="m8.4 12 2.6 2.6 4.8-5"/></svg>',
   accounts: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M16 14.5h2"/></svg>',
   result: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
   users: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5M17 5.5a3 3 0 0 1 0 5.6M18.5 20c0-2.2-.8-3.9-2-5"/></svg>',
   settings: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/></svg>'
 };
 const NAV_GROUPS = [
-  { title: 'প্রধান', views: ['dash', 'student', 'form', 'list'] },
+  { title: 'প্রধান', views: ['dash', 'student', 'approval', 'form', 'list'] },
   { title: 'ব্যবস্থাপনা', views: ['accounts', 'result', 'users', 'settings'] }
 ];
 function openSide() {
@@ -2871,7 +3267,7 @@ function renderPageHead() {
   const roleLabel = ROLES[role] || '';
   const who = role === 'guest' ? 'শিক্ষার্থী (আবেদন)' : (ME.name === roleLabel ? roleLabel : `${H(ME.name)} – ${roleLabel}`);
   const av = ME.photo ? `<span class="chav"><img src="${H(ME.photo)}" alt=""></span>` : `<span class="chav">${H((ME.name || '?').trim().charAt(0))}</span>`;
-  const navBtn = v => `<button type="button" class="snav${v === cur ? ' on' : ''}" data-dgo="${v}" aria-current="${v === cur ? 'page' : 'false'}">${NAV_SVG[v] || ''}<span>${TAB_LABELS[v]}</span></button>`;
+  const navBtn = v => `<button type="button" class="snav${v === cur ? ' on' : ''}" data-dgo="${v}" aria-current="${v === cur ? 'page' : 'false'}">${NAV_SVG[v] || ''}<span>${TAB_LABELS[v]}</span>${v === 'approval' ? '<span class="navbadge" hidden></span>' : ''}</button>`;
   const nav = NAV_GROUPS.map(g => {
     const items = g.views.filter(v => ok.includes(v)).map(navBtn).join('');
     return items ? `<div class="sidesec">${g.title}</div><nav class="sidenav" aria-label="${g.title}">${items}</nav>` : '';
@@ -2889,14 +3285,16 @@ function renderPageHead() {
   document.body.classList.add('sided');
   w.hidden = false;
   renderThemeBtns();
+  updateApprovalBadge();
   if (window.innerWidth > 980) closeSide();
 }
-$('pageHead').addEventListener('click', e => {
+$('pageHead').addEventListener('click', async e => {
   if (e.target.closest('#sideToggle')) {
     if (document.body.classList.contains('sidopen')) closeSide(); else openSide();
     return;
   }
   if (e.target.closest('#logoutBtn')) {
+    if (SERVER) { try { await API.call('/api/auth/logout', { method: 'POST' }); } catch (err) {} }
     if (ME && (ME.role === 'student' || ME.role === 'guest')) showLogin();
     else { newForm(); showLogin(); }
     return;
@@ -2908,7 +3306,7 @@ $('appSide').addEventListener('click', e => {
   showView(btn.dataset.dgo); closeSide();
 });
 $('sideScrim').addEventListener('click', closeSide);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSide(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSide(); if (document.body.classList.contains('ap')) closeApprovalSheet(); if (document.body.classList.contains('srv')) closeServerInfo(); } });
 window.addEventListener('resize', () => { if (window.innerWidth > 980) closeSide(); });
 async function renderDash() {
   const box = $('dashBox'), role = ME.role;
@@ -4811,6 +5209,7 @@ function setSums() {
   put('sumAdmit', SET.admitFeeOn ? 'রসিদভিত্তিক আবেদন • ফি ' + taka(admitFeeAmt()) + ' টাকা' : 'ফি ছাড়াই সরাসরি তৈরি');
   const oc = [SET.accSetup, SET.accVoid, SET.accReport, SET.accApprove].filter(Boolean).length;
   put('sumAcc', oc === 4 ? 'সব অনুমতি চালু' : oc === 0 ? 'সব বন্ধ' : bn(oc) + 'টি চালু');
+  put('sumSrv', location.protocol === 'file:' ? 'সার্ভার ছাড়া (ফাইল মোড)' : 'LAN-এর ঠিকানা দেখুন ও কপি করুন');
 }
 let sigCImg = '', sigPImg = '';
 function setSigUploads() {
@@ -4945,6 +5344,11 @@ function renderSettings() {
         <label class="setrow"><input type="checkbox" id="setAccReport" ${SET.accReport ? 'checked' : ''}><span><b>রিপোর্ট ও CSV</b><small>হিসাবের রিপোর্ট দেখা, CSV নামানো ও রসিদ প্রিন্ট করা।</small></span></label>
         <label class="setrow"><input type="checkbox" id="setAccApprove" ${SET.accApprove ? 'checked' : ''}><span><b>ফি অনুরোধ অনুমোদন</b><small>শিক্ষার্থীর পাঠানো ফি অনুরোধ যাচাই করে রসিদ তৈরি করা।</small></span></label>
         <p class="acc-note">সুপার অ্যাডমিন ও ভর্তি কমিটি সব সময় পূর্ণ হিসাব দেখেন; এখানের নিয়ম শুধু হিসাব রক্ষকের জন্য।</p>`);
+  const srvHTML = sec('সার্ভার ও LAN', 'sumSrv', `<p class="acc-note" style="margin-top:8px">এই কম্পিউটারই সার্ভার। একই LAN-এর অন্য পিসি বা মোবাইল থেকে ব্যবহারের ঠিকানা এখান থেকে দেখা ও কপি করা যায়।</p>
+        <div class="tools" style="align-items:center">
+          <button type="button" id="setSrvBtn" class="pbtn go">সার্ভার ঠিকানা দেখুন</button>
+          <span class="srvstate">সার্ভার চালু থাকলে ঠিকানা দেখাবে</span>
+        </div>`);
   box.innerHTML = `<div class="pghero">
       <div><h2>সেটিংস</h2><p>${isAdmin ? 'প্রয়োজনীয় অংশে চাপ দিয়ে বিস্তারিত খুলুন; পরিবর্তন এই ডিভাইসের ডেটাবেসে ও ব্যাকআপে সংরক্ষিত হয়।' : 'ভর্তি সেশন অংশে চাপ দিয়ে নতুন সেশন তৈরি ও সক্রিয় করুন।'}</p></div>
       <div class="hchips"><span class="hchip">কাঁচকুড়া কলেজ</span></div>
@@ -4954,6 +5358,7 @@ function renderSettings() {
       ${isAdmin ? group(2, 'শিক্ষার্থী সেবা', 'পোর্টাল, ফলাফল ও মার্কশিটের তথ্য', stuHTML + msSetHTML) : ''}
       ${isAdmin ? group(3, 'কার্ড ও প্রিন্ট', 'আইডি কার্ড ও অ্যাডমিট কার্ডের ফি', idHTML + admitHTML) : ''}
       ${isAdmin ? group(4, 'হিসাব ও অনুমতি', 'হিসাব রক্ষকের কাজের সীমা', accHTML) : ''}
+      ${isAdmin ? group(5, 'নেটওয়ার্ক ও সার্ভার', 'LAN-এর অন্য ডিভাইস থেকে ব্যবহারের ঠিকানা', srvHTML) : ''}
     </div>
     ${isAdmin ? `<div class="savebar noprint"><button type="button" id="setSave" class="pbtn go">সেটিংস সংরক্ষণ</button><button type="button" id="setReload" class="pbtn">আগের অবস্থায় ফিরুন</button><span class="savenote">সেটিংস সংরক্ষণ না করা পর্যন্ত শিক্ষার্থী বা হিসাব রক্ষকের পোর্টালে বদলাবে না।</span></div>` : ''}`;
   renderSessions(); bindSessions(); setSums();
@@ -4979,8 +5384,94 @@ function renderSettings() {
     catch (e) { toast('সেটিংস সংরক্ষণ করা গেল না'); }
   };
   renderSetPreview();
+  refreshSrvState();
 }
+async function refreshSrvState() {
+  const el = document.getElementById('sumSrv');
+  if (!el) return;
+  if (location.protocol === 'file:') { el.textContent = 'সার্ভার ছাড়া (ফাইল মোড)'; return; }
+  try {
+    const r = await fetch('/api/server-info', { cache: 'no-store' });
+    if (!r.ok) throw new Error('http ' + r.status);
+    const d = await r.json();
+    el.textContent = 'চালু • ' + (d.primary || 'LAN ঠিকানা নেই');
+  } catch (e) { el.textContent = 'সার্ভার পাওয়া যাচ্ছে না'; }
+}
+let srvInfo = null;
+function closeServerInfo() {
+  document.body.classList.remove('srv');
+  const sh = document.getElementById('srvSheet'); if (sh) sh.innerHTML = '';
+}
+async function copyText(t) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(t); return true; }
+  } catch (e) {}
+  try {
+    const ta = document.createElement('textarea'); ta.value = t;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy'); ta.remove(); return ok;
+  } catch (e) { return false; }
+}
+async function openServerInfo() {
+  const sheet = document.getElementById('srvSheet');
+  const wrap = inner => `<div class="apmodal" role="dialog" aria-modal="true" aria-labelledby="srvTitle">${inner}</div>`;
+  if (location.protocol === 'file:') {
+    sheet.innerHTML = wrap(`<h3 id="srvTitle">সার্ভার ঠিকানা</h3>
+      <p class="apsub">পেজটি এখন সরাসরি ফাইল হিসেবে খোলা, তাই সার্ভার চলছে না — LAN-এর ঠিকানা পাওয়া যাবে না।</p>
+      <div class="srvnone"><b>সার্ভার চালু করার নিয়ম:</b><ol>
+        <li><b>E:\\New folder\\college-server\\start.bat</b> চালান।</li>
+        <li>ব্রাউজারে <b>https://localhost:3000</b> খুলুন (সার্টিফিকেট না থাকলে http://localhost:3000)।</li>
+        <li>সেটিংস → সার্ভার ও LAN → এই বোতামে আবার চাপ দিন।</li>
+      </ol></div>
+      <div class="apacts"><button type="button" data-srvcancel>বন্ধ করুন</button></div>`);
+    document.body.classList.add('srv');
+    return;
+  }
+  let d = null;
+  try {
+    const r = await fetch('/api/server-info', { cache: 'no-store' });
+    if (!r.ok) throw new Error('http ' + r.status);
+    d = await r.json();
+  } catch (e) {
+    sheet.innerHTML = wrap(`<h3 id="srvTitle">সার্ভার পাওয়া যায়নি</h3>
+      <p class="apsub">পেজটি খোলা আছে, কিন্তু সার্ভারের উত্তর আসছে না। সার্ভার উইন্ডো বন্ধ হয়ে থাকলে আবার <b>start.bat</b> চালান।</p>
+      <div class="apacts"><button type="button" data-srvcancel>বন্ধ করুন</button></div>`);
+    document.body.classList.add('srv');
+    return;
+  }
+  srvInfo = d;
+  const rows = (d.urls || []).map((u, i) => `<div class="srvurl${i === 0 ? ' primary' : ''}">
+      <span><small>${i === 0 ? 'প্রধান ঠিকানা' : 'অতিরিক্ত — ' + H(u.iface)}</small><code>${H(u.url)}</code></span>
+      <button type="button" class="copy" data-copy="${H(u.url)}">কপি</button>
+    </div>`).join('');
+  sheet.innerHTML = wrap(`<h3 id="srvTitle">সার্ভার ঠিকানা</h3>
+    <p class="apsub">একই LAN-এ থাকা অন্য পিসি বা মোবাইলের ব্রাউজারে নিচের ঠিকানা খুললেই সিস্টেম চলবে।</p>
+    <div class="srvurls">${rows || '<div class="srvnone">কোনো LAN নেটওয়ার্ক পাওয়া যায়নি। Wi-Fi বা কেবল সংযোগ দেখে নিন।</div>'}</div>
+    <div class="srvnone" style="margin-bottom:12px"><b>মনে রাখবেন:</b> সার্ভার পিসি চালু ও একই রাউটার/সুইচে থাকতে হবে; Windows ফায়ারওয়ালে পোর্ট ${bn(d.port || 3000)} খোলার জন্য একবার <b>firewall-allow.bat</b> চালান (অ্যাডমিন হিসেবে)।</div>
+    ${d.mode === 'https' ? `<div class="srvnone" style="margin-bottom:12px"><b>HTTPS:</b> সংযোগ এনক্রিপ্টেড। প্রথমবার অন্য ডিভাইসে খোলার সময় "নিরাপদ নয়" সতর্কতা এলে একবার এই পিসির <b>college-server\\certs\\kc-ca.crt</b> ইনস্টল/বিশ্বাস করুন (এই পিসিতে <b>install-ca.bat</b> চালালেই হবে)।</div>` : ''}
+    <div class="srvnone" style="margin-bottom:12px"><b>কেন্দ্রীয় ডেটাবেস:</b> সব আবেদন, ফি, ফলাফল ও ব্যবহারকারী এই সার্ভারের এক ডেটাবেসে থাকে — একই ঠিকানা দিয়ে সব পিসি ও ফোন একই তথ্য দেখে ও ব্যবহার করে।</div>
+    <p class="apwarn">সার্ভার: ${H(d.name || '')} • পোর্ট ${bn(d.port || 3000)}${d.mode === 'https' ? ' • HTTPS' : ''}</p>
+    <div class="apacts"><button type="button" data-srvcancel>বন্ধ করুন</button><button type="button" class="go" data-copy-all>সব ঠিকানা কপি করুন</button></div>`);
+  document.body.classList.add('srv');
+}
+document.getElementById('srvSheet').addEventListener('click', async e => {
+  if (e.target.id === 'srvSheet' || e.target.closest('[data-srvcancel]')) return closeServerInfo();
+  if (e.target.closest('[data-copy-all]')) {
+    const list = ((srvInfo && srvInfo.urls) || []).map(u => u.url).join('\n');
+    if (!list) return;
+    const ok = await copyText(list);
+    toast(ok ? 'সব ঠিকানা কপি হয়েছে' : 'কপি করা গেল না — ঠিকানার লেখায় চাপ দিয়ে হাতে লিখুন');
+    return;
+  }
+  const c = e.target.closest('[data-copy]');
+  if (c) {
+    const ok = await copyText(c.getAttribute('data-copy'));
+    toast(ok ? 'ঠিকানা কপি হয়েছে' : 'কপি করা গেল না — ঠিকানার লেখায় চাপ দিয়ে হাতে লিখুন');
+  }
+});
 $('setBox').addEventListener('click', e => {
+  if (e.target.closest('#setSrvBtn')) { openServerInfo(); return; }
   const b = e.target.closest('.setbtn'); if (!b) return;
   const sec = b.closest('.setsec'); if (!sec) return;
   const open = !sec.classList.contains('open');
